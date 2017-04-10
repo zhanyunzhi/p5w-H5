@@ -1,0 +1,16 @@
+{
+  "name": "p5w-h5",
+  "version": "1.0.0",
+  "description": "slide page with plugin fullPage for p5w",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "slide",
+    "fullPage",
+    "p5w"
+  ],
+  "author": "Tiny",
+  "license": "ISC"
+}
