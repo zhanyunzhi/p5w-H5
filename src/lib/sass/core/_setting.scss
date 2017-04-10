@@ -33,7 +33,17 @@ $baseGap:               20px !default;
 // opacify($color, $amount)
 // mix($color1, $color2[, $amount])
 //-----------------------------------------------------
-
+$black12:#121212;
+$color-primary:#51c0bc;
+$gray85:#858585;
+$grayc2:#c2c2c2;
+$gray4b:#4b4b4b;
+$grayb6:#b6b6b6;
+$grayd4:#d4d4d4;
+$whitef1:#f1f1f1;
+$myred:#ff0000;
+$mygreen:#01640d;
+$graye7:#e7e7e7;
 
 $black:                 #000 !default;
 $grayDarker:            #333 !default;
@@ -51,6 +61,7 @@ $yellow:                #ffc40d !default;
 $pink:                  #c3325f !default;
 $purple:                #7a43b6 !default;
 
+$primary:               #0078E7 !default;//主色
 
 
 // link

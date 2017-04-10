@@ -78,9 +78,9 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _test = __webpack_require__(6);
+var _index = __webpack_require__(6);
 
-var _test2 = _interopRequireDefault(_test);
+var _index2 = _interopRequireDefault(_index);
 
 __webpack_require__(5);
 
@@ -90,13 +90,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
  * Created by user on 2017/4/10.
  */
-function test() {
+function index() {
     return {
-        name: 'test',
-        tpl: _test2.default
+        name: 'index',
+        tpl: _index2.default
     };
 } //引入模板
-exports.default = test;
+exports.default = index;
 
 /***/ }),
 /* 2 */,
@@ -107,16 +107,15 @@ exports.default = test;
 "use strict";
 
 
-var _test = __webpack_require__(1);
+var _index = __webpack_require__(1);
 
-var _test2 = _interopRequireDefault(_test);
+var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
-    var dom = document.getElementById('app');
-    var layer = new _test2.default();
-    dom.innerHTML = layer.tpl;
+  var layer = new _index2.default();
+  document.body.innerHTML = layer.tpl;
 }; /**
     * Created by user on 2017/4/10.
     */
@@ -134,7 +133,7 @@ new App();
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"dowebok\">\r\n    <div class=\"section\">\r\n        <h3 fp-effect=\"tran\">第一屏</h3>\r\n        <p fp-effect=\"animated\">fullPage.js — 基本演示</p>\r\n    </div>\r\n    <div class=\"section\">\r\n        <div class=\"slide\"><h3 fp-effect=\"tran\">第二屏的第一屏</h3></div>\r\n        <div class=\"slide\"><h3>第二屏的第二屏</h3></div>\r\n        <div class=\"slide\"><h3>第二屏的第三屏</h3></div>\r\n    </div>\r\n    <div class=\"section\">\r\n        <h3>第三屏</h3>\r\n    </div>\r\n    <div class=\"section\">\r\n        <h3>第四屏</h3>\r\n        <p>这是最后一屏</p>\r\n    </div>\r\n</div>";
+module.exports = "<div id=\"dowebok\">\r\n    <div class=\"section\">\r\n        <h3 fp-effect=\"tran\" class=\"bounceIn\">第一屏</h3>\r\n        <p fp-effect=\"animated\" class=\"fadeInDown\">fullPage.js — 基本演示</p>\r\n    </div>\r\n    <div class=\"section\">\r\n        <div class=\"slide\"><h3 fp-effect=\"tran\">第二屏的第一屏</h3></div>\r\n        <div class=\"slide\"><h3>第二屏的第二屏</h3></div>\r\n        <div class=\"slide\"><h3>第二屏的第三屏</h3></div>\r\n    </div>\r\n    <div class=\"section\">\r\n        <h3>第三屏</h3>\r\n    </div>\r\n    <div class=\"section\">\r\n        <h3>第四屏</h3>\r\n        <p>这是最后一屏</p>\r\n    </div>\r\n</div>";
 
 /***/ })
 /******/ ]);

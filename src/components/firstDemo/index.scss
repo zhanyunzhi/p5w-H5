@@ -1,0 +1,11 @@
+@import "../../lib/sass/core/_setting";
+@import "../../lib/sass/core/_css3";
+@import "../../lib/sass/animate/_fade";
+@import "../../lib/sass/animate/_bounce";
+#dowebok{
+  background-color: $blue;
+}
+
+@include animate-fadeIn();
+@include animate-fadeInDown();
+@include animate-bounceIn();
