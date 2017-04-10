@@ -133,7 +133,7 @@ new App();
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"dowebok\">\r\n    <div class=\"section\">\r\n        <h3 fp-effect=\"tran\" class=\"bounceIn\">第一屏</h3>\r\n        <p fp-effect=\"animated\" class=\"fadeInDown\">fullPage.js — 基本演示</p>\r\n    </div>\r\n    <div class=\"section\">\r\n        <div class=\"slide\"><h3 fp-effect=\"tran\">第二屏的第一屏</h3></div>\r\n        <div class=\"slide\"><h3>第二屏的第二屏</h3></div>\r\n        <div class=\"slide\"><h3>第二屏的第三屏</h3></div>\r\n    </div>\r\n    <div class=\"section\">\r\n        <h3>第三屏</h3>\r\n    </div>\r\n    <div class=\"section\">\r\n        <h3>第四屏</h3>\r\n        <p>这是最后一屏</p>\r\n    </div>\r\n</div>";
+module.exports = "<div id=\"qj\">\r\n    <div class=\"section\">\r\n        <h3 qj-effect=\"bounceIn\">第一屏</h3>\r\n        <p  qj-effect=\"fadeInDown\">fullPage.js — 基本演示</p>\r\n    </div>\r\n    <div class=\"section\">\r\n        <div class=\"slide\"><h3 qj-effect=\"bounceIn\">第二屏的第一屏</h3></div>\r\n        <div class=\"slide\"><h3>第二屏的第二屏</h3></div>\r\n        <div class=\"slide\"><h3>第二屏的第三屏</h3></div>\r\n    </div>\r\n    <div class=\"section\">\r\n        <h3>第三屏</h3>\r\n    </div>\r\n    <div class=\"section\">\r\n        <h3>第四屏</h3>\r\n        <p>这是最后一屏</p>\r\n    </div>\r\n</div>";
 
 /***/ })
 /******/ ]);

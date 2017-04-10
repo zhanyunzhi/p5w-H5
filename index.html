@@ -8,8 +8,29 @@
 </body>
 <script>
     $(function(){
-        $('#dowebok').fullpage({
-
+        var sections = $('.section');
+        $('#qj').fullpage({
+            afterRender: function(){
+                var effects = sections.eq(0).find('[qj-effect]');
+                for(var j=0;j<effects.length;j++){
+                    effects.eq(j).addClass(effects.eq(j).attr('qj-effect'));
+                }
+            },
+            afterLoad: function(anchorLink, index){     //anchorLink 是锚链接的名称，index 是序号，从1开始计算
+                var i= 0;
+                for(i;i<sections.length;i++){
+                    var effects = sections.eq(i).find('[qj-effect]');
+                    if(i===index-1){
+                        for(var j=0;j<effects.length;j++){
+                            effects.eq(j).addClass(effects.eq(j).attr('qj-effect'));
+                        }
+                    }else{
+                        for(var j=0;j<effects.length;j++) {
+                            effects.eq(j).removeClass(effects.eq(j).attr('qj-effect'));
+                        }
+                    }
+                }
+            }
         });
     })
 </script>
