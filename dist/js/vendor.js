@@ -63,12 +63,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -77,17 +76,8 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-
-/***/ 16:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(2);
-module.exports = __webpack_require__(3);
-
-
-/***/ }),
-
-/***/ 2:
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;﻿/*! jQuery v1.8.3 jquery.com | jquery.org/license */
@@ -95,8 +85,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;﻿/*! jQuery v1
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))})(window);
 
 /***/ }),
-
-/***/ 3:
+/* 3 */
 /***/ (function(module, exports) {
 
 /**
@@ -150,6 +139,16 @@ a=b(this).closest(".fp-section").find(".fp-slides");var c=a.find(".fp-slide").eq
 b(window).resize(ga);var M=h,ia;b.fn.fullpage.destroy=function(a){b.fn.fullpage.setAutoScrolling(!1,"internal");b.fn.fullpage.setAllowScrolling(!1);b.fn.fullpage.setKeyboardScrolling(!1);b(window).off("scroll",S).off("hashchange",da).off("resize",ga);b(document).off("click","#fp-nav a").off("mouseenter","#fp-nav li").off("mouseleave","#fp-nav li").off("click",".fp-slidesNav a").off("mouseover",c.normalScrollElements).off("mouseout",c.normalScrollElements);b(".fp-section").off("click",".fp-controlArrow");
 a&&Aa()}}})(jQuery);
 
-/***/ })
+/***/ }),
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/******/ });
+__webpack_require__(2);
+module.exports = __webpack_require__(3);
+
+
+/***/ })
+/******/ ]);

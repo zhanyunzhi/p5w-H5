@@ -1,10 +1,11 @@
 var path =  require('path');
 var htmlWebpackPlugin = require('html-webpack-plugin');         //引入插件
 var webpack = require('webpack');         //引入插件
+var ExtractTextPlugin = require("extract-text-webpack-plugin");         // 引入css 单独打包插件
 
 module.exports = {
     entry: {
-        vendor: ['./src/js/jquery-1.8.3.min.js','./src/js/jquery.fullPage.min.js'],             //jquery,fullPage第三方插件打包到一起        因为没有模块化，所以只能原样引入
+        vendor: ['./src/lib/js/jquery-1.8.3.min.js','./src/lib/js/jquery.fullPage.min.js'],             //jquery,fullPage第三方插件打包到一起        因为没有模块化，所以只能原样引入
         //fullPage: './src/js/jquery.fullPage.min.js',        //fullPage      因为没有模块化，所以只能原样引入
         index: './src/index.js'           //入口文件1
     },
@@ -14,7 +15,7 @@ module.exports = {
     },
     module: {
         rules: [
-            {
+            {               //处理js文件，将es6转换
                 test: /\.js$/,
                 use: [{
                     loader: 'babel-loader',
@@ -24,16 +25,22 @@ module.exports = {
                 }],
                 exclude: [
                     path.resolve(__dirname,'node_modules'),          //排除不使用当前loader的文件
-                    path.resolve(__dirname,'src/js')          //排除不使用当前loader的文件
+                    path.resolve(__dirname,'src/lib/js')          //排除不使用当前loader的文件
                 ]
+            },
+            {                 //处理css文件
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({                //处理css单独打包成css文件
+                    fallback: 'style-loader',
+                    use: ['css-loader']
+                })
             },
             {                 //处理sass文件
                 test: /\.scss$/,
-                use: [
-                    { loader: 'style-loader'},
-                    { loader: 'css-loader'},
-                    { loader: 'sass-loader'}
-                ]
+                use: ExtractTextPlugin.extract({        //将sass编译后单独生成css文件
+                    fallback: 'style-loader',
+                    use: ['css-loader','sass-loader']
+                })
             },
             {                 //处理html文件，将html转成字符串
                 test: /\.html$/,
@@ -63,6 +70,7 @@ module.exports = {
             template: 'index.html',
             filename: 'index.html',
             inject: 'body'
-        })
-    ]
+        }),
+        new ExtractTextPlugin('css/style.css')              //单独打包css文件
+]
 }
