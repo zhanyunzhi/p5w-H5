@@ -1,0 +1,68 @@
+var path =  require('path');
+var htmlWebpackPlugin = require('html-webpack-plugin');         //引入插件
+var webpack = require('webpack');         //引入插件
+
+module.exports = {
+    entry: {
+        vendor: ['./src/js/jquery-1.8.3.min.js','./src/js/jquery.fullPage.min.js'],             //jquery,fullPage第三方插件打包到一起        因为没有模块化，所以只能原样引入
+        //fullPage: './src/js/jquery.fullPage.min.js',        //fullPage      因为没有模块化，所以只能原样引入
+        index: './src/index.js'           //入口文件1
+    },
+    output: {
+        path: path.resolve(__dirname,'dist'),
+        filename: 'js/[name].js',                   //name对应entry里面的属性名，chunkhash对应各自生成的hash
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: [{
+                    loader: 'babel-loader',
+                    query: {
+                        presets: ['latest']
+                    }
+                }],
+                exclude: [
+                    path.resolve(__dirname,'node_modules'),          //排除不使用当前loader的文件
+                    path.resolve(__dirname,'src/js')          //排除不使用当前loader的文件
+                ]
+            },
+            {                 //处理sass文件
+                test: /\.scss$/,
+                use: [
+                    { loader: 'style-loader'},
+                    { loader: 'css-loader'},
+                    { loader: 'sass-loader'}
+                ]
+            },
+            {                 //处理html文件，将html转成字符串
+                test: /\.html$/,
+                use: [
+                    { loader: 'html-loader'}
+                ]
+            },
+            {                 //处理图片文件
+                test: /\.(png|jpg|gif|svg)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        query: {
+                            name: 'assets/[name].[ext]'       //改变打包存储的路径
+                            //limit: 900                //小于20000B的图片打包成base64，超过的用file-loader打包
+                        }
+                    },
+                    {
+                        loader: 'img-loader'
+                    }
+                ]
+            }
+        ]
+    },
+    plugins: [
+        new htmlWebpackPlugin({
+            template: 'index.html',
+            filename: 'index.html',
+            inject: 'body'
+        })
+    ]
+}
