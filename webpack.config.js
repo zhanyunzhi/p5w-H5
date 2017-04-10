@@ -28,6 +28,13 @@ module.exports = {
                     path.resolve(__dirname,'src/lib/js')          //排除不使用当前loader的文件
                 ]
             },
+            {                 //处理css文件
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({        //单独生成css文件
+                    fallback: 'style-loader',
+                    use: ['css-loader']
+                })
+            },
             {                 //处理sass文件
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({        //将sass编译后单独生成css文件
@@ -64,6 +71,6 @@ module.exports = {
             filename: 'index.html',
             inject: 'body'
         }),
-        new ExtractTextPlugin('css/style.css')              //单独打包css文件
+        new ExtractTextPlugin('css/style.css')              //单独打包css文件,所有的css文件都会打包进这里
 ]
 }
