@@ -54,8 +54,8 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         query: {
-                            name: 'assets/[name].[ext]'       //改变打包存储的路径
-                            //limit: 900                //小于20000B的图片打包成base64，超过的用file-loader打包
+                            name: 'assets/[name].[ext]',       //改变打包存储的路径
+                            limit: 1                //小于1字节的图片打包成base64，超过的用file-loader打包，不能设置为0
                         }
                     },
                     {

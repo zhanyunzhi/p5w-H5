@@ -385,3 +385,6 @@ html, body {
   -moz-animation-name: bounceIn;
   -ms-animation-name: bounceIn;
   animation-name: bounceIn; }
+
+.bg {
+  background: url(assets/rcd-fall-1.png); }

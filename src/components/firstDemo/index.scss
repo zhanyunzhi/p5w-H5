@@ -7,3 +7,7 @@
 @include animate-fadeIn();
 @include animate-fadeInDown();
 @include animate-bounceIn();
+
+.bg{
+  background: url(../../assets/rcd-fall-1.png);
+}
