@@ -32,14 +32,16 @@ module.exports = {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({        //单独生成css文件
                     fallback: 'style-loader',
-                    use: ['css-loader']
+                    use: ['css-loader'],
+                    publicPath: '../'           //设置公共路径，不然处理后找不到文件
                 })
             },
             {                 //处理sass文件
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({        //将sass编译后单独生成css文件
                     fallback: 'style-loader',
-                    use: ['css-loader','sass-loader']
+                    use: ['css-loader','sass-loader'],
+                    publicPath: '../'           //设置公共路径，不然处理后找不到文件
                 })
             },
             {                 //处理html文件，将html转成字符串

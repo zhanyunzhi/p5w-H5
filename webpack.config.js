@@ -33,14 +33,16 @@ module.exports = {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({        //单独生成css文件
                     fallback: 'style-loader',
-                    use: ['css-loader']
+                    use: ['css-loader'],
+                    publicPath: '../'           //设置公共路径，不然处理后找不到文件
                 })
             },
             {                 //处理sass文件
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({        //将sass编译后单独生成css文件
                     fallback: 'style-loader',
-                    use: ['css-loader','sass-loader']
+                    use: ['css-loader','sass-loader'],
+                    publicPath: '../'                   //设置公共路径，不然处理后找不到文件
                 })
             },
             {                 //处理html文件，将html转成字符串
@@ -77,14 +79,14 @@ module.exports = {
                 minifyJS: true              //将html中的js也压缩
             }
         }),
-        new ExtractTextPlugin('css/style.css'),              //单独打包css文件,所有的css文件都会打包进这里
         new webpack.optimize.UglifyJsPlugin({                //压缩js文件
             compress: {
                 warnings: false
             }
         }),
+        new ExtractTextPlugin('css/style.css'),              //单独打包css文件,所有的css文件都会打包进这里
         new OptimizeCssAssetsPlugin({                   //压缩css文件
-            assetNameRegExp: /\.optimize\.css$/g,
+            assetNameRegExp: /\.css$/g,
             cssProcessor: require('cssnano'),
             cssProcessorOptions: { discardComments: {removeAll: true } },
             canPrint: true
