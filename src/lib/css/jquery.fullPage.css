@@ -180,3 +180,6 @@ html, body {
 #fp-nav ul li .fp-tooltip.left {
     left: 20px;
 }
+.section {
+    text-align: center; font: 50px "Microsoft Yahei"; color: #fff;
+}

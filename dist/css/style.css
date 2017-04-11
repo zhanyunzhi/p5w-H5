@@ -180,7 +180,9 @@ html, body {
 #fp-nav ul li .fp-tooltip.left {
     left: 20px;
 }
-.fadeIn, .fadeInDown, .bounceIn {
+.section {
+    text-align: center; font: 50px "Microsoft Yahei"; color: #fff;
+}.fadeIn, .fadeInDown, .bounceIn {
   -webkit-animation-duration: 1s;
   -moz-animation-duration: 1s;
   -ms-animation-duration: 1s;
@@ -189,9 +191,6 @@ html, body {
   -moz-animation-fill-mode: both;
   -ms-animation-fill-mode: both;
   animation-fill-mode: both; }
-
-#dowebok {
-  background-color: #00A3CF; }
 
 @-webkit-keyframes fadeIn {
   0% {

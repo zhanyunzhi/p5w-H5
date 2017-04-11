@@ -2,7 +2,6 @@ var path =  require('path');
 var htmlWebpackPlugin = require('html-webpack-plugin');         //引入html处理插件
 var webpack = require('webpack');         //引入插件
 var ExtractTextPlugin = require("extract-text-webpack-plugin");         // 引入css 单独打包插件
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');    //压缩css文件的插件
 
 module.exports = {
     entry: {
@@ -45,14 +44,14 @@ module.exports = {
             },
             {                 //处理html文件，将html转成字符串
                 test: /\.html$/,
-                use: [{
-                    loader: 'html-loader'
-                }
+                use: [
+                    { loader: 'html-loader'}
                 ]
             },
             {                 //处理图片文件
                 test: /\.(png|jpg|gif|svg)$/,
-                use: [{
+                use: [
+                    {
                         loader: 'url-loader',
                         query: {
                             name: 'assets/[name].[ext]'       //改变打包存储的路径
@@ -70,24 +69,8 @@ module.exports = {
         new htmlWebpackPlugin({
             template: 'index.html',
             filename: 'index.html',
-            inject: 'body',
-            minify: {               //压缩html文件
-                removeComments: true,      //移除备注
-                collapseWhitespace: true,    //移除空格
-                minifyJS: true              //将html中的js也压缩
-            }
+            inject: 'body'
         }),
-        new ExtractTextPlugin('css/style.css'),              //单独打包css文件,所有的css文件都会打包进这里
-        new webpack.optimize.UglifyJsPlugin({                //压缩js文件
-            compress: {
-                warnings: false
-            }
-        }),
-        new OptimizeCssAssetsPlugin({                   //压缩css文件
-            assetNameRegExp: /\.optimize\.css$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorOptions: { discardComments: {removeAll: true } },
-            canPrint: true
-        })
+        new ExtractTextPlugin('css/style.css')              //单独打包css文件,所有的css文件都会打包进这里
 ]
 }

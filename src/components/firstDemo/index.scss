@@ -3,9 +3,6 @@
 @import "../../lib/sass/animate/_fade";
 @import "../../lib/sass/animate/_bounce";
 @import "../../lib/css/jquery.fullPage.css";
-#dowebok{
-  background-color: $blue;
-}
 
 @include animate-fadeIn();
 @include animate-fadeInDown();

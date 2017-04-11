@@ -10,6 +10,7 @@
     $(function(){
         var sections = $('.section');
         $('#qj').fullpage({
+            sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
             afterRender: function(){
                 var effects = sections.eq(0).find('[qj-effect]');
                 for(var j=0;j<effects.length;j++){
