@@ -12,11 +12,29 @@
       @include translateY(-2000px);
     }
     100% {
+      opacity: 1;
       @include translateY(0);
     }
   }
   .slideInDown {
     @include animation-name(slideInDown);
+    @extend %animated;
+  }
+}
+// slideInUp
+@mixin animate-slideInUp () {
+  @include keyframes(slideInUp){
+    0% {
+      opacity: 0;
+      @include translateY(2000px);
+    }
+    100% {
+      opacity: 1;
+      @include translateY(0);
+    }
+  }
+  .slideInUp {
+    @include animation-name(slideInUp);
     @extend %animated;
   }
 }
@@ -29,6 +47,7 @@
       @include translateX(-2000px);
     }
     100% {
+      opacity: 1;
       @include translateX(0);
     }
   }
@@ -46,6 +65,7 @@
       @include translateX(2000px);
     }
     100% {
+      opacity: 1;
       @include translateX(0);
     }
   }

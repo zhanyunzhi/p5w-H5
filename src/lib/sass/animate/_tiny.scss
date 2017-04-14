@@ -2,14 +2,52 @@
 @mixin animate-rotateLoopR () {
   @include keyframes(rotateLoopR){
     0% {
+      opacity: 0;
+      @include rotate(-360deg);
+    }
+    10%{
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      @include rotate(0);
+    }
+  }
+  .rotateLoopR {
+    @include animation-name(rotateLoopR);
+    @extend %animated;
+    animation-iteration-count:infinite;
+    animation-duration:20s;
+    animation-timing-function:linear;
+  }
+}@mixin animate-rotateLoopRF () {
+  @include keyframes(rotateLoopRF){
+    0% {
       @include rotate(-360deg);
     }
     100% {
       @include rotate(0);
     }
   }
-  .rotateLoopR {
-    @include animation-name(rotateLoopR);
+  .rotateLoopRF {
+    @include animation-name(rotateLoopRF);
+    @extend %animated;
+    animation-iteration-count:infinite;
+    animation-duration:20s;
+    animation-timing-function:linear;
+  }
+}// rotateLoopL     一直逆时针360度缓慢旋转
+@mixin animate-rotateLoopL () {
+  @include keyframes(rotateLoopL){
+    0% {
+      @include rotate(360deg);
+    }
+    100% {
+      @include rotate(0);
+    }
+  }
+  .rotateLoopL {
+    @include animation-name(rotateLoopL);
     @extend %animated;
     animation-iteration-count:infinite;
     animation-duration:20s;
@@ -35,6 +73,45 @@
   }
   .scaleY {
     @include animation-name(scaleY);
+    @extend %animated;
+  }
+}
+
+
+// slideInDown
+@mixin animate-slideInDownLoop () {
+  @include keyframes(slideInDownLoop){
+    0% {
+      opacity: 0;
+      @include translateY(-0.1rem);
+    }
+    100% {
+      opacity: 1;
+      @include translateY(0.14rem);
+    }
+  }
+  .slideInDownLoop {
+    @include animation-name(slideInDownLoop);
+    @extend %animated;
+    animation-iteration-count:infinite;
+  }
+}
+
+// slideInDown
+@mixin animate-slideInDownRotate () {
+  @include keyframes(slideInDownRotate){
+    0% {
+      opacity: 0;
+      @include rotate(55deg);
+      @include translateY(-2000px);
+    }
+    100% {
+      @include rotate(55deg);
+      @include translateY(0);
+    }
+  }
+  .slideInDownRotate {
+    @include animation-name(slideInDownRotate);
     @extend %animated;
   }
 }

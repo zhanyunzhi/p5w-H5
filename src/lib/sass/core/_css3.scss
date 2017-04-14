@@ -532,7 +532,7 @@ $prefixNo:                    true !default;
 // 为animate模块设计
 %animated {
   @include animation-duration(1s);
-  @include animation-fill-mode(both);
+  @include animation-fill-mode(forwards);
 }
 
 
