@@ -1,0 +1,40 @@
+// rotateLoopR     一直顺时针360度缓慢旋转
+@mixin animate-rotateLoopR () {
+  @include keyframes(rotateLoopR){
+    0% {
+      @include rotate(-360deg);
+    }
+    100% {
+      @include rotate(0);
+    }
+  }
+  .rotateLoopR {
+    @include animation-name(rotateLoopR);
+    @extend %animated;
+    animation-iteration-count:infinite;
+    animation-duration:20s;
+    animation-timing-function:linear;
+  }
+}
+
+// scaleY()     竖直方向变形
+@mixin animate-scaleY () {
+  @include keyframes(scaleY){
+    0% {
+      opacity: 0;
+      @include scaleY(0.2);
+    }
+    1% {
+      opacity: 1;
+      @include scaleY(0.2);
+    }
+    100% {
+      opacity: 1;
+      @include scaleY(1);
+    }
+  }
+  .scaleY {
+    @include animation-name(scaleY);
+    @extend %animated;
+  }
+}

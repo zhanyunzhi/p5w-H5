@@ -2,6 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title></title>
 </head>
 <body>
@@ -34,5 +35,26 @@
             }
         });
     })
+
+    var docEle = document.documentElement;
+    fn = function() {
+        var width = docEle.clientWidth;
+        if( width < 320 ) {
+            docEle.style.fontSize = 42.6667 + "px";//
+        }
+        /*else if( width < 330 ) {       //  放大iphone5字体大小
+         docEle.style.fontSize = 45 + "px";//
+         }*/
+        else if( width > 750 ) {
+            docEle.style.fontSize = 100 + "px";
+        }
+        else {
+            //以750设计稿宽度为基准设置fontSize:100px;这样保证iPhone6以下是高清
+            docEle.style.fontSize = 100 * (width / 750) + "px";
+        }
+    };
+    var evt = "onorientationchange" in window ? "orientationchange" : "resize";//区分Mobile和PC以加载不同的事件
+    window.addEventListener(evt, fn, false);
+    fn();
 </script>
 </html>

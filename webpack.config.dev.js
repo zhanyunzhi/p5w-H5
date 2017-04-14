@@ -13,6 +13,11 @@ module.exports = {
         path: path.resolve(__dirname,'dist'),
         filename: 'js/[name].js',                   //name对应entry里面的属性名，chunkhash对应各自生成的hash
     },
+    devServer: {            //热更新配置
+        inline: true,
+        port: 3002,
+        contentBase: "./dist"
+    },
     module: {
         rules: [
             {               //处理js文件，将es6转换

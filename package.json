@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --config webpack.config.js --progress --display-modules --colors --display-reasons",
-    "webpack-dev": "webpack --config webpack.config.dev.js --progress --display-modules --colors --display-reasons"
+    "webpack-dev": "webpack --config webpack.config.dev.js --progress --display-modules --colors --display-reasons",
+    "webpack-dev-hot": "webpack-dev-server --config webpack.config.dev.js --progress --colors --host 0.0.0.0"
   },
   "keywords": [
     "slide",
