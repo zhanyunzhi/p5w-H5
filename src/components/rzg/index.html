@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title></title>
+    <link href="css/style.css" rel="stylesheet"></head>
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<body>
+    <a class="mscBtn ddplay play" id="audioBtn" title="music" style="cursor:pointer;"></a>
+    <audio id="bgMusic" loop="loop" autoplay="autoplay">
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+    <div class="container">
+        <img src="assets/rzg-main.png" class="img-main"/>
+        <img src="assets/light.png" class="img-light fade" id="imgLight" style="animation-delay:0.8s;"/>
+        <img src="assets/img11.png" class="img11 slideInRight" id="img11" style="animation-delay:0.8s;"/>
+        <img src="assets/img21.png" class="img21" id="img21"/>
+        <img src="assets/img22.png" class="img22" id="img22" style="animation-delay:0.8s;"/>
+        <img src="assets/img31.png" class="img31" id="img31"/>
+        <img src="assets/img32.png" class="img32" id="img32" style="animation-delay:0.8s;"/>
+        <img src="assets/img41.png" class="img41" id="img41"/>
+        <img src="assets/img42.png" class="img42" id="img42" style="animation-delay:0.8s;"/>
+        <img src="assets/img51.png" class="img51" id="img51"/>
+        <img src="assets/img52.png" class="img52" id="img52" style="animation-delay:0.8s;"/>
+        <img src="assets/img61.png" class="img61" id="img61"/>
+        <img src="assets/img62.png" class="img62" id="img62" style="animation-delay:0.8s;"/>
+        <img src="assets/img71.png" class="img71" id="img71"/>
+        <img src="assets/img72.png" class="img72" id="img72" style="animation-delay:0.8s;"/>
+        <img src="assets/img81.png" class="img81" id="img81"/>
+        <img src="assets/img82.png" class="img82" id="img82" style="animation-delay:0.8s;"/>
+        <img src="assets/img91.png" class="img91" id="img91"/>
+        <img src="assets/img92.png" class="img92" id="img92" style="animation-delay:0.8s;"/>
+        <img src="assets/btn.png" class="img-btn" onclick="go();"/>
+        <div class="btn-go-top" id="goToTop"></div>
+    </div>
+</body>
+<script>
+    function go(){
+        location.href = 'http://wxly.p5w.net/index.php/home/roadshow/activityDetail/id/00017ADDE1E4AF694A6FAB21BB1B88C62FB2';
+    }
+    $("#goToTop").click(function () {
+        var speed=500;//滑动的速度
+        $('body,html').animate({ scrollTop: 0 }, speed);
+        return false;
+    });
+    var docEle = document.documentElement;
+    fn = function() {
+        var width = docEle.clientWidth;
+        if( width < 320 ) {
+            docEle.style.fontSize = 42.6667 + "px";//
+        }
+        /*else if( width < 330 ) {       //  放大iphone5字体大小
+         docEle.style.fontSize = 45 + "px";//
+         }*/
+        else if( width > 750 ) {
+            docEle.style.fontSize = 100 + "px";
+        }
+        else {
+            //以750设计稿宽度为基准设置fontSize:100px;这样保证iPhone6以下是高清
+            docEle.style.fontSize = 100 * (width / 750) + "px";
+        }
+    };
+    var evt = "onorientationchange" in window ? "orientationchange" : "resize";//区分Mobile和PC以加载不同的事件
+    window.addEventListener(evt, fn, false);
+    fn();
+    $(function(){
+        $(window).scroll(function () {          //页面滚动到某处后执行动画
+            if ($(window).scrollTop() > 500) {
+                if($("#img11").hasClass('slideInRight')){
+                    $("#img11").removeClass('slideInRight');
+                }
+            }
+            if ($(window).scrollTop() < 200) {
+                if(!$("#img11").hasClass('slideInRight')){
+                    $("#img11").addClass('slideInRight');
+                }
+            }
+            if ($(window).scrollTop() > 1600 && $(window).scrollTop() < 1700) {
+                if(!$("#img21").hasClass('slideInRight')){
+                    $("#img21").addClass('slideInRight');
+                    $("#img22").addClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 2100 || $(window).scrollTop() < 1300) {
+                if($("#img21").hasClass('slideInRight')){
+                    $("#img21").removeClass('slideInRight');
+                    $("#img22").removeClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 2150 && $(window).scrollTop() < 2250) {
+                if(!$("#img31").hasClass('slideInRight')){
+                    $("#img31").addClass('slideInRight');
+                    $("#img32").addClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 2600 || $(window).scrollTop() < 1800) {
+                if($("#img31").hasClass('slideInRight')){
+                    $("#img31").removeClass('slideInRight');
+                    $("#img32").removeClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 2700 && $(window).scrollTop() < 2800) {
+                if(!$("#img41").hasClass('slideInRight')){
+                    $("#img41").addClass('slideInRight');
+                    $("#img42").addClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 3150 || $(window).scrollTop() < 2300) {
+                if($("#img41").hasClass('slideInRight')){
+                    $("#img41").removeClass('slideInRight');
+                    $("#img42").removeClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 3150 && $(window).scrollTop() < 3250) {
+                if(!$("#img51").hasClass('slideInRight')){
+                    $("#img51").addClass('slideInRight');
+                    $("#img52").addClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 3600 || $(window).scrollTop() < 2750) {
+                if($("#img51").hasClass('slideInRight')){
+                    $("#img51").removeClass('slideInRight');
+                    $("#img52").removeClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 3650 && $(window).scrollTop() < 3750) {
+                if(!$("#img61").hasClass('slideInRight')){
+                    $("#img61").addClass('slideInRight');
+                    $("#img62").addClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 4200 || $(window).scrollTop() < 3350) {
+                if($("#img61").hasClass('slideInRight')){
+                    $("#img61").removeClass('slideInRight');
+                    $("#img62").removeClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 4250 && $(window).scrollTop() < 4350) {
+                if(!$("#img71").hasClass('slideInRight')){
+                    $("#img71").addClass('slideInRight');
+                    $("#img72").addClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 4700 || $(window).scrollTop() < 3900) {
+                if($("#img71").hasClass('slideInRight')){
+                    $("#img71").removeClass('slideInRight');
+                    $("#img72").removeClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 4600 && $(window).scrollTop() < 4700) {
+                if(!$("#img81").hasClass('slideInRight')){
+                    $("#img81").addClass('slideInRight');
+                    $("#img82").addClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 5050 || $(window).scrollTop() < 4250) {
+                if($("#img81").hasClass('slideInRight')){
+                    $("#img81").removeClass('slideInRight');
+                    $("#img82").removeClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() > 5800 && $(window).scrollTop() < 5900) {
+                if(!$("#img91").hasClass('slideInRight')){
+                    $("#img91").addClass('slideInRight');
+                    $("#img92").addClass('bounceIn');
+                }
+            }
+            if ($(window).scrollTop() < 5500) {
+                if($("#img91").hasClass('slideInRight')){
+                    $("#img91").removeClass('slideInRight');
+                    $("#img92").removeClass('bounceIn');
+                }
+            }
+        });
+        var music = document.getElementById("bgMusic");
+        $("#audioBtn").click(function(){
+            if(music.paused){music.play();
+                $("#audioBtn").removeClass("pause").addClass("play");
+            }else{music.pause();
+                $("#audioBtn").removeClass("play").addClass("pause");
+            }
+        });
+        //一般情况下，这样就可以自动播放了，但是一些奇葩iPhone机不可以
+        document.getElementById('bgMusic').play();
+        //必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            document.getElementById('bgMusic').play();
+            document.getElementById('video').play();
+        }, false);
+        var share_title = '亲们，日照港喊你来开会啦！';
+        var share_desc = '说得到，做得到，数字说明一切！';
+        var share_link = location.href;
+        var share_img = location.href.split('index.html')[0] + 'assets/fx.png';
+        function shareFriend(shareTitle,descContent,lineLink) {
+            wx.onMenuShareAppMessage({
+                title: shareTitle,
+                desc: descContent,
+                link: lineLink,
+                imgUrl: share_img,
+                trigger: function (res) {
+                    $('#mcover').hide();
+                },
+                fail: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            });
+        }
+
+        function shareTimeline(shareTitle,descContent,lineLink) {
+            wx.onMenuShareTimeline({
+                title: shareTitle,
+                link: lineLink,
+                imgUrl: share_img,
+                trigger: function (res) {
+                    $('#mcover').hide();
+                },
+                fail: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            });
+        }
+
+        function shareQQ(shareTitle,descContent,lineLink){
+            wx.onMenuShareQQ({
+                title: shareTitle,
+                desc: descContent,
+                link: lineLink,
+                imgUrl: share_img,
+                trigger: function (res) {
+                    $('#mcover').hide();
+                },
+                fail: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            });
+        };
+
+        function shareWeibo(shareTitle,descContent,lineLink){
+            wx.onMenuShareWeibo({
+                title: shareTitle,
+                desc: descContent,
+                link: lineLink,
+                imgUrl: share_img,
+                trigger: function (res) {
+                    $('#mcover').hide();
+                },
+                fail: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            });
+        };
+        $(document).ready(function() {
+            /*
+             while(share_desc == ''){
+             setTimeout(function(){share_desc = $(document).attr("title");},500);
+             }
+             */
+
+            var url = location.href.split('#').toString();
+            $.ajax({
+                url: 'http://inews.p5w.net/wx/sign.php',
+                type: 'post',
+                dataType: 'json',
+                data:{'url':url},
+                error:function(XMLHttpRequest, textStatus, errorThrown){
+
+                },
+                success:function(signPackage){
+                    if(signPackage)	{
+                        var share_appid = signPackage.appId;
+                        var share_nonceStr = signPackage.nonceStr;
+                        var share_signature = signPackage.signature;
+                        var share_timestamp = signPackage.timestamp;
+
+                        wx.config({
+                            debug: false,
+                            appId: share_appid,
+                            timestamp: share_timestamp,
+                            nonceStr: share_nonceStr,
+                            signature: share_signature,
+                            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo']
+                        });
+
+                        wx.ready(function(){
+
+                            //发送给好友
+                            shareFriend(share_title,share_desc,share_link);
+
+                            //分享到朋友圈
+                            shareTimeline(share_title,share_desc,share_link);
+
+                            //分享给QQ好友
+                            shareQQ(share_title,share_desc,share_link);
+
+                            //分享到微博
+                            shareWeibo(share_title,share_desc,share_link);
+                        });
+
+                    }
+                }
+            })
+        });
+    });
+</script>
+</html>
