@@ -2,11 +2,82 @@
 @import "../../lib/sass/core/_css3";
 @import "../../lib/sass/animate/_fade";
 @import "../../lib/sass/animate/_bounce";
+@import "../../lib/sass/animate/_slide";
+@import "../../lib/sass/animate/_rotate";
+@import "../../lib/sass/animate/_flip";
+@import "../../lib/sass/animate/_tiny";
 @import "../../lib/css/jquery.fullPage.css";
-#dowebok{
-  background-color: $blue;
+
+@include animate-fadeInDown();        //由上往下滑动出现
+@include animate-fadeInDownBig();
+@include animate-rotateLoopR();       //顺时针旋转
+@include animate-bounceIn();
+@include animate-scaleY();
+.scaleY {
+  animation-duration:3s;
+  transform-origin:0% 100%;
 }
 
-@include animate-fadeIn();
-@include animate-fadeInDown();
-@include animate-bounceIn();
+.bg1{
+  background: url(../../assets/bg1.png);
+  background-size: 100% 100%;
+}
+%img-all{
+  position: absolute;
+}
+.img1-1{
+  @extend %img-all;
+  width:3.89rem;
+  height:3.89rem;
+  top:0.86rem;
+  left:50%;
+  margin-left:-1.95rem;
+  z-index:9;
+}
+.img1-2{
+  @extend %img-all;
+  width:3.89rem;
+  height:3.89rem;
+  top:0.86rem;
+  left:50%;
+  margin-left:-1.95rem;
+}
+.img1-3{
+  @extend %img-all;
+  width:4.26rem;
+  height:1.61rem;
+  top:42%;
+  left:50%;
+  margin-left:-2.13rem;
+}
+.img1-4{
+  @extend %img-all;
+  width:7.50rem;
+  height:3.28rem;
+  bottom:.2rem;
+  left:0;
+  z-index: 9;
+}
+.img1-5{
+  @extend %img-all;
+  width:7.50rem;
+  height:4.64rem;
+  bottom:0.2rem;
+  left:0;
+}
+.img1-6{
+  @extend %img-all;
+  width:7.5rem;
+  height:2.61rem;
+  bottom:2.7rem;
+  left:50%;
+  margin-left:-3.75rem;
+}
+.img1-7{
+  @extend %img-all;
+  width:100%;
+  height:3.20rem;
+  bottom:3%;
+  left:0;
+  z-index: 99;
+}

@@ -2,7 +2,6 @@ var path =  require('path');
 var htmlWebpackPlugin = require('html-webpack-plugin');         //引入html处理插件
 var webpack = require('webpack');         //引入插件
 var ExtractTextPlugin = require("extract-text-webpack-plugin");         // 引入css 单独打包插件
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');    //压缩css文件的插件
 
 module.exports = {
     entry: {
@@ -13,6 +12,11 @@ module.exports = {
     output: {
         path: path.resolve(__dirname,'dist'),
         filename: 'js/[name].js',                   //name对应entry里面的属性名，chunkhash对应各自生成的hash
+    },
+    devServer: {            //热更新配置
+        inline: true,
+        port: 3002,
+        contentBase: "./dist"
     },
     module: {
         rules: [
@@ -42,19 +46,19 @@ module.exports = {
                 use: ExtractTextPlugin.extract({        //将sass编译后单独生成css文件
                     fallback: 'style-loader',
                     use: ['css-loader','sass-loader'],
-                    publicPath: '../'                   //设置公共路径，不然处理后找不到文件
+                    publicPath: '../'           //设置公共路径，不然处理后找不到文件
                 })
             },
             {                 //处理html文件，将html转成字符串
                 test: /\.html$/,
-                use: [{
-                    loader: 'html-loader'
-                }
+                use: [
+                    { loader: 'html-loader'}
                 ]
             },
             {                 //处理图片文件
                 test: /\.(png|jpg|gif|svg)$/,
-                use: [{
+                use: [
+                    {
                         loader: 'url-loader',
                         query: {
                             name: 'assets/[name].[ext]',       //改变打包存储的路径
@@ -72,24 +76,8 @@ module.exports = {
         new htmlWebpackPlugin({
             template: 'index.html',
             filename: 'index.html',
-            inject: 'body',
-            minify: {               //压缩html文件
-                removeComments: true,      //移除备注
-                collapseWhitespace: true,    //移除空格
-                minifyJS: true              //将html中的js也压缩
-            }
+            inject: 'body'
         }),
-        new webpack.optimize.UglifyJsPlugin({                //压缩js文件
-            compress: {
-                warnings: false
-            }
-        }),
-        new ExtractTextPlugin('css/style.css'),              //单独打包css文件,所有的css文件都会打包进这里
-        new OptimizeCssAssetsPlugin({                   //压缩css文件
-            assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorOptions: { discardComments: {removeAll: true } },
-            canPrint: true
-        })
+        new ExtractTextPlugin('css/style.css')              //单独打包css文件,所有的css文件都会打包进这里
 ]
 }
