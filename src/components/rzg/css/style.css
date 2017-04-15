@@ -1,0 +1,67 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.container{
+    position: relative;
+}
+.img-main{
+    width:100%;
+}
+.img-btn{
+    position: absolute;
+    bottom:7.6rem;
+    left:50%;
+    margin-left:-1.065rem;
+    width:2.13rem;
+    height:1.17rem;
+}
+.btn-go-top{
+    position: absolute;
+    bottom: 5.2rem;
+    left: 50%;
+    margin-left: -2.6rem;
+    width: 5rem;
+    height: 1rem;
+    background-color: rgba(0,0,0,0);
+}
+@-webkit-keyframes f {
+    0% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg)
+    }
+
+    to {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+}
+@keyframes f {
+    0% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg)
+    }
+
+    to {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+}
+.play {
+    animation: f 1.2s linear infinite;
+    -moz-animation: f 1.2s linear infinite;
+    -webkit-animation: f 1.2s linear infinite;
+    -o-animation: f 1.2s linear infinite
+}
+
+.mscBtn {
+    position: fixed;
+    top: 0.2rem;
+    right: 0.2rem;
+    width: 0.6rem;
+    z-index: 7;
+    height: 0.6rem;
+    background: url(../assets/normalmusic.svg) no-repeat;
+    display: block;
+    background-size: contain
+}
