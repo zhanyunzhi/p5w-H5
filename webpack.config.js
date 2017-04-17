@@ -62,10 +62,38 @@ module.exports = {
                         }
                     },
                     {
-                        loader: 'img-loader'
+                        loader: 'img-loader',
+                        options: {
+                            //enabled: process.env.NODE_ENV === 'production',
+                            gifsicle: {
+                                interlaced: false
+                            },
+                            mozjpeg: {
+                                progressive: true,
+                                arithmetic: false
+                            },
+                            optipng: false, // disabled
+                            pngquant: {
+                                floyd: 0.5,
+                                speed: 2,
+                                quality:80
+                            },
+                            svgo: {
+                                plugins: [
+                                    { removeTitle: true },
+                                    { convertPathData: false }
+                                ]
+                            }
+                        }
                     }
                 ]
-            }
+            },
+            {                 //处理MP3 文件，将mp3移动
+                test: /\.mp3$/,
+                use: [
+                    { loader: 'file-loader'}
+                ]
+            },
         ]
     },
     plugins: [

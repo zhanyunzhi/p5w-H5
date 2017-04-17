@@ -16,9 +16,9 @@
   .rotateLoopR {
     @include animation-name(rotateLoopR);
     @extend %animated;
-    animation-iteration-count:infinite;
-    animation-duration:20s;
-    animation-timing-function:linear;
+    @include animation-iteration-count(infinite);
+    @include animation-duration(20s);
+    @include animation-timing-function(linear);
   }
 }@mixin animate-rotateLoopRF () {
   @include keyframes(rotateLoopRF){
@@ -32,9 +32,9 @@
   .rotateLoopRF {
     @include animation-name(rotateLoopRF);
     @extend %animated;
-    animation-iteration-count:infinite;
-    animation-duration:20s;
-    animation-timing-function:linear;
+    @include animation-iteration-count(infinite);
+    @include animation-duration(20s);
+    @include animation-timing-function(linear);
   }
 }// rotateLoopL     一直逆时针360度缓慢旋转
 @mixin animate-rotateLoopL () {
@@ -49,9 +49,9 @@
   .rotateLoopL {
     @include animation-name(rotateLoopL);
     @extend %animated;
-    animation-iteration-count:infinite;
-    animation-duration:20s;
-    animation-timing-function:linear;
+    @include animation-iteration-count(infinite);
+    @include animation-duration(20s);
+    @include animation-timing-function(linear);
   }
 }
 
@@ -93,7 +93,7 @@
   .slideInDownLoop {
     @include animation-name(slideInDownLoop);
     @extend %animated;
-    animation-iteration-count:infinite;
+    @include animation-iteration-count(infinite);
   }
 }
 
@@ -113,5 +113,39 @@
   .slideInDownRotate {
     @include animation-name(slideInDownRotate);
     @extend %animated;
+  }
+}
+
+
+// fadeUpAndDown
+@mixin animate-fadeUpAndDown () {
+  @include keyframes(fadeUpAndDown){
+    0%,5% {
+      opacity: 1;
+      @include translateY(-14px);
+    }
+    35%,37% {
+      opacity: 1;
+      @include translateY(0);
+    }
+    65%,67% {
+      opacity: 1;
+      @include translateY(-14px);
+    }
+    83% {
+      opacity: 1;
+      @include translateY(-8px);
+    }
+    100% {
+      opacity: 1;
+      @include translateY(-14px);
+    }
+  }
+  .fadeUpAndDown {
+    @include animation-name(fadeUpAndDown);
+    @extend %animated;
+    @include animation-iteration-count(infinite);
+    @include animation-duration(3s);
+    @include animation-timing-function(linear);
   }
 }
