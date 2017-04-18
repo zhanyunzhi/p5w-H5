@@ -149,3 +149,127 @@
     @include animation-timing-function(linear);
   }
 }
+//  myFlash
+@mixin animate-myFlash () {
+  @include keyframes(myFlash){
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .myFlash {
+    @include animation-name(myFlash);
+    @extend %animated;
+  }
+}
+
+
+// mySlideInRight
+@mixin animate-mySlideInRight () {
+  @include keyframes(mySlideInRight){
+    0% {
+      opacity: 0;
+      @include translateX(200px);
+    }
+    100% {
+      opacity: 1;
+      @include translateX(0);
+    }
+  }
+  .mySlideInRight {
+    @include animation-name(mySlideInRight);
+    @extend %animated;
+  }
+}
+// rotateInY
+@mixin animate-rotateInY () {
+  @include keyframes(rotateInY){
+    0% {
+      @include opacity(0);
+      @include rotateY(-540deg);
+    }
+    100% {
+      @include opacity(100);
+      @include rotateY(0);
+    }
+  }
+  .rotateInY {
+    @include animation-name(rotateInY);
+    @extend %animated;
+  }
+}
+
+
+
+// moveToLeft
+@mixin animate-moveToLeft () {
+  @include keyframes(moveToLeft){
+    0% {
+      opacity: 1;
+      @include translateX(0);
+    }
+    100% {
+      opacity: 1;
+      @include translateX(-2rem);
+    }
+  }
+  .moveToLeft {
+    @include animation-name(moveToLeft);
+    @extend %animated;
+    @include animation-duration(10s);
+    @include animation-timing-function(linear)
+  }
+}
+// moveToBottom
+@mixin animate-moveToBottom () {
+  @include keyframes(moveToBottom){
+    0% {
+      opacity: 1;
+      @include transform(rotate(-90deg) translateX(0));
+    }
+    100% {
+      opacity: 1;
+      @include transform(rotate(-90deg) translateX(-3rem));
+    }
+  }
+  .moveToBottom {
+    @include animation-name(moveToBottom);
+    @extend %animated;
+    @include animation-duration(15s);
+    @include animation-timing-function(linear)
+  }
+}
+
+
+// myLightSpeedIn
+@mixin animate-myLightSpeedIn () {
+  @include keyframes(myLightSpeedIn){
+    0% {
+      @include opacity(0);
+      @include transform(translateX(100%) skewX(0deg));
+    }
+    50% {
+      @include transform(translateX(0) skewX(5deg));
+    }
+    70% {
+      @include transform(translateX(0) skewX(10deg));
+    }
+    90% {
+      @include transform(translateX(0) skewX(10deg));
+    }
+    100% {
+      @include opacity(100);
+      @include transform(translateX(0) skewX(0deg));
+    }
+  }
+  .myLightSpeedIn {
+    @include animation-name(myLightSpeedIn);
+    @include animation-timing-function(linear);
+    @include backface-visibility;
+    @extend %animated;
+    @include transform-origin(0% 100%);
+    //@include animation-delay(0.8s);
+  }
+}

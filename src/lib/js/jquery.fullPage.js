@@ -767,7 +767,7 @@
 		/**
 		 * Detecting mousewheel scrolling
 		 *
-		 * http://blogs.sitepointstatic.com/examples/tech/mouse-wheel/index.html
+		 * http://blogs.sitepointstatic.com/examples/tech/mouse-wheel/index.bak.html
 		 * http://www.sitepoint.com/html5-javascript-mouse-wheel/
 		 */
 		function MouseWheelHandler(e) {

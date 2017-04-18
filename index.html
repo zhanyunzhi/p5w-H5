@@ -10,6 +10,14 @@
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
     $(function(){
+        function getTransforms(translate3d){
+            return {
+                '-webkit-transform': translate3d,
+                '-moz-transform': translate3d,
+                '-ms-transform':translate3d,
+                'transform': translate3d
+            };
+        }
         var music = document.getElementById("bgMusic");
         $("#audioBtn").click(function(){
             if(music.paused){music.play();
@@ -19,6 +27,7 @@
             }
         });
         var sections = $('.section');
+        var translate3d = 'translate3d(0px, 0px, 0px)';
         $('#qj').fullpage({
 //            sectionsColor: ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
             continuousVertical: true,
@@ -39,10 +48,7 @@
                     $('.img9-5').show();
                 }
                 if(index==1){
-                    alert($("#qj").css('transform')+'--index1');
-                }
-                if(index==2){
-                    alert($("#qj").css('transform')+'--index2');
+                    ($("#qj").css(getTransforms(translate3d)));     //循环回到第一页时强制定位页面到指定位置，不然在iphone下会有问题
                 }
                 var i= 0;
                 for(i;i<sections.length;i++){

@@ -1,16 +1,12 @@
 /**
  * Created by zhanghua on 2017/4/17.
  */
-var share_title = '回首过去、展望未来，回天新材的2017更精彩！';
-var share_desc = '2016年，营业收入11.32亿元，同比增长16%；营业利润9762万元，同比增长61%。';
-var share_link = location.href;
-var share_img = location.href.split('index.html')[0] + 'assets/fx.png';
-function shareFriend(shareTitle,descContent,lineLink) {
+function shareFriend(shareTitle,descContent,lineLink,shareImg) {
     wx.onMenuShareAppMessage({
         title: shareTitle,
         desc: descContent,
         link: lineLink,
-        imgUrl: share_img,
+        imgUrl: shareImg,
         trigger: function (res) {
             $('#mcover').hide();
         },
@@ -20,11 +16,11 @@ function shareFriend(shareTitle,descContent,lineLink) {
     });
 }
 
-function shareTimeline(shareTitle,descContent,lineLink) {
+function shareTimeline(shareTitle,descContent,lineLink,shareImg) {
     wx.onMenuShareTimeline({
         title: shareTitle,
         link: lineLink,
-        imgUrl: share_img,
+        imgUrl: shareImg,
         trigger: function (res) {
             $('#mcover').hide();
         },
@@ -34,12 +30,12 @@ function shareTimeline(shareTitle,descContent,lineLink) {
     });
 }
 
-function shareQQ(shareTitle,descContent,lineLink){
+function shareQQ(shareTitle,descContent,lineLink,shareImg){
     wx.onMenuShareQQ({
         title: shareTitle,
         desc: descContent,
         link: lineLink,
-        imgUrl: share_img,
+        imgUrl: shareImg,
         trigger: function (res) {
             $('#mcover').hide();
         },
@@ -49,12 +45,12 @@ function shareQQ(shareTitle,descContent,lineLink){
     });
 };
 
-function shareWeibo(shareTitle,descContent,lineLink){
+function shareWeibo(shareTitle,descContent,lineLink,shareImg){
     wx.onMenuShareWeibo({
         title: shareTitle,
         desc: descContent,
         link: lineLink,
-        imgUrl: share_img,
+        imgUrl: shareImg,
         trigger: function (res) {
             $('#mcover').hide();
         },
@@ -63,7 +59,7 @@ function shareWeibo(shareTitle,descContent,lineLink){
         }
     });
 };
-function setWxShare(share_title, share_desc, share_link) {
+var setWxShare = function(share_title, share_desc, share_link,share_img) {
     var url = location.href.split('#').toString();
     $.ajax({
         url: 'http://inews.p5w.net/wx/sign.php',
@@ -92,16 +88,16 @@ function setWxShare(share_title, share_desc, share_link) {
                 wx.ready(function () {
 
                     //发送给好友
-                    shareFriend(share_title, share_desc, share_link);
+                    shareFriend(share_title, share_desc, share_link, share_img);
 
                     //分享到朋友圈
-                    shareTimeline(share_title, share_desc, share_link);
+                    shareTimeline(share_title, share_desc, share_link, share_img);
 
                     //分享给QQ好友
-                    shareQQ(share_title, share_desc, share_link);
+                    shareQQ(share_title, share_desc, share_link, share_img);
 
                     //分享到微博
-                    shareWeibo(share_title, share_desc, share_link);
+                    shareWeibo(share_title, share_desc, share_link, share_img);
                 });
 
             }

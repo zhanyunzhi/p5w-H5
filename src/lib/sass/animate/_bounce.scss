@@ -8,18 +8,19 @@
 @mixin animate-bounceIn () {
   @include keyframes(bounceIn){
     0% {
-      opacity: 0;
+      //opacity: 0;
+      @include opacity(0);
       @include scale(.3);
     }
     50% {
-      opacity: 1;
+      @include opacity(100);
       @include scale(1.05);
     }
     70% {
       @include scale(.9);
     }
     100% {
-      opacity: 1;
+      @include opacity(100);
       @include scale(1);
     }
   }

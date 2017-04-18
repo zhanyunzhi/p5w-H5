@@ -98,7 +98,7 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: 'index2.html',
+            template: 'src/components/rzg/index.html',
             filename: 'index.html',
             inject: 'body',
             minify: {               //压缩html文件

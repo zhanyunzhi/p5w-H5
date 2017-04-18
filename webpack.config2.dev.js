@@ -6,6 +6,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");         // 引�
 module.exports = {
     entry: {
         vendor: ['./src/lib/js/jquery-1.8.3.min.js'],             //jquery,fullPage第三方插件打包到一起        因为没有模块化，所以只能原样引入
+        common: ['./src/lib/js/common.js'],             //jquery,fullPage第三方插件打包到一起        因为没有模块化，所以只能原样引入
         //fullPage: './src/js/jquery.fullPage.min.js',        //fullPage      因为没有模块化，所以只能原样引入
         index: './src/index2.js'           //入口文件1
     },
@@ -15,7 +16,7 @@ module.exports = {
     },
     devServer: {            //热更新配置
         inline: true,
-        port: 3002,
+        port: 3003,
         contentBase: "./dist2"
     },
     module: {
@@ -102,8 +103,8 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: 'index.html',
-            filename: 'index2.html',
+            template: 'src/components/rzg/index.html',
+            filename: 'index.html',
             inject: 'body'
         }),
         new ExtractTextPlugin('css/style.css')              //单独打包css文件,所有的css文件都会打包进这里
