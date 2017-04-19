@@ -283,6 +283,154 @@ html, body {
   height: sixToSeven(0.69);
   @include rotate(-90deg);
 }
+.img2-1{
+  @extend %img;
+  top: 32.48rem;
+  left: 1.62rem;
+  width: sixToSeven(3.58);
+  height: sixToSeven(0.57);
+}
+.img2-2{
+  @extend %img;
+  top: 35.75rem;
+  left: 1.58rem;
+  width: sixToSeven(3.78);
+  height: sixToSeven(0.87);
+}
+.img2-3{
+  @extend %img;
+  top: 35.18rem;
+  left: 1.36rem;
+  width: sixToSeven(3.48);
+  height: sixToSeven(1.68);
+}
+.img2-4{
+  @extend %img;
+  top: 37.56rem;
+  left: 1.36rem;
+  width: sixToSeven(3.48);
+  height: sixToSeven(1.68);
+}
+.img3-1{
+  @extend %img;
+  top: 41.7rem;
+  left: 1.8rem;
+  width: sixToSeven(3.34);
+  height: sixToSeven(0.34);
+}
+.img3-2{
+  @extend %img;
+  top: 43.82rem;
+  left: 1.27rem;
+  width: sixToSeven(1.15);
+  height: sixToSeven(1.34);
+}
+.img3-3{
+  @extend %img;
+  top: 43.74rem;
+  left: 3.05rem;
+  width: sixToSeven(1.15);
+  height: sixToSeven(1.34);
+}
+.img3-4{
+  @extend %img;
+  top: 43.74rem;
+  left:4.8rem;
+  width: sixToSeven(1.15);
+  height: sixToSeven(1.34);
+}
+.img3-5{
+  @extend %img;
+  top: 45.5rem;
+  left: 1.2rem;
+  width: sixToSeven(4.05);
+  height: sixToSeven(0.7);
+}
+.img3-6{
+  @extend %img;
+  top: 46.52rem;
+  left: 1.7rem;
+  width: sixToSeven(3.57);
+  height: sixToSeven(0.73);
+}
+.img3-7{
+  @extend %img;
+  top: 50.24rem;
+  left: 1.0rem;
+  width: sixToSeven(1.86);
+  height: sixToSeven(1.03);
+}
+.img4-1{
+  @extend %img;
+  top: 52.42rem;
+  left: 2.7rem;
+  width: sixToSeven(1.78);
+  height: sixToSeven(0.34);
+}
+.img4-2{
+  @extend %img;
+  top: 54.46rem;
+  left: 1.15rem;
+  width: sixToSeven(4.43);
+  height: sixToSeven(1.03);
+}
+.img4-3{
+  @extend %img;
+  top: 55.76rem;
+  left: 1.15rem;
+  width: sixToSeven(4.43);
+  height: sixToSeven(1.03);
+}
+.img4-4{
+  @extend %img;
+  top: 57.04rem;
+  left: 1.15rem;
+  width: sixToSeven(4.43);
+  height: sixToSeven(1.03);
+}
+.img4-5{
+  @extend %img;
+  top: 58.32rem;
+  left: 1.15rem;
+  width: sixToSeven(4.43);
+  height: sixToSeven(1.03);
+}
+.img4-6{
+  @extend %img;
+  top: 62.48rem;
+  left: 1.75rem;
+  width: sixToSeven(3.45);
+  height: sixToSeven(0.34);
+}
+.img4-7{
+  @extend %img;
+  top: 64.16rem;
+  left: 0.92rem;;
+  width: sixToSeven(4.85);
+  height: sixToSeven(4.72);
+}
+.img4-8{
+  @extend %img;
+  top: 64.80rem;
+  left: 2.02rem;
+  width: sixToSeven(2.96);
+  height: sixToSeven(3.33);
+}
+.img4-9{
+  @extend %img;
+  top: 64.87rem;
+  left: 2.10rem;
+  width: sixToSeven(2.84);
+  height: sixToSeven(2.84);
+}
+.img4-10{
+  @extend %img;
+  top: 65.12rem;
+  left: 2.35rem;
+  width: sixToSeven(2.29);
+  height: sixToSeven(2.13);
+}
+
 
 @include animate-mySlideInRight();       //右侧划入
 @include animate-myLightSpeedIn();       //带缓冲的划入
@@ -293,6 +441,17 @@ html, body {
 @include animate-rotateInY();        //y轴旋转
 @include animate-moveToLeft();        //自右向左移动
 @include animate-moveToBottom();        //自上往下移动
+@include animate-scaleY();        //Y轴方向形变
+@include animate-rotateLoopR();        //旋转
+
+.rotateLoopR{
+  @include animation-iteration-count(1);
+  @include animation-duration(1s);
+}
+.scaleY {       //由下往上变形
+  @include animation-duration(3s);
+  @include transform-origin(0% 100%);
+}
 .animation-delay3{
   @include animation-delay(0.3s)
 }
@@ -301,6 +460,15 @@ html, body {
 }
 .animation-delay13{
   @include animation-delay(1.3s)
+}
+.animation-delay18{
+  @include animation-delay(1.8s)
+}
+.animation-delay20{
+  @include animation-delay(2s)
+}
+.animation-delay25{
+  @include animation-delay(2.5s)
 }
 
 .myFlash {
