@@ -167,3 +167,53 @@
         transform:translate(0, -8px)
     }
 }
+
+//animation-delay
+.animation-delay2{
+    @include animation-delay(0.2s)
+}
+.animation-delay3{
+    @include animation-delay(0.3s)
+}
+.animation-delay5{
+    @include animation-delay(0.5s)
+}
+.animation-delay8{
+    @include animation-delay(0.8s)
+}
+.animation-delay10{
+    @include animation-delay(1.0s)
+}
+.animation-delay13{
+    @include animation-delay(1.3s)
+}
+.animation-delay15{
+    @include animation-delay(1.5s)
+}
+.animation-delay16{
+    @include animation-delay(1.6s)
+}
+.animation-delay18{
+    @include animation-delay(1.8s)
+}
+.animation-delay20{
+    @include animation-delay(2.0s)
+}
+.animation-delay23{
+    @include animation-delay(2.3s)
+}
+.animation-delay25{
+    @include animation-delay(2.5s)
+}
+
+
+//animation-duration
+.animation-duration10{
+    @include animation-duration(1.0s)
+}
+.animation-duration15{
+    @include animation-duration(1.5s)
+}
+.animation-duration20{
+    @include animation-duration(2.0s)
+}

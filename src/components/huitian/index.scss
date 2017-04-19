@@ -10,7 +10,7 @@
 @import "../../lib/sass/animate/_attention-seekers";
 @import "../../lib/sass/animate/_tiny";
 @import "../../lib/css/jquery.fullPage.css";
-@import "../../lib/css/common.css";
+@import "../../lib/css/common";
 
 @include animate-fadeInDown();        //由上往下滑动出现
 @include animate-fadeInDownBig();
@@ -30,39 +30,7 @@
 @include animate-slideInDown();       //由上往下位移
 @include animate-slideInDownRotate();       //由上往下位移
 @include animate-scaleY();
-.animation-delay3{
-  @include animation-delay(0.3s)
-}
-.animation-delay5{
-  @include animation-delay(0.5s)
-}
-.animation-delay8{
-  @include animation-delay(0.8s)
-}
-.animation-delay10{
-  @include animation-delay(1.0s)
-}
-.animation-delay15{
-  @include animation-delay(1.5s)
-}
-.animation-delay16{
-  @include animation-delay(1.6s)
-}
-.animation-delay20{
-  @include animation-delay(2.0s)
-}
-.animation-delay25{
-  @include animation-delay(2.5s)
-}
-.animation-duration10{
-  @include animation-duration(1.0s)
-}
-.animation-duration15{
-  @include animation-duration(1.5s)
-}
-.animation-duration20{
-  @include animation-duration(2.0s)
-}
+
 .scaleY {       //由下往上变形
   @include animation-duration(3s);
   @include transform-origin(0% 100%);

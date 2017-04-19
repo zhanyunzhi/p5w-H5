@@ -102,7 +102,7 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: 'index.html',
+            template: 'src/components/huitian/index.html',
             filename: 'index.html',
             inject: 'body'
         }),

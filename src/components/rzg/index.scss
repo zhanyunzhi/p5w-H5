@@ -10,7 +10,7 @@
 @import "../../lib/sass/animate/_attention-seekers";
 @import "../../lib/sass/animate/_lightspeed";
 @import "../../lib/sass/animate/_tiny";
-@import "../../lib/css/common.css";
+@import "../../lib/css/common";
 // 640宽的图片转出750宽的图片
 @function sixToSeven($rem) {
   @return ($rem * 750 / 640) * 1rem;
@@ -404,33 +404,242 @@ html, body {
 }
 .img4-7{
   @extend %img;
-  top: 64.16rem;
+  top: 64.50rem;
   left: 0.92rem;;
   width: sixToSeven(4.85);
   height: sixToSeven(4.72);
 }
 .img4-8{
   @extend %img;
-  top: 64.80rem;
+  top: 65.14rem;
   left: 2.02rem;
   width: sixToSeven(2.96);
   height: sixToSeven(3.33);
 }
 .img4-9{
   @extend %img;
-  top: 64.87rem;
+  top: 65.21rem;
   left: 2.10rem;
   width: sixToSeven(2.84);
   height: sixToSeven(2.84);
 }
 .img4-10{
   @extend %img;
-  top: 65.12rem;
+  top: 65.46rem;
   left: 2.35rem;
   width: sixToSeven(2.29);
   height: sixToSeven(2.13);
 }
-
+.img5-1{
+  @extend %img;
+  top: 72.36rem;
+  left: 2.5rem;
+  width: sixToSeven(2.14);
+  height: sixToSeven(0.34);
+}
+.img5-2{
+  @extend %img;
+  top: 74.84rem;
+  left: 1.49rem;
+  width: sixToSeven(3.57);
+  height: sixToSeven(1.15);
+}
+.img5-3{
+  @extend %img;
+  top: 74.48rem;
+  left: 1.44rem;
+  width: sixToSeven(3.31);
+  height: sixToSeven(1.77);
+}
+.img5-4{
+  @extend %img;
+  top: 76.8rem;
+  left: 1.08rem;
+  width: sixToSeven(1.15);
+  height: sixToSeven(1.34);
+}
+.img5-5{
+  @extend %img;
+  top: 76.8rem;
+  left: 2.95rem;
+  width: sixToSeven(1.15);
+  height: sixToSeven(1.34);
+}
+.img5-6{
+  @extend %img;
+  top: 76.8rem;
+  left: 4.86rem;
+  width: sixToSeven(1.15);
+  height: sixToSeven(1.34);
+}
+.img5-7{
+  @extend %img;
+  top: 78.5rem;
+  left: 1.32rem;
+  width: sixToSeven(4.11);
+  height: sixToSeven(1.83);
+}
+.img6-1{
+  @extend %img;
+  top: 83.58rem;
+  left: 2.68rem;
+  width: sixToSeven(1.78);
+  height: sixToSeven(0.34);
+}
+.img6-2{
+  @extend %img;
+  top: 85.74rem;
+  left: 1.78rem;
+  width: sixToSeven(3.29);
+  height: sixToSeven(1.19);
+}
+.img6-3{
+  @extend %img;
+  top: 87.44rem;
+  left: 1.12rem;
+  width: sixToSeven(4.43);
+  height: sixToSeven(1.04);
+}
+.img6-4{
+  @extend %img;
+  top: 88.74rem;
+  left: 1.12rem;
+  width: sixToSeven(4.43);
+  height: sixToSeven(1.40);
+}
+.img6-5{
+  @extend %img;
+  top: 94.86rem;
+  left: 1.62rem;
+  width: sixToSeven(3.38);
+  height: sixToSeven(2.58);
+}
+.img6-6{
+  @extend %img;
+  top: 101.66rem;
+  left: 1.62rem;
+  width: sixToSeven(3.58);
+  height: sixToSeven(0.57);
+}
+.img6-7{
+  @extend %img;
+  top: 104.26rem;
+  left: 1.12rem;
+  width: sixToSeven(4.43);
+  height: sixToSeven(1.05);
+}
+.img6-8{
+  @extend %img;
+  top: 105.56rem;
+  left: 1.12rem;
+  width: sixToSeven(4.43);
+  height: sixToSeven(1.05);
+}
+.img6-9{
+  @extend %img;
+  top: 106.86rem;
+  left: 1.12rem;
+  width: sixToSeven(4.43);
+  height: sixToSeven(1.05);
+}
+.img6-10{
+  @extend %img;
+  top: 108.16rem;
+  left: 1.12rem;
+  width: sixToSeven(4.43);
+  height: sixToSeven(1.05);
+}
+.img7-1{
+  @extend %img;
+  top: 111.36rem;
+  left: 2.42rem;
+  width: sixToSeven(2.15);
+  height: sixToSeven(0.34);
+}
+.img7-2{
+  @extend %img;
+  top: 113.64rem;
+  left: 1.72rem;
+  width: sixToSeven(3.82);
+  height: sixToSeven(1.89);
+}
+.img7-3{
+  @extend %img;
+  top: 113.68rem;
+  left: 1.3rem;
+  width: sixToSeven(0.24);
+  height: sixToSeven(1.81);
+}
+.img7-4{
+  @extend %img;
+  top: 116.78rem;
+  left: 1.9rem;
+  width: sixToSeven(2.97);
+  height: sixToSeven(0.57);
+}
+.img7-5{
+  @extend %img;
+  top: 119.38rem;
+  left: 1.28rem;
+  width: sixToSeven(4.19);
+  height: sixToSeven(2.15);
+}
+.img7-6{
+  @extend %img;
+  top: 121.98rem;
+  left: 1.0rem;
+  width: sixToSeven(0.76);
+  height: sixToSeven(0.8);
+}
+.img7-7{
+  @extend %img;
+  top: 121.98rem;
+  left: 2.14rem;
+  width: sixToSeven(0.76);
+  height: sixToSeven(0.8);
+}
+.img7-8{
+  @extend %img;
+  top: 121.98rem;
+  left: 3.24rem;
+  width: sixToSeven(0.76);
+  height: sixToSeven(0.8);
+}
+.img7-9{
+  @extend %img;
+  top: 121.98rem;
+  left: 4.34rem;
+  width: sixToSeven(0.76);
+  height: sixToSeven(0.8);
+}
+.img7-10{
+  @extend %img;
+  top: 121.98rem;
+  left: 5.44rem;
+  width: sixToSeven(0.76);
+  height: sixToSeven(0.8);
+}
+.img7-11{
+  @extend %img;
+  top: 126.48rem;
+  left: 1.84rem;
+  width: sixToSeven(3.28);
+  height: sixToSeven(0.57);
+}
+.img7-12{
+  @extend %img;
+  top: 128.28rem;
+  left: 1.84rem;
+  width: sixToSeven(3.12);
+  height: sixToSeven(2.36);
+}/*
+.img7-13{
+  @extend %img;
+  top: 128.28rem;
+  left: 1.84rem;
+  width: sixToSeven(2.63);
+  height: sixToSeven(0.26);
+}*/
 
 @include animate-mySlideInRight();       //右侧划入
 @include animate-myLightSpeedIn();       //带缓冲的划入
@@ -451,24 +660,6 @@ html, body {
 .scaleY {       //由下往上变形
   @include animation-duration(3s);
   @include transform-origin(0% 100%);
-}
-.animation-delay3{
-  @include animation-delay(0.3s)
-}
-.animation-delay8{
-  @include animation-delay(0.8s)
-}
-.animation-delay13{
-  @include animation-delay(1.3s)
-}
-.animation-delay18{
-  @include animation-delay(1.8s)
-}
-.animation-delay20{
-  @include animation-delay(2s)
-}
-.animation-delay25{
-  @include animation-delay(2.5s)
 }
 
 .myFlash {

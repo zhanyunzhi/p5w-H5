@@ -23,9 +23,6 @@
         if( width < 320 ) {
             docEle.style.fontSize = 42.6667 + "px";//
         }
-        /*else if( width < 330 ) {       //  放大iphone5字体大小
-         docEle.style.fontSize = 45 + "px";//
-         }*/
         else if( width > 750 ) {
             docEle.style.fontSize = 100 + "px";
         }
@@ -38,111 +35,35 @@
     window.addEventListener(evt, fn, false);
     fn();
     $(function(){
+        var qjAni = $('body').find('[qj-ani]');     //获取所有带qj-ani属性的元素
+        var eTop = 0;           //距离顶部的高度
+        var eHeight = 0;        //自身高度
+        var wHeight = $(window).height();        //屏幕高度
         $(window).scroll(function () {          //页面滚动到某处后执行动画
-            if ($(window).scrollTop() > 500) {
-                if($("#img11").hasClass('slideInRight')){
-                    $("#img11").removeClass('slideInRight');
+            for(var i=0; i<qjAni.length; i++){      //循环带qj-ani属性的所有的元素
+                eTop = qjAni.eq(i).offset().top;        //获取当前元素距离顶部的距离
+                eHeight = qjAni.eq(i).height();
+                //元素距离顶部高度减去滚动的高度小于屏幕高度的三分之二时（向上滚动到可视区域元素顶部距离屏幕底部三分之一时），元素距离顶部高度减去滚动的高度大于屏幕高度的三分之一减去元素自身高度时（向下滚动到可视区域元素顶部距离屏幕顶部三分之一时，添加动画css
+                if(eTop-$(window).scrollTop() < (wHeight/3*2).toFixed(0) && eTop-$(window).scrollTop() > (wHeight/3-eHeight).toFixed(0)){
+                    if(!qjAni.eq(i).hasClass(qjAni.eq(i).attr('qj-effect'))){
+                        qjAni.eq(i).addClass(qjAni.eq(i).attr('qj-effect'));
+                        if(!(qjAni.eq(i).next().attr('next') == undefined)){          //是否有关联的元素要触发动画，有的话加上next属性，目前支持下个元素关联，无法关联多个
+//                            for(var j=0;j<qjAni.eq(i).find('[next]').length;i++){
+                            qjAni.eq(i).next().addClass(qjAni.eq(i).next().attr('qj-effect'))
+//                            }
+                        }
+                    }
                 }
-            }
-            if ($(window).scrollTop() < 200) {
-                if(!$("#img11").hasClass('slideInRight')){
-                    $("#img11").addClass('slideInRight');
-                }
-            }
-            if ($(window).scrollTop() > 1600 && $(window).scrollTop() < 1700) {
-                if(!$("#img21").hasClass('slideInRight')){
-                    $("#img21").addClass('slideInRight');
-                    $("#img22").addClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 2100 || $(window).scrollTop() < 1300) {
-                if($("#img21").hasClass('slideInRight')){
-                    $("#img21").removeClass('slideInRight');
-                    $("#img22").removeClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 2150 && $(window).scrollTop() < 2250) {
-                if(!$("#img31").hasClass('slideInRight')){
-                    $("#img31").addClass('slideInRight');
-                    $("#img32").addClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 2600 || $(window).scrollTop() < 1800) {
-                if($("#img31").hasClass('slideInRight')){
-                    $("#img31").removeClass('slideInRight');
-                    $("#img32").removeClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 2700 && $(window).scrollTop() < 2800) {
-                if(!$("#img41").hasClass('slideInRight')){
-                    $("#img41").addClass('slideInRight');
-                    $("#img42").addClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 3150 || $(window).scrollTop() < 2300) {
-                if($("#img41").hasClass('slideInRight')){
-                    $("#img41").removeClass('slideInRight');
-                    $("#img42").removeClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 3150 && $(window).scrollTop() < 3250) {
-                if(!$("#img51").hasClass('slideInRight')){
-                    $("#img51").addClass('slideInRight');
-                    $("#img52").addClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 3600 || $(window).scrollTop() < 2750) {
-                if($("#img51").hasClass('slideInRight')){
-                    $("#img51").removeClass('slideInRight');
-                    $("#img52").removeClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 3650 && $(window).scrollTop() < 3750) {
-                if(!$("#img61").hasClass('slideInRight')){
-                    $("#img61").addClass('slideInRight');
-                    $("#img62").addClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 4200 || $(window).scrollTop() < 3350) {
-                if($("#img61").hasClass('slideInRight')){
-                    $("#img61").removeClass('slideInRight');
-                    $("#img62").removeClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 4250 && $(window).scrollTop() < 4350) {
-                if(!$("#img71").hasClass('slideInRight')){
-                    $("#img71").addClass('slideInRight');
-                    $("#img72").addClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 4700 || $(window).scrollTop() < 3900) {
-                if($("#img71").hasClass('slideInRight')){
-                    $("#img71").removeClass('slideInRight');
-                    $("#img72").removeClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 4600 && $(window).scrollTop() < 4700) {
-                if(!$("#img81").hasClass('slideInRight')){
-                    $("#img81").addClass('slideInRight');
-                    $("#img82").addClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 5050 || $(window).scrollTop() < 4250) {
-                if($("#img81").hasClass('slideInRight')){
-                    $("#img81").removeClass('slideInRight');
-                    $("#img82").removeClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() > 5800 && $(window).scrollTop() < 5900) {
-                if(!$("#img91").hasClass('slideInRight')){
-                    $("#img91").addClass('slideInRight');
-                    $("#img92").addClass('bounceIn');
-                }
-            }
-            if ($(window).scrollTop() < 5500) {
-                if($("#img91").hasClass('slideInRight')){
-                    $("#img91").removeClass('slideInRight');
-                    $("#img92").removeClass('bounceIn');
+                //页面滚动的距离大于元素距离顶部的距离加上元素自身高度时（向上滚动出可视区域），元素距离顶部高度减去滚动的高度大于屏幕高度时（向下滚动出可视区域），元素移除动画css
+                if($(window).scrollTop() > eTop+eHeight || eTop-$(window).scrollTop() > wHeight){
+                    if(qjAni.eq(i).hasClass(qjAni.eq(i).attr('qj-effect'))){
+                        qjAni.eq(i).removeClass(qjAni.eq(i).attr('qj-effect'));
+                        if(!(qjAni.eq(i).next().attr('next') == undefined)){                  //是否有关联的元素要触发动画，有的话加上next属性，目前支持下个元素关联，无法关联多个
+//                            for(var j=0;j<qjAni.eq(i).find('[next]').length;i++){
+                            qjAni.eq(i).next().removeClass(qjAni.eq(i).next().attr('qj-effect'))
+//                            }
+                        }
+                    }
                 }
             }
         });
@@ -165,6 +86,7 @@
         var share_desc = '说得到，做得到，数字说明一切！';
         var share_link = location.href;
         var share_img = location.href.split('index.html')[0] + 'assets/fx.png';
+        //setWxShare(share_title,share_desc,share_link,share_img);
         function shareFriend(shareTitle,descContent,lineLink) {
             wx.onMenuShareAppMessage({
                 title: shareTitle,

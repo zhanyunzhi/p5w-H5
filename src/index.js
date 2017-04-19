@@ -3,8 +3,8 @@
  */
 import Layer from './components/huitian/index.js';
 const App = function() {
-    var layer = new Layer();
-    document.body.innerHTML = layer.tpl;
+    //var layer = new Layer();
+    //document.body.innerHTML = layer.tpl;
 };
 
 new App();
