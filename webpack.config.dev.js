@@ -14,7 +14,6 @@ module.exports = {
         filename: 'js/[name].js',                   //name对应entry里面的属性名，chunkhash对应各自生成的hash
     },
     devServer: {            //热更新配置
-        inline: true,
         port: 3002,
         contentBase: "./dist"
     },
@@ -102,7 +101,7 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: 'src/components/huitian/index.html',
+            template: 'src/components/animation/index.html',
             filename: 'index.html',
             inject: 'body'
         }),

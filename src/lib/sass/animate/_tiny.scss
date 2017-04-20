@@ -20,7 +20,9 @@
     @include animation-duration(20s);
     @include animation-timing-function(linear);
   }
-}@mixin animate-rotateLoopRF () {
+}
+// animate-rotateLoopRF
+@mixin animate-rotateLoopRF () {
   @include keyframes(rotateLoopRF){
     0% {
       @include rotate(-360deg);

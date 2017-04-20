@@ -1,9 +1,9 @@
 /**
  * Created by user on 2017/4/10.
  */
-import Layer from './components/huitian/index.js';
+import Layer from './components/animation/index.js';
 const App = function() {
-    //var layer = new Layer();
+    var layer = new Layer();
     //document.body.innerHTML = layer.tpl;
 };
 

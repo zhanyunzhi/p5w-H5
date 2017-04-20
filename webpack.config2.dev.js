@@ -15,7 +15,6 @@ module.exports = {
         filename: 'js/[name].js',                   //name对应entry里面的属性名，chunkhash对应各自生成的hash
     },
     devServer: {            //热更新配置
-        inline: true,
         port: 3003,
         contentBase: "./dist2"
     },

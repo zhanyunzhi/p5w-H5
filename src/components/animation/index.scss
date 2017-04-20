@@ -1,0 +1,115 @@
+@import "../../lib/sass/core/_setting";
+@import "../../lib/sass/core/_css3";
+@import "../../lib/sass/core/_mixin";
+@import "../../lib/sass/animate/_fade";
+@import "../../lib/sass/animate/_bounce";
+@import "../../lib/sass/animate/_slide";
+@import "../../lib/sass/animate/_rotate";
+@import "../../lib/sass/animate/_flip";
+@import "../../lib/sass/animate/_special";
+@import "../../lib/sass/animate/_attention-seekers";
+@import "../../lib/sass/animate/_lightspeed";
+@import "../../lib/sass/animate/_tiny";
+h4{
+  font-size: 16px;;
+}
+section{
+  @include clearfix();
+}
+.div-common{
+  width:100px;
+  height: 80px;
+  margin:10px;
+  padding:10px 0 0 10px;
+  background-color: #7a43b6;
+  font-size: 12px;;
+  @include float();
+}
+%animated{
+  //@include animation-iteration-count(infinite);
+}
+//_attention-seekers.scss
+@include animate-bounce();
+@include animate-flash();
+@include animate-pulse();
+@include animate-shake();
+@include animate-swing();
+@include animate-tada();
+@include animate-wobble();
+//_bounce.scss
+@include animate-bounceIn();
+@include animate-bounceInDown();
+@include animate-bounceInLeft();
+@include animate-bounceInRight();
+@include animate-bounceInUp();
+@include animate-bounceOut();
+@include animate-bounceOutDown();
+@include animate-bounceOutLeft();
+@include animate-bounceOutRight();
+@include animate-bounceOutUp();
+//_fade.scss
+@include animate-fadeIn();
+@include animate-fadeInDown();
+@include animate-fadeInDownBig();
+@include animate-fadeInLeft();
+@include animate-fadeInLeftBig();
+@include animate-fadeInRight();
+@include animate-fadeInRightBig();
+@include animate-fadeInUp();
+@include animate-fadeInUpBig();
+@include animate-fadeOut();
+@include animate-fadeOutDown();
+@include animate-fadeOutDownBig();
+@include animate-fadeOutLeft();
+@include animate-fadeOutLeftBig();
+@include animate-fadeOutRight();
+@include animate-fadeOutRightBig();
+@include animate-fadeOutUp();
+@include animate-fadeOutUpBig();
+//_flip.scss
+@include animate-flip();
+@include animate-flipInX();
+@include animate-flipInY();
+@include animate-flipOutX();
+@include animate-flipOutY();
+//_lightspeed.scss
+@include animate-lightSpeedIn();
+@include animate-lightSpeedOut();
+//_rotate.scss
+@include animate-rotateIn();
+@include animate-rotateInDownLeft();
+@include animate-rotateInDownRight();
+@include animate-rotateInUpLeft();
+@include animate-rotateInUpRight();
+@include animate-rotateOut();
+@include animate-rotateOutDownLeft();
+@include animate-rotateOutDownRight();
+@include animate-rotateOutUpLeft();
+@include animate-rotateOutUpRight();
+//_slide.scss
+@include animate-slideInDown();
+@include animate-slideInUp();
+@include animate-slideInLeft();
+@include animate-slideInRight();
+@include animate-slideOutLeft();
+@include animate-slideOutRight();
+@include animate-slideOutUp();
+@include animate-slideOutDown();
+//_special.scss
+@include animate-hinge();
+@include animate-rollIn();
+@include animate-rollOut();
+//_tiny.scss
+@include animate-rotateLoopR();
+@include animate-rotateLoopRF();
+@include animate-rotateLoopL();
+@include animate-scaleY();
+@include animate-slideInDownLoop();
+@include animate-slideInDownRotate();
+@include animate-fadeUpAndDown();
+@include animate-myFlash();
+@include animate-mySlideInRight();
+@include animate-rotateInY();
+@include animate-moveToLeft();
+@include animate-moveToBottom();
+@include animate-myLightSpeedIn();

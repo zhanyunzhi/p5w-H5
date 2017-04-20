@@ -9,8 +9,8 @@
     "build2": "webpack --config webpack.config2.js --progress --display-modules --colors --display-reasons",
     "dev": "webpack --config webpack.config.dev.js --progress --display-modules --colors --display-reasons",
     "dev2": "webpack --config webpack.config2.dev.js --progress --display-modules --colors --display-reasons",
-    "hot": "webpack-dev-server --config webpack.config.dev.js --progress --colors --host 0.0.0.0",
-    "hot2": "webpack-dev-server --config webpack.config2.dev.js --progress --colors --host 0.0.0.0"
+    "hot": "webpack-dev-server --config webpack.config.dev.js --inline --progress --colors --host 0.0.0.0",
+    "hot2": "webpack-dev-server --config webpack.config2.dev.js --inline --progress --colors --host 0.0.0.0"
   },
   "keywords": [
     "slide",
