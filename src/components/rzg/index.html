@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width">
     <title>亲们，日照港喊你来开会啦！</title>
+    <script>
+        var docEle = document.documentElement;
+        fn = function() {
+            var width = docEle.clientWidth;
+            if( width < 320 ) {
+                docEle.style.fontSize = 42.6667 + "px";//
+            }
+            else if( width > 750 ) {
+                docEle.style.fontSize = 100 + "px";
+            }
+            else {
+                //以750设计稿宽度为基准设置fontSize:100px;这样保证iPhone6以下是高清
+                docEle.style.fontSize = 100 * (width / 750) + "px";
+            }
+        };
+        var evt = "onorientationchange" in window ? "orientationchange" : "resize";//区分Mobile和PC以加载不同的事件
+        window.addEventListener(evt, fn, false);
+        fn();
+    </script>
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
@@ -113,23 +132,6 @@
         $('body,html').animate({ scrollTop: 0 }, speed);
         return false;
     });
-    var docEle = document.documentElement;
-    fn = function() {
-        var width = docEle.clientWidth;
-        if( width < 320 ) {
-            docEle.style.fontSize = 42.6667 + "px";//
-        }
-        else if( width > 750 ) {
-            docEle.style.fontSize = 100 + "px";
-        }
-        else {
-            //以750设计稿宽度为基准设置fontSize:100px;这样保证iPhone6以下是高清
-            docEle.style.fontSize = 100 * (width / 750) + "px";
-        }
-    };
-    var evt = "onorientationchange" in window ? "orientationchange" : "resize";//区分Mobile和PC以加载不同的事件
-    window.addEventListener(evt, fn, false);
-    fn();
     $(function(){
         var qjAni = $('body').find('[qj-ani]');     //获取所有带qj-ani属性的元素
         var eTop = 0;           //距离顶部的高度

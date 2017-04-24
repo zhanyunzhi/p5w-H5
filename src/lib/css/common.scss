@@ -217,3 +217,12 @@
 .animation-duration20{
     @include animation-duration(2.0s)
 }
+.animation-duration25{
+    @include animation-duration(2.5s)
+}
+.animation-duration30{
+    @include animation-duration(3.0s)
+}
+.animation-duration50{
+    @include animation-duration(5.0s)
+}

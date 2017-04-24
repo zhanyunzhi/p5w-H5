@@ -93,18 +93,28 @@ module.exports = {
             },
             {                 //处理MP3 文件，将mp3移动
                 test: /\.mp3$/,
-                use: [
-                    { loader: 'file-loader'}
+                use: [{
+                    loader: 'file-loader',
+                    query: {
+                        name: '[name].[ext]'       //改变打包存储的路径
+                    }}
                 ]
             },
         ]
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: 'src/components/animation/index.html',
+            template: 'src/components/kpd/index.html',
             filename: 'index.html',
-            inject: 'body'
+            inject: 'body',
+            chunksSortMode: function(chunk1, chunk2){           //引入多个js的时候，排序
+                var order = ['vendor', 'common', 'public', 'index'];
+                var order1 = order.indexOf(chunk1.names[0]);
+                var order2 = order.indexOf(chunk2.names[0]);
+                return order1 - order2;
+            }
         }),
+        //new webpack.ProvidePlugin({common: 'common'}),
         new ExtractTextPlugin('css/style.css')              //单独打包css文件,所有的css文件都会打包进这里
 ]
 }

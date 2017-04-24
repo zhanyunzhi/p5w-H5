@@ -1,0 +1,23 @@
+@charset "UTF-8";
+//-----------------------------------------------------	
+// tiny flash scss
+//-----------------------------------------------------
+
+
+
+// fastFlashAndShow
+@mixin animate-fastFlashAndShow () {
+  @include keyframes(fastFlashAndShow){
+    0%, 20%, 40%{
+      opacity: 0;
+    }
+
+    10%, 30%, 100% {
+      opacity: 1;
+    }
+  }
+  .fastFlashAndShow {
+    @include animation-name(fastFlashAndShow);
+    @extend %animated;
+  }
+}

@@ -1,0 +1,107 @@
+@import "../../lib/sass/core/_setting";
+@import "../../lib/sass/core/_css3";
+@import "../../lib/sass/core/_mixin";
+@import "../../lib/sass/animate/_fade";
+@import "../../lib/sass/animate/_bounce";
+@import "../../lib/sass/animate/_slide";
+@import "../../lib/sass/animate/_rotate";
+@import "../../lib/sass/animate/_flip";
+@import "../../lib/sass/animate/_special";
+@import "../../lib/sass/animate/_attention-seekers";
+@import "../../lib/sass/animate/_tiny";
+@import "../../lib/sass/animate/_tiny-flash";
+@import "../../lib/css/jquery.fullPage.css";
+@import "../../lib/css/common";
+
+@include animate-fastFlashAndShow();        //快速闪烁，然后渐现
+@include animate-fadeInDown();        //渐入
+@include animate-slideOutUp();        //渐入
+
+
+
+.bg1{
+  background: url(../../assets/kpd/bg1.png);
+  background-size: 100% 100%;
+}
+%img-all{
+  position: absolute;
+  @include opacity(0);
+}
+.img11{
+  @extend %img-all;
+  width:6.0rem;
+  height:2.87rem;
+  top:0.36rem;
+  left:50%;
+  margin-left:-2.8rem;
+  z-index:9;
+}
+.img12{
+  @extend %img-all;
+  width:4.6rem;
+  height:0.56rem;
+  top:3.24rem;
+  left:50%;
+  margin-left:-2.46rem;
+  z-index:9;
+}
+.img13{
+  @extend %img-all;
+  width:6.11rem;
+  height:0.96rem;
+  top:1.78rem;
+  left:50%;
+  margin-left:-3.05rem;
+  z-index:9;
+}
+.img14{
+  @extend %img-all;
+  width:4.33rem;
+  height:11.23rem;
+  bottom:.2rem;
+  left:0;
+  @include opacity(100);
+  z-index:2;
+}
+.img15{
+  @extend %img-all;
+  width:7.50rem;
+  height:6.5rem;
+  bottom:0.2rem;
+  left:0;
+  @include opacity(100);
+  z-index:1;
+}
+.img16{
+  @extend %img-all;
+  width:4.55rem;
+  height:8.92rem;
+  bottom:0;
+  right:0;
+  @include opacity(100);
+  z-index:3;
+}
+.img17{
+  @extend %img-all;
+  width:2.76rem;
+  height:7.60rem;
+  bottom:0.1rem;
+  right:0.1rem;
+  z-index:5;
+}
+.img18{
+  @extend %img-all;
+  width:7.13rem;
+  height:6.87rem;
+  bottom:0.55rem;
+  left:0;
+  z-index:6;
+}
+.shade-div{
+  position: absolute;
+  width:7.5rem;
+  height:100%;
+  bottom:0;
+  background-color: #000000;
+  z-index:4;
+}
