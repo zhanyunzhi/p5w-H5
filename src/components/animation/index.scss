@@ -10,6 +10,7 @@
 @import "../../lib/sass/animate/_attention-seekers";
 @import "../../lib/sass/animate/_lightspeed";
 @import "../../lib/sass/animate/_tiny";
+@import "../../lib/sass/animate/_zoom";
 h4{
   font-size: 16px;;
 }
@@ -113,3 +114,14 @@ section{
 @include animate-moveToLeft();
 @include animate-moveToBottom();
 @include animate-myLightSpeedIn();
+//_zoom.scss
+@include animate-zoomIn();
+@include animate-zoomInDown();
+@include animate-zoomInLeft();
+@include animate-zoomInRight();
+@include animate-zoomInUp();
+@include animate-zoomOut();
+@include animate-zoomOutDown();
+@include animate-zoomOutLeft();
+@include animate-zoomOutRight();
+@include animate-zoomOutUp();

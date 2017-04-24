@@ -60,6 +60,7 @@ html, body {
   margin-left:-3.14rem;
   width:6.2rem;
   height:5.34rem;
+  @include opacity(0);
 }
 .img-light2{
   position: absolute;
@@ -289,18 +290,18 @@ html, body {
   @extend %img;
   opacity: 1;
   top: 14.12rem;
-  left: 2.8rem;
-  width: sixToSeven(0.79);
-  height: sixToSeven(0.69);
+  left: 5.3rem;
+  width: sixToSeven(1.10);
+  height: sixToSeven(0.68);
 }
 .car-2{
   @extend %img;
   opacity: 1;
   top: 18.82rem;
-  left: -0.1rem;
-  width: sixToSeven(0.79);
-  height: sixToSeven(0.69);
-  @include rotate(-90deg);
+  left: 0.1rem;
+  width: sixToSeven(0.68);
+  height: sixToSeven(1.09);
+  //@include rotate(-90deg);
 }
 .img2-1{
   @extend %img;
@@ -683,7 +684,7 @@ html, body {
 }
 
 .myFlash {
-  @include animation-duration(1.6s);
+  @include animation-duration(1.0s);
   @include animation-iteration-count(infinite);
   @include animation-timing-function(linear);
 }

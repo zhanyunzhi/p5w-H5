@@ -11,11 +11,12 @@
 <audio id="bgMusic" loop="loop" autoplay="autoplay">
     <source src="./music.mp3" type="audio/mpeg">
 </audio>
+<img src="../../assets/rzg/fx.png" style="display:none;"/>
 <div class="container">
     <img src="../../assets/rzg/rzg-main.png" class="img-main"/>
-    <img src="../../assets/rzg/light1.png" class="img-light1 myFlash animation-delay8" />
-    <img src="../../assets/rzg/light2.png" class="img-light2 myFlash" />
-    <img src="../../assets/rzg/img11.png" class="img11 myLightSpeedIn" qj-ani qj-effect="myLightSpeedIn animation-delay8"  />
+    <img src="../../assets/rzg/light1.png" class="img-light1" id="imgLight1"/>
+    <img src="../../assets/rzg/light2.png" class="img-light2" id="imgLight2"/>
+    <img src="../../assets/rzg/img11.png" class="img11 myLightSpeedIn animation-delay8" qj-ani qj-effect="myLightSpeedIn animation-delay8"  />
     <img src="../../assets/rzg/img21.png" class="img21" qj-ani qj-effect="myLightSpeedIn"/>
     <img src="../../assets/rzg/img22.png" class="img22" next qj-effect="bounceIn animation-delay8" />
     <img src="../../assets/rzg/img31.png" class="img31" qj-ani qj-effect="myLightSpeedIn" />
@@ -45,8 +46,8 @@
     <img src="../../assets/rzg/1-11.png" class="img1-11" qj-ani qj-effect="fadeIn animation-delay13" />
     <img src="../../assets/rzg/1-12.png" class="img1-12" qj-ani qj-effect="fadeInDown"/>
     <img src="../../assets/rzg/1-13.png" class="img1-13" qj-ani qj-effect="fadeInDown"/>
-    <img src="../../assets/rzg/car1.png" class="car-1" qj-ani qj-effect="moveToLeft"/>
-    <img src="../../assets/rzg/car1.png" class="car-2" qj-ani qj-effect="moveToBottom"/>
+    <img src="../../assets/rzg/car1.gif" class="car-1" qj-ani qj-effect="moveToLeft"/>
+    <img src="../../assets/rzg/car2.gif" class="car-2" qj-ani qj-effect="moveToBottom"/>
     <img src="../../assets/rzg/2-1.png" class="img2-1" qj-ani qj-effect="fadeInDown"/>
     <img src="../../assets/rzg/2-2.png" class="img2-2" qj-ani qj-effect="scaleY"/>
     <img src="../../assets/rzg/2-3.png" class="img2-3" next qj-effect="fadeInDown animation-delay8"/>
@@ -162,6 +163,21 @@
                 }
             }
         });
+        /*setInterval(function(){ $("#imgLight1").fadeOut(300).fadeIn(300); },1000);
+        setInterval(function(){ $("#imgLight2").fadeIn(300).fadeOut(300); },1000);*/
+        setInterval(function(){
+            $("#imgLight1").animate({opacity:'1'},600);
+            $("#imgLight1").animate({opacity:'0'},600);
+        },1200)
+        setInterval(function(){
+            $("#imgLight2").animate({opacity:'0'},600);
+            $("#imgLight2").animate({opacity:'1'},600);
+        },1200)
+        /*$('#imgLight1').addClass('myFlash');
+        var t = setTimeout(function(){
+            $('#imgLight2').addClass('myFlash1');
+        },500);
+        clear(t);*/
         var music = document.getElementById("bgMusic");
         $("#audioBtn").click(function(){
             if(music.paused){music.play();
