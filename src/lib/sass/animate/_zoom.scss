@@ -11,7 +11,7 @@
       opacity: 0;
       @include transform(scale3d(.3, .3, .3));
     }
-    50% {
+    50%, 100%{
       opacity: 1;
     }
   }
@@ -28,9 +28,13 @@
       opacity: 0;
       @include transform(scale3d(.1, .1, .1) translate3d(0, -1000px, 0));
     }
-    60% {
+    60%{
       opacity: 1;
       @include transform(scale3d(.475, .475, .475) translate3d(0, 60px, 0));
+    }
+    100%{
+      opacity: 1;
+      @include transform(scale3d(1, 1, 1) translate3d(0, 0, 0));
     }
   }
   .zoomInDown {

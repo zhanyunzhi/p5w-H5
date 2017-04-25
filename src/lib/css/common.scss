@@ -63,11 +63,11 @@
 }
 .mscBtn {
     position: fixed;
-    top: 10px;
-    right: 10px;
-    width: 30px;
+    top: 0.2rem;
+    right: 0.2rem;
+    width: 0.6rem;
     z-index: 999;
-    height: 30px;
+    height: 0.6rem;
     background: url(../../assets/huitian/normalmusic.svg) no-repeat;
     display: block;
     background-size: contain;
@@ -75,45 +75,45 @@
 /*底部指示箭头*/
 
 .u-arrow-bottom {
-    bottom: 10px;
+    bottom: 0.2rem;
     z-index: 150;
-    margin-left: -7px;
+    margin-left: -0.14rem;
     display:block;
 }
 .u-arrow-bottom, .u-arrow-bottom img {
     position: absolute;
-    width: 24px;
-    height: 14px;
+    width: 0.48rem;
+    height: 0.28rem;
     left: 50%;
 }
 .pre-wrap {
-    width: 24px;
-    height: 14px;
+    width: 0.48rem;
+    height: 0.28rem;
     position: relative;
     -webkit-animation: start 1.5s infinite ease-in-out;
     -moz-animation: start 1.5s infinite ease-in-out;
     animation: start 1.5s infinite ease-in-out;
 }
 .pre-box1, .pre-box2 {
-    height: 15px;
-    width: 11px;
+    height: 0.3rem;
+    width: 0.22rem;
     position: absolute;
-    top: -5px;
+    top: -0.1rem;
     overflow: hidden;
 }
 .pre1, .pre2, .pre3, .pre4 {
-    border-radius: 2px;
+    border-radius: 0.4rem;
     background-color: #fff;
 }
 .pre1, .pre2 {
-    width: 14px;
-    height: 5px;
+    width: 0.28rem;
+    height: 0.1rem;
     position: absolute;
     box-shadow: 1px -1px 1px #646464;
-    top: 5px;
+    top: 0.10rem;
 }
 .pre-box2 {
-    left: 10px;
+    left: 0.2rem;
 }
 .pre1 {
     transform: rotate(130deg);
@@ -121,7 +121,7 @@
     left: 1px;
 }
 .pre2 {
-    left: -4.5px;
+    left: -0.1rem;
     -webkit-transform: rotate(50deg);
     transform: rotate(50deg);
 }
@@ -205,11 +205,33 @@
 .animation-delay25{
     @include animation-delay(2.5s)
 }
+.animation-delay30{
+    @include animation-delay(3.0s)
+}
+.animation-delay35{
+    @include animation-delay(3.5s)
+}
+.animation-delay40{
+    @include animation-delay(4.0s)
+}
+.animation-delay45{
+    @include animation-delay(4.5s)
+}
+.animation-delay50{
+    @include animation-delay(5.0s)
+}
+
+.animation-delay60{
+    @include animation-delay(6.0s)
+}
 
 
 //animation-duration
 .animation-duration10{
     @include animation-duration(1.0s)
+}
+.animation-duration12{
+    @include animation-duration(1.2s)
 }
 .animation-duration15{
     @include animation-duration(1.5s)
@@ -225,4 +247,9 @@
 }
 .animation-duration50{
     @include animation-duration(5.0s)
+}
+
+//
+.animation-iteration-infinite{
+    @include animation-iteration-count(infinite);
 }

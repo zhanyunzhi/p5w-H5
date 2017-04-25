@@ -8,24 +8,26 @@
 @import "../../lib/sass/animate/_flip";
 @import "../../lib/sass/animate/_special";
 @import "../../lib/sass/animate/_attention-seekers";
+@import "../../lib/sass/animate/_zoom";
 @import "../../lib/sass/animate/_tiny";
 @import "../../lib/sass/animate/_tiny-flash";
 @import "../../lib/css/jquery.fullPage.css";
 @import "../../lib/css/common";
 
-@include animate-fastFlashAndShow();        //快速闪烁，然后渐现
-@include animate-fadeInDown();        //渐入
-@include animate-slideOutUp();        //渐入
-
-
-
-.bg1{
-  background: url(../../assets/kpd/bg1.png);
-  background-size: 100% 100%;
+.section{
+  background-color: #000000;
 }
 %img-all{
   position: absolute;
   @include opacity(0);
+}
+.bg1{
+  @extend %img-all;
+  width:100%;
+  height:100%;
+  bottom:0;
+  left:0;
+  z-index:100;
 }
 .img11{
   @extend %img-all;
@@ -97,11 +99,364 @@
   left:0;
   z-index:6;
 }
-.shade-div{
+.shade-div11{
   position: absolute;
   width:7.5rem;
   height:100%;
   bottom:0;
   background-color: #000000;
   z-index:4;
+}
+.img21{
+  @extend %img-all;
+  width:2.67rem;
+  height:1.58rem;
+  top:1.10rem;
+  left:50%;
+  margin-left:-1.335rem;
+  z-index:9;
+}
+.img22{
+  @extend %img-all;
+  width:6.13rem;
+  height:3.24rem;
+  top:0.9rem;
+  left:50%;
+  margin-left:-3.065rem;
+  z-index:9;
+}
+.img23{
+  @extend %img-all;
+  width:5.48rem;
+  height:0.54rem;
+  top:4.25rem;
+  left:50%;
+  margin-left:-2.74rem;
+  z-index:9;
+}
+.img24{
+  @extend %img-all;
+  width:5.46rem;
+  height:0.54rem;
+  top:5.3rem;
+  left:50%;
+  margin-left:-2.73rem;
+  z-index:9;
+}
+.img25{
+  @extend %img-all;
+  width:5.44rem;
+  height:0.54rem;
+  top:6.35rem;
+  left:50%;
+  margin-left:-2.72rem;
+  z-index:9;
+}
+.img26{
+  @extend %img-all;
+  width:2.08rem;
+  height:1.28rem;
+  top:7.4rem;
+  left:50%;
+  margin-left:-1.04rem;
+  z-index:9;
+}
+.img27{
+  @extend %img-all;
+  width:7.5rem;
+  height:2.75rem;
+  bottom:0;
+  right:0;
+  z-index:3;
+  @include opacity(100);
+}
+.img28{
+  @extend %img-all;
+  width:6.97rem;
+  height:2.48rem;
+  bottom:0.1rem;
+  left:0.06rem;
+  z-index:9;
+}
+.shade-div21{
+  position: absolute;
+  width:3.75rem;
+  height:1rem;
+  top:3.14rem;
+  left:50%;
+  background-color: #000000;
+  z-index:10;
+}
+.shade-div22{
+  position: absolute;
+  width:3.75rem;
+  height:1rem;
+  top:3.14rem;
+  right:50%;
+  background-color: #000000;
+  z-index:10;
+}
+.shade-div23{
+  position: absolute;
+  width:7.5rem;
+  height:100%;
+  bottom:0;
+  background-color: #000000;
+  z-index:4;
+}
+
+.img31{
+  @extend %img-all;
+  width:2.56rem;
+  height:3.2rem;
+  top:0.9rem;
+  left:1rem;
+  z-index:9;
+}
+.img32{
+  @extend %img-all;
+  width:2.56rem;
+  height:3.2rem;
+  top:0.9rem;
+  right:1rem;
+  z-index:9;
+}
+.img33{
+  @extend %img-all;
+  width:6.15rem;
+  height:3.12rem;
+  top:3.75rem;
+  left:50%;
+  margin-left:-3.08rem;
+  z-index:9;
+}
+.img34{
+  @extend %img-all;
+  width:3.84rem;
+  height:1.24rem;
+  top:4.65rem;
+  left:50%;
+  margin-left:-1.92rem;
+  z-index:9;
+}
+.img35{
+  @extend %img-all;
+  width:2.56rem;
+  height:3.2rem;
+  top:6.5rem;
+  left:1rem;
+  z-index:9;
+}
+.img36{
+  @extend %img-all;
+  width:2.56rem;
+  height:3.2rem;
+  top:6.5rem;
+  right:1rem;
+  z-index:9;
+}
+.img37{
+  @extend %img-all;
+  width:7.21rem;
+  height:2.66rem;
+  bottom:-0.2rem;
+  left:-0.2rem;
+  z-index:9;
+  @include opacity(100);
+}
+.img41{
+  @extend %img-all;
+  width:6.92rem;
+  height:2.17rem;
+  top:0.06rem;
+  left:0.26rem;
+  z-index:9;
+}
+.img42{
+  @extend %img-all;
+  width:7.5rem;
+  height:3.45rem;
+  top:-0.9rem;
+  left:0;
+  z-index:9;
+}
+.img43{
+  @extend %img-all;
+  width:6.71rem;
+  height:5.5rem;
+  top:1.4rem;
+  left:50%;
+  margin-left:-3.35rem;
+  z-index:9;
+}
+.img44{
+  @extend %img-all;
+  width:6.63rem;
+  height:5.43rem;
+  top:1.4rem;
+  left:50%;
+  margin-left:-3.31rem;
+  z-index:9;
+}
+.img45{
+  @extend %img-all;
+  width:4.81rem;
+  height:4.57rem;
+  top: 2.22rem;
+  right: 0.84rem;
+  z-index:9;
+}
+.img46{
+  @extend %img-all;
+  width:0.26rem;
+  width:0.26rem;
+  top:3.96rem;
+  right:1.7rem;
+  z-index:9;
+}
+.img47{
+  @extend %img-all;
+  width:6.41rem;
+  height:2.25rem;
+  top:7.35rem;
+  left:50%;
+  margin-left:-3.2rem;
+  z-index:9;
+}
+.img48{
+  @extend %img-all;
+  width:5.34rem;
+  height:0.46rem;
+  top:10rem;
+  left:50%;
+  margin-left:-2.67rem;
+  z-index:99;
+}
+.img49{
+  @extend %img-all;
+  width:6.29rem;
+  height:0.44rem;
+  top:10.43rem;
+  left:50%;
+  margin-left:-3.15rem;
+  z-index:9;
+  @include opacity(100);
+}
+.shade-div41{
+  position: absolute;
+  width:3.75rem;
+  height:1rem;
+  top:10.43rem;
+  left:50%;
+  background-color: #000000;
+  z-index:10;
+}
+.shade-div42{
+  position: absolute;
+  width:3.75rem;
+  height:1rem;
+  top:10.43rem;
+  right:50%;
+  background-color: #000000;
+  z-index:10;
+}
+.img51{
+  @extend %img-all;
+  width:2.91rem;
+  height:0.46rem;
+  top:1.24rem;
+  left:50%;
+  margin-left:-1.45rem;
+  z-index:99;
+}
+.img52{
+  @extend %img-all;
+  width:4.68rem;
+  height:0.96rem;
+  top:2.4rem;
+  left:1.74rem;
+  z-index:99;
+}
+.img53{
+  @extend %img-all;
+  width:5.06rem;
+  height:1.03rem;
+  top:3.4rem;
+  left:0.76rem;
+  z-index:99;
+}
+.img54{
+  @extend %img-all;
+  width:4.56rem;
+  height:2.46rem;
+  top:3.8rem;
+  left:50%;
+  margin-left:-2.28rem;
+  z-index:9;
+  @include opacity(100);
+}
+.img55{
+  @extend %img-all;
+  width:6.41rem;
+  height:3.01rem;
+  top:6.7rem;
+  left:50%;
+  margin-left:-3.2rem;
+  z-index:99;
+}
+.img56{
+  @extend %img-all;
+  width:4.13rem;
+  height:0.55rem;
+  top:10rem;
+  left:50%;
+  margin-left:-2.06rem;
+  z-index:99;
+}
+.img57{
+  @extend %img-all;
+  width:6.92rem;
+  height:2.17rem;
+  top: -0.54rem;
+  left: 0;
+  z-index:99;
+}
+.img58{
+  @extend %img-all;
+  width:7.5rem;
+  height:3.45rem;
+  top: -1.24rem;
+  left:0;
+  z-index:99;
+}
+.shade-div51{
+  position: absolute;
+  width:7.5rem;
+  height:3rem;
+  top:3.8rem;
+  left:0;
+  background-color: #000000;
+  z-index:10;
+}
+
+@include animate-fastFlashAndShow();        //快速闪烁，然后渐现
+@include animate-flash();        //快速闪烁，然后渐现
+@include animate-fadeInDown();        //渐入
+@include animate-fadeInUp();        //渐入
+@include animate-slideOutUp();        //渐出
+@include animate-slideOutRight();        //渐出
+@include animate-slideOutRightShort();        //渐出
+@include animate-slideOutUpShort();        //渐出
+@include animate-slideOutLeftShort();        //渐出
+@include animate-tada();        //强调
+@include animate-flip();        //强调
+@include animate-zoomIn();        //强调
+@include animate-zoomInDown();        //强调
+@include animate-bigPulse();        //先放大，再猛地缩小
+@include animate-pulse();        //先放大，再猛地缩小
+
+.flash{
+  @include animation-timing-function(linear);
+}
+.pulse{
 }

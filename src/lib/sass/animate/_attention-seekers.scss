@@ -52,11 +52,32 @@
       @include scale(1.1);
     }
     100% {
+      @include opacity(100);
       @include scale(1);
     }
   }
   .pulse {
     @include animation-name(pulse);
+    @extend %animated;
+  }
+}
+// bigPulse
+@mixin animate-bigPulse () {
+  @include keyframes(bigPulse){
+    0% {
+      @include opacity(100);
+      @include scale(1);
+    }
+    80% {
+      @include scale(1.5);
+    }
+    100% {
+      @include opacity(100);
+      @include scale(1);
+    }
+  }
+  .bigPulse {
+    @include animation-name(bigPulse);
     @extend %animated;
   }
 }
@@ -122,6 +143,7 @@
       @include transform(scale(1.1) rotate(-3deg));
     }
     100%{
+      @include opacity(100);
       @include transform(scale(1) rotate(0));
     }
   }

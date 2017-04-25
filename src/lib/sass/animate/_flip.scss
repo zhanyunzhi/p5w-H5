@@ -20,6 +20,7 @@
       @include transform(perspective(400px) translateZ(0) rotateY(360deg) scale(.95));
     }
     100% {
+      @include opacity(100);
       @include transform(perspective(400px) translateZ(0) rotateY(360deg) scale(1));
     }
   }
