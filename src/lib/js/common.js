@@ -88,16 +88,16 @@ function Common(){
 
                     wx.ready(function () {
 
-                        //·¢ËÍ¸øºÃÓÑ
+                        //å‘é€ç»™å¥½å‹
                         shareFriend(share_title, share_desc, share_link, share_img);
 
-                        //·ÖÏíµ½ÅóÓÑÈ¦
+                        //åˆ†äº«åˆ°æœ‹å‹åœˆ
                         shareTimeline(share_title, share_desc, share_link, share_img);
 
-                        //·ÖÏí¸øQQºÃÓÑ
+                        //åˆ†äº«ç»™QQå¥½å‹
                         shareQQ(share_title, share_desc, share_link, share_img);
 
-                        //·ÖÏíµ½Î¢²©
+                        //åˆ†äº«åˆ°å¾®åš
                         shareWeibo(share_title, share_desc, share_link, share_img);
                     });
 
@@ -106,7 +106,7 @@ function Common(){
         });
     };
     function setMusic(){
-        //µã»÷ÔİÍ£ºÍÆô¶¯ÒôÀÖ
+        //ç‚¹å‡»æš‚åœå’Œå¯åŠ¨éŸ³ä¹
         var music = document.getElementById("bgMusic");
         $("#audioBtn").click(function(){
             if(music.paused){music.play();
@@ -115,17 +115,84 @@ function Common(){
                 $("#audioBtn").removeClass("play").addClass("pause");
             }
         });
-        //ÊÖ¶¯³ö·¢Æô¶¯ÒôÀÖ
-        document.getElementById('bgMusic').play();  //Ò»°ãÇé¿öÏÂ£¬ÕâÑù¾Í¿ÉÒÔ×Ô¶¯²¥·ÅÁË£¬µ«ÊÇÒ»Ğ©ÆæİâiPhone»ú²»¿ÉÒÔ
-        document.addEventListener("WeixinJSBridgeReady", function () {  //±ØĞëÔÚÎ¢ĞÅWeixin JSAPIµÄWeixinJSBridgeReady²ÅÄÜÉúĞ§
+        //æ‰‹åŠ¨å‡ºå‘å¯åŠ¨éŸ³ä¹
+        document.getElementById('bgMusic').play();  //ä¸€èˆ¬æƒ…å†µä¸‹ï¼Œè¿™æ ·å°±å¯ä»¥è‡ªåŠ¨æ’­æ”¾äº†ï¼Œä½†æ˜¯ä¸€äº›å¥‡è‘©iPhoneæœºä¸å¯ä»¥
+        document.addEventListener("WeixinJSBridgeReady", function () {  //å¿…é¡»åœ¨å¾®ä¿¡Weixin JSAPIçš„WeixinJSBridgeReadyæ‰èƒ½ç”Ÿæ•ˆ
             document.getElementById('bgMusic').play();
             document.getElementById('video').play();
         }, false);
+    };
+    function loading() {
+        var images = [];                //å­˜æ”¾æ‰€æœ‰çš„å›¾ç‰‡srcçš„æ•°ç»„
+        var imgs = document.images;     //è·å–æ‰€æœ‰imageèŠ‚ç‚¹
+        //é€šè¿‡domæ–¹æ³•è·å–é¡µé¢ä¸­çš„æ‰€æœ‰imgï¼ŒåŒ…æ‹¬<img>æ ‡ç­¾å’Œcssä¸­çš„background-image
+        for (var i = 0; i < imgs.length; i++) {
+            images.push(imgs[i].src);       //ä¿å­˜domä¸­çš„å›¾ç‰‡src
+        }
+        var cssImages = getallBgimages();       //è·å¾—èƒŒæ™¯å›¾
+        for (var j = 0; j < cssImages.length; j++) {
+            images.push(cssImages[j]);          //ä¿å­˜èƒŒæ™¯å›¾ç­‰çš„src
+        }
+        console.log(images);
+        var imgNum = images.length;
+        var loadImgProgress = 0;
+        $.imgpreload(images, {
+            each: function () {
+                var status = $(this).data('loaded') ? 'success' : 'error';
+                if (status == 'success') {
+                    loadImgProgress++;
+                    var percent = Math.ceil(loadImgProgress / imgNum * 100);
+                    $('#progress').html(percent + '%');
+                    console.log(new Date().getTime()+'--'+percent)
+                }
+            },
+            all: function () {
+                 setTimeout(function(){
+                    $('#loading').fadeOut();
+                 },300)
+
+            }
+        });
     }
+    //get all images in styleï¼ˆæ­¤æ–¹æ³•å¼•ç”¨å…¶ä»–åšå®¢çš„ï¼‰
+    function getallBgimages() {
+        var url, B = [], A = document.getElementsByTagName('*');
+        A = B.slice.call(A, 0, A.length);
+        while (A.length) {
+            url = deepCss(A.shift(), 'background-image');
+            if (url) url = /url\(['"]?([^")]+)/.exec(url) || [];
+            url = url[1];
+            if (url && B.indexOf(url) == -1) B[B.length] = url;
+        }
+        return B;
+    }
+    function deepCss (who, css) {
+        if (!who || !who.style) return '';
+        var sty = css.replace(/\-([a-z])/g, function (a, b) {
+            return b.toUpperCase();
+        });
+        if (who.currentStyle) {
+            return who.style[sty] || who.currentStyle[sty] || '';
+        }
+        var dv = document.defaultView || window;
+        return who.style[sty] ||
+            dv.getComputedStyle(who, "").getPropertyValue(css) || '';
+    }
+    Array.prototype.indexOf = Array.prototype.indexOf ||
+        function (what, index) {
+            index = index || 0;
+            var L = this.length;
+            while (index < L) {
+                if (this[index] === what) return index;
+                ++index;
+            }
+            return -1;
+        }
 
     return {
         setWxShare: setWxShare,
-        setMusic: setMusic
+        setMusic: setMusic,
+        loading: loading
     };
 }
 export default Common;

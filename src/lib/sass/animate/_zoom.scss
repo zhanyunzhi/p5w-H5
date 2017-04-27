@@ -88,6 +88,9 @@
       opacity: 1;
       @include transform(scale3d(.475, .475, .475) translate3d(0, -60px, 0));
     }
+    100% {
+      opacity: 1;
+    }
   }
   .zoomInUp {
     @include animation-name(zoomInUp);

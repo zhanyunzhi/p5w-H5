@@ -9,6 +9,7 @@
 @import "../../lib/sass/animate/_special";
 @import "../../lib/sass/animate/_attention-seekers";
 @import "../../lib/sass/animate/_zoom";
+@import "../../lib/sass/animate/_lightspeed";
 @import "../../lib/sass/animate/_tiny";
 @import "../../lib/sass/animate/_tiny-flash";
 @import "../../lib/css/jquery.fullPage.css";
@@ -27,34 +28,34 @@
   height:100%;
   bottom:0;
   left:0;
-  z-index:100;
+  z-index:88;
 }
 .img11{
   @extend %img-all;
-  width:6.0rem;
-  height:2.87rem;
+  width:1.65rem;
+  height:1.64rem;
   top:0.36rem;
   left:50%;
-  margin-left:-2.8rem;
-  z-index:9;
+  margin-left:-0.82rem;
+  z-index:99;
 }
 .img12{
   @extend %img-all;
-  width:4.6rem;
-  height:0.56rem;
-  top:3.24rem;
+  width:6rem;
+  height:1.15rem;
+  top:2.08rem;
   left:50%;
-  margin-left:-2.46rem;
-  z-index:9;
+  margin-left:-2.86rem;
+  z-index:99;
 }
 .img13{
   @extend %img-all;
   width:6.11rem;
-  height:0.96rem;
+  height:2.01rem;
   top:1.78rem;
   left:50%;
-  margin-left:-3.05rem;
-  z-index:9;
+  margin-left:-3.1rem;
+  z-index:99;
 }
 .img14{
   @extend %img-all;
@@ -72,7 +73,7 @@
   bottom:0.2rem;
   left:0;
   @include opacity(100);
-  z-index:1;
+  z-index:4;
 }
 .img16{
   @extend %img-all;
@@ -81,7 +82,7 @@
   bottom:0;
   right:0;
   @include opacity(100);
-  z-index:3;
+  z-index:6;
 }
 .img17{
   @extend %img-all;
@@ -89,7 +90,7 @@
   height:7.60rem;
   bottom:0.1rem;
   right:0.1rem;
-  z-index:5;
+  z-index:99;
 }
 .img18{
   @extend %img-all;
@@ -97,7 +98,23 @@
   height:6.87rem;
   bottom:0.55rem;
   left:0;
-  z-index:6;
+  z-index:99;
+}
+.img19{
+  @extend %img-all;
+  width:2.88rem;
+  height:0.89rem;
+  top:6.34rem;
+  left:1.54rem;
+  z-index:99;
+}
+.img110{
+  @extend %img-all;
+  width:2.70rem;
+  height:1.02rem;
+  top:7.26rem;
+  right:1.34rem;
+  z-index:99;
 }
 .shade-div11{
   position: absolute;
@@ -105,7 +122,23 @@
   height:100%;
   bottom:0;
   background-color: #000000;
-  z-index:4;
+  z-index:7;
+}
+.shade-div12{
+  position: absolute;
+  width:7.5rem;
+  height:100%;
+  bottom:0;
+  background-color: #000000;
+  z-index:5;
+}
+.shade-div13{
+  position: absolute;
+  width:7.5rem;
+  height:100%;
+  bottom:0;
+  background-color: #000000;
+  z-index:3;
 }
 .img21{
   @extend %img-all;
@@ -211,7 +244,7 @@
   height:3.2rem;
   top:0.9rem;
   left:1rem;
-  z-index:9;
+  z-index:99;
 }
 .img32{
   @extend %img-all;
@@ -219,7 +252,7 @@
   height:3.2rem;
   top:0.9rem;
   right:1rem;
-  z-index:9;
+  z-index:99;
 }
 .img33{
   @extend %img-all;
@@ -229,6 +262,7 @@
   left:50%;
   margin-left:-3.08rem;
   z-index:9;
+  @include opacity(100);
 }
 .img34{
   @extend %img-all;
@@ -237,7 +271,7 @@
   top:4.65rem;
   left:50%;
   margin-left:-1.92rem;
-  z-index:9;
+  z-index:99;
 }
 .img35{
   @extend %img-all;
@@ -245,7 +279,7 @@
   height:3.2rem;
   top:6.5rem;
   left:1rem;
-  z-index:9;
+  z-index:99;
 }
 .img36{
   @extend %img-all;
@@ -253,7 +287,7 @@
   height:3.2rem;
   top:6.5rem;
   right:1rem;
-  z-index:9;
+  z-index:99;
 }
 .img37{
   @extend %img-all;
@@ -263,6 +297,25 @@
   left:-0.2rem;
   z-index:9;
   @include opacity(100);
+}
+
+.shade-div31{
+  position: absolute;
+  width:3.75rem;
+  height:3.12rem;
+  top:3.75rem;
+  left:50%;
+  background-color: #000000;
+  z-index:10;
+}
+.shade-div32{
+  position: absolute;
+  width:3.75rem;
+  height:3.12rem;
+  top:3.75rem;
+  right:50%;
+  background-color: #000000;
+  z-index:10;
 }
 .img41{
   @extend %img-all;
@@ -371,27 +424,27 @@
 }
 .img52{
   @extend %img-all;
-  width:4.68rem;
+  width:4.77rem;
   height:0.96rem;
   top:2.4rem;
-  left:1.74rem;
+  left:1.72rem;
   z-index:99;
 }
 .img53{
   @extend %img-all;
   width:5.06rem;
-  height:1.03rem;
+  height:1.19rem;
   top:3.4rem;
   left:0.76rem;
   z-index:99;
 }
 .img54{
   @extend %img-all;
-  width:4.56rem;
-  height:2.46rem;
+  width:4.57rem;
+  height:2.72rem;
   top:3.8rem;
   left:50%;
-  margin-left:-2.28rem;
+  margin-left:-2.16rem;
   z-index:9;
   @include opacity(100);
 }
@@ -439,9 +492,293 @@
   z-index:10;
 }
 
+.img61{
+  @extend %img-all;
+  width:7.5rem;
+  height:4.6rem;
+  top:0;
+  left:0;
+  z-index:99;
+}
+.img62{
+  @extend %img-all;
+  width:6.3rem;
+  height:0.44rem;
+  top:3.2rem;
+  left:50%;
+  margin-left:-3.15rem;
+  z-index:9;
+  @include opacity(100);
+}
+.img63{
+  @extend %img-all;
+  width:4.36rem;
+  height:6.96rem;
+  top:4.16rem;
+  left:1rem;
+  z-index:99;
+}
+.img64{
+  @extend %img-all;
+  width:6.08rem;
+  height:7.68rem;
+  top:3.56rem;
+  left:50%;
+  margin-left:-3.04rem;
+  z-index:99;
+}
+.img65{
+  @extend %img-all;
+  width:2.72rem;
+  height:5.84rem;
+  top:5.36rem;
+  left:50%;
+  margin-left:-1.36rem;
+  z-index:11;
+  @include opacity(100);
+}
+.img66{
+  @extend %img-all;
+  width:5.65rem;
+  height:1.65rem;
+  top:8.07rem;
+  left:50%;
+  margin-left:-2.82rem;
+  z-index:99;
+}
+.img67{
+  @extend %img-all;
+  width:6.3rem;
+  height:0.44rem;
+  top: 11.28rem;
+  left: 50%;
+  z-index:9;
+  margin-left:-3.15rem;
+  @include opacity(100);
+}
+.shade-div61{
+  position: absolute;
+  width:3.75rem;
+  height:1rem;
+  top:3.2em;
+  left:50%;
+  background-color: #000000;
+  z-index:10;
+}
+.shade-div62{
+  position: absolute;
+  width:3.75rem;
+  height:1rem;
+  top:3.2rem;
+  right:50%;
+  background-color: #000000;
+  z-index:10;
+}
+.shade-div63{
+  position: absolute;
+  width:3.75rem;
+  height:1rem;
+  top:11.28em;
+  left:50%;
+  background-color: #000000;
+  z-index:10;
+}
+.shade-div64{
+  position: absolute;
+  width:3.75rem;
+  height:1rem;
+  top:11.28rem;
+  right:50%;
+  background-color: #000000;
+  z-index:10;
+}
+.shade-div65{
+  position: absolute;
+  width:7.5rem;
+  height:5.84rem;
+  top:5.36rem;
+  left:50%;
+  margin-left:-1.36rem;
+  background-color: #000000;
+  z-index:12;
+  @include opacity(100);
+}
+.img81{
+  @extend %img-all;
+  width:3.97rem;
+  height:10.83rem;
+  top:0.66rem;
+  bottom:0.24rem;
+  left:50%;
+  margin-left:-1.98rem;
+  z-index:99;
+}
+.img82{
+  @extend %img-all;
+  width:1.8rem;
+  height:2.05rem;
+  bottom:0.36rem;
+  left:0.42rem;
+  z-index:99;
+}
+.img83{
+  @extend %img-all;
+  width:0.04rem;
+  height:3.58rem;
+  top:2.08rem;
+  left:1.85rem;
+  z-index:5;
+  @include opacity(100);
+}
+.img84{
+  @extend %img-all;
+  width:3.82rem;
+  height:4.38rem;
+  top:2.08rem;
+  left:1.89rem;
+  z-index:5;
+  @include opacity(100);
+}
+.img85{
+  @extend %img-all;
+  width:7.50rem;
+  height:8.93rem;
+  top:3.2rem;
+  left:0;
+  z-index:99;
+}
+.img86{
+  @extend %img-all;
+  width:6.29rem;
+  height:0.44rem;
+  top:1.5rem;
+  left:50%;
+  margin-left:-3.15rem;
+  z-index:9;
+  @include opacity(100);
+}
+.img87{
+  @extend %img-all;
+  width:2.89rem;
+  height:0.7rem;
+  top:0.66rem;
+  left:2.96rem;
+  z-index:99;
+}
+.img88{
+  @extend %img-all;
+  width:2.69rem;
+  height:1.02rem;
+  bottom:0.4rem;
+  left:2.2rem;
+  z-index:99;
+}
+.shade-div81{
+  position: absolute;
+  width:3.75rem;
+  height:0.6rem;
+  top:1.42rem;
+  left:50%;
+  background-color: #000000;
+  z-index:10;
+}
+.shade-div82{
+  position: absolute;
+  width:3.75rem;
+  height:0.6rem;
+  top:1.42rem;
+  right:50%;
+  background-color: #000000;
+  z-index:10;
+}
+.shade-div83{
+  position: absolute;
+  width:0.04rem;
+  height:3.58rem;
+  top:2.08rem;
+  left:1.85rem;
+  background-color: #000000;
+  z-index:8;
+}
+.shade-div84{
+  position: absolute;
+  width:3.82rem;
+  height:4.38rem;
+  top:2.08rem;
+  left:1.89rem;
+  background-color: #000000;
+  z-index:8;
+}
+
+.img91{
+  @extend %img-all;
+  width:7.5rem;
+  height:4.16rem;
+  top:3.46rem;
+  left:0;
+  z-index:9;
+  @include opacity(100);
+}
+.img92{
+  @extend %img-all;
+  width:4.88rem;
+  height:4.22rem;
+  top:2.76rem;
+  left:50%;
+  margin-left:-2.44rem;
+  z-index:99;
+}
+.img93{
+  @extend %img-all;
+  width:4.38rem;
+  height:3.46rem;
+  top:3.16rem;
+  left:50%;
+  margin-left:-2.19rem;
+  z-index:99;
+}
+.img94{
+  @extend %img-all;
+  width:3.11rem;
+  height:3.09rem;
+  top:3.44rem;
+  left:50%;
+  margin-left:-1.55rem;
+  z-index:99;
+}
+.img95{
+  @extend %img-all;
+  width:3.71rem;
+  height:0.84rem;
+  bottom:0.88rem;
+  left:50%;
+  margin-left:-1.85rem;
+  z-index:99;
+}
+.img96{
+  @extend %img-all;
+  width:3.11rem;
+  height:3.11rem;
+  top:3.44rem;
+  left:50%;
+  margin-left:-1.55rem;
+  z-index:99;
+}
+.shade-div91{
+  position: absolute;
+  width:7.5rem;
+  height:4.16rem;
+  top:3.46rem;
+  left:0;
+  background-color: #000000;
+  z-index:10;
+}
 @include animate-fastFlashAndShow();        //快速闪烁，然后渐现
 @include animate-flash();        //快速闪烁，然后渐现
 @include animate-fadeInDown();        //渐入
+@include animate-fadeInUp();        //渐入
+@include animate-fadeInLeft();        //渐入
+@include animate-fadeInRight();        //渐入
 @include animate-fadeInUp();        //渐入
 @include animate-slideOutUp();        //渐出
 @include animate-slideOutRight();        //渐出
@@ -450,10 +787,26 @@
 @include animate-slideOutLeftShort();        //渐出
 @include animate-tada();        //强调
 @include animate-flip();        //强调
+@include animate-flipInY();        //强调
 @include animate-zoomIn();        //强调
 @include animate-zoomInDown();        //强调
+@include animate-zoomInUp();        //强调
 @include animate-bigPulse();        //先放大，再猛地缩小
 @include animate-pulse();        //先放大，再猛地缩小
+@include animate-lightSpeedIn();        //先放大，再猛地缩小
+@include animate-rotateInDownLeft();        //左侧砍入
+@include animate-rotateInDownRight();        //右侧砍入
+@include animate-rotateInY();        //Y轴旋转
+@include animate-rotateInFromRight();        //轴旋转
+@include animate-bigToSmall();        //
+@include animate-myLightSpeedIn();        //
+@include animate-myLightSpeedInLeft();        //
+@include animate-smallToBig();        //由小到大
+@include animate-wobble();        //由小到大
+@include animate-flipOutInY();        //由小到大
+@include animate-fadeInUpOutDown();        //由小到大
+
+
 
 .flash{
   @include animation-timing-function(linear);

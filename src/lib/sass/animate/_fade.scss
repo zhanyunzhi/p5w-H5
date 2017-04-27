@@ -325,3 +325,29 @@
     @extend %animated;
   }
 }
+// fadeInUpOutDown
+@mixin animate-fadeInUpOutDown () {
+  @include keyframes(fadeInUpOutDown){
+    0% {
+      opacity: 0;
+      @include translateY(-30px);
+    }
+    20% {
+      opacity: 1;
+      @include translateY(0);
+    }
+   80% {
+      opacity: 1;
+      @include translateY(0);
+    }
+    100% {
+      opacity: 0;
+      @include translateY(30px);
+    }
+  }
+  .fadeInUpOutDown {
+    @include animation-name(fadeInUpOutDown);
+    @extend %animated;
+  }
+}
+

@@ -157,6 +157,7 @@
 @mixin animate-wobble () {
   @include keyframes(wobble){
     0% {
+      @include opacity(100);
       @include translateX(0%);
     }
     15% {
@@ -175,6 +176,7 @@
       @include transform(translateX(-5%) rotate(-1deg));
     }
     100% {
+      @include opacity(100);
       @include translateX(0%);
     }
   }

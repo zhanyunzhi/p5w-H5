@@ -235,7 +235,7 @@
   @include keyframes(moveToBottom){
     0% {
       opacity: 1;
-      @include transform(translateX(0));
+      @include transform(translateY(0));
     }
     100% {
       opacity: 1;
@@ -279,5 +279,79 @@
     @extend %animated;
     @include transform-origin(0% 100%);
     //@include animation-delay(0.8s);
+  }
+}
+// myLightSpeedInLeft
+@mixin animate-myLightSpeedInLeft () {
+  @include keyframes(myLightSpeedInLeft){
+    0% {
+      @include opacity(0);
+      @include transform(translateX(-100%) skewX(0deg));
+    }
+    50% {
+      @include transform(translateX(0) skewX(-5deg));
+    }
+    70% {
+      @include transform(translateX(0) skewX(-10deg));
+    }
+    90% {
+      @include transform(translateX(0) skewX(-10deg));
+    }
+    100% {
+      @include opacity(100);
+      @include transform(translateX(0) skewX(0deg));
+    }
+  }
+  .myLightSpeedInLeft {
+    @include animation-name(myLightSpeedInLeft);
+    @include animation-timing-function(linear);
+    @include backface-visibility;
+    @extend %animated;
+    @include transform-origin(0% 100%);
+    //@include animation-delay(0.8s);
+  }
+}
+
+// bigToSmall
+@mixin animate-bigToSmall () {
+  @include keyframes(bigToSmall){
+    0% {
+      @include opacity(100);
+      @include scale(1.5);
+    }
+    50% {
+      @include scale(0.9);
+    }
+    100% {
+      @include opacity(100);
+      @include scale(1);
+    }
+  }
+  .bigToSmall {
+    @include animation-name(bigToSmall);
+    @extend %animated;
+  }
+}
+// smallToBig   由小到大
+@mixin animate-smallToBig () {
+  @include keyframes(smallToBig){
+    0% {
+      @include opacity(100);
+      /*@include scaleX(0.1);
+      @include scaleY(0.1);*/
+      @include transform(scale(0.1))
+    }
+    50% {
+      @include opacity(100);
+      @include scaleY(1);
+    }
+    100% {
+      @include opacity(100);
+      @include scaleX(1);
+    }
+  }
+  .smallToBig {
+    @include animation-name(smallToBig);
+    @extend %animated;
   }
 }
