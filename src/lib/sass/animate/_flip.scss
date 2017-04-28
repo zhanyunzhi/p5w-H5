@@ -151,7 +151,8 @@
   }
   .flipOutInY {
     @include animation-name(flipOutInY);
-    @include backface-visibility(visible);
+    @include backface-visibility(hidden);
+    @include transform-style(preserve-3d);
     @extend %animated;
   }
 }

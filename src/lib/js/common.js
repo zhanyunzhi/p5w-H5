@@ -116,13 +116,15 @@ function Common(){
             }
         });
         //手动出发启动音乐
-        document.getElementById('bgMusic').play();  //一般情况下，这样就可以自动播放了，但是一些奇葩iPhone机不可以
+        if(!document.getElementById('bgMusic') == undefined) {
+            document.getElementById('bgMusic').play();
+        }  //一般情况下，这样就可以自动播放了，但是一些奇葩iPhone机不可以
         document.addEventListener("WeixinJSBridgeReady", function () {  //必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
             document.getElementById('bgMusic').play();
             document.getElementById('video').play();
         }, false);
     };
-    function loading() {
+    function loading(callback) {
         var images = [];                //存放所有的图片src的数组
         var imgs = document.images;     //获取所有image节点
         //通过dom方法获取页面中的所有img，包括<img>标签和css中的background-image
@@ -143,14 +145,13 @@ function Common(){
                     loadImgProgress++;
                     var percent = Math.ceil(loadImgProgress / imgNum * 100);
                     $('#progress').html(percent + '%');
-                    console.log(new Date().getTime()+'--'+percent)
                 }
             },
             all: function () {
                  setTimeout(function(){
                     $('#loading').fadeOut();
                  },300)
-
+                callback();
             }
         });
     }

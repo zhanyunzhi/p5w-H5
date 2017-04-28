@@ -233,3 +233,40 @@
     @extend %animated;
   }
 }
+
+// bounceInOut1
+@mixin animate-bounceInOut1 () {
+  @include keyframes(bounceInOut1){
+    0%, 60% ,100% {
+      @include opacity(100);
+      @include transform(scale(0.0));
+    } 10%, 50% {
+      @include transform(scale(1.0));
+    }
+  }
+  .bounceInOut1 {
+    @include animation-name(bounceInOut1);
+    @extend %animated;
+    @include animation-duration(10s);
+    @include animation-iteration-count(infinite);
+    @include animation-delay(2s);
+  }
+}
+// bounceInOut2
+@mixin animate-bounceInOut2 () {
+  @include keyframes(bounceInOut2){
+    0%, 60% ,100% {
+      @include opacity(100);
+      @include transform(scale(1.0));
+    } 10%, 50% {
+      @include transform(scale(0.0));
+    }
+  }
+  .bounceInOut2 {
+    @include animation-name(bounceInOut2);
+    @extend %animated;
+    @include animation-duration(10s);
+    @include animation-iteration-count(infinite);
+    @include animation-delay(2s);
+  }
+}

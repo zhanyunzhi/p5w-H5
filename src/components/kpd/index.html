@@ -26,9 +26,9 @@
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
-    <!--<div id="loading">
+    <div id="loading">
         <div>页面加载中<span id="progress"></span></div>
-    </div>-->
+    </div>
     <a class="mscBtn ddplay play" id="audioBtn" title="music" style="cursor:pointer;animation-duration:2s;" ></a>
     <audio id="bgMusic" loop="loop" autoplay="autoplay">
         <source src="music.mp3" type="audio/mpeg">
@@ -60,9 +60,9 @@
             <img src="../../assets/kpd/img18.png" qj-effect="fadeInDown animation-delay20" class="img18"/>
             <img src="../../assets/kpd/car1.png" qj-effect="fadeInRight animation-delay30" class="img19"/>
             <img src="../../assets/kpd/moto1.png" qj-effect="fadeInLeft animation-delay25" class="img110"/>
-            <div class="shade-div11" qj-effect="slideOutUp animation-duration70"></div>
-            <div class="shade-div12" qj-effect="slideOutUp animation-duration70 animation-delay2"></div>
-            <div class="shade-div13" qj-effect="slideOutUp animation-duration70 animation-delay4"></div>
+            <div class="shade-div11" qj-effect="slideOutUp animation-duration50"></div>
+            <div class="shade-div12" qj-effect="slideOutUp animation-duration50 animation-delay2"></div>
+            <div class="shade-div13" qj-effect="slideOutUp animation-duration50 animation-delay4"></div>
         </div>
         <div class="section">
             <img src="../../assets/kpd/bg1.png" qj-effect="flash animation-iteration-infinite animation-duration100" class="bg1"/>
@@ -86,7 +86,7 @@
             <img src="../../assets/kpd/img34.png" qj-effect="zoomInDown" class="img34"/>
             <img src="../../assets/kpd/img35.png" qj-effect="flash animation-delay20 animation-duration25" class="img35"/>
             <img src="../../assets/kpd/img36.png" qj-effect="flash animation-delay15 animation-duration25" class="img36"/>
-            <img src="../../assets/kpd/img37.png" qj-effect="" class="img37"/>
+            <img src="../../assets/kpd/img37.png" qj-effect="fadeInUp" class="img37"/>
             <div class="shade-div31" qj-effect="slideOutRightShort animation-duration30 animation-delay5 animation-iteration-infinite"></div>
             <div class="shade-div32" qj-effect="slideOutLeftShort animation-duration30 animation-delay5 animation-iteration-infinite"></div>
         </div>
@@ -154,83 +154,11 @@
             <img src="../../assets/kpd/img91.png" qj-effect="" class="img91"/>
             <img src="../../assets/kpd/img92.png" qj-effect="fastFlashAndShow animation-delay15 animation-duration20" class="img92"/>
             <img src="../../assets/kpd/img93.png" qj-effect="smallToBig animation-delay10 animation-duration20" class="img93"/>
-            <img src="../../assets/kpd/img94.png" id="logo" qj-effect="" class="img94"/>
+            <img src="../../assets/kpd/img94.png" id="logo" qj-effect="bounceInOut1" class="img94"/>
             <img src="../../assets/kpd/img95.png" qj-effect="zoomIn animation-delay25 animation-duration20" class="img95"/>
-            <img src="../../assets/kpd/img96.png" id="code" qj-effect="" class="img96"/>
+            <img src="../../assets/kpd/img96.png" id="code" qj-effect="bounceInOut2" class="img96"/>
             <div class="shade-div91" qj-effect="slideOutRight animation-duration70"></div>
         </div>
     </div>
 </body>
-<script>
-    $(function(){
-        function getTransforms(translate3d){
-            return {
-                '-webkit-transform': translate3d,
-                '-moz-transform': translate3d,
-                '-ms-transform':translate3d,
-                'transform': translate3d
-            };
-        }
-        var sections = $('.section');
-        var translate3d = 'translate3d(0px, 0px, 0px)';
-        var timer1 = null;
-        var timer2 = null;
-        $('#qj').fullpage({
-            continuousVertical: true,
-            afterRender: function(){
-                var effects = sections.eq(0).find('[qj-effect]');
-                for(var j=0;j<effects.length;j++){
-                    effects.eq(j).addClass(effects.eq(j).attr('qj-effect'));
-                }
-            },
-            onLeave: function(index, nextIndex, direction ){
-
-            },
-            afterLoad: function(anchorLink, index){     //anchorLink 是锚链接的名称，index 是序号，从1开始计算
-                if(index==1){
-                    ($("#qj").css(getTransforms(translate3d)));     //循环回到第一页时强制定位页面到指定位置，不然在iphone下会有问题
-                }
-                if(index==8){
-                    setTimeout(function() {
-                        $("#logo").animate({opacity:'1'},1000);
-                    },2000)
-                    setTimeout(function() {
-                        $("#code").animate({opacity:'1'},1000);
-                    },4000)
-                    timer1 = setInterval(function(){
-                        $("#logo").fadeIn(1000);
-                        setTimeout(function() {
-                            $("#logo").fadeOut(1000);
-                        },4000)
-                    },8000);
-                    timer2 = setInterval(function(){
-                        $("#code").fadeOut(1000);
-                        setTimeout(function() {
-                            $("#code").fadeIn(1000);
-                        },4000)
-                    },8000)
-                }else{
-                    $("#logo").animate({opacity:'0'},100);
-                    $("#code").animate({opacity:'0'},100);
-                    timer1 && clearInterval(timer1);
-                    timer2 && clearInterval(timer2);
-                }
-                var i= 0;
-                for(i;i<sections.length;i++){
-                    var effects = sections.eq(i).find('[qj-effect]');
-                    if(i===index-1){
-                        for(var j=0;j<effects.length;j++){
-                            effects.eq(j).addClass(effects.eq(j).attr('qj-effect'));
-                        }
-                    }else{
-                        for(var j=0;j<effects.length;j++) {
-                            effects.eq(j).removeClass(effects.eq(j).attr('qj-effect'));
-                        }
-                    }
-                }
-            }
-        });
-    })
-
-</script>
 </html>

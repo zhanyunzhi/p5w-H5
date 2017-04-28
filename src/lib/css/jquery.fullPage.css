@@ -183,4 +183,9 @@ html, body {
 .section {
     text-align: center; font: 50px "Microsoft Yahei"; color: #fff;
 }
-
+/**{*/
+    /*-webkit-backface-visibility: hidden;*/
+    /*-moz-backface-visibility: hidden;*/
+    /*-ms-backface-visibility: hidden;*/
+    /*backface-visibility: hidden;*/
+/*}*/

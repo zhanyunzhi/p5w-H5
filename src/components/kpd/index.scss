@@ -578,7 +578,7 @@
   position: absolute;
   width:3.75rem;
   height:1rem;
-  top:11.28em;
+  top:11.28rem;
   left:50%;
   background-color: #000000;
   z-index:10;
@@ -718,6 +718,7 @@
   left:0;
   z-index:9;
   @include opacity(100);
+  @include transform-style(preserve-3d)
 }
 .img92{
   @extend %img-all;
@@ -727,6 +728,7 @@
   left:50%;
   margin-left:-2.44rem;
   z-index:99;
+  @include transform-style(preserve-3d)
 }
 .img93{
   @extend %img-all;
@@ -736,6 +738,7 @@
   left:50%;
   margin-left:-2.19rem;
   z-index:99;
+  @include transform-style(preserve-3d)
 }
 .img94{
   @extend %img-all;
@@ -745,6 +748,7 @@
   left:50%;
   margin-left:-1.55rem;
   z-index:99;
+  @include transform-style(preserve-3d)
 }
 .img95{
   @extend %img-all;
@@ -754,6 +758,7 @@
   left:50%;
   margin-left:-1.85rem;
   z-index:99;
+  @include transform-style(preserve-3d)
 }
 .img96{
   @extend %img-all;
@@ -763,6 +768,7 @@
   left:50%;
   margin-left:-1.55rem;
   z-index:99;
+  @include transform-style(preserve-3d)
 }
 .shade-div91{
   position: absolute;
@@ -805,6 +811,8 @@
 @include animate-wobble();        //由小到大
 @include animate-flipOutInY();        //由小到大
 @include animate-fadeInUpOutDown();        //由小到大
+@include animate-bounceInOut1();        //由小到大
+@include animate-bounceInOut2();        //由小到大
 
 
 
