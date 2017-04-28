@@ -179,10 +179,79 @@
     top:0;
     left:0;
     text-align: center;
-    padding-top:50%;
+    padding-top:8rem;
 }
-#progress{
+#loading #progress{
 }
+#loading .pre-logo{
+    position: absolute;
+    width:5rem;
+    height:1.62rem;
+    top:1.4rem;
+    left:50%;
+    margin-left:-2.5rem;
+}
+#loading .cow{
+    position: absolute;
+    top:3.6rem;
+    width:3.07rem;
+    height:3.51rem;
+    left:50%;
+    margin-left:-1.53rem;
+}
+#loading .cow .pre-head{
+    position: absolute;
+    width:3.07rem;
+    height:3.51rem;
+    top:0;
+    left:0;
+}
+#loading .cow .pre-eye-left{
+    position: absolute;
+    width: 0.70rem;
+    height: 0.70rem;
+    left: 0.62rem;
+    top: 1.6rem;
+}
+#loading .cow .pre-eye-right{
+    position: absolute;
+    width: 0.70rem;
+    height: 0.70rem;
+    left: 1.7rem;
+    top: 1.6rem;
+}
+#loading .cow .pre-mouth{
+    position: absolute;
+    width:1.89rem;
+    height:0.59rem;
+    margin-top: 2.4rem;
+    margin-left: -0.94rem;
+}
+#loading .cow .eye-div-left{
+    position: absolute;
+    width: 0.72rem;
+    height: 0.7rem;
+    margin-top: 1.6rem;
+    margin-left: 0.62rem;
+    background-color: white;
+    @include border-radius(50%);
+}
+#loading .cow .eye-div-right{
+    position: absolute;
+    width: 0.72rem;
+    height: 0.7rem;
+    margin-top: 1.6rem;
+    margin-left: 1.72rem;
+    background-color: white;
+    @include border-radius(50%);
+}
+.eye-rotate {
+    animation: rotateLoopRF 2s linear infinite;
+    -moz-animation: rotateLoopRF 2s linear infinite;
+    -webkit-animation: rotateLoopRF 2s linear infinite;
+    -o-animation: rotateLoopRF 2s linear infinite;
+}
+
 
 
 //animation-delay
