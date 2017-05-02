@@ -149,7 +149,7 @@ function Common(){
             },
             all: function () {
                  setTimeout(function(){
-                    //$('#loading').fadeOut();
+                    $('#loading').fadeOut();
                  },300)
                 callback();
             }
