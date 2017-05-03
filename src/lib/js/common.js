@@ -135,7 +135,6 @@ function Common(){
         for (var j = 0; j < cssImages.length; j++) {
             images.push(cssImages[j]);          //保存背景图等的src
         }
-        console.log(images);
         var imgNum = images.length;
         var loadImgProgress = 0;
         $.imgpreload(images, {
@@ -144,14 +143,14 @@ function Common(){
                 if (status == 'success') {
                     loadImgProgress++;
                     var percent = Math.ceil(loadImgProgress / imgNum * 100);
-                    $('#progress').html(percent + '%');
+                    $('#progress i').html(percent + '%');
                 }
             },
             all: function () {
                  setTimeout(function(){
                     $('#loading').fadeOut();
-                 },300)
-                callback();
+                     callback();
+                 },500)
             }
         });
     }

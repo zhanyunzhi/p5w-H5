@@ -17,8 +17,6 @@ function index() {
         }
         var sections = $('.section');
         var translate3d = 'translate3d(0, 0, 0)';
-        /*var timer1 = null;
-        var timer2 = null;*/
         var bootstrap = function(){
             $('#qj').fullpage({
                 continuousVertical: true,
@@ -36,31 +34,6 @@ function index() {
                     if(index==1){
                         ($("#qj").css(getTransforms(translate3d)));     //循环回到第一页时强制定位页面到指定位置，不然在iphone下会有问题
                     }
-                    /*if(index==8){
-                        setTimeout(function() {
-                            $("#logo").animate({opacity:'1'},1000);
-                        },2000)
-                        setTimeout(function() {
-                            $("#code").animate({opacity:'1'},1000);
-                        },4000)
-                        timer1 = setInterval(function(){
-                            $("#logo").fadeIn(1000);
-                            setTimeout(function() {
-                                $("#logo").fadeOut(1000);
-                            },4000)
-                        },8000);
-                        timer2 = setInterval(function(){
-                            $("#code").fadeOut(1000);
-                            setTimeout(function() {
-                                $("#code").fadeIn(1000);
-                            },4000)
-                        },8000)
-                    }else{
-                        $("#logo").animate({opacity:'0'},10);
-                        $("#code").animate({opacity:'0'},10);
-                        timer1 && clearInterval(timer1);
-                        timer2 && clearInterval(timer2);
-                    }*/
                     var i= 0;
                     for(i;i<sections.length;i++){
                         var effects = sections.eq(i).find('[qj-effect]');
