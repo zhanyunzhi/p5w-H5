@@ -527,6 +527,7 @@
   margin-left:-3.04rem;
   z-index:99;
 }
+
 .img65{
   @extend %img-all;
   width:2.72rem;
@@ -560,7 +561,7 @@
   position: absolute;
   width:3.75rem;
   height:1rem;
-  top:3.2em;
+  top:3.2rem;
   left:50%;
   background-color: #000000;
   z-index:10;
@@ -814,6 +815,7 @@
 @include animate-bounceInOut1();        //由小到大
 @include animate-bounceInOut2();        //由小到大
 @include animate-rotateLoopR();        //由小到大
+@include animate-flipInYLoop();        //由小到大
 
 
 .flash{

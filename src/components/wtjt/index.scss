@@ -1,0 +1,149 @@
+@import "../../lib/sass/core/_setting";
+@import "../../lib/sass/core/_css3";
+@import "../../lib/sass/core/_mixin";
+@import "../../lib/sass/animate/_fade";
+@import "../../lib/sass/animate/_bounce";
+@import "../../lib/sass/animate/_slide";
+@import "../../lib/sass/animate/_rotate";
+@import "../../lib/sass/animate/_flip";
+@import "../../lib/sass/animate/_special";
+@import "../../lib/sass/animate/_attention-seekers";
+@import "../../lib/sass/animate/_zoom";
+@import "../../lib/sass/animate/_lightspeed";
+@import "../../lib/sass/animate/_tiny";
+@import "../../lib/sass/animate/_tiny-flash";
+@import "../../lib/css/jquery.fullPage.css";
+@import "../../lib/css/common";
+
+.section{
+  background-color: #000000;
+}
+%img-all{
+  position: absolute;
+  //@include opacity(0);
+}
+.bg1{
+  @extend %img-all;
+  width:100%;
+  height:100%;
+  bottom:0;
+  left:0;
+  z-index:88;
+}
+.img11{
+  @extend %img-all;
+  width:1.65rem;
+  height:1.64rem;
+  top:0.36rem;
+  left:50%;
+  margin-left:-0.82rem;
+  z-index:99;
+}
+.img12{
+  @extend %img-all;
+  width:6rem;
+  height:1.15rem;
+  top:2.08rem;
+  left:50%;
+  margin-left:-2.86rem;
+  z-index:99;
+}
+.img13{
+  @extend %img-all;
+  width:6.11rem;
+  height:2.01rem;
+  top:1.78rem;
+  left:50%;
+  margin-left:-3.1rem;
+  z-index:99;
+}
+.img14{
+  @extend %img-all;
+  width:4.33rem;
+  height:11.23rem;
+  bottom:.2rem;
+  left:0;
+  @include opacity(100);
+  z-index:2;
+}
+.img15{
+  @extend %img-all;
+  width:7.50rem;
+  height:6.5rem;
+  bottom:0.2rem;
+  left:0;
+  @include opacity(100);
+  z-index:4;
+}
+.img16{
+  @extend %img-all;
+  width:4.55rem;
+  height:8.92rem;
+  bottom:0;
+  right:0;
+  @include opacity(100);
+  z-index:6;
+}
+.img17{
+  @extend %img-all;
+  width:2.76rem;
+  height:7.60rem;
+  bottom:0.1rem;
+  right:0.1rem;
+  z-index:99;
+}
+.img18{
+  @extend %img-all;
+  width:7.13rem;
+  height:6.87rem;
+  bottom:0.55rem;
+  left:0;
+  z-index:99;
+}
+.img19{
+  @extend %img-all;
+  width:2.88rem;
+  height:0.89rem;
+  top:6.34rem;
+  left:1.54rem;
+  z-index:99;
+}
+.img110{
+  @extend %img-all;
+  width:2.70rem;
+  height:1.02rem;
+  top:7.26rem;
+  right:1.34rem;
+  z-index:99;
+}
+.shade-div11{
+  position: absolute;
+  width:7.5rem;
+  height:100%;
+  bottom:0;
+  background-color: #000000;
+  z-index:7;
+}
+.shade-div12{
+  position: absolute;
+  width:7.5rem;
+  height:100%;
+  bottom:0;
+  background-color: #000000;
+  z-index:5;
+}
+.shade-div13{
+  position: absolute;
+  width:7.5rem;
+  height:100%;
+  bottom:0;
+  background-color: #000000;
+  z-index:3;
+}
+
+@include animate-fadeInUp();        //Ω•»Î
+
+.flash{
+  @include animation-timing-function(linear);
+}
+
