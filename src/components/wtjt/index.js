@@ -5,6 +5,7 @@
 import './index.scss';                   //引入sass文件
 import './music.mp3';                   //引入mp3文件
 import Common from '../../lib/js/common.js';                   //引入common文件
+import '../../lib/js/swiper.min.js';                   //引入swiper文件
 function index() {
     $(function(){
         function getTransforms(translate3d){

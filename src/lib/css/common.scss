@@ -300,6 +300,18 @@
     height:100%;
 }
 
+.swiper-container {
+    width: 6rem;
+    height:3rem;
+    z-index:999999;
+}
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 6rem;
+    height: 3rem;
+
+}
 
 //animation-delay
 .animation-delay2{
@@ -394,6 +406,9 @@
 }
 .animation-duration100{
     @include animation-duration(10.0s)
+}
+.animation-duration200{
+    @include animation-duration(20.0s)
 }
 
 //

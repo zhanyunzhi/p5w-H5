@@ -43,7 +43,7 @@
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
-    <div id="loading" class="loading-black">
+    <div id="loading" class="loading-black" hidden>
         <img src="../../assets/common/logo-black.png" class="pre-logo"/>
         <div class="cow">
             <img src="../../assets/common/circle-black.png" class="pre-circle eye-rotate"/>
@@ -73,8 +73,57 @@
     <img src="../../assets/wtjt/fx.png" hidden/>
     <div id="qj">
         <div class="section">
-            <img src="../../assets/wtjt/fx.png" qj-effect="flash animation-iteration-infinite animation-duration100" class="bg1" id="bg"/>
+            <img src="../../assets/wtjt/bg1.png" qj-effect="" class="bg1" />
+            <img src="../../assets/wtjt/img11.png" qj-effect="fadeIn animation-delay20" class="img11" />
+            <img src="../../assets/wtjt/img12.png" qj-effect="fadeIn animation-duration20 animation-delay10" class="img12" />
+            <img src="../../assets/wtjt/img13.png" qj-effect="flash animation-duration15 animation-delay20" class="img13" />
+            <img src="../../assets/wtjt/img14.png" qj-effect="fadeIn animation-duration20 animation-delay30" class="img14" />
+            <img src="../../assets/wtjt/img15.png" qj-effect="fadeUpAndDown animation-duration200 animation-delay20" class="img15" />
+            <img src="../../assets/wtjt/img16.png" qj-effect="fadeInUp animation-duration20" class="img16" />
+            <img src="../../assets/wtjt/img17.png" qj-effect="doubleFlash animation-duration20" class="img17" />
+            <img src="../../assets/wtjt/img18.png" qj-effect="doubleFlash animation-duration20" class="img18" />
+            <img src="../../assets/wtjt/img19.png" qj-effect="" class="img19" />
+            <!--<div class="shade-div11" qj-effect="slideOutDown animation-duration50"></div>-->
+        </div>
+        <div class="section">
+            <img src="../../assets/wtjt/img11.png" qj-effect="fadeIn animation-delay20" class="img11" />
+            <img src="../../assets/wtjt/img12.png" qj-effect="fadeIn animation-duration20 animation-delay10" class="img12" />
+            <img src="../../assets/wtjt/img15.png" qj-effect="fadeUpAndDown animation-duration200 animation-delay20" class="img15" />
+            <img src="../../assets/wtjt/img16.png" qj-effect="fadeInUp animation-duration20" class="img16" />
+            <img src="../../assets/wtjt/img17.png" qj-effect="doubleFlash animation-duration20" class="img17" />
+            <img src="../../assets/wtjt/img18.png" qj-effect="doubleFlash animation-duration20" class="img18" />
+            <img src="../../assets/wtjt/img19.png" qj-effect="" class="img19" />
+            <!-- Swiper -->
+            <div class="swiper-container" style="opacity: 0"qj-effect="fadeIn animation-delay20">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../../assets/wtjt/1.jpg" style="width:3rem;"/></div>
+                    <div class="swiper-slide"><img src="../../assets/wtjt/1.jpg" style="width:3rem;"/></div>
+                    <div class="swiper-slide"><img src="../../assets/wtjt/1.jpg" style="width:3rem;"/></div>
+                    <div class="swiper-slide"><img src="../../assets/wtjt/1.jpg" style="width:3rem;"/></div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+<script>
+    $(function(){
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: '3',
+//            loop:true,
+            coverflow: {
+                rotate: 10,
+                stretch: 10,
+                depth: 1000,
+                modifier: 1,
+                slideShadows : true
+            },
+            onSlideChangeEnd: function(swiper){
+                alert(swiper.activeIndex) //切换结束时，告诉我现在是第几个slide
+            }
+        });
+    })
+</script>
 </html>

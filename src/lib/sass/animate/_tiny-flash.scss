@@ -21,3 +21,19 @@
     @extend %animated;
   }
 }
+// doubleFlash
+@mixin animate-doubleFlash () {
+  @include keyframes(doubleFlash){
+    0%, 30%{
+      opacity: 0;
+    }
+
+    15%, 100% {
+      opacity: 1;
+    }
+  }
+  .doubleFlash {
+    @include animation-name(doubleFlash);
+    @extend %animated;
+  }
+}

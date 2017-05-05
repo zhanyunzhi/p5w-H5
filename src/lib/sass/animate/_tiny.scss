@@ -147,7 +147,7 @@
     @include animation-name(fadeUpAndDown);
     @extend %animated;
     @include animation-iteration-count(infinite);
-    @include animation-duration(3s);
+    //@include animation-duration(3s);
     @include animation-timing-function(linear);
   }
 }
