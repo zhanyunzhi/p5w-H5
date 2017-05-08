@@ -343,15 +343,98 @@
     }
     50% {
       @include opacity(100);
-      @include scaleY(1);
+      @include transform(scale(1.1))
     }
     100% {
       @include opacity(100);
-      @include scaleX(1);
+      @include transform(scale(1))
     }
   }
   .smallToBig {
     @include animation-name(smallToBig);
+    @extend %animated;
+  }
+}
+// hiddenAndShow   若隐若现
+@mixin animate-hiddenAndShow () {
+  @include keyframes(hiddenAndShow){
+    0% {
+      @include opacity(100);
+      @include transform(scale(0.7))
+    }
+    80% {
+      @include opacity(100);
+      @include transform(scale(0.95))
+    }
+    100% {
+      @include opacity(0);
+      @include transform(scale(1))
+    }
+  }
+  .hiddenAndShow {
+    @include animation-name(hiddenAndShow);
+    @extend %animated;
+  }
+}
+// hiddenAndShowBig   若隐若现
+@mixin animate-hiddenAndShowBig () {
+  @include keyframes(hiddenAndShowBig){
+    0% {
+      @include opacity(100);
+      @include transform(scale(0.7))
+    }
+    80% {
+      @include opacity(100);
+      @include transform(scale(0.95))
+    }
+    100% {
+      @include opacity(0);
+      @include transform(scale(1))
+    }
+  }
+  .hiddenAndShowBig {
+    @include animation-name(hiddenAndShowBig);
+    @extend %animated;
+  }
+}
+// changeWToZero   宽度变成0
+@mixin animate-changeWToZero () {
+  @include keyframes(changeWToZero){
+    0% {
+      @include transform(scaleX(1))
+    }
+    100% {
+      @include transform(scaleX(0))
+    }
+  }
+  .changeWToZero {
+    @include transform-origin(left bottom);
+    @include animation-name(changeWToZero);
+    @extend %animated;
+  }
+}
+
+
+// flipInX180
+@mixin animate-flipInX180 () {
+  @include keyframes(flipInX180){
+    0% {
+      @include transform(perspective(2000px) rotateX(180deg));
+      opacity: 1;
+    }
+/*    50% {
+      @include transform(perspective(400px) rotateX(-10deg));
+      opacity: 1;
+    }*/
+    100% {
+      @include transform(perspective(2000px) rotateX(0deg));
+      opacity: 1;
+    }
+  }
+  .flipInX180 {
+    @include transform-origin(left top);
+    @include animation-name(flipInX180);
+    //@include backface-visibility(visible);
     @extend %animated;
   }
 }

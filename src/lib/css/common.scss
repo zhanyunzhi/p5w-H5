@@ -380,6 +380,9 @@
 
 
 //animation-duration
+.animation-duration5{
+    @include animation-duration(0.5s)
+}
 .animation-duration10{
     @include animation-duration(1.0s)
 }

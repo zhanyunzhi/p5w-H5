@@ -85,19 +85,46 @@
             <img src="../../assets/wtjt/img19.png" qj-effect="" class="img19" />
             <!--<div class="shade-div11" qj-effect="slideOutDown animation-duration50"></div>-->
         </div>
+        <div class="section active">
+            <img src="../../assets/wtjt/bg2.png" qj-effect="" class="bg2" />
+            <img src="../../assets/wtjt/img21.png" qj-effect="rotateInDownLeft animation-duration20 animation-delay10" class="img21" />
+            <img src="../../assets/wtjt/img22.png" qj-effect="rotateInDownRight animation-duration20 animation-delay10" class="img22" />
+            <img src="../../assets/wtjt/img23.png" qj-effect="smallToBig animation-duration15" class="img23" />
+            <img src="../../assets/wtjt/img24.png" qj-effect="smallToBig animation-duration15 animation-delay10" class="img24" />
+            <img src="../../assets/wtjt/img25.png" qj-effect="fadeInLeft animation-duration20 animation-delay20" class="img25" />
+            <img src="../../assets/wtjt/img26.png" qj-effect="fadeInRight animation-duration20 animation-delay20" class="img26" />
+            <img src="../../assets/wtjt/img27.png" qj-effect="hiddenAndShow animation-duration20 animation-iteration-infinite animation-delay15" class="img27" />
+            <img src="../../assets/wtjt/img27.png" qj-effect="hiddenAndShow animation-duration20 animation-iteration-infinite animation-delay25" class="img27" />
+        </div>
         <div class="section">
-            <img src="../../assets/wtjt/img11.png" qj-effect="fadeIn animation-delay20" class="img11" />
-            <img src="../../assets/wtjt/img12.png" qj-effect="fadeIn animation-duration20 animation-delay10" class="img12" />
-            <img src="../../assets/wtjt/img15.png" qj-effect="fadeUpAndDown animation-duration200 animation-delay20" class="img15" />
-            <img src="../../assets/wtjt/img16.png" qj-effect="fadeInUp animation-duration20" class="img16" />
-            <img src="../../assets/wtjt/img17.png" qj-effect="doubleFlash animation-duration20" class="img17" />
-            <img src="../../assets/wtjt/img18.png" qj-effect="doubleFlash animation-duration20" class="img18" />
-            <img src="../../assets/wtjt/img19.png" qj-effect="" class="img19" />
-            <!-- Swiper -->
-            <div class="swiper-container" style="opacity: 0"qj-effect="fadeIn animation-delay20">
+            <img src="../../assets/wtjt/bg3.png" qj-effect="" class="bg3" />
+            <img src="../../assets/wtjt/img31.png" qj-effect="" class="img31" />
+            <img src="../../assets/wtjt/img32.png" qj-effect="doubleFlash animation-duration15 animation-delay5" class="img32" />
+            <img src="../../assets/wtjt/img33.png" qj-effect="flipInX180 animation-duration15 animation-delay10" class="img33" />
+            <img src="../../assets/wtjt/img34.png" qj-effect="flipInX180 animation-duration15 animation-delay20" class="img34" />
+            <img src="../../assets/wtjt/img35.png" qj-effect="fadeInLeft animation-duration20 animation-delay15" class="img35" />
+            <img src="../../assets/wtjt/img36.png" qj-effect="fadeIn animation-duration15 animation-delay20" class="img36" />
+            <img src="../../assets/wtjt/img37.png" qj-effect="fadeIn animation-duration15  animation-delay20" class="img37" />
+            <img src="../../assets/wtjt/img23.png" qj-effect="smallToBig animation-duration30 animation-delay20" class="img38" />
+            <img src="../../assets/wtjt/img27.png" qj-effect="hiddenAndShow animation-duration30 animation-iteration-infinite animation-delay25" class="img39" />
+            <img src="../../assets/wtjt/img27.png" qj-effect="hiddenAndShow animation-duration30 animation-iteration-infinite animation-delay40" class="img39" />
+            <div class="shade-div31" qj-effect="changeWToZero animation-duration5"></div>
+        </div>
+        <div class="section">
+            <!-- Swiper1 -->
+            <div class="swiper-container1" style="opacity: 0"qj-effect="fadeIn animation-delay20">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide"><img src="../../assets/wtjt/1.jpg" style="width:3rem;"/></div>
+                    <div class="swiper-slide"><img src="../../assets/wtjt/img15.png" style="width:3rem;"/></div>
                     <div class="swiper-slide"><img src="../../assets/wtjt/1.jpg" style="width:3rem;"/></div>
+                    <div class="swiper-slide"><img src="../../assets/wtjt/1.jpg" style="width:3rem;"/></div>
+                </div>
+            </div>
+            <!-- Swiper2 -->
+            <div class="swiper-container2 swiper-no-swiping" style="opacity: 0"qj-effect="fadeIn animation-delay20">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../../assets/wtjt/1.jpg" style="width:3rem;"/></div>
+                    <div class="swiper-slide"><img src="../../assets/wtjt/img15.png" style="width:3rem;"/></div>
                     <div class="swiper-slide"><img src="../../assets/wtjt/1.jpg" style="width:3rem;"/></div>
                     <div class="swiper-slide"><img src="../../assets/wtjt/1.jpg" style="width:3rem;"/></div>
                 </div>
@@ -107,23 +134,34 @@
 </body>
 <script>
     $(function(){
-        var swiper = new Swiper('.swiper-container', {
+        var swiper1 = new Swiper('.swiper-container1', {
             effect: 'coverflow',
             grabCursor: true,
             centeredSlides: true,
             slidesPerView: '3',
-//            loop:true,
             coverflow: {
                 rotate: 10,
                 stretch: 10,
                 depth: 1000,
                 modifier: 1,
                 slideShadows : true
-            },
-            onSlideChangeEnd: function(swiper){
-                alert(swiper.activeIndex) //切换结束时，告诉我现在是第几个slide
             }
         });
+        var swiper2 = new Swiper('.swiper-container2', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: '3',
+            coverflow: {
+                rotate: 10,
+                stretch: 10,
+                depth: 1000,
+                modifier: 1,
+                slideShadows : true
+            }
+        });
+        swiper1.params.control = swiper2;//需要在Swiper2初始化后，Swiper1控制Swiper2
+//        swiper2.params.control = swiper1;//需要在Swiper1初始化后，Swiper2控制Swiper1
     })
 </script>
 </html>

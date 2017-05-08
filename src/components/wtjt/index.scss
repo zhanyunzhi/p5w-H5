@@ -30,7 +30,7 @@
 .bg1{
   @extend %img-all;
   width:100%;
-  //height:100%;
+  height:100%;
   top:0;
   left:0;
   z-index:99;
@@ -93,7 +93,6 @@
   left:0;
   z-index:99;
 }
-
 .img17{
   @extend %img-all;
   width:1.26rem;
@@ -112,17 +111,188 @@
   z-index:99;
 }
 
+.bg2{
+  @extend %img-all;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:1;
+  @include opacity(100);
+}
+.img21{
+  @extend %img-all;
+  width:2.57rem;
+  height:3.09rem;
+  top:2.0rem;
+  left:1.18rem;
+  z-index:100;
+}
+.img22{
+  @extend %img-all;
+  width:2.56rem;
+  height:2.67rem;
+  top:2.10rem;
+  right:0.92rem;
+  z-index:100;
+}
+.img23{
+  @extend %img-all;
+  width:3.85rem;
+  height:3.85rem;
+  top:4.2rem;
+  left:50%;
+  margin-left:-1.92rem;
+  z-index:99;
+}
+.img24{
+  @extend %img-all;
+  width:2.55rem;
+  height:1.12rem;
+  top:6.24rem;
+  left:50%;
+  margin-left:-1.27rem;
+  z-index:99;
+}
+.img25{
+  @extend %img-all;
+  width:0.76rem;
+  height:2.03rem;
+  top:9.0rem;
+  left:0;
+  z-index:99;
+}
+.img26{
+  @extend %img-all;
+  width:5.54rem;
+  height:2.04rem;
+  top:9.0rem;
+  left:0.96rem;
+  z-index:99;
+}
+.img27{
+  @extend %img-all;
+  width:5.11rem;
+  height:5.11rem;
+  top:3.56rem;
+  left:50%;
+  margin-left:-2.55rem;
+  z-index:98;
+}
+
+.bg3{
+  @extend %img-all;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:1;
+  @include opacity(100);
+}
+.img31{
+  @extend %img-all;
+  width:1.68rem;
+  height:.67rem;
+  top:1.02rem;
+  right:0;
+  z-index:9;
+  @include opacity(100);
+}
+.img32{
+  @extend %img-all;
+  width:3.44rem;
+  height:1.58rem;
+  top:.78rem;
+  right:1.62rem;
+  z-index:99;
+}
+.img33{
+  @extend %img-all;
+  width:6.46rem;
+  height:5.98rem;
+  top:2.3rem;
+  left:0.42rem;
+  z-index:99;
+}
+.img34{
+  @extend %img-all;
+  width:2.28rem;
+  height:2.75rem;
+  top:7.7rem;
+  right:.36rem;
+  z-index:99;
+}
+.img35{
+  @extend %img-all;
+  width:3.52rem;
+  height:.98rem;
+  top:3.32rem;
+  left:.8rem;
+  z-index:99;
+}
+.img36{
+  @extend %img-all;
+  width:4.38rem;
+  height:7rem;
+  top:.84rem;
+  right:.36rem;
+  z-index:99;
+}
+.img37{
+  @extend %img-all;
+  width:4.28rem;
+  height:3.75rem;
+  top:8rem;
+  left:0.04rem;
+  z-index:99;
+}
+.img38{
+  @extend %img-all;
+  width:2.14rem;
+  height:2.14rem;
+  top:9.36rem;
+  left:1.06rem;
+  z-index:99;
+}
+.img39{
+  @extend %img-all;
+  width:2.86rem;
+  height:2.86rem;
+  top:9.0rem;
+  left:.7rem;
+  z-index:98;
+}
+.shade-div31{
+  position: absolute;
+  width:1.68rem;
+  height:.67rem;
+  top:1.02rem;
+  right:0;
+  background-color: #090916;
+  //background-color: #FF0000;
+  z-index:10;
+}
+
 
 
 @include animate-fadeInUp();        //Ω•»Î
 @include animate-fadeIn();        //Ω•»Î
+@include animate-fadeInLeft();        //Ω•»Î
+@include animate-fadeInRight();        //Ω•»Î
 @include animate-flash();        //…¡À∏
 @include animate-doubleFlash();        //…¡À∏
 @include animate-smallToBig();        //…¡À∏
 @include animate-fadeUpAndDown();        //…¡À∏
 @include animate-slideOutDown();        //…¡À∏
+@include animate-rotateInDownRight();        //…¡À∏
+@include animate-rotateInDownLeft();        //…¡À∏
+@include animate-smallToBig();        //…¡À∏
+@include animate-hiddenAndShow();        //»Ù“˛»Ùœ÷
+@include animate-hiddenAndShowBig();        //»Ù“˛»Ùœ÷
+@include animate-changeWToZero();        //»Ù“˛»Ùœ÷
+@include animate-flipInX180();        //180∂»’€µ˛∑≠œ¬¥¯ºı’–ßπ˚
 
-.flash{
+.flash,.hiddenAndShow,.hiddenAndShowBig,.changeWToZero{
   @include animation-timing-function(linear);
 }
 
