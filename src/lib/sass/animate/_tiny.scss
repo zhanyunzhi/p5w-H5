@@ -17,7 +17,7 @@
     @include animation-name(rotateLoopR);
     @extend %animated;
     @include animation-iteration-count(infinite);
-    @include animation-duration(20s);
+    //@include animation-duration(20s);
     @include animation-timing-function(linear);
   }
 }
@@ -26,16 +26,18 @@
   @include keyframes(rotateLoopRF){
     0% {
       @include rotate(-360deg);
+      @include opacity(100);
     }
     100% {
       @include rotate(0);
+      @include opacity(100);
     }
   }
   .rotateLoopRF {
     @include animation-name(rotateLoopRF);
     @extend %animated;
     @include animation-iteration-count(infinite);
-    @include animation-duration(20s);
+    //@include animation-duration(20s);
     @include animation-timing-function(linear);
   }
 }// rotateLoopL     一直逆时针360度缓慢旋转
@@ -43,16 +45,18 @@
   @include keyframes(rotateLoopL){
     0% {
       @include rotate(360deg);
+      @include opacity(100);
     }
     100% {
       @include rotate(0);
+      @include opacity(100);
     }
   }
   .rotateLoopL {
     @include animation-name(rotateLoopL);
     @extend %animated;
     @include animation-iteration-count(infinite);
-    @include animation-duration(20s);
+    //@include animation-duration(20s);
     @include animation-timing-function(linear);
   }
 }
@@ -145,6 +149,30 @@
   }
   .fadeUpAndDown {
     @include animation-name(fadeUpAndDown);
+    @extend %animated;
+    @include animation-iteration-count(infinite);
+    //@include animation-duration(3s);
+    @include animation-timing-function(linear);
+  }
+}
+// fadeUpAndDownLong
+@mixin animate-fadeUpAndDownLong () {
+  @include keyframes(fadeUpAndDownLong){
+    0% {
+      opacity: 1;
+      @include translateY(0);
+    }
+    50% {
+      opacity: 1;
+      @include translateY(-40px);
+    }
+    100% {
+      opacity: 1;
+      @include translateY(0);
+    }
+  }
+  .fadeUpAndDownLong {
+    @include animation-name(fadeUpAndDownLong);
     @extend %animated;
     @include animation-iteration-count(infinite);
     //@include animation-duration(3s);
@@ -355,6 +383,37 @@
     @extend %animated;
   }
 }
+// smallToBigGo   由小到大
+@mixin animate-smallToBigGo () {
+  @include keyframes(smallToBigGo){
+    0% {
+      @include opacity(100);
+      /*@include scaleX(0.1);
+      @include scaleY(0.1);*/
+      @include transform(scale(0.5))
+    }
+    30% {
+      @include opacity(100);
+      @include transform(scale(1.3))
+    }
+    60% {
+      @include opacity(100);
+      @include transform(scale(0.9))
+    }
+    75% {
+      @include opacity(100);
+      @include transform(scale(1.05))
+    }
+    100% {
+      @include opacity(100);
+      @include transform(scale(1))
+    }
+  }
+  .smallToBigGo {
+    @include animation-name(smallToBigGo);
+    @extend %animated;
+  }
+}
 // hiddenAndShow   若隐若现
 @mixin animate-hiddenAndShow () {
   @include keyframes(hiddenAndShow){
@@ -410,6 +469,38 @@
   .changeWToZero {
     @include transform-origin(left bottom);
     @include animation-name(changeWToZero);
+    @extend %animated;
+  }
+}
+// changeWToZeroL   宽度变成0
+@mixin animate-changeWToZeroL () {
+  @include keyframes(changeWToZeroL){
+    0% {
+      @include transform(scaleX(1))
+    }
+    100% {
+      @include transform(scaleX(0))
+    }
+  }
+  .changeWToZeroL {
+    @include transform-origin(right bottom);
+    @include animation-name(changeWToZeroL);
+    @extend %animated;
+  }
+}
+// changeHToZero   高度变成0
+@mixin animate-changeHToZero () {
+  @include keyframes(changeHToZero){
+    0% {
+      @include transform(scaleY(1))
+    }
+    100% {
+      @include transform(scaleY(0))
+    }
+  }
+  .changeHToZero {
+    @include transform-origin(left top);
+    @include animation-name(changeHToZero);
     @extend %animated;
   }
 }

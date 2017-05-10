@@ -8,14 +8,17 @@
 @mixin animate-bounce () {
   @include keyframes(bounce){
     0%, 20%, 50%, 80%, 100% {
+      @include opacity(100);
       @include translateY(0);
     }
 
     40% {
+      @include opacity(100);
       @include translateY(-30px);
     }
 
     60% {
+      @include opacity(100);
       @include translateY(-15px);
     }  
   }
@@ -38,6 +41,22 @@
   }
   .flash {
     @include animation-name(flash);
+    @extend %animated;
+  }
+}
+// flashFormNone
+@mixin animate-flashFormNone () {
+  @include keyframes(flashFormNone){
+    0%, 50%, 100% {
+      opacity: 0;
+    }
+
+    25%, 75% {
+      opacity: 1;
+    }
+  }
+  .flashFormNone {
+    @include animation-name(flashFormNone);
     @extend %animated;
   }
 }

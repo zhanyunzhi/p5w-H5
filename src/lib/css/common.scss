@@ -383,6 +383,9 @@
 .animation-duration5{
     @include animation-duration(0.5s)
 }
+.animation-duration8{
+    @include animation-duration(0.8s)
+}
 .animation-duration10{
     @include animation-duration(1.0s)
 }
@@ -407,11 +410,29 @@
 .animation-duration70{
     @include animation-duration(7.0s)
 }
+.animation-duration80{
+    @include animation-duration(8.0s)
+}
 .animation-duration100{
     @include animation-duration(10.0s)
 }
+.animation-duration150{
+    @include animation-duration(15.0s)
+}
 .animation-duration200{
     @include animation-duration(20.0s)
+}
+.animation-duration300{
+    @include animation-duration(30.0s)
+}
+.animation-duration400{
+    @include animation-duration(40.0s)
+}
+.animation-duration500{
+    @include animation-duration(50.0s)
+}
+.animation-duration600{
+    @include animation-duration(60.0s)
 }
 
 //

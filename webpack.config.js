@@ -101,7 +101,7 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: 'src/components/kpd/index.html',
+            template: 'src/components/wtjt/index.html',
             filename: 'index.html',
             inject: 'head',
             minify: {               //压缩html文件

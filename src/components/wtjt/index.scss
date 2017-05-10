@@ -273,24 +273,714 @@
   z-index:10;
 }
 
+.bg4{
+  @extend %img-all;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:1;
+  @include opacity(100);
+}
+.img41{
+  @extend %img-all;
+  width:3.09rem;
+  height:.77rem;
+  top:0.54rem;
+  left:50%;
+  margin-left:-1.54rem;
+  z-index:99;
+}
+.img42{
+  @extend %img-all;
+  width:6.54rem;
+  height:6.54rem;
+  top:1.86rem;
+  left:50%;
+  margin-left:-3.27rem;
+  z-index:99;
+}
+.img43{
+  @extend %img-all;
+  width:5.34rem;
+  height:5.34rem;
+  top:2.48rem;
+  left:50%;
+  margin-left:-2.67rem;
+  z-index:99;
+}
+.img44{
+  @extend %img-all;
+  width:4.78rem;
+  height:4.78rem;
+  top:2.76rem;
+  left:50%;
+  margin-left:-2.39rem;
+  z-index:99;
+}
+.img45{
+  @extend %img-all;
+  width:4.06rem;
+  height:4.06rem;
+  top:3.15rem;
+  left:50%;
+  margin-left:-2.03rem;
+  z-index:99;
+}
+.img46{
+  @extend %img-all;
+  width:0.32rem;
+  height:0.68rem;
+  bottom:0;
+  left:50%;
+  margin-left:-0.16rem;
+  z-index:99;
+}
+.img47{
+  @extend %img-all;
+  width:1.06rem;
+  height:1.51rem;
+  top:4.9rem;
+  left:50%;
+  margin-left:1.2rem;
+  z-index:100;
+}
+.swiper-container1,.swiper-container2{
+  position: absolute;
+  z-index: 99;
+  @include opacity(0);
+}
+.swiper-container1{
+  top:3.15rem;
+  left:50%;
+  margin-left:-2.03rem;
+  width:4.06rem;
+  height:4.06rem;
+  .swiper-slide{
+    line-height:4.06rem;
+  }
+}
+.swiper-container2{
+  top:8.54rem;
+  left:0;
+  width:100%;
+  //height:auto;
+}
+.pro1{
+  width:3.31rem;
+  height:3.25rem;
+  vertical-align: middle;
+  margin-right: 0.42rem;
+  margin-top: 0.26rem;
+}
+.pro2{
+  width:2.2rem;
+  height:2.7rem;
+  vertical-align: middle;
+}
+.pro3{
+  width:3.27rem;
+  height:3.03rem;
+  vertical-align: middle;
+}
+.pro4{
+  width:3.13rem;
+  height:2.37rem;
+  vertical-align: middle;
+}
+.pro5{
+  width:2.46rem;
+  height:2.58rem;
+  vertical-align: middle;
+}
+.intr1{
+  width:6.22rem;
+  height:2.23rem;
+}
+.intr2{
+  width:6.21rem;
+  height:2.29rem;
+}
+.intr3{
+  width:6.49rem;
+  height:1.85rem;
+}
+.intr4{
+  width:6.13rem;
+  height:2.90rem;
+}
+.intr5{
+  width:6.13rem;
+  height:1.61rem;
+}
+
+.bg5{
+  @extend %img-all;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:1;
+}
+.img51{
+  @extend %img-all;
+  width:3.75rem;
+  height:.77rem;
+  top:.75rem;
+  left:50%;
+  margin-left:-1.87rem;
+  z-index:99;
+}
+.img52{
+  @extend %img-all;
+  width:4.72rem;
+  height:2.9rem;
+  top:2.06rem;
+  left:50%;
+  margin-left:-2.36rem;
+  z-index:99;
+}
+.img53{
+  @extend %img-all;
+  width:6.22rem;
+  height:3.91rem;
+  top:5.7rem;
+  left:50%;
+  margin-left:-3.11rem;
+  z-index:99;
+}
+.img54{
+  @extend %img-all;
+  width:0.32rem;
+  height:0.36rem;
+  top:6.5rem;
+  left:2.24rem;
+  z-index:99;
+  //@include opacity(100);
+}
+.img542{
+  @extend %img-all;
+  width:0.32rem;
+  height:0.36rem;
+  top:6.9rem;
+  right:2.44rem;
+  z-index:99;
+}
+.img55{
+  @extend %img-all;
+  width:3.83rem;
+  height:2.59rem;
+  top:6.16rem;
+  left:50%;
+  margin-left:-1.91rem;
+  z-index:99;
+}
+.img56{
+  @extend %img-all;
+  width:1.08rem;
+  height:4.2rem;
+  top:9.6rem;
+  left:0.76rem;
+  z-index:9;
+  @include opacity(100);
+}
+.img57{
+  @extend %img-all;
+  width:7.42rem;
+  height:1.99rem;
+  //top:10.08rem;
+  right:0;
+  bottom:0;
+  z-index:99;
+}
+.shade-div51{
+  position: absolute;
+  width:1.08rem;
+  height:4.2rem;
+  top:9.6rem;
+  left:0.76rem;
+  background-color: #000000;
+  //background-color: #FF0000;
+  z-index:10;
+}
+
+.bg6{
+  @extend %img-all;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:1;
+}
+.img61{
+  @extend %img-all;
+  width:4.39rem;
+  height:.77rem;
+  top:.76rem;
+  left:50%;
+  margin-left:-2.19rem;
+  z-index:99;
+}
+.img62{
+  @extend %img-all;
+  width:5.47rem;
+  height:3.02rem;
+  top:2.06rem;
+  left:50%;
+  margin-left:-2.73rem;
+  z-index:99;
+}
+.img63{
+  @extend %img-all;
+  width:6.22rem;
+  height:3.91rem;
+  top:5.7rem;
+  left:50%;
+  margin-left:-3.11rem;
+  z-index:99;
+}
+.img64{
+  @extend %img-all;
+  width:4.67rem;
+  height:2.63rem;
+  top:6.1rem;
+  right:1.18rem;
+  z-index:99;
+}
+.img65{
+  @extend %img-all;
+  width:3.24rem;
+  height:2.13rem;
+  top:6.16rem;
+  left:50%;
+  margin-left:-1.82rem;
+  z-index:99;
+}
+.img66{
+  @extend %img-all;
+  width:1.08rem;
+  height:4.2rem;
+  top:9.6rem;
+  left:0.76rem;
+  z-index:9;
+  @include opacity(100);
+}
+.img67{
+  @extend %img-all;
+  width:7.42rem;
+  height:1.99rem;
+  //top:10.08rem;
+  right:0;
+  bottom:0;
+  z-index:99;
+}
+.shade-div61{
+  position: absolute;
+  width:1.08rem;
+  height:4.2rem;
+  top:9.6rem;
+  left:0.76rem;
+  background-color: #000000;
+  //background-color: #FF0000;
+  z-index:10;
+}
+
+.bg7{
+  @extend %img-all;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:1;
+}
+.img71{
+  @extend %img-all;
+  width:2.29rem;
+  height:.68rem;
+  top:1rem;
+  left:0;
+  z-index:9;
+  @include opacity(100);
+}
+.img72{
+  @extend %img-all;
+  width:3.72rem;
+  height:1.6rem;
+  top:0.78rem;
+  left:2.2rem;
+  z-index:99;
+}
+.img73{
+  @extend %img-all;
+  width:5.71rem;
+  height:8.12rem;
+  top:2.3rem;
+  left:0.78rem;
+  z-index:99;
+}
+.img74{
+  @extend %img-all;
+  width:5.64rem;
+  height:10.1rem;
+  top:1.8rem;
+  left:0.64rem;
+  z-index:99;
+}
+.img75{
+  @extend %img-all;
+  width:2.14rem;
+  height:2.14rem;
+  top:9.5rem;
+  right:1rem;
+  z-index:99;
+}
+.img76{
+  @extend %img-all;
+  width:2.86rem;
+  height:2.86rem;
+  top:9.14rem;
+  right:.64rem;
+  z-index:98;
+}
+.shade-div71{
+  position: absolute;
+  width:2.29rem;
+  height:.68rem;
+  top:1rem;
+  left:0;
+  background-color: #000000;
+  //background-color: #FF0000;
+  z-index:10;
+}
+
+.bg8{
+  @extend %img-all;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:1;
+  @include opacity(100);
+}
+.img81{
+  @extend %img-all;
+  width:5.36rem;
+  height:1.37rem;
+  top:1.5rem;
+  left:50%;
+  margin-left:-2.68rem;
+  z-index:99;
+}
+.img82{
+  @extend %img-all;
+  width:5.75rem;
+  height:2.03rem;
+  top:4.16rem;
+  left:50%;
+  margin-left:-2.77rem;
+  z-index:99;
+}
+.img83{
+  @extend %img-all;
+  width:4.97rem;
+  height:1.3rem;
+  top:4.46rem;
+  left:50%;
+  margin-left:-2.4rem;
+  z-index:99;
+}
+.img84{
+  @extend %img-all;
+  width:1.78rem;
+  height:5.34rem;
+  bottom:0;
+  left:0;
+  z-index:98;
+}
+.img85{
+  @extend %img-all;
+  width:0.9rem;
+  height:1.39rem;
+  bottom:1rem;
+  left:3rem;
+  z-index:99;
+}
+.img86{
+  @extend %img-all;
+  width:9.17rem;
+  height:2.08rem;
+  bottom:-0.1rem;
+  left:50%;
+  margin-left:-4.18rem;
+  z-index:95;
+  @include opacity(100);
+}
+.img87{
+  @extend %img-all;
+  width:9.58rem;
+  height:2.18rem;
+  bottom:-0.5rem;
+  left:50%;
+  margin-left:-5.29rem;
+  z-index:96;
+  @include opacity(100);
+}
+.img88{
+  @extend %img-all;
+  width:9.17rem;
+  height:2.08rem;
+  bottom:-0.8rem;
+  left:50%;
+  margin-left:-4.38rem;
+  z-index:97;
+  @include opacity(100);
+}
+
+.bg9{
+  @extend %img-all;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:1;
+  @include opacity(100);
+}
+.img91{
+  @extend %img-all;
+  width:3.71rem;
+  height:10.73rem;
+  top:0.64rem;
+  left:50%;
+  margin-left:-1.85rem;
+  z-index:99;
+}
+.img92{
+  @extend %img-all;
+  width:4.44rem;
+  height:4.16rem;
+  top:1.5rem;
+  left:50%;
+  margin-left:-2.22rem;
+  z-index:99;
+}
+.img93{
+  @extend %img-all;
+  width:3.85rem;
+  height:3.92rem;
+  top:1.7rem;
+  left:50%;
+  margin-left:-1.92rem;
+  z-index:99;
+}
+.img94{
+  @extend %img-all;
+  width:4.53rem;
+  height:6.33rem;
+  top:5.46rem;
+  left:50%;
+  margin-left:-2.28rem;
+  z-index:98;
+}
+.img95{
+  @extend %img-all;
+  width:1.78rem;
+  height:1.85rem;
+  top:8.7rem;
+  left:50%;
+  margin-left:-0.89rem;
+  z-index:99;
+}
+.img96{
+  @extend %img-all;
+  width:4.64rem;
+  height:5.66rem;
+  top:5.6rem;
+  left:50%;
+  margin-left:-2.32rem;
+  z-index:99;
+}
+.img97{
+  @extend %img-all;
+  width:100%;
+  height:1.95rem;
+  bottom:0;
+  left:0;
+  z-index:97;
+}
+.img98{
+  @extend %img-all;
+  width:0.26rem;
+  height:2.74rem;
+  bottom:0;
+  left:0.88rem;
+  z-index:96;
+}
+.img99{
+  @extend %img-all;
+  width:0.22rem;
+  height:2.3rem;
+  bottom:0;
+  right:0.98rem;
+  z-index:96;
+}
 
 
+// mouseMove
+@mixin animate-mouseMove () {
+  @include keyframes(mouseMove){
+    5%{
+      opacity: 0;
+      @include translate(0,0);
+    }
+    10% {
+      opacity: 1;
+      @include translate(0,0);
+    }
+    50%, 60% {
+      opacity: 1;
+      @include translate(2.4rem,0.34rem);
+    }
+    55% {
+      opacity: 0;
+      @include translate(2.4rem,0.34rem);
+    }
+    100% {
+      opacity: 1;
+      @include translate(0,0);
+    }
+  }
+  .mouseMove {
+    @include animation-name(mouseMove);
+    @extend %animated;
+    @include animation-duration(6s);
+    @include animation-timing-function(linear)
+  }
+}
+// cloudMove
+@mixin animate-cloudMove () {
+  @include keyframes(cloudMove) {
+    0%, 100% {
+      opacity: 1;
+      @include translateX(0);
+    }
+    25% {
+      opacity: 1;
+      @include translateX(0.4rem);
+    }
+    75% {
+      opacity: 1;
+      @include translateX(-0.6rem);
+    }
+  }
+  .cloudMove {
+    @include animation-name(cloudMove);
+    @extend %animated;
+    @include animation-duration(30s);
+    @include animation-timing-function(ease)
+  }
+}
+// likeSpaceman
+@mixin animate-likeSpaceman () {
+  @include keyframes(likeSpaceman) {
+    0% {
+      opacity: 1;
+      @include transform(rotate(0deg) translate(0,0));
+    }
+    25% {
+      opacity: 1;
+      @include transform(rotate(20deg) translate(0.4rem,0.1rem));
+    }
+    50%{
+      @include transform(rotate(0deg) translate(0.46rem,0.12rem));
+    }
+    75%{
+      @include transform(rotate(-20deg) translate(0.4rem,0.1rem));
+    }
+    100% {
+      opacity: 1;
+      @include transform(rotate(0deg) translate(0,0));
+    }
+  }
+  .likeSpaceman {
+    @include animation-name(likeSpaceman);
+    @extend %animated;
+    @include animation-duration(10s);
+    @include animation-timing-function(linear)
+  }
+}
+// fingerSlide
+@mixin animate-fingerSlide () {
+  @include keyframes(fingerSlide) {
+    0% {
+      opacity: 0;
+      @include translateX(0);
+    }
+    100% {
+      opacity: 1;
+      @include translateX(-3rem);
+    }
+  }
+  .fingerSlide {
+    @include animation-name(fingerSlide);
+    @extend %animated;
+    @include animation-duration(1s);
+    @include animation-timing-function(linear);
+    @include animation-iteration-count(3);
+    @include animation-fill-mode(none);
+  }
+}
+// rocketUp
+@mixin animate-rocketUp () {
+  @include keyframes(rocketUp){
+    0% {
+      @include opacity(100);
+      @include translateY(1.2rem);
+    }
+    100% {
+      @include opacity(100);
+      @include translateY(-15rem);
+    }
+  }
+  .rocketUp {
+    @include animation-name(rocketUp);
+    @extend %animated;
+    @include animation-timing-function(ease-in);
+  }
+}
+@include animate-slideInDownAndBack();        //渐入
 @include animate-fadeInUp();        //渐入
 @include animate-fadeIn();        //渐入
 @include animate-fadeInLeft();        //渐入
 @include animate-fadeInRight();        //渐入
+@include animate-fadeInDown();        //渐入
 @include animate-flash();        //闪烁
+@include animate-flashFormNone();        //闪烁
+@include animate-fastFlashAndShow();        //闪烁
 @include animate-doubleFlash();        //闪烁
 @include animate-smallToBig();        //闪烁
+@include animate-smallToBigGo();        //闪烁
 @include animate-fadeUpAndDown();        //闪烁
+@include animate-fadeUpAndDownLong();        //闪烁
 @include animate-slideOutDown();        //闪烁
 @include animate-rotateInDownRight();        //闪烁
 @include animate-rotateInDownLeft();        //闪烁
 @include animate-smallToBig();        //闪烁
 @include animate-hiddenAndShow();        //若隐若现
 @include animate-hiddenAndShowBig();        //若隐若现
-@include animate-changeWToZero();        //若隐若现
+@include animate-changeWToZero();        //宽度变成0
+@include animate-changeWToZeroL();        //宽度变成0
+@include animate-changeHToZero();        //高度变成0
 @include animate-flipInX180();        //180度折叠翻下带减震效果
+@include animate-rotateLoopL();        //一直逆时针360度缓慢旋转
+@include animate-rotateLoopRF();        //一直顺时针360度缓慢旋转
+@include animate-bounceIn();        //一直顺时针360度缓慢旋转
+@include animate-mouseMove();        //一直顺时针360度缓慢旋转
+@include animate-cloudMove();        //一直顺时针360度缓慢旋转
+@include animate-bigPulse();        //一直顺时针360度缓慢旋转
+@include animate-likeSpaceman();        //一直顺时针360度缓慢旋转
+@include animate-fingerSlide();        //一直顺时针360度缓慢旋转
+@include animate-rocketUp();        //一直顺时针360度缓慢旋转
+
 
 .flash,.hiddenAndShow,.hiddenAndShowBig,.changeWToZero{
   @include animation-timing-function(linear);

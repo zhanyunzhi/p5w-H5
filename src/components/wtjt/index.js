@@ -29,7 +29,9 @@ function index() {
                     }
                 },
                 onLeave: function(index, nextIndex, direction ){
-
+                    if(index!==4){
+                        swiper1.slideTo(0, 1000, false);//切换到第一个slide，速度为1秒
+                    }
                 },
                 afterLoad: function(anchorLink, index){     //anchorLink 是锚链接的名称，index 是序号，从1开始计算
                     if(index==1){
@@ -54,11 +56,22 @@ function index() {
         var shareTitle = $('#wxTitle').html();          //微信分享的标题
         var shareDesc = $('#wxDesc').html();            //微信分享的描述
         var shareLink = location.href;                  //微信分享的链接地址
-        var shareImg = location.href.split('index.html')[0] + 'assets/fx.png';      //微信分享的图片地址
+        var shareImg = location.href.split('index.html')[0] + 'assets/fx.jpg';      //微信分享的图片地址
         var common = new Common();
         common.setWxShare(shareTitle, shareDesc, shareLink, shareImg);          //设置微信分享的内容
         common.setMusic();          //设置音乐播放和启动等
         common.loading(bootstrap);       //图片预加载，加载完成后再启动fullpage
+        var swiper1 = new Swiper('.swiper-container1', {
+            effect: 'cube',
+            grabCursor: true,
+            centeredSlides: true
+        });
+        var swiper2 = new Swiper('.swiper-container2', {
+            grabCursor: true,
+            centeredSlides: true
+        });
+        swiper1.params.control = swiper2;//需要在Swiper2初始化后，Swiper1控制Swiper2
+//        swiper2.params.control = swiper1;//需要在Swiper1初始化后，Swiper2控制Swiper1
     });
     return {
         name: 'index',

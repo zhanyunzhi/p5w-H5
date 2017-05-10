@@ -113,10 +113,11 @@
 @mixin animate-slideOutUp () {
   @include keyframes(slideOutUp){
     0% {
+      @include opacity(100);
       @include translateY(0);
     }
     100% {
-      opacity: 0;
+      @include opacity(100);
       @include translateY(-2000px);
     }
   }
@@ -203,6 +204,30 @@
   }
   .slideOutDownShort {
     @include animation-name(slideOutDownShort);
+    @extend %animated;
+  }
+}
+
+
+
+// slideInDownAndBack
+@mixin animate-slideInDownAndBack () {
+  @include keyframes(slideInDownAndBack){
+    0% {
+      opacity: 1;
+      @include translateY(1rem);
+    }
+    60% {
+      opacity: 1;
+      @include translateY(-0.2rem);
+    }
+    100% {
+      opacity: 1;
+      @include translateY(0);
+    }
+  }
+  .slideInDownAndBack {
+    @include animation-name(slideInDownAndBack);
     @extend %animated;
   }
 }
