@@ -416,6 +416,9 @@
 .animation-duration100{
     @include animation-duration(10.0s)
 }
+.animation-duration120{
+    @include animation-duration(12.0s)
+}
 .animation-duration150{
     @include animation-duration(15.0s)
 }
@@ -445,4 +448,14 @@
 }
 .fp-tableCell img,.fp-tableCell div{        //去除在苹果手机上翻页的时候，底部会闪白底的问题
     @include backface-visibility(hidden);
+}
+//遮罩
+.shade{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    @include bgcolor-alpha(rgba(0, 0, 0, .5));
+    z-index: 9999;
+
 }

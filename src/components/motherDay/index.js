@@ -5,7 +5,6 @@
 import './index.scss';                   //引入sass文件
 import './music.mp3';                   //引入mp3文件
 import Common from '../../lib/js/common.js';                   //引入common文件
-import '../../lib/js/swiper.min.js';                   //引入swiper文件
 function index() {
     $(function(){
         function getTransforms(translate3d){
@@ -29,12 +28,6 @@ function index() {
                     }
                 },
                 onLeave: function(index, nextIndex, direction ){
-                    if(index!==4){
-                        swiper1.slideTo(0, 1000, false);//切换到第一个slide，速度为1秒
-                        for(var i=0;i<5;i++){
-                            $('.swiper-slide').eq(i).css({width:'4.06rem'});            //可能是因为fullpage滑动的时候影响了swiper对元素宽度的判断，这里要手动设置宽度不然会出现偶现bug
-                        }
-                    }
                 },
                 afterLoad: function(anchorLink, index){     //anchorLink 是锚链接的名称，index 是序号，从1开始计算
                     if(index==1){
@@ -64,23 +57,62 @@ function index() {
         common.setWxShare(shareTitle, shareDesc, shareLink, shareImg);          //设置微信分享的内容
         common.setMusic();          //设置音乐播放和启动等
         common.loading(bootstrap);       //图片预加载，加载完成后再启动fullpage
-        var swiper1 = new Swiper('.swiper-container1', {
-            effect: 'cube',
-            grabCursor: true,
-            centeredSlides: true,
-            cube:{
-                slideShadows:false,
-                shadow:false,
-                shadowOffset:0,
-                shadowScale:0
+
+        var eAnimates = $('#shade').find('[qj-effect]');
+        //打开遮罩并显示指定的二维码图片
+        var showQR = function(index){
+            $('#shade').show();
+            //$('#showQR').addClass('filter-blur');            //背景图加滤镜
+            var i= 0;
+            for(i;i<sections.length;i++){
+                var effects = sections.eq(i).find('[qj-effect]');
+                for(var j=0;j<effects.length;j++){
+                    effects.eq(j).addClass('filter-blur');
+                }
             }
+            //指定的弹窗元素加动画
+            eAnimates.eq(index).addClass(eAnimates.eq(index).attr('qj-effect'));
+            eAnimates.eq(eAnimates.length-1).addClass(eAnimates.eq(eAnimates.length-1).attr('qj-effect'));
+        }
+        //点击空白处关闭弹窗
+        var closeQR = function ($event) {
+            var $tmp = $('.shade-img1');
+            if ($tmp.filter($event.target).length > 0 || $tmp.find($event.target).length > 0) {
+                return false;
+            }
+            $('#shade').hide();           //隐藏弹窗
+            //$('#showQR').removeClass('filter-blur');         //背景图去除滤镜
+            var i= 0;
+            for(i;i<sections.length;i++){
+                var effects = sections.eq(i).find('[qj-effect]');
+                for(var j=0;j<effects.length;j++){
+                    effects.eq(j).removeClass('filter-blur');
+                }
+            }
+            //弹窗元素去除动画
+            for(var j=0;j<eAnimates.length;j++){
+                eAnimates.eq(j).removeClass(eAnimates.eq(j).attr('qj-effect'));
+            }
+        };
+        $('#open1').click(function(){
+            showQR(0);
         });
-        var swiper2 = new Swiper('.swiper-container2', {
-            grabCursor: true,
-            centeredSlides: true
+        $('#open2').click(function(){
+            showQR(1);
         });
-        swiper1.params.control = swiper2;//需要在Swiper2初始化后，Swiper1控制Swiper2
-//        swiper2.params.control = swiper1;//需要在Swiper1初始化后，Swiper2控制Swiper1
+        $('#open3').click(function(){
+            showQR(2);
+        });
+        $('#open4').click(function(){
+            showQR(3);
+        });
+        $('#finger').click(function(){
+            showQR(0);
+        });
+        $('#shade').click(function(){
+            closeQR(event);
+            $('#finger').hide();
+        });
     });
     return {
         name: 'index',

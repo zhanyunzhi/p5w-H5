@@ -37,3 +37,19 @@
     @extend %animated;
   }
 }
+// tripleFlash
+@mixin animate-tripleFlash () {
+  @include keyframes(tripleFlash){
+    0%, 16%, 32%{
+      opacity: 0;
+    }
+
+    8%, 24%, 100% {
+      opacity: 1;
+    }
+  }
+  .tripleFlash {
+    @include animation-name(tripleFlash);
+    @extend %animated;
+  }
+}

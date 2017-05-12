@@ -12,8 +12,8 @@
 @import "../../lib/sass/animate/_lightspeed";
 @import "../../lib/sass/animate/_tiny";
 @import "../../lib/sass/animate/_tiny-flash";
-@import "../../lib/css/swiper.min.css";
 @import "../../lib/css/jquery.fullPage.css";
+@import "../../lib/css/swiper.min.css";
 @import "../../lib/css/common";
 
 .section{
@@ -33,22 +33,70 @@
   height:100%;
   top:0;
   left:0;
-  z-index:99;
+  z-index:9;
   @include opacity(100);
 }
-.img11{
+.img111{
   @extend %img-all;
-  width:100%;
-  height:4.09rem;
-  top:0.34rem;
+  width:2.28rem;
+  height:3.9rem;
+  top:0.52rem;
   left:0;
-  z-index:99;
+  z-index:97;
+  @include opacity(100);
+  clip: rect(0 0 3.9rem 0);
+  @include transition(clip)
 }
+// showImg111
+@mixin animate-showImg111 () {
+  @include keyframes(showImg111){
+    0% {
+      clip: rect(0 0 4.09rem 0);
+    }
+    100% {
+      clip: rect(0 3rem 3.9rem 0);
+    }
+  }
+  .showImg111 {
+    @include animation-name(showImg111);
+    @extend %animated;
+    @include animation-timing-function(ease-in);
+  }
+}
+@include animate-showImg111();
+.img112{
+  @extend %img-all;
+  width:1.59rem;
+  height:3.52rem;
+  top:0.34rem;
+  right:0;
+  z-index:97;
+  @include opacity(100);
+  clip: rect(0 1.59rem 3.52rem 1.59rem);
+  @include transition(clip)
+}
+// showImg112
+@mixin animate-showImg112 () {
+  @include keyframes(showImg112){
+    0% {
+      clip: rect(0 1.59rem 3.52rem 1.59rem);
+    }
+    100% {
+      clip: rect(0 1.59rem 3.52rem -1rem);
+    }
+  }
+  .showImg112 {
+    @include animation-name(showImg112);
+    @extend %animated;
+    @include animation-timing-function(ease-in);
+  }
+}
+@include animate-showImg112();
 .img12{
   @extend %img-all;
   width:4.71rem;
   height:2.55rem;
-  top:1.66rem;
+  top:1.64rem;
   left:1.4rem;
   z-index:102;
 }
@@ -58,9 +106,28 @@
   height:2.27rem;
   top:1.64rem;
   left:1.4rem;
-  z-index:99;
+  z-index:101;
   @include opacity(100);
+  //clip: rect(0 4.71rem 2.27rem 0);
+  //@include transition(clip)
 }
+// hiddenImg19
+@mixin animate-hiddenImg19 () {
+  @include keyframes(hiddenImg19){
+    0% {
+      clip: rect(0 4.71rem 2.27rem 0);
+    }
+    100% {
+      clip: rect(2.27rem 4.71rem 3.52rem 4.71rem);
+    }
+  }
+  .hiddenImg19 {
+    @include animation-name(hiddenImg19);
+    @extend %animated;
+    @include animation-timing-function(ease-in);
+  }
+}
+@include animate-hiddenImg19();
 .img13{
   @extend %img-all;
   width:4.53rem;
@@ -99,7 +166,8 @@
   height:0.87rem;
   top:1.2rem;
   left:0;
-  z-index:99;
+  z-index:97;
+  @include opacity(100);
 }
 
 .img18{
@@ -108,7 +176,8 @@
   height:0.48rem;
   top:3.36rem;
   right:0;
-  z-index:99;
+  z-index:97;
+  @include opacity(100);
 }
 
 .bg2{
@@ -642,6 +711,14 @@
   right:.64rem;
   z-index:98;
 }
+.img77{
+  @extend %img-all;
+  width:4.15rem;
+  height:5.31rem;
+  top:6.26rem;
+  right:0;
+  z-index:99;
+}
 .shade-div71{
   position: absolute;
   width:2.29rem;
@@ -980,9 +1057,25 @@
 @include animate-likeSpaceman();        //一直顺时针360度缓慢旋转
 @include animate-fingerSlide();        //一直顺时针360度缓慢旋转
 @include animate-rocketUp();        //一直顺时针360度缓慢旋转
+@include animate-tripleFlash();        //一直顺时针360度缓慢旋转
 
 
 .flash,.hiddenAndShow,.hiddenAndShowBig,.changeWToZero{
   @include animation-timing-function(linear);
 }
 
+$spriteWidth: 140px; // 精灵宽度
+@keyframes run {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -($spriteWidth * 12) 0; // 12帧
+  }
+}
+#sprite {
+  width: $spriteWidth;
+  height: 144px;
+  background: url("../../assets/wtjt/img111.png") 0 0 no-repeat;
+  animation: run 0.6s steps(12) infinite;
+}

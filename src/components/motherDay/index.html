@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>母亲节</title>
+    <script>
+        var docEle = document.documentElement;
+        var eDiv = document.createElement('div');
+        eDiv.innerHTML = '请竖屏查看';
+        eDiv.className = 'landscape';
+        eDiv.style.display = 'none';
+        docEle.appendChild(eDiv);
+        var timer = null;
+        fn = function() {
+            timer = setTimeout(function(){          //加延迟0.1s不然在android下获取到的宽高是旋转屏幕之前的宽高
+                var width = docEle.clientWidth;
+                var height = docEle.clientHeight;
+//                alert(width+'--'+height)
+                if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){         //移动端设备
+                    if(width > height){             //宽度大于高度，说明是横屏
+//                        eDiv.style.display = 'block';
+                    }else{                          //竖屏
+//                        eDiv.style.display = 'none';
+                    }
+                }
+                if( width < 320 ) {
+                    docEle.style.fontSize = 42.6667 + "px";//
+                }
+                else if( width > 750 ) {
+                    docEle.style.fontSize = 100 + "px";
+                }
+                else {
+                    //以750设计稿宽度为基准设置fontSize:100px;这样保证iPhone6以下是高清
+                    docEle.style.fontSize = 100 * (width / 750) + "px";
+                }
+            },100);
+        };
+        var evt = "onorientationchange" in window ? "orientationchange" : "resize";//区分Mobile和PC以加载不同的事件
+        window.addEventListener(evt, fn, false);
+        fn();
+    </script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+    <div id="loading" class="loading-black" style="background-color: #0b0928;" hidden>
+        <img src="../../assets/common/logo-black.png" class="pre-logo" style="top: 4.8rem;"/>
+       <!-- <div class="cow">
+            <img src="../../assets/common/circle-black.png" class="pre-circle eye-rotate"/>
+            <img src="../../assets/common/head.png" class="pre-head"/>
+            <img src="../../assets/common/eye.png" class="pre-eye-left eye-rotate"/>
+            <img src="../../assets/common/eye.png" class="pre-eye-right eye-rotate"/>
+        </div>-->
+        <div id="progress" style="top: 5.6rem;"><i class="progress-white"></i></div>
+    </div>
+    <a class="mscBtn ddplay play" id="audioBtn" title="music" style="cursor:pointer;animation-duration:2s;"></a>
+    <audio id="bgMusic" loop="loop" autoplay="autoplay">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+    <!--指示箭头-->
+    <!--<section class="u-arrow-bottom">
+        <div class="pre-wrap">
+            <div class="pre-box1">
+                <div class="pre1"></div>
+            </div>
+            <div class="pre-box2">
+                <div class="pre2"></div>
+            </div>
+        </div>
+    </section>-->
+    <div id="wxTitle" hidden>母亲节</div>
+    <div id="wxDesc" hidden>母亲节快乐</div>
+    <img src="../../assets/motherDay/fx.jpg" hidden/>
+    <div id="qj">
+        <div class="section">
+            <img src="../../assets/motherDay/bg1.png" qj-effect="" class="bg1" id="showQR"/>
+            <img src="../../assets/motherDay/b1.png" qj-effect="balloon animation-duration50 animation-iteration-infinite" class="b1" id="open1"/>
+            <img src="../../assets/motherDay/b2.png" qj-effect="balloon animation-duration50 animation-delay20 animation-iteration-infinite" class="b2" id="open3"/>
+            <img src="../../assets/motherDay/text.png" qj-effect="shake animation-duration20 animation-iteration-infinite" class="text"/>
+            <img src="../../assets/motherDay/f1.png" qj-effect="rotateLoopRF animation-duration150" class="f1"/>
+            <img src="../../assets/motherDay/f1.png" qj-effect="rotateLoopRF animation-duration120" class="f2" id="open2"/>
+            <img src="../../assets/motherDay/f1.png" qj-effect="rotateLoopL animation-duration150" class="f3"/>
+            <img src="../../assets/motherDay/f1.png" qj-effect="rotateLoopL animation-duration150" class="f4"/>
+            <img src="../../assets/motherDay/f1.png" qj-effect="rotateLoopRF animation-duration120" class="f5" id="open4"/>
+            <img src="../../assets/motherDay/f2.png" qj-effect="rotateLoopL animation-duration120" class="f6"/>
+            <img src="../../assets/motherDay/f2.png" qj-effect="rotateLoopL animation-duration120" class="f7"/>
+            <img src="../../assets/motherDay/f2.png" qj-effect="rotateLoopL animation-duration120" class="f8"/>
+            <img src="../../assets/motherDay/person.png" qj-effect="" class="person"/>
+            <img src="../../assets/motherDay/wish.png" qj-effect="" class="wish"/>
+            <img src="../../assets/motherDay/finger.png" qj-effect="flash animation-iteration-infinite" class="finger" id="finger"/>
+        </div>
+        <div class="shade" id="shade" hidden >
+            <img src="../../assets/motherDay/shade-img1.png" qj-effect="smallToBigGo" class="shade-img1"/>
+            <img src="../../assets/motherDay/shade-img2.png" qj-effect="smallToBigGo" class="shade-img1"/>
+            <img src="../../assets/motherDay/shade-img3.png" qj-effect="smallToBigGo" class="shade-img1"/>
+            <img src="../../assets/motherDay/shade-img4.png" qj-effect="smallToBigGo" class="shade-img1"/>
+            <img src="../../assets/motherDay/shade-close.png" qj-effect="slideInDownAndBack animation-delay5 animation-duration8" class="shade-close" />
+        </div>
+    </div>
+</body>
+</html>

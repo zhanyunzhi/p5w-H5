@@ -101,7 +101,7 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: 'src/components/wtjt/index.html',
+            template: 'src/components/motherDay/index.html',
             filename: 'index.html',
             inject: 'head',
             minify: {               //压缩html文件
