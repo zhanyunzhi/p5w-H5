@@ -201,12 +201,15 @@
   @include filter-blur(4px)
 }
 .shade-img1{
-  @extend %img-all;
+  //@extend %img-all;
   width:5.28rem;
   height:6.31rem;
-  left:50%;
-  margin-left:-2.64rem;
-  top:2.45rem;
+  display: block;
+  margin:0 auto;
+  margin-top:2.45rem;
+  //left:50%;
+  //margin-left:-2.64rem;
+  //top:2.45rem;
   @include opacity(0);
 }
 .shade-close{

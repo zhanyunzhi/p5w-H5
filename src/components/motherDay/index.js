@@ -70,9 +70,15 @@ function index() {
                     effects.eq(j).addClass('filter-blur');
                 }
             }
+            //弹窗元素去除动画
+            for(var j=0;j<eAnimates.length;j++){
+                eAnimates.eq(j).removeClass(eAnimates.eq(j).attr('qj-effect'));
+                eAnimates.eq(j).hide();
+            }
             //指定的弹窗元素加动画
+            eAnimates.eq(index).show();
             eAnimates.eq(index).addClass(eAnimates.eq(index).attr('qj-effect'));
-            eAnimates.eq(eAnimates.length-1).addClass(eAnimates.eq(eAnimates.length-1).attr('qj-effect'));
+            eAnimates.eq(eAnimates.length-1).addClass(eAnimates.eq(eAnimates.length-1).attr('qj-effect')).show();
         }
         //点击空白处关闭弹窗
         var closeQR = function ($event) {
@@ -92,6 +98,7 @@ function index() {
             //弹窗元素去除动画
             for(var j=0;j<eAnimates.length;j++){
                 eAnimates.eq(j).removeClass(eAnimates.eq(j).attr('qj-effect'));
+                eAnimates.eq(j).hide();
             }
         };
         $('#open1').click(function(){
