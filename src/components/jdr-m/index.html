@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>集体接待日</title>
+    <script>
+        var docEle = document.documentElement;
+        var eDiv = document.createElement('div');
+        eDiv.innerHTML = '请竖屏查看';
+        eDiv.className = 'landscape';
+        eDiv.style.display = 'none';
+        docEle.appendChild(eDiv);
+        var timer = null;
+        fn = function() {
+            timer = setTimeout(function(){          //加延迟0.1s不然在android下获取到的宽高是旋转屏幕之前的宽高
+                var width = docEle.clientWidth;
+                var height = docEle.clientHeight;
+//                alert(width+'--'+height)
+                if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){         //移动端设备
+                    if(width > height){             //宽度大于高度，说明是横屏
+//                        eDiv.style.display = 'block';
+                    }else{                          //竖屏
+//                        eDiv.style.display = 'none';
+                    }
+                }
+                if( width < 320 ) {
+                    docEle.style.fontSize = 42.6667 + "px";//
+                }
+                else if( width > 750 ) {
+                    docEle.style.fontSize = 100 + "px";
+                }
+                else {
+                    //以750设计稿宽度为基准设置fontSize:100px;这样保证iPhone6以下是高清
+                    docEle.style.fontSize = 100 * (width / 750) + "px";
+                }
+            },100);
+        };
+        var evt = "onorientationchange" in window ? "orientationchange" : "resize";//区分Mobile和PC以加载不同的事件
+        window.addEventListener(evt, fn, false);
+        fn();
+    </script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+    <div id="loading" class="loading-black">
+        <img src="../../assets/common/logo-black.png" class="pre-logo"/>
+        <div class="cow">
+            <img src="../../assets/common/circle-black.png" class="pre-circle eye-rotate"/>
+            <img src="../../assets/common/head.png" class="pre-head"/>
+            <img src="../../assets/common/eye.png" class="pre-eye-left eye-rotate"/>
+            <img src="../../assets/common/eye.png" class="pre-eye-right eye-rotate"/>
+        </div>
+        <div id="progress"><i class="progress-white"></i></div>
+    </div>
+    <a class="mscBtn ddplay play animation-duration20" id="audioBtn" title="music" style="cursor:pointer;"></a>
+    <audio id="bgMusic" loop="loop" autoplay="autoplay">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="wxTitle" hidden>集体接待日</div>
+    <div id="wxDesc" hidden>集体接待日集体接待日。</div>
+    <img src="../../assets/jdr-m/fx.jpg" hidden/>
+    <div id="qj" class="clear-fix">
+        <!-- Swiper1 -->
+        <div class="swiper-container swiper-container1">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><div class="media"></div></div>
+                <div class="swiper-slide"><div class="media"></div></div>
+                <div class="swiper-slide"><div class="media"></div></div>
+                <div class="swiper-slide"><div class="media"></div></div>
+                <div class="swiper-slide"><div class="media"></div></div>
+                <div class="swiper-slide"><div class="media"></div></div>
+                <div class="swiper-slide"><div class="media"></div></div>
+                <div class="swiper-slide"><div class="media"></div></div>
+            </div>
+        </div>
+        <div>dsadlsakdhlasdhsaklhd</div>
+    </div>
+    <!--<div class="sprite"></div>-->
+</body>
+</html>
