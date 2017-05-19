@@ -462,3 +462,21 @@
 .clear-fix{
     @include clearfix();
 }
+//雪碧图动画类似gif图的效果实例开始
+$spriteWidth: 2.35rem; // 精灵宽度
+@keyframes run {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -($spriteWidth * 2) 0; // 12帧
+    }
+}
+.sprite {
+    width: $spriteWidth;
+    height: 2.55rem;
+    background: url("../../assets/jdr-m/img12.png") 0 0 no-repeat;
+    background-size: 4.71rem 2.55rem;
+    animation: run 2.6s steps(2) infinite;
+}
+//雪碧图动画类似gif图的效果实例结束

@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <title>集体接待日</title>
+    <title>接待日</title>
     <script>
         var docEle = document.documentElement;
         var eDiv = document.createElement('div');
@@ -43,40 +43,73 @@
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
-    <div id="loading" class="loading-black">
-        <img src="../../assets/common/logo-black.png" class="pre-logo"/>
-        <div class="cow">
-            <img src="../../assets/common/circle-black.png" class="pre-circle eye-rotate"/>
-            <img src="../../assets/common/head.png" class="pre-head"/>
-            <img src="../../assets/common/eye.png" class="pre-eye-left eye-rotate"/>
-            <img src="../../assets/common/eye.png" class="pre-eye-right eye-rotate"/>
-        </div>
-        <div id="progress"><i class="progress-white"></i></div>
-    </div>
-    <a class="mscBtn ddplay play animation-duration20" id="audioBtn" title="music" style="cursor:pointer;"></a>
-    <audio id="bgMusic" loop="loop" autoplay="autoplay">
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
+<div id="loading" class="loading-black" style="background-color: #0b0928;" hidden>
+    <img src="../../assets/common/logo-black.png" class="pre-logo" style="top: 4.8rem;"/>
+    <!-- <div class="cow">
+         <img src="../../assets/common/circle-black.png" class="pre-circle eye-rotate"/>
+         <img src="../../assets/common/head.png" class="pre-head"/>
+         <img src="../../assets/common/eye.png" class="pre-eye-left eye-rotate"/>
+         <img src="../../assets/common/eye.png" class="pre-eye-right eye-rotate"/>
+     </div>-->
+    <div id="progress" style="top: 5.6rem;"><i class="progress-white"></i></div>
+</div>
+<a class="mscBtn ddplay play" id="audioBtn" title="music" style="cursor:pointer;animation-duration:2s;"></a>
+<audio id="bgMusic" loop="loop" autoplay="autoplay">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-    <div id="wxTitle" hidden>集体接待日</div>
-    <div id="wxDesc" hidden>集体接待日集体接待日。</div>
-    <img src="../../assets/jdr-m/fx.jpg" hidden/>
-    <div id="qj" class="clear-fix">
-        <!-- Swiper1 -->
-        <div class="swiper-container swiper-container1">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><div class="media"></div></div>
-                <div class="swiper-slide"><div class="media"></div></div>
-                <div class="swiper-slide"><div class="media"></div></div>
-                <div class="swiper-slide"><div class="media"></div></div>
-                <div class="swiper-slide"><div class="media"></div></div>
-                <div class="swiper-slide"><div class="media"></div></div>
-                <div class="swiper-slide"><div class="media"></div></div>
-                <div class="swiper-slide"><div class="media"></div></div>
-            </div>
-        </div>
-        <div>dsadlsakdhlasdhsaklhd</div>
+<div id="wxTitle" hidden>接待日</div>
+<div id="wxDesc" hidden>接待日接待日</div>
+<img src="../../assets/jdr-m/fx.jpg" hidden/>
+<div id="qj">
+    <div class="section">
+        <img src="../../assets/jdr-m/bg.png" qj-effect="" class="bg1"/>
+        <img src="../../assets/jdr-m/img1.png" qj-effect="flipInX180 animation-duration15" class="img1 backface-v"/>
+        <img src="../../assets/jdr-m/img2.png" qj-effect="slideUpDown" class="img2"/>
+        <img src="../../assets/jdr-m/img3.png" qj-effect="slideUpDown" class="img3"/>
+        <img src="../../assets/jdr-m/img4.png" qj-effect="slideLeftRightInverse" class="img4"/>
+        <img src="../../assets/jdr-m/img5.png" qj-effect="slideLeftRightInverse" class="img5" id="introduceOpen"/>
+        <img src="../../assets/jdr-m/img6.png" qj-effect="slideUpDown" class="img6"/>
+        <img src="../../assets/jdr-m/img7.png" qj-effect="slideUpDown" class="img7"/>
+        <img src="../../assets/jdr-m/img8.png" qj-effect="slideUpDown" class="img8" id="topMgrOpen"/>
+        <img src="../../assets/jdr-m/img9.png" qj-effect="slideLeftRightInverse" class="img9"/>
+        <img src="../../assets/jdr-m/img11.png" qj-effect="slideLeftRightInverse" class="img11"/>
+        <img src="../../assets/jdr-m/img10.png" qj-effect="slideLeftRightInverse" class="img10"/>
+        <img src="../../assets/jdr-m/img12.png" qj-effect="slideLeftRightInverse" class="img12"/>
+        <img src="../../assets/jdr-m/img13.png" qj-effect="slideLeftRightInverse" class="img13"/>
+        <img src="../../assets/jdr-m/img14.png" qj-effect="slideLeftRight" class="img14"/>
+        <img src="../../assets/jdr-m/img15.png" qj-effect="slideLeftRight" class="img15"/>
+        <img src="../../assets/jdr-m/img16.png" qj-effect="slideUpDownInverse" class="img16"/>
+        <img src="../../assets/jdr-m/img17.png" qj-effect="slideUpDownInverse" class="img17"/>
+        <img src="../../assets/jdr-m/img18.png" qj-effect="slideUpDownInverse" class="img18"/>
+        <img src="../../assets/jdr-m/img19.png" qj-effect="slideUpDownInverse" class="img19"/>
+        <img src="../../assets/jdr-m/img20.png" qj-effect="slideLeftRightInverse" class="img20"/>
     </div>
-    <!--<div class="sprite"></div>-->
+    <div class="shade" id="shade" hidden >
+        <div id="introduce">            <!--活动介绍-->
+            <img src="../../assets/jdr-m/intr1.png" qj-effect="" class="intr1"/>
+            <img src="../../assets/jdr-m/intr2.png" qj-effect="" class="intr2"/>
+            <img src="../../assets/jdr-m/intr3.png" qj-effect="" class="intr3"/>
+        </div>
+        <div id="topMgr">            <!--活动介绍-->
+            <img src="../../assets/jdr-m/topMgr1.png" qj-effect="" class="topMgr1"/>
+            <img src="../../assets/jdr-m/topMgr2.png" qj-effect="" class="topMgr2"/>
+            <img src="../../assets/jdr-m/topMgr3.png" qj-effect="" class="topMgr3"/>
+            <img src="../../assets/jdr-m/topMgr4.png" qj-effect="" class="topMgr4"/>
+            <img src="../../assets/jdr-m/topMgr5.png" qj-effect="" class="topMgr5"/>
+            <img src="../../assets/jdr-m/topMgr6.png" qj-effect="" class="topMgr6"/>
+            <img src="../../assets/jdr-m/topMgrC.png" qj-effect="" class="topMgrC"/>
+        </div>
+        <div id="list">            <!--活动介绍-->
+            <img src="../../assets/jdr-m/topMgr1.png" qj-effect="" class="topMgr1"/>
+            <img src="../../assets/jdr-m/topMgr2.png" qj-effect="" class="topMgr2"/>
+            <img src="../../assets/jdr-m/topMgr3.png" qj-effect="" class="topMgr3"/>
+            <img src="../../assets/jdr-m/topMgr4.png" qj-effect="" class="topMgr4"/>
+            <img src="../../assets/jdr-m/topMgr5.png" qj-effect="" class="topMgr5"/>
+            <img src="../../assets/jdr-m/topMgr6.png" qj-effect="" class="topMgr6"/>
+            <img src="../../assets/jdr-m/topMgrC.png" qj-effect="" class="topMgrC"/>
+        </div>
+    </div>
+</div>
 </body>
 </html>

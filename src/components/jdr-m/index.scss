@@ -15,48 +15,14 @@
 @import "../../lib/css/jquery.fullPage.css";
 @import "../../lib/css/swiper.min.css";
 @import "../../lib/css/common";
-body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color:#000;
-  margin: 0;
-  padding: 0;
-}
-.swiper-container1 {
-  width:6.8rem;
-  height: 400px;
-  //height: 8rem;
-  @include float(right);
-  background-color: #0000fe;
-}
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  width:100%;
-  background-color: #5dfeb1;
-}
-.swiper-slide-next,.swiper-slide-prev{
-  width:80%;
-}
-.tt{
-  width:60%;
-}
-.swiper-slide-next + .swiper-slide{
-  width:60%;
-}
-.swiper-container-vertical>.swiper-wrapper{
-  @include align-items(flex-end);
-}
-.media{
-  width:100%;
-  height:100%;
-  //border:1px solid red;
-}
 
 %img-all{
   position: absolute;
   @include opacity(0);
+  @include opacity(100);
+}
+.filter-blur{     //图片模糊效果
+  @include filter-blur(4px)
 }
 .bg1{
   @extend %img-all;
@@ -64,41 +30,343 @@ body {
   height:100%;
   top:0;
   left:0;
-  z-index:9;
   @include opacity(100);
+  @include filter-blur(0);
+  @include transition(filter 0.5s)
+}
+
+.img1{
+  @extend %img-all;
+  width:4.76rem;
+  height:1.77rem;
+  top:0;
+  left:50%;
+  margin-left:-2.38rem;
+  z-index:99;
+}
+.img2{
+  @extend %img-all;
+  width:2.86rem;
+  height:2.03rem;
+  top:1.86rem;
+  left:3.18rem;
+  z-index:99;
+}
+.img3{
+  @extend %img-all;
+  width:0.94rem;
+  height:4.85rem;
+  top:0.9rem;
+  left:0.18rem;
+  z-index:99;
+}
+.img4{
+  @extend %img-all;
+  width:1.66rem;
+  height:0.79rem;
+  top:2.24rem;
+  left:1.12rem;
+  z-index:99;
+}
+.img5{
+  @extend %img-all;
+  width:3.11rem;
+  height:1.8rem;
+  top:3.12rem;
+  left:1.16rem;
+  z-index:99;
+}
+.img6{
+  @extend %img-all;
+  width:1.75rem;
+  height:0.98rem;
+  top:4.62rem;
+  left:3.6rem;
+  z-index:99;
+}
+.img7{
+  @extend %img-all;
+  width:1.67rem;
+  height:0.8rem;
+  top:3.44rem;
+  left:5.74rem;
+  z-index:99;
+}
+.img8{
+  @extend %img-all;
+  width:2.86rem;
+  height:2.09rem;
+  top:4.36rem;
+  left:4.6rem;
+  z-index:99;
+}
+.img9{
+  @extend %img-all;
+  width:1.97rem;
+  height:1.02rem;
+  top:6.22rem;
+  left:5.46rem;
+  z-index:99;
+}
+.img10{
+  @extend %img-all;
+  width:1.53rem;
+  height:0.97rem;
+  top:4.9rem;
+  left:2.36rem;
+  z-index:99;
 }
 .img11{
   @extend %img-all;
-  width:2.28rem;
-  height:3.9rem;
-  top:0.52rem;
-  left:0;
-  z-index:97;
-  @include opacity(100);
-  clip: rect(0 0 3.9rem 0);
-  @include transition(clip)
+  width:1.97rem;
+  height:1.88rem;
+  top:5.48rem;
+  left:2.22rem;
+  z-index:99;
+}
+.img12{
+  @extend %img-all;
+  width:4.36rem;
+  height:1.58rem;
+  top:6.9rem;
+  left:2.2rem;
+  z-index:99;
+}
+.img13{
+  @extend %img-all;
+  width:0.42rem;
+  height:0.48rem;
+  top:6.86rem;
+  left:3.92rem;
+  z-index:99;
+}
+.img14{
+  @extend %img-all;
+  width:0.91em;
+  height:1.1rem;
+  top:7.24rem;
+  left:6.28rem;
+  z-index:99;
+}
+.img15{
+  @extend %img-all;
+  width:1.67em;
+  height:1.77rem;
+  top:8.4rem;
+  left:2.56rem;
+  z-index:99;
+}
+.img16{
+  @extend %img-all;
+  width:1.72em;
+  height:0.77rem;
+  top:6.86rem;
+  left:0.18rem;
+  z-index:99;
+}
+.img17{
+  @extend %img-all;
+  width:2.92em;
+  height:2.21rem;
+  top:7.74rem;
+  left:0.22rem;
+  z-index:99;
+}
+.img18{
+  @extend %img-all;
+  width:3.13em;
+  height:1.88rem;
+  top:9.2rem;
+  left:3.2rem;
+  z-index:99;
+}
+.img19{
+  @extend %img-all;
+  width:0.88em;
+  height:1.83rem;
+  top:9.62rem;
+  left:6.28rem;
+  z-index:99;
+}
+.img20{
+  @extend %img-all;
+  width:1.4em;
+  height:0.52rem;
+  top:10.54rem;
+  left:0.48rem;
+  z-index:99;
+}
+.fp-tableCell .backface-v{
+  @include backface-visibility(visible)
+}
+#introduce{
+  .intr1{
+    @extend %img-all;
+    width:5.88em;
+    height:2.33rem;
+    top:1.36rem;
+    left:50%;
+    margin-left:-2.94rem;
+    z-index:99;
+  }
+  .intr2{
+    @extend %img-all;
+    width:4.55rem;
+    height:4.04rem;
+    top:4.14rem;
+    left:50%;
+    margin-left:-2.27rem;
+    z-index:99;
+  }
+  .intr3{
+    @extend %img-all;
+    width:0.53rem;
+    height:0.53rem;
+    top:8.68rem;
+    left:50%;
+    margin-left:-0.26rem;
+    z-index:99;
+  }
+}
+#topMgr{
+  .topMgr1{
+    @extend %img-all;
+    width:3.44em;
+    height:4.48rem;
+    top:0.32rem;
+    left:0.34rem;
+    z-index:99;
+  }
+  .topMgr2{
+    @extend %img-all;
+    width:3.44em;
+    height:4.48rem;
+    top:0.32rem;
+    left:3.78rem;
+    z-index:99;
+  }
+  .topMgr3{
+    @extend %img-all;
+    width:4.7rem;
+    height:3.35rem;
+    top:5rem;
+    left:0.34rem;
+    z-index:99;
+  }
+  .topMgr4{
+    @extend %img-all;
+    width:2.2rem;
+    height:3.35rem;
+    top:5rem;
+    left:5.04rem;
+    z-index:99;
+  }
+  .topMgr5{
+    @extend %img-all;
+    width:2.88rem;
+    height:3.27rem;
+    top:8.6rem;
+    left:0.34rem;
+    z-index:99;
+  }
+  .topMgr6{
+    @extend %img-all;
+    width:4.02rem;
+    height:3.27rem;
+    top:8.6rem;
+    left:2.79rem;
+    z-index:99;
+  }
+  .topMgrC{
+    @extend %img-all;
+    width:0.53rem;
+    height:0.53rem;
+    top:0.17rem;
+    left:0.14rem;
+    z-index:99;
+  }
+}
+// slideUpDown
+@mixin animate-slideUpDown () {
+  @include keyframes(slideUpDown){
+    0% {
+      @include translateY(0);
+    }
+    50% {
+      @include translateY(0.14rem);
+    }
+    100% {
+      @include translateY(0);
+    }
+  }
+  .slideUpDown {
+    @include animation-name(slideUpDown);
+    @extend %animated;
+  }
+}
+// slideUpDownInverse
+@mixin animate-slideUpDownInverse () {
+  @include keyframes(slideUpDownInverse){
+    0% {
+      @include translateY(0);
+    }
+    50% {
+      @include translateY(-0.14rem);
+    }
+    100% {
+      @include translateY(0);
+    }
+  }
+  .slideUpDownInverse {
+    @include animation-name(slideUpDownInverse);
+    @extend %animated;
+  }
+}
+// slideLeftRight
+@mixin animate-slideLeftRight () {
+  @include keyframes(slideLeftRight){
+    0% {
+      @include translateX(0);
+    }
+    50% {
+      @include translateX(0.14rem);
+    }
+    100% {
+      @include translateX(0);
+    }
+  }
+  .slideLeftRight {
+    @include animation-name(slideLeftRight);
+    @extend %animated;
+  }
+}
+// slideLeftRightInverse
+@mixin animate-slideLeftRightInverse () {
+  @include keyframes(slideLeftRightInverse){
+    0% {
+      @include translateX(0);
+    }
+    50% {
+      @include translateX(-0.14rem);
+    }
+    100% {
+      @include translateX(0);
+    }
+  }
+  .slideLeftRightInverse {
+    @include animation-name(slideLeftRightInverse);
+    @extend %animated;
+  }
 }
 
-@include animate-slideInDownAndBack();        //渐入
+@include animate-slideUpDown();        //上下移动
+@include animate-slideUpDownInverse();        //上下移动反的
+@include animate-slideLeftRight();        //左右移动
+@include animate-slideLeftRightInverse();        //左右移动反的
+@include animate-flipInX180();        //左右移动反的
 
-
-.flash,.hiddenAndShow,.hiddenAndShowBig,.changeWToZero{
+.slideUpDown,.slideUpDownInverse,.slideLeftRight,.slideLeftRightInverse {
   @include animation-timing-function(linear);
-}
-
-$spriteWidth: 2.35rem; // 精灵宽度
-@keyframes run {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -($spriteWidth * 2) 0; // 12帧
-  }
-}
-.sprite {
-  width: $spriteWidth;
-  height: 2.55rem;
-  background: url("../../assets/jdr-m/img12.png") 0 0 no-repeat;
-  background-size: 4.71rem 2.55rem;
-  animation: run 2.6s steps(2) infinite;
+  @include animation-iteration-count(infinite);
+  @include animation-duration(2.4s);
 }
