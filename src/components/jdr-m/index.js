@@ -5,6 +5,7 @@
 import './index.scss';                   //引入sass文件
 import './music.mp3';                   //引入mp3文件
 import Common from '../../lib/js/common.js';                   //引入common文件
+import '../../lib/js/swiper.min.js';                   //引入swiper文件
 function index() {
     $(function(){
         function getTransforms(translate3d){
@@ -64,8 +65,8 @@ function index() {
             $('#shade').show();
             $('#introduce').hide();
             $('#topMgr').hide();
-            $('#introduce').hide();
-            $('#introduce').hide();
+            $('#list').hide();
+            $('#hot').hide();
             $(index).show();
             eAnimates = $(index).find('[qj-effect]');
             //唤起遮罩的时候，原来的那些图片全部加模糊滤镜
@@ -86,14 +87,20 @@ function index() {
                 eAnimates.eq(j).show();
                 eAnimates.eq(j).addClass(eAnimates.eq(j).attr('qj-effect'));
             }
+            swiper3.startAutoplay();
+            swiper4.startAutoplay();
+            swiper5.startAutoplay();
         }
         //点击空白处关闭弹窗
         var closeQR = function ($event) {
-            var $tmp = $('.intr1,.intr2');
+            var $tmp = $('.stop-close');
             if ($tmp.filter($event.target).length > 0 || $tmp.find($event.target).length > 0) {
                 return false;
             }
             $('#shade').hide();           //隐藏弹窗
+            swiper3.stopAutoplay();
+            swiper4.stopAutoplay();
+            swiper5.stopAutoplay();
             //关闭遮罩之后，移除原来的图片的模糊滤镜
             var i= 0;
             for(i;i<sections.length;i++){
@@ -115,10 +122,68 @@ function index() {
         $('#topMgrOpen').click(function(){
             showQR('#topMgr');
         });
+        $('#hotOpen1,#hotOpen2').click(function(){
+            showQR('#hot');
+        });
+        $('#listOpen').click(function(){
+            showQR('#list');
+        });
         $('#shade').click(function(){
             closeQR(event);
         });
-
+        $('#openReport').click(function(){
+            location.href = 'http://www.p5w.net/zdhd/jtjdr/hebei2017/mlist.htm';
+        });
+        var swiper1 = new Swiper('.swiper-container1', {
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            paginationBulletRender: function (swiper, index, className) {
+                return '<span class="' + className + '">' + (index + 1) + '</span>';
+            }
+        });
+        var swiper2 = new Swiper('.swiper-container2', {
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper
+            loop:true,
+        });
+        var swiper3 = new Swiper('.swiper-container3', {
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper
+            loop:true,
+            autoplay : 2000,
+            autoplayDisableOnInteraction : false,               //用户操作swiper之后，是否禁止autoplay。默认为true：停止。
+            effect : 'fade',
+            slidesPerView : 1,
+            centeredSlides: true,
+            spaceBetween: 0
+        });
+        var swiper4 = new Swiper('.swiper-container4', {
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper
+            loop:true,
+            autoplay : 2000,
+            autoplayDisableOnInteraction : false,               //用户操作swiper之后，是否禁止autoplay。默认为true：停止。
+            effect : 'fade',
+            slidesPerView : 1,
+            centeredSlides: true,
+            spaceBetween: 0
+        });
+        var swiper5 = new Swiper('.swiper-container5', {
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper
+            loop:true,
+            autoplay : 2000,
+            autoplayDisableOnInteraction : false,               //用户操作swiper之后，是否禁止autoplay。默认为true：停止。
+            effect : 'fade',
+            slidesPerView : 1,
+            centeredSlides: true,
+            spaceBetween: 0
+        });
+        swiper3.stopAutoplay();
+        swiper4.stopAutoplay();
+        swiper5.stopAutoplay();
     });
     return {
         name: 'index',
