@@ -116,23 +116,23 @@ function index() {
             }
         };
 
-        $('#introduceOpen').click(function(){
+        $('#introduceOpen1,#introduceOpen2,#introduceOpen3').click(function(){
             showQR('#introduce');
         });
-        $('#topMgrOpen').click(function(){
+        $('#topMgrOpen1,#topMgrOpen2,#topMgrOpen3').click(function(){
             showQR('#topMgr');
         });
-        $('#hotOpen1,#hotOpen2').click(function(){
+        $('#hotOpen1,#hotOpen2,#hotOpen3').click(function(){
             showQR('#hot');
         });
-        $('#listOpen').click(function(){
+        $('#listOpen1,#listOpen2,#listOpen3').click(function(){
             showQR('#list');
         });
         $('#shade').click(function(){
             closeQR(event);
         });
-        $('#openReport').click(function(){
-            location.href = 'http://www.p5w.net/zdhd/jtjdr/hebei2017/mlist.htm';
+        $('#openReport1,#openReport2,#openReport3').click(function(){
+            location.href = './mlist.html';
         });
         var swiper1 = new Swiper('.swiper-container1', {
             observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
@@ -152,7 +152,7 @@ function index() {
             observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
             observeParents:true,//修改swiper的父元素时，自动初始化swiper
             loop:true,
-            autoplay : 2000,
+            autoplay : 3000,
             autoplayDisableOnInteraction : false,               //用户操作swiper之后，是否禁止autoplay。默认为true：停止。
             effect : 'fade',
             slidesPerView : 1,
@@ -163,7 +163,7 @@ function index() {
             observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
             observeParents:true,//修改swiper的父元素时，自动初始化swiper
             loop:true,
-            autoplay : 2000,
+            autoplay : 3000,
             autoplayDisableOnInteraction : false,               //用户操作swiper之后，是否禁止autoplay。默认为true：停止。
             effect : 'fade',
             slidesPerView : 1,
@@ -174,7 +174,7 @@ function index() {
             observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
             observeParents:true,//修改swiper的父元素时，自动初始化swiper
             loop:true,
-            autoplay : 2000,
+            autoplay : 3000,
             autoplayDisableOnInteraction : false,               //用户操作swiper之后，是否禁止autoplay。默认为true：停止。
             effect : 'fade',
             slidesPerView : 1,

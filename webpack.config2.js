@@ -53,7 +53,7 @@ module.exports = {
                 ]
             },
             {                 //处理图片文件
-                test: /\.(png|jpg|gif|svg)$/,
+                test: /\.(png|jpe?g|gif|svg|woff|woff2)$/,
                 use: [{
                         loader: 'url-loader',
                         query: {

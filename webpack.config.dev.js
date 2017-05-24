@@ -55,13 +55,13 @@ module.exports = {
                 ]
             },
             {                 //处理图片文件
-                test: /\.(png|jpg|gif|svg)$/,
+                test: /\.(png|jpe?g|gif|svg|woff|woff2)$/,
                 use: [
                     {
                         loader: 'url-loader',
                         query: {
                             name: 'assets/[name].[ext]',       //改变打包存储的路径
-                            limit: 1                //小于1字节的图片打包成base64，超过的用file-loader打包，不能设置为0
+                            limit: 100                //小于1字节的图片打包成base64，超过的用file-loader打包，不能设置为0
                         }
                     },
                     {
@@ -106,6 +106,17 @@ module.exports = {
         new htmlWebpackPlugin({
             template: 'src/components/jdr-m/index.html',
             filename: 'index.html',
+            inject: 'head',
+            chunksSortMode: function(chunk1, chunk2){           //引入多个js的时候，排序
+                var order = ['vendor', 'common', 'public', 'index'];
+                var order1 = order.indexOf(chunk1.names[0]);
+                var order2 = order.indexOf(chunk2.names[0]);
+                return order1 - order2;
+            }
+        }),
+        new htmlWebpackPlugin({
+            template: 'src/components/jdr-m/mlist.html',
+            filename: 'mlist.html',
             inject: 'head',
             chunksSortMode: function(chunk1, chunk2){           //引入多个js的时候，排序
                 var order = ['vendor', 'common', 'public', 'index'];

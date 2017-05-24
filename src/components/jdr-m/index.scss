@@ -37,25 +37,26 @@
 
 .img1{
   @extend %img-all;
-  width:4.76rem;
-  height:1.77rem;
+  width:4.75rem;
+  height:1.62rem;
   top:0;
   left:50%;
   margin-left:-2.38rem;
   z-index:99;
+  @include opacity(0);
 }
 .img2{
   @extend %img-all;
   width:2.86rem;
-  height:2.03rem;
+  height:2.09rem;
   top:1.86rem;
   left:3.18rem;
   z-index:99;
 }
 .img3{
   @extend %img-all;
-  width:0.94rem;
-  height:4.85rem;
+  width:0.78rem;
+  height:4.02rem;
   top:0.9rem;
   left:0.18rem;
   z-index:99;
@@ -104,7 +105,7 @@
   @extend %img-all;
   width:1.97rem;
   height:1.02rem;
-  top:6.22rem;
+  top:6.52rem;
   left:5.46rem;
   z-index:99;
 }
@@ -112,23 +113,23 @@
   @extend %img-all;
   width:1.53rem;
   height:0.97rem;
-  top:4.9rem;
+  top:5.2rem;
   left:2.36rem;
   z-index:99;
 }
 .img11{
   @extend %img-all;
-  width:1.97rem;
-  height:1.88rem;
-  top:5.48rem;
-  left:2.22rem;
+  width:2.06rem;
+  height:1.96rem;
+  top:5.68rem;
+  left:2.12rem;
   z-index:99;
 }
 .img12{
   @extend %img-all;
-  width:4.36rem;
-  height:1.58rem;
-  top:6.9rem;
+  width:4.49rem;
+  height:2.37rem;
+  top:6.46rem;
   left:2.2rem;
   z-index:99;
 }
@@ -136,64 +137,223 @@
   @extend %img-all;
   width:0.42rem;
   height:0.48rem;
-  top:6.86rem;
+  top:7.16rem;
   left:3.92rem;
   z-index:99;
 }
 .img14{
   @extend %img-all;
-  width:0.91em;
+  width:0.91rem;
   height:1.1rem;
-  top:7.24rem;
+  top:7.54rem;
   left:6.28rem;
   z-index:99;
 }
 .img15{
   @extend %img-all;
-  width:1.67em;
+  width:1.67rem;
   height:1.77rem;
-  top:8.4rem;
+  top:8.7rem;
   left:2.56rem;
   z-index:99;
 }
 .img16{
   @extend %img-all;
-  width:1.72em;
+  width:1.72rem;
   height:0.77rem;
-  top:6.86rem;
+  top:7.16rem;
   left:0.18rem;
   z-index:99;
 }
 .img17{
   @extend %img-all;
-  width:2.92em;
+  width:2.92rem;
   height:2.21rem;
-  top:7.74rem;
+  top:8.04rem;
   left:0.22rem;
   z-index:99;
 }
 .img18{
   @extend %img-all;
-  width:3.13em;
+  width:3.13rem;
   height:1.88rem;
-  top:9.2rem;
+  top:9.5rem;
   left:3.2rem;
   z-index:99;
 }
 .img19{
   @extend %img-all;
-  width:0.88em;
+  width:0.88rem;
   height:1.83rem;
-  top:9.62rem;
+  top:9.92rem;
   left:6.28rem;
   z-index:99;
 }
 .img20{
   @extend %img-all;
-  width:1.4em;
+  width:1.4rem;
   height:0.52rem;
-  top:10.54rem;
+  top:10.84rem;
   left:0.48rem;
+  z-index:99;
+}
+.windCarDiv{
+  @extend %img-all;
+  width:100%;
+  height:0.98rem;
+  top:0.94rem;
+  z-index:99;
+  @include opacity(0);
+}
+.windCar{
+  @extend %img-all;
+  width:0.98rem;
+  height:0.98rem;
+}
+.windCar1{
+  left:1.08rem;
+}
+.windCar2{
+  left:5.46rem;
+}
+// runIntrPerson   活动介绍的人动起来
+@mixin animate-runIntrPerson () {
+  @include keyframes(runIntrPerson){
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -(1.02rem * 25) 0; // 25帧
+    }
+  }
+  .runIntrPerson {
+    @include animation-name(runIntrPerson);
+    @extend %animated;
+    @include animation-iteration-count(infinite);
+    @include animation-duration(1s);
+    @include animation-timing-function(steps(25))
+  }
+}
+@include animate-runIntrPerson();
+.intrPerson{
+  width:1rem;
+  height:1.1rem;
+  background: url("../../assets/jdr-m/intrPerson.png") 0 0 no-repeat;
+  background-size: 25.48rem 1.1rem;
+  background-position: 0 0;
+  margin:0;
+}
+.intrPersonDiv{
+  @extend %img-all;
+  width:1rem;
+  height:1.1rem;
+  top:3.5rem;
+  left:2.36rem;
+  z-index:99;
+}
+// runListPerson   互动榜单的人动起来
+@mixin animate-runListPerson () {
+  @include keyframes(runListPerson){
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -(1.32rem * 25) 0; // 5帧
+    }
+  }
+  .runListPerson {
+    @include animation-name(runListPerson);
+    @extend %animated;
+    @include animation-iteration-count(infinite);
+    @include animation-duration(1s);
+    @include animation-timing-function(steps(25))
+  }
+}
+@include animate-runListPerson();
+.listPerson{
+  width:1.3rem;
+  height:1.1rem;
+  background: url("../../assets/jdr-m/listPerson.png") 0 0 no-repeat;
+  background-size: 32.98rem 1.1rem;
+  background-position: 0 0;
+  margin:0;
+}
+.listPersonDiv{
+  @extend %img-all;
+  width:1.3rem;
+  height:1.1rem;
+  top:8.86rem;
+  left:1.24rem;
+  z-index:99;
+}
+// runTopMgrPerson   高管风采的人动起来
+@mixin animate-runTopMgrPerson () {
+  @include keyframes(runTopMgrPerson){
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -(1.02rem * 25) 0; // 25帧
+    }
+  }
+  .runTopMgrPerson {
+    @include animation-name(runTopMgrPerson);
+    @extend %animated;
+    @include animation-iteration-count(infinite);
+    @include animation-duration(1.5s);
+    @include animation-timing-function(steps(25))
+  }
+}
+@include animate-runTopMgrPerson();
+.topMgrPerson{
+  width:1.0rem;
+  height:1.1rem;
+  background: url("../../assets/jdr-m/topMgrPerson.png") 0 0 no-repeat;
+  background-size: 25.48rem 1.1rem;
+  background-position: 0 0;
+  margin:0;
+}
+.topMgrPersonDiv{
+  @extend %img-all;
+  width:1.0rem;
+  height:1.1rem;
+  top:4.76rem;
+  left:5.46rem;
+  z-index:99;
+}
+// runMediaPerson   媒体报道的人动起来
+@mixin animate-runMediaPerson () {
+  @include keyframes(runMediaPerson){
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -(0.36rem * 3) 0; // 5帧
+    }
+  }
+  .runMediaPerson {
+    @include animation-name(runMediaPerson);
+    @extend %animated;
+    @include animation-iteration-count(infinite);
+    @include animation-duration(1s);
+    @include animation-timing-function(steps(3))
+  }
+}
+@include animate-runMediaPerson();
+.mediaPerson{
+  width:0.36rem;
+  height:1.09rem;
+  background: url("../../assets/jdr-m/mediaPerson.png") 0 0 no-repeat;
+  background-size: 1.78rem 1.09rem;
+  background-position: 0 0;
+  margin:0;
+}
+.mediaPersonDiv{
+  @extend %img-all;
+  width:0.36rem;
+  height:1.09rem;
+  top:9.92rem;
+  left:4.3rem;
   z-index:99;
 }
 .fp-tableCell .backface-v{
@@ -516,6 +676,24 @@
     @extend %animated;
   }
 }
+// rotateLoopR     一直顺时针360度缓慢旋转
+@mixin animate-rotateLoopR () {
+  @include keyframes(rotateLoopR){
+    0% {
+      @include rotate(-360deg);
+    }
+    100% {
+      @include rotate(0);
+    }
+  }
+  .rotateLoopR {
+    @include animation-name(rotateLoopR);
+    @extend %animated;
+    @include animation-iteration-count(infinite);
+    //@include animation-duration(20s);
+    @include animation-timing-function(linear);
+  }
+}
 
 @include animate-slideUpDown();        //上下移动
 @include animate-slideUpDownInverse();        //上下移动反的
@@ -528,6 +706,7 @@
 @include animate-slideInUp();
 @include animate-slideInDown();
 @include animate-flash();
+@include animate-rotateLoopR();
 
 .slideUpDown,.slideUpDownInverse,.slideLeftRight,.slideLeftRightInverse {
   @include animation-timing-function(linear);
