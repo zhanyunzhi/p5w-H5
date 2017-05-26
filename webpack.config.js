@@ -101,7 +101,7 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: 'src/components/jdr-m/index.html',
+            template: 'src/components/hainanjdr/index.html',
             filename: 'index.html',
             inject: 'head',
             minify: {               //压缩html文件
@@ -117,7 +117,7 @@ module.exports = {
             }
         }),
         new htmlWebpackPlugin({
-            template: 'src/components/jdr-m/mlist.html',
+            template: 'src/components/hainanjdr/mlist.html',
             filename: 'mlist.html',
             inject: 'head',
             minify: {               //压缩html文件

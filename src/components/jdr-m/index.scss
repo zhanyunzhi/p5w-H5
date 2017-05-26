@@ -55,8 +55,8 @@
 }
 .img3{
   @extend %img-all;
-  width:0.78rem;
-  height:4.02rem;
+  width:0.83rem;
+  height:5.22rem;
   top:0.9rem;
   left:0.18rem;
   z-index:99;
@@ -328,32 +328,32 @@
       background-position: 0 0;
     }
     100% {
-      background-position: -(0.36rem * 3) 0; // 5֡
+      background-position: -(1.32rem * 25) 0; // 5֡
     }
   }
   .runMediaPerson {
     @include animation-name(runMediaPerson);
     @extend %animated;
     @include animation-iteration-count(infinite);
-    @include animation-duration(1s);
-    @include animation-timing-function(steps(3))
+    @include animation-duration(1.5s);
+    @include animation-timing-function(steps(25))
   }
 }
 @include animate-runMediaPerson();
 .mediaPerson{
-  width:0.36rem;
-  height:1.09rem;
+  width:1.3rem;
+  height:1.1rem;
   background: url("../../assets/jdr-m/mediaPerson.png") 0 0 no-repeat;
-  background-size: 1.78rem 1.09rem;
+  background-size: 32.98rem 1.1rem;
   background-position: 0 0;
   margin:0;
 }
 .mediaPersonDiv{
   @extend %img-all;
-  width:0.36rem;
-  height:1.09rem;
+  width:1.3rem;
+  height:1.1rem;
   top:9.92rem;
-  left:4.3rem;
+  left:3.9rem;
   z-index:99;
 }
 .fp-tableCell .backface-v{
