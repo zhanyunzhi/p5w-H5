@@ -157,7 +157,8 @@ function index() {
             effect : 'fade',
             slidesPerView : 1,
             centeredSlides: true,
-            spaceBetween: 0
+            spaceBetween: 0,
+
         });
         var swiper4 = new Swiper('.swiper-container4', {
             observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
