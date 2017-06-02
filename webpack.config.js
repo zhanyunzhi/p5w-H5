@@ -6,8 +6,9 @@ var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');    
 
 module.exports = {
     entry: {
-        vendor: ['./src/lib/js/jquery-1.8.3.min.js','./src/lib/js/jquery.fullPage.min.js','./src/lib/js/jquery.imgpreload.js'],             //jquery,fullPage第三方插件打包到一起        因为没有模块化，所以只能原样引入
+        vendor: ['./src/lib/js/jquery-1.8.3.min.js'],             //jquery,fullPage第三方插件打包到一起        因为没有模块化，所以只能原样引入,'./src/lib/js/jquery.fullPage.min.js','./src/lib/js/jquery.imgpreload.js'
         //fullPage: './src/js/jquery.fullPage.min.js',        //fullPage      因为没有模块化，所以只能原样引入
+        //public: './src/lib/js/angular.min.js',        //angular      因为没有模块化，所以只能原样引入
         index: './src/index.js'           //入口文件1
     },
     output: {
@@ -89,7 +90,7 @@ module.exports = {
                 ]
             },
             {                 //处理MP3 文件，将mp3移动
-                test: /\.mp3$/,
+                test: /\.(mp3|txt)$/,
                 use: [{
                     loader: 'file-loader',
                         query: {
@@ -101,7 +102,7 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: 'src/components/hainanjdr/index.html',
+            template: 'src/components/jdr-pc/index.html',
             filename: 'index.html',
             inject: 'head',
             minify: {               //压缩html文件
@@ -116,7 +117,7 @@ module.exports = {
                 return order1 - order2;
             }
         }),
-        new htmlWebpackPlugin({
+        /*new htmlWebpackPlugin({
             template: 'src/components/hainanjdr/mlist.html',
             filename: 'mlist.html',
             inject: 'head',
@@ -131,7 +132,7 @@ module.exports = {
                 var order2 = order.indexOf(chunk2.names[0]);
                 return order1 - order2;
             }
-        }),
+        }),*/
         new webpack.optimize.UglifyJsPlugin({                //压缩js文件
             compress: {
                 warnings: false
