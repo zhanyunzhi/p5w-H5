@@ -5,34 +5,11 @@
 import './index.scss';                   //引入sass文件
 //import './music.mp3';                   //引入mp3文件
 import './controllers.js';                   //引入controller文件
-import './data.txt';                   //引入数据文件
+import './data.json';                   //引入数据文件
 import '../../lib/js/swiper.min.js';                   //引入swiper文件
 function index() {
     $(function(){
-        var swiper11 = new Swiper('.swiper-container11', {
-            observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
-            observeParents:true,//修改swiper的父元素时，自动初始化swiper
-            grabCursor: true,
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
-        });
-        var swiper12 = new Swiper('.swiper-container12', {
-            observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
-            observeParents:true,//修改swiper的父元素时，自动初始化swiper
-            grabCursor: true,
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
-        });
-        //给每个页码绑定跳转的事件
-        $('.months').on('click','.have-data',function(){
-            var index = $(this).data('index');
-            $(this).addClass('active').siblings().removeClass('active');
-            $('.swiper-container11').hide();
-            $('.swiper-container12').hide();
-            $('.'+index).fadeIn();
-            //swiper12.slideTo(index-1, 500, false);//切换到第一个slide，速度为1秒
-        })
-        var swiper2 = new Swiper('.swiper-container2', {
+        /*var swiper2 = new Swiper('.swiper-container2', {
             observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
             observeParents:true,//修改swiper的父元素时，自动初始化swiper
             grabCursor: true,
@@ -73,7 +50,7 @@ function index() {
             paginationBulletRender: function (swiper2015, index, className) {
                 return '<span class="' + className + '">' + (index + 1) + '</span>';
             }
-        });
+        });*/
     });
     return {
         name: 'index',

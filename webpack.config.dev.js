@@ -92,7 +92,7 @@ module.exports = {
                 ]
             },
             {                 //处理MP3 文件，将mp3移动
-                test: /\.(mp3|txt)$/,
+                test: /\.(mp3|txt|json)$/,
                 use: [{
                     loader: 'file-loader',
                     query: {
@@ -115,7 +115,7 @@ module.exports = {
             }
         }),
         /*new htmlWebpackPlugin({
-            template: 'src/components/hainanjdr/mlist.html',
+            template: 'src/components/henanjdr/mlist.html',
             filename: 'mlist.html',
             inject: 'head',
             chunksSortMode: function(chunk1, chunk2){           //引入多个js的时候，排序

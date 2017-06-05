@@ -90,7 +90,7 @@ module.exports = {
                 ]
             },
             {                 //处理MP3 文件，将mp3移动
-                test: /\.(mp3|txt)$/,
+                test: /\.(mp3|txt|json)$/,
                 use: [{
                     loader: 'file-loader',
                         query: {
@@ -118,7 +118,7 @@ module.exports = {
             }
         }),
         /*new htmlWebpackPlugin({
-            template: 'src/components/hainanjdr/mlist.html',
+            template: 'src/components/henanjdr/mlist.html',
             filename: 'mlist.html',
             inject: 'head',
             minify: {               //压缩html文件
@@ -133,11 +133,11 @@ module.exports = {
                 return order1 - order2;
             }
         }),*/
-        new webpack.optimize.UglifyJsPlugin({                //压缩js文件
+        /*new webpack.optimize.UglifyJsPlugin({                //压缩js文件 引入angular库的时候，如果压缩好像会报错
             compress: {
                 warnings: false
             }
-        }),
+        }),*/
         new ExtractTextPlugin('css/style.css'),              //单独打包css文件,所有的css文件都会打包进这里
         new OptimizeCssAssetsPlugin({                   //压缩css文件
             assetNameRegExp: /\.css$/g,

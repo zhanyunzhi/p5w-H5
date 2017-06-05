@@ -63,7 +63,8 @@ function Common(){
     function setWxShare(share_title, share_desc, share_link,share_img) {
         var url = location.href.split('#').toString();
         $.ajax({
-            url: 'http://inews.p5w.net/wx/sign.php',
+            //url: 'http://inews.p5w.net/wx/sign.php',
+            url: 'http://data.p5w.net/trs/sign.php',
             type: 'post',
             dataType: 'json',
             data: {'url': url},
