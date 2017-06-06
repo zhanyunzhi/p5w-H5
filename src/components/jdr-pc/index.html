@@ -58,11 +58,13 @@
         <div class="swiper-container swiper-container2">
             <div class="swiper-wrapper">
 
-                <div class="swiper-slide" ng-show="history.contents.length>0" ng-repeat="history in datas.historys track by $index" on-finish-render-filters>
+                <div class="swiper-slide" ng-show="history.contents.length>0"
+                     ng-repeat="history in datas.historys track by $index" on-finish-render-filters-history>
                     <div class="swiper-slide-content">
                         <div class="history-year">{{::history.year}}</div>
-                        <li data-history-swiper="{{::history.swiperContainer}}" data-history-pagination="{{::history.swiperPagination}}"
-                                ng-hide="true"></li>
+                        <div data-history-swiper="{{::history.swiperContainer}}"
+                           data-history-pagination="{{::history.swiperPagination}}"
+                                ng-hide="true"></div>
 
                         <div class="swiper-container swiper-container21 {{::history.swiperContainer}}">
                             <div class="swiper-wrapper">

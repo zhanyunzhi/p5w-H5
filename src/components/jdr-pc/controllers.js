@@ -1,15 +1,16 @@
 ﻿/**
  * Created by zhan on 2016/4/3.
  */
-//import '../../lib/js/angular.min.js';                   //引入angular文件
-var angular = require('angular');//引入angular
+import '../../lib/js/angular.min.js';                   //引入angular文件
+//var angular = require('angular');//引入angular
 var appModule = angular.module("ngApp",[]);
 appModule.controller("IndexCtrl",
     function($scope, $http){
         //url是相对于我们的html文件的
-        $http.get("./data.json").then(function(data){
+        $http.get("./data.json").success(function(data){
             //console.log(data)
-            $scope.datas = data.data;
+            //$scope.datas = data.data;
+            $scope.datas = data;
         });
         $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {           //数据加载完成后执行以下js，否则js执行无效
             //2017活动预告 start
@@ -56,6 +57,9 @@ appModule.controller("IndexCtrl",
                 $('.'+index).fadeIn();
             })
             //2017活动预告 end
+
+        });
+        $scope.$on('ngRepeatFinishedHistory', function (ngRepeatFinishedHistoryEvent) {           //数据加载完成后执行以下js，否则js执行无效
             //历史活动 start
             var swiper2 = new Swiper('.swiper-container2', {
                 observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
@@ -67,14 +71,14 @@ appModule.controller("IndexCtrl",
             var eHistorySwipers = $("[data-history-swiper]");
             var eHistorySwipersLen = eHistorySwipers.length;
             if(eHistorySwipersLen > 0){
-                var swiper = '';
+                var swiper = [];
                 var swiperTex = '';
                 var paginationTex = '';
                 for(var i=0;i<eHistorySwipersLen; i++){
                     swiperTex = eHistorySwipers.eq(i).data('history-swiper');
-                    swiper = swiperTex;
+                    swiper[i] = swiperTex;
                     paginationTex = eHistorySwipers.eq(i).data('history-pagination');
-                    swiper = new Swiper('.'+swiperTex, {
+                    swiper[i] = new Swiper('.'+swiperTex, {
                         observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
                         observeParents:true,//修改swiper的父元素时，自动初始化swiper
                         grabCursor: true,
@@ -94,59 +98,13 @@ appModule.controller("IndexCtrl",
                             return _html;//返回所有的页码html
                         }
                     });
-                    $('.'+swiperTex).on('click','li',function(){
+                    $('.'+swiperTex).on('click','li', {swiper:swiper[i]},function(event){
                         var index = $(this).data('index');
-                        swiper.slideTo(index-1, 500, false);//切换到第一个slide，速度为1秒
+                        event.data.swiper.slideTo(index-1, 500, false);//切换到第一个slide，速度为1秒
                     })
                 }
             }
-            /*var swiper2016 = new Swiper('.swiper-container2016', {
-                observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
-                observeParents:true,//修改swiper的父元素时，自动初始化swiper
-                grabCursor: true,
-                pagination: '.swiper-pagination2016',
-                paginationType : 'custom',
-                paginationClickable: true,
-                paginationCustomRender: function (swiper2016, current, total) {
-                    var _html = '';
-                    var ss = $('.swiper-pagination2016').data('city').split(',');
-                    for (var i = 1; i <= total; i++) {
-                        if (current == i) {
-                            _html += '<li class="" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + ss[i-1] + '</span><span class="active">' + ss[i-1] +'</span></li>';
-                        }else{
-                            _html += '<li class="" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + ss[i-1]  + '</span></li>';
-                        }
-                    }
-                    return _html;//返回所有的页码html
-                }
-            });*/
-            //给每个页码绑定跳转的事件
-            /*$('.swiper_container2016').on('click','li',function(){
-                var index = $(this).data('index');
-                swiper_container2016.slideTo(index-1, 500, false);//切换到第一个slide，速度为1秒
-            })*/
-            /*var swiper2015 = new Swiper('.swiper-container2015', {
-                observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
-                observeParents:true,//修改swiper的父元素时，自动初始化swiper
-                grabCursor: true,
-                pagination: '.swiper-pagination2015',
-                paginationType : 'custom',
-                paginationClickable: true,
-                paginationCustomRender: function (swiper2016, current, total) {
-                    var _html = '';
-                    var ss = $('.swiper-pagination2015').data('city').split(',');
-                    for (var i = 1; i <= total; i++) {
-                        if (current == i) {
-                            _html += '<li class="" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + ss[i-1] + '</span><span class="active">' + ss[i-1] +'</span></li>';
-                        }else{
-                            _html += '<li class="" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + ss[i-1]  + '</span></li>';
-                        }
-                    }
-                    return _html;//返回所有的页码html
-                }
-            });*/
-            //历史活动 end
-        });
+        })
     }
 );
 appModule.filter(
@@ -163,6 +121,18 @@ appModule.directive('onFinishRenderFilters', function ($timeout) {
             if (scope.$last === true) {
                 $timeout(function() {
                     scope.$emit('ngRepeatFinished');
+                });
+            }
+        }
+    };
+});
+appModule.directive('onFinishRenderFiltersHistory', function ($timeout) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attr) {
+            if (scope.$last === true) {
+                $timeout(function() {
+                    scope.$emit('ngRepeatFinishedHistory');
                 });
             }
         }

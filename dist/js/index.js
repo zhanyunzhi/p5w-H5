@@ -94,49 +94,48 @@ __webpack_require__(8);
 //import tpl from './index.html';          //引入模板
 function index() {
     $(function () {
-
-        var swiper2 = new Swiper('.swiper-container2', {
-            observer: true, //修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
-            observeParents: true, //修改swiper的父元素时，自动初始化swiper
+        /*var swiper2 = new Swiper('.swiper-container2', {
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper
             grabCursor: true,
             nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev'
+            prevButton: '.swiper-button-prev',
         });
         var swiper2016 = new Swiper('.swiper-container2016', {
-            observer: true, //修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
-            observeParents: true, //修改swiper的父元素时，自动初始化swiper
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper
             grabCursor: true,
             pagination: '.swiper-pagination2016',
-            paginationType: 'custom',
+            paginationType : 'custom',
             paginationClickable: true,
-            paginationCustomRender: function paginationCustomRender(swiper2016, current, total) {
+            paginationCustomRender: function (swiper2016, current, total) {
                 var _html = '';
                 var ss = $('.swiper-pagination2016').data('city').split(',');
                 for (var i = 1; i <= total; i++) {
                     if (current == i) {
-                        _html += '<li class="" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + ss[i - 1] + '</span><span class="active">' + ss[i - 1] + '</span></li>';
-                    } else {
-                        _html += '<li class="" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + ss[i - 1] + '</span></li>';
+                        _html += '<li class="" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + ss[i-1] + '</span><span class="active">' + ss[i-1] +'</span></li>';
+                    }else{
+                        _html += '<li class="" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + ss[i-1]  + '</span></li>';
                     }
                 }
-                return _html; //返回所有的页码html
+                return _html;//返回所有的页码html
             }
         });
         //给每个页码绑定跳转的事件
-        $('.swiper-container2016').on('click', 'li', function () {
+        $('.swiper-container2016').on('click','li',function(){
             var index = $(this).data('index');
-            swiper2016.slideTo(index - 1, 500, false); //切换到第一个slide，速度为1秒
-        });
+            swiper2016.slideTo(index-1, 500, false);//切换到第一个slide，速度为1秒
+        })
         var swiper2015 = new Swiper('.swiper-container2015', {
-            observer: true, //修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
-            observeParents: true, //修改swiper的父元素时，自动初始化swiper
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper
             grabCursor: true,
             pagination: '.swiper-pagination2015',
             paginationClickable: true,
-            paginationBulletRender: function paginationBulletRender(swiper2015, index, className) {
+            paginationBulletRender: function (swiper2015, index, className) {
                 return '<span class="' + className + '">' + (index + 1) + '</span>';
             }
-        });
+        });*/
     });
     return {
         name: 'index'
@@ -157,6 +156,7 @@ exports.default = index;
 __webpack_require__(7);
 
 //引入angular文件
+//var angular = require('angular');//引入angular
 var appModule = angular.module("ngApp", []); /**
                                               * Created by zhan on 2016/4/3.
                                               */
@@ -164,10 +164,13 @@ var appModule = angular.module("ngApp", []); /**
 appModule.controller("IndexCtrl", function ($scope, $http) {
     //url是相对于我们的html文件的
     $http.get("./data.json").success(function (data) {
+        //console.log(data)
+        //$scope.datas = data.data;
         $scope.datas = data;
-        console.log($scope.datas.thisYears[2].contents.length);
     });
     $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
+        //数据加载完成后执行以下js，否则js执行无效
+        //2017活动预告 start
         var swiper1Config = {
             observer: true, //修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
             observeParents: true, //修改swiper的父元素时，自动初始化swiper
@@ -202,6 +205,7 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
         }
         //给每个页码绑定跳转的事件
         $('.months').on('click', '.have-data', function () {
+            if ($(this).hasClass('active')) return;
             for (var i = 0; i < eHaveDataLen; i++) {
                 $('.' + eHaveData.eq(i).data('index')).hide();
             }
@@ -209,6 +213,54 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
             $(this).addClass('active').siblings().removeClass('active');
             $('.' + index).fadeIn();
         });
+        //2017活动预告 end
+    });
+    $scope.$on('ngRepeatFinishedHistory', function (ngRepeatFinishedHistoryEvent) {
+        //数据加载完成后执行以下js，否则js执行无效
+        //历史活动 start
+        var swiper2 = new Swiper('.swiper-container2', {
+            observer: true, //修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
+            observeParents: true, //修改swiper的父元素时，自动初始化swiper
+            grabCursor: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev'
+        });
+        var eHistorySwipers = $("[data-history-swiper]");
+        var eHistorySwipersLen = eHistorySwipers.length;
+        if (eHistorySwipersLen > 0) {
+            var swiper = [];
+            var swiperTex = '';
+            var paginationTex = '';
+            for (var i = 0; i < eHistorySwipersLen; i++) {
+                swiperTex = eHistorySwipers.eq(i).data('history-swiper');
+                swiper[i] = swiperTex;
+                paginationTex = eHistorySwipers.eq(i).data('history-pagination');
+                swiper[i] = new Swiper('.' + swiperTex, {
+                    observer: true, //修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
+                    observeParents: true, //修改swiper的父元素时，自动初始化swiper
+                    grabCursor: true,
+                    pagination: '.' + paginationTex,
+                    paginationType: 'custom',
+                    paginationClickable: true,
+                    paginationCustomRender: function paginationCustomRender(swiper, current, total) {
+                        var _html = '';
+                        var ss = $('.' + paginationTex).data('city').split(',');
+                        for (var i = 1; i <= total; i++) {
+                            if (current == i) {
+                                _html += '<li class="" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + ss[i - 1] + '</span><span class="active">' + ss[i - 1] + '</span></li>';
+                            } else {
+                                _html += '<li class="" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + ss[i - 1] + '</span></li>';
+                            }
+                        }
+                        return _html; //返回所有的页码html
+                    }
+                });
+                $('.' + swiperTex).on('click', 'li', { swiper: swiper[i] }, function (event) {
+                    var index = $(this).data('index');
+                    event.data.swiper.slideTo(index - 1, 500, false); //切换到第一个slide，速度为1秒
+                });
+            }
+        }
     });
 });
 appModule.filter('toTrusted', ['$sce', function ($sce) {
@@ -223,6 +275,18 @@ appModule.directive('onFinishRenderFilters', function ($timeout) {
             if (scope.$last === true) {
                 $timeout(function () {
                     scope.$emit('ngRepeatFinished');
+                });
+            }
+        }
+    };
+});
+appModule.directive('onFinishRenderFiltersHistory', function ($timeout) {
+    return {
+        restrict: 'A',
+        link: function link(scope, element, attr) {
+            if (scope.$last === true) {
+                $timeout(function () {
+                    scope.$emit('ngRepeatFinishedHistory');
                 });
             }
         }
