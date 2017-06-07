@@ -23,7 +23,7 @@ html{
   width: 100%;
   padding: 0;
   max-width: 1920px;
-  overflow: auto;
+  //overflow: auto;
   margin:0 auto;
 }
 body{
@@ -33,7 +33,7 @@ body{
   font-family: "Î¢ÈíÑÅºÚ", "ËÎÌå";
   font-size:14px;
   color:$white;
-  overflow: auto;
+  //overflow: auto;
   background: url(../../assets/jdr-pc/bg.png) no-repeat;
   background-size:100% 100%;
 }
@@ -93,13 +93,14 @@ body{
         width:150px;
         height:150px;
         @include float(left);
-        margin-top:72px;
+        margin-top:12px;
         margin-left:32px;
       }
       .media-content{
         margin-left:215px;
         margin-top:48px;
         margin-right:44px;
+        text-align: left;
         h3{
           font-size:26px;
           font-weight: normal;
@@ -109,9 +110,12 @@ body{
           font-size:12px;
           font-weight: normal;
           line-height:18px;
+          max-height: 144px;
+          overflow: hidden;
         }
         span{
           font-size:16px;
+          display: block;
           time{
             margin-left: 8px;
           }
@@ -125,7 +129,7 @@ body{
       height:44px;
       @include border-radius(22px);
       text-align: center;
-      line-height: 50px;
+      line-height: 22px;
       margin-top:30px;
     }
     .arrow-left{
@@ -235,6 +239,7 @@ body{
         @include border-radius(5px);
         font-family: sans-serif;
         margin: 0 8px;
+        cursor: pointer;
         span{
           display: block;
           width:17px;
@@ -310,13 +315,16 @@ body{
         height:364px;
       }
       .swiper-pagination-city{
-        @include display-flex(flex);
+        //@include display-flex(flex);
         bottom:30px;
         li{
-          @include flex(1);
+          //@include flex(1);
+          float:left;
+          width:14.28%;
           list-style: none;
           z-index: 99;
           position: relative;
+
           img{
             width:19px;
             height:25px;
@@ -336,18 +344,23 @@ body{
           margin-top:16px;
           left:55px;
         }
-        .active{
-          width:140px;
-          line-height:60px;
-          background-color: $thisYellow;
-          position: absolute;
-          @include border-radius(30px);
-          top: -12px;
-          left: 50%;
-          margin-left: -70px;
-          color:$white;
-          font-size:20px;
+        .city{
+          font-size:14px;
         }
+      }
+      .active{
+        width:140px;
+        line-height:60px;
+        background-color: $thisYellow;
+        position: absolute;
+        @include border-radius(30px);
+        bottom: 30px;
+        left: 50%;
+        margin-left: -70px;
+        color:$white;
+        font-size:20px;
+        height: 60px;
+        z-index: 99;
       }
       .media-img{
         width:273px;

@@ -8,8 +8,18 @@ appModule.controller("IndexCtrl",
     function($scope, $http){
         //url是相对于我们的html文件的
         $http.get("./data.json").success(function(data){
-            //console.log(data)
             //$scope.datas = data.data;
+            //重新将city字段组合
+            $scope.citys = '';
+            angular.forEach(data.historys,function(history,k){
+                angular.forEach(history.contents,function(content){
+                    $scope.citys += content.city + ',';
+
+                })
+                $scope.citys = $scope.citys.substring(0,$scope.citys.length-1);
+                data.historys[k].citys =  $scope.citys;
+                $scope.citys = '';
+            })
             $scope.datas = data;
         });
         $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {           //数据加载完成后执行以下js，否则js执行无效
@@ -23,7 +33,7 @@ appModule.controller("IndexCtrl",
                 effect : 'coverflow',
                 direction:'vertical',
                 slidesPerView: 2,
-                initialSlide :3,
+                initialSlide :100,
                 centeredSlides: true,
                 coverflow: {
                     rotate: 0,
@@ -31,30 +41,82 @@ appModule.controller("IndexCtrl",
                     depth: 80,
                     modifier: 1,
                     slideShadows : false
+                },
+                onInit: function(swiper){
+                    var eHaveData = $('.have-data');
+                    var eSwiper = $('.'+eHaveData.eq(0).data('index'));
+                    var eSlides = eSwiper.find('.swiper-slide');
+                    var eSlidesContents = eSwiper.find('.this-year-content');
+                    for(var j=0;j<eSlidesContents.length;j++){          //隐藏后面显示一部分的slide的内容
+                        eSlidesContents.eq(j).hide();
+                    }
+                    eSlidesContents.last().show();      //slide默认显示最后一个
+                    for(var k=0;k<eSlides.length;k++){      //隐藏后面不显示但是因为透明度导致看得到的slide
+                        eSlides.eq(k).css('opacity','1');
+                        if(eSlides.length-1-k>=4){        //当前活动页往前数，大于等于4的，隐藏
+                            eSlides.eq(k).css('opacity','0');
+                        }
+                    }
+                },
+                onTransitionStart: function(swiper){
+                    var swiperTxt = $('.months .active').data('index');
+                    var eSlides = $('.' + swiperTxt).find('.swiper-slide');
+                    var eContents = $('.' + swiperTxt).find('.this-year-content');
+                    for(var i=0;i<swiper.activeIndex-1;i++){
+                        eContents.eq(i).hide();
+                    }
+                    eContents.eq(swiper.activeIndex).show();
+                    for(var k=0;k<eSlides.length;k++){      //隐藏后面不显示但是因为透明度导致看得到的slide
+                        eSlides.eq(k).css('opacity','1');
+                        if(swiper.activeIndex-k>=4){        //当前活动页往前数，大于等于4的，隐藏
+                            eSlides.eq(k).css('opacity','0');
+                        }
+                    }
+
                 }
             };
             //2017活动预告中class为have-data的获取属性data-index的值与相应的要初始化的swiper的class相同，从而达到批量注册swiper
             var eHaveData = $('.have-data');
             var eHaveDataLen = eHaveData.length;
             if(eHaveDataLen > 0){
-                var swiper = '';
+                var swiper = [];
+                var swiperTex = '';
                 for(var i=0;i<eHaveDataLen; i++){
-                    swiper = eHaveData.eq(i).data('index');
-                    $('.'+swiper).hide();
-                    swiper = new Swiper('.'+swiper, swiper1Config);
+                    swiperTex = eHaveData.eq(i).data('index');
+                    swiper[i] = swiperTex;
+                    $('.'+swiperTex).hide();
+                    swiper[i] = new Swiper('.'+swiperTex, swiper1Config);
                 }
                 $('.'+eHaveData.eq(0).data('index')).show();
                 eHaveData.eq(0).addClass('active');
             }
             //给每个页码绑定跳转的事件
+            var eSwipers = '';
+            var eSlides = '';
+            var eSlidesContents = '';
+            var mIndex = '';
+            var showSlide = '';
             $('.months').on('click','.have-data',function(){
                 if($(this).hasClass('active')) return;
                 for(var i=0;i<eHaveDataLen; i++){
                     $('.'+eHaveData.eq(i).data('index')).hide();
                 }
-                var index = $(this).data('index');
+                mIndex = $(this).data('index');
                 $(this).addClass('active').siblings().removeClass('active');
-                $('.'+index).fadeIn();
+                $('.'+mIndex).fadeIn();
+                eSwipers =  $('.' + mIndex);
+                eSlides =  eSwipers.find('.swiper-slide');
+                eSlidesContents = eSwipers.find('.this-year-content');
+                for(var j=0;j<eSlidesContents.length;j++){          //隐藏后面显示一部分的slide的内容
+                    eSlidesContents.eq(j).hide();
+                }
+                eSlidesContents.last().show();      //slide默认显示最后一个
+                for(var k=0;k<eSlides.length;k++){      //隐藏后面不显示但是因为透明度导致看得到的slide
+                    eSlides.eq(k).css('opacity','0');
+                    if(eSlides.length-k<=4){
+                        eSlides.eq(k).css('opacity','1');
+                    }
+                }
             })
             //2017活动预告 end
 
@@ -85,24 +147,42 @@ appModule.controller("IndexCtrl",
                         pagination: '.'+paginationTex,
                         paginationType : 'custom',
                         paginationClickable: true,
-                        paginationCustomRender: function (swiper, current, total) {
+                        /*paginationCustomRender: function (swiper, current, total) {
                             var _html = '';
-                            var ss = $('.'+paginationTex).data('city').split(',');
+                            var citys = $('.'+paginationTex).data('city').split(',');
+                            console.log(citys)
                             for (var i = 1; i <= total; i++) {
                                 if (current == i) {
-                                    _html += '<li class="" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + ss[i-1] + '</span><span class="active">' + ss[i-1] +'</span></li>';
+                                    _html += '<li class="city" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + citys[i-1] + '</span><span class="active">' + citys[i-1] +'</span></li>';
                                 }else{
-                                    _html += '<li class="" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + ss[i-1]  + '</span></li>';
+                                    _html += '<li class="city" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + citys[i-1]  + '</span></li>';
                                 }
                             }
                             return _html;//返回所有的页码html
-                        }
+                        }*/
                     });
-                    $('.'+swiperTex).on('click','li', {swiper:swiper[i]},function(event){
+                    var paginationLen = $('.'+paginationTex).find("li").length;     //city的个数
+                    var paginationWidth = 100/7*paginationLen;                      //city的父标签的宽度，一般显示7个city
+                    $('.'+paginationTex).width(paginationWidth+'%');
+                    $('.'+paginationTex).find("li").width(100/paginationLen+'%');   //city的宽度
+                    $('.'+paginationTex).find("span").css('left',$('.'+paginationTex).width()/2+'px');   //city的宽度
+                    $('.'+paginationTex).on('click','li', {swiper:swiper[i]},function(event){
                         var index = $(this).data('index');
-                        event.data.swiper.slideTo(index-1, 500, false);//切换到第一个slide，速度为1秒
+                        var city = $(this).find('span').eq(0).html();
+                        $(this).parent().prev("span").html(city);
+                        event.data.swiper.slideTo(index, 500, false);//切换到第一个slide，速度为1秒
+                        console.log(event.data.swiper.activeIndex);
+                        $('.'+paginationTex).css('translateX',+$('.'+paginationTex).find("li").eq(0).width()+'px')
                     })
                 }
+            }
+            function getTransforms(translate3d){
+                return {
+                    '-webkit-transform': translate3d,
+                    '-moz-transform': translate3d,
+                    '-ms-transform':translate3d,
+                    'transform': translate3d
+                };
             }
         })
     }

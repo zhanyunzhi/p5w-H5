@@ -5,7 +5,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");         // 引�
 
 module.exports = {
     entry: {
-        vendor: ['./src/lib/js/jquery-1.8.3.min.js'],             //jquery,fullPage第三方插件打包到一起        因为没有模块化，所以只能原样引入,'./src/lib/js/jquery.fullPage.js','./src/lib/js/jquery.imgpreload.js'
+        vendor: ['./src/lib/js/jquery-1.8.3.min.js','./src/lib/js/jquery.fullPage.js'],             //jquery,fullPage第三方插件打包到一起        因为没有模块化，所以只能原样引入,'./src/lib/js/jquery.fullPage.js','./src/lib/js/jquery.imgpreload.js'
         //fullPage: './src/js/jquery.fullPage.min.js',        //fullPage      因为没有模块化，所以只能原样引入
         index: './src/index.js'           //入口文件1
     },
