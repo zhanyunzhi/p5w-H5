@@ -160,23 +160,22 @@ appModule.controller("IndexCtrl",
                     $('.'+paginationTex).width(paginationWidth+'%');
                     $('.'+paginationTex).find("li").width(100/paginationLen+'%');   //city的宽度
                     $('.'+paginationTex).find("span").css('left',$('.'+paginationTex).width()/2+'px');   //city的宽度
+
                     $('.'+paginationTex).on('click','li', {swiper:swiper[i]},function(event){
                         var index = $(this).data('index');
                         var city = $(this).find('span').eq(0).html();
                         $(this).parent().prev("span").html(city);
                         var translateWidth = $(this).width();
-                        console.log("click:"+index)
-                        console.log("activeIndex:"+event.data.swiper.activeIndex)
                         if(index-event.data.swiper.activeIndex<=0){
                             translateWidth = -($(this).width() * index);
                         } else {
                             translateWidth = -($(this).width() * index);
                         }
-                        console.log("translateWidth:"+translateWidth)
                         var translate3d = 'translate3d('+translateWidth+'px, 0px, 0px)';
                         $(this).parent().css(getTransforms(translate3d));           //city的父标签位移
                         event.data.swiper.slideTo(index, 500, false);//切换到指定slide，速度为1秒
                     })
+
                 }
             }
         })

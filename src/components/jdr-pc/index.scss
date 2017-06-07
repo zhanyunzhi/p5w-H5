@@ -335,16 +335,6 @@ body{
             color:$thisYellow;
           }
         }
-        &:after{
-          content: '';
-          width:966px;
-          height:1px;
-          display: inline-block;
-          background-color: $thisYellow;
-          position: absolute;
-          margin-top:16px;
-          left:55px;
-        }
         .city{
           font-size:14px;
         }
@@ -362,6 +352,14 @@ body{
         font-size:20px;
         height: 60px;
         z-index: 99;
+      }
+      .city-line{
+        width:966px;
+        height:1px;
+        border-bottom:1px solid $thisYellow;
+        position: absolute;
+        bottom: 30px;
+        left:55px;
       }
       .media-img{
         width:273px;
