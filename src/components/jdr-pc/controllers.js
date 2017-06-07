@@ -14,7 +14,6 @@ appModule.controller("IndexCtrl",
             angular.forEach(data.historys,function(history,k){
                 angular.forEach(history.contents,function(content){
                     $scope.citys += content.city + ',';
-
                 })
                 $scope.citys = $scope.citys.substring(0,$scope.citys.length-1);
                 data.historys[k].citys =  $scope.citys;
@@ -121,6 +120,14 @@ appModule.controller("IndexCtrl",
             //2017活动预告 end
 
         });
+        function getTransforms(translate3d){
+            return {
+                '-webkit-transform': translate3d,
+                '-moz-transform': translate3d,
+                '-ms-transform':translate3d,
+                'transform': translate3d
+            };
+        }
         $scope.$on('ngRepeatFinishedHistory', function (ngRepeatFinishedHistoryEvent) {           //数据加载完成后执行以下js，否则js执行无效
             //历史活动 start
             var swiper2 = new Swiper('.swiper-container2', {
@@ -147,19 +154,6 @@ appModule.controller("IndexCtrl",
                         pagination: '.'+paginationTex,
                         paginationType : 'custom',
                         paginationClickable: true,
-                        /*paginationCustomRender: function (swiper, current, total) {
-                            var _html = '';
-                            var citys = $('.'+paginationTex).data('city').split(',');
-                            console.log(citys)
-                            for (var i = 1; i <= total; i++) {
-                                if (current == i) {
-                                    _html += '<li class="city" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + citys[i-1] + '</span><span class="active">' + citys[i-1] +'</span></li>';
-                                }else{
-                                    _html += '<li class="city" data-index="' + i + '"><img src="./assets/coordinate.png" /><span>' + citys[i-1]  + '</span></li>';
-                                }
-                            }
-                            return _html;//返回所有的页码html
-                        }*/
                     });
                     var paginationLen = $('.'+paginationTex).find("li").length;     //city的个数
                     var paginationWidth = 100/7*paginationLen;                      //city的父标签的宽度，一般显示7个city
@@ -170,19 +164,20 @@ appModule.controller("IndexCtrl",
                         var index = $(this).data('index');
                         var city = $(this).find('span').eq(0).html();
                         $(this).parent().prev("span").html(city);
-                        event.data.swiper.slideTo(index, 500, false);//切换到第一个slide，速度为1秒
-                        console.log(event.data.swiper.activeIndex);
-                        $('.'+paginationTex).css('translateX',+$('.'+paginationTex).find("li").eq(0).width()+'px')
+                        var translateWidth = $(this).width();
+                        console.log("click:"+index)
+                        console.log("activeIndex:"+event.data.swiper.activeIndex)
+                        if(index-event.data.swiper.activeIndex<=0){
+                            translateWidth = -($(this).width() * index);
+                        } else {
+                            translateWidth = -($(this).width() * index);
+                        }
+                        console.log("translateWidth:"+translateWidth)
+                        var translate3d = 'translate3d('+translateWidth+'px, 0px, 0px)';
+                        $(this).parent().css(getTransforms(translate3d));           //city的父标签位移
+                        event.data.swiper.slideTo(index, 500, false);//切换到指定slide，速度为1秒
                     })
                 }
-            }
-            function getTransforms(translate3d){
-                return {
-                    '-webkit-transform': translate3d,
-                    '-moz-transform': translate3d,
-                    '-ms-transform':translate3d,
-                    'transform': translate3d
-                };
             }
         })
     }
