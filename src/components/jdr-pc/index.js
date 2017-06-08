@@ -9,10 +9,7 @@ import './data.json';                   //引入数据文件
 import '../../lib/js/swiper.min.js';                   //引入swiper文件
 function index() {
     $(function(){
-        $('#qj').fullpage({
-            continuousVertical: false,
-            verticalCentered: false,
-        });
+
     });
     return {
         name: 'index',

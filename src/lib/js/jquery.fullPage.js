@@ -1439,7 +1439,8 @@
 						allowPageScroll: true,
 						height: scrollHeight + 'px',
 						size: '10px',
-						alwaysVisible: true
+						alwaysVisible: true,
+						wheelStep : 1,
 					});
 				}
 			}

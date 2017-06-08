@@ -136,6 +136,78 @@ appModule.controller("IndexCtrl",
                 grabCursor: true,
                 nextButton: '.swiper-button-next',
                 prevButton: '.swiper-button-prev',
+                onTransitionStart: function(swiper) {
+                    var year = 2016 - swiper.activeIndex;
+                    $('.yellow-river').eq(0).removeClass().addClass('yellow-river river'+year);
+                    $('.yellow-river').eq(0).css('clip','');
+                    //$('.yellow-river').eq(0).addClass('river2016');
+                }
+            });
+            $('#qj').fullpage({
+                continuousVertical: false,
+                verticalCentered: true,
+                scrollOverflow:true,
+                afterLoad:function(abchorLink, index){
+                    if(index == 1){
+                        $('.yellow-river').eq(0).removeClass().addClass('yellow-river');
+                    }
+                    if(index == 2){
+                        $('.yellow-river').eq(0).addClass('river2016');
+                    }
+                    swiper2.slideTo(0, 10, false);
+                }
+            });
+            //页面滚动条
+            var winH = $('.fp-section').last().height();
+            var scrollH = $('.slimScrollBar').last().height();
+            var imgH = $('.yellow-river').height()-220;
+            var canScrollH = winH - scrollH;        //页面可滚动距离
+            var oneForHow = Math.ceil(imgH / canScrollH);       //每滚动一像素对应多长的河流
+            var slimScrollBarT = $('.slimScrollBar').last().position().top;            //滚动的距离
+
+            $('.fp-scrollable').slimScroll({
+                allowPageScroll: true,
+                height: winH + 'px',
+                size: '10px',
+                alwaysVisible: true,
+                wheelStep : 1,
+            }).bind('slimscroll', function(e, pos){
+                if(pos=='bottom'){
+                    console.log("bottom");
+                }
+            });
+            //滚动的时候处理
+            $('.fp-scrollable').scroll( function() {
+                slimScrollBarT = $('.slimScrollBar').last().position().top;
+                $('.yellow-river').eq(0).css('clip','rect(0px 895px '+ (220 + slimScrollBarT * oneForHow) + 'px 0px)');
+                console.log(220 + slimScrollBarT * oneForHow);
+                if((220 + slimScrollBarT * oneForHow) >= 220 && (220 + slimScrollBarT * oneForHow) < 320){          //2016
+                    swiper2.slideTo(0, 500, false);
+                }
+                if((220 + slimScrollBarT * oneForHow) >= 320 && (220 + slimScrollBarT * oneForHow) < 390){       //2015
+                    swiper2.slideTo(1, 500, false);
+                }
+                if((220 + slimScrollBarT * oneForHow) >= 390 && (220 + slimScrollBarT * oneForHow) < 490){       //2014
+                    swiper2.slideTo(2, 500, false);
+                }
+                if((220 + slimScrollBarT * oneForHow) >= 490 && (220 + slimScrollBarT * oneForHow) < 530){       //2013
+                    swiper2.slideTo(3, 500, false);
+                }
+                if((220 + slimScrollBarT * oneForHow) >= 530 && (220 + slimScrollBarT * oneForHow) < 680){       //2012
+                    swiper2.slideTo(4, 500, false);
+                }
+                if((220 + slimScrollBarT * oneForHow) >= 680 && (220 + slimScrollBarT * oneForHow) < 740){       //2011
+                    swiper2.slideTo(5, 500, false);
+                }
+                if((220 + slimScrollBarT * oneForHow) >= 740 && (220 + slimScrollBarT * oneForHow) < 800){       //2010
+                    swiper2.slideTo(6, 500, false);
+                }
+                if((220 + slimScrollBarT * oneForHow) >= 800 && (220 + slimScrollBarT * oneForHow) < 920){       //2009
+                    swiper2.slideTo(7, 500, false);
+                }
+                if((220 + slimScrollBarT * oneForHow) >= 920 && (220 + slimScrollBarT * oneForHow) < 1212){       //2008
+                    swiper2.slideTo(8, 500, false);
+                }
             });
             var eHistorySwipers = $("[data-history-swiper]");
             var eHistorySwipersLen = eHistorySwipers.length;
@@ -175,7 +247,6 @@ appModule.controller("IndexCtrl",
                         $(this).parent().css(getTransforms(translate3d));           //city的父标签位移
                         event.data.swiper.slideTo(index, 500, false);//切换到指定slide，速度为1秒
                     })
-
                 }
             }
         })

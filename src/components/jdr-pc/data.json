@@ -250,6 +250,70 @@
                     "imgUrl": "assets/history1.jpg"
                 }
             ]
+        },
+        {
+            "year": "2014", "swiperContainer": "swiper_container2014","swiperPagination":"swiper_pagination2014",
+            "contents": [
+                {
+                    "title": "2015年深圳上市公司集体接待日",
+                    "content": "为进一步推动上市公司提升投资者关系管理水平，加强与投资者的沟通交流，中国证券监督管理委员会陕西监管局联合陕西上市公司协会和深",
+                    "jumpUrl": "http://irm.p5w.net/rsc/henanjdr/index.html",
+                    "city": "广州",
+                    "imgUrl": "assets/history1.jpg"
+                },
+                {
+                    "title": "2015年上海上市公司集体接待日",
+                    "content": "为进一步推动上市公司提升投资者关系管理水平，加强与投资者的沟通交流，中国证券监督管理委员会陕西监管局联合陕西上市公司协会和深",
+                    "jumpUrl": "http://irm.p5w.net/rsc/henanjdr/index.html",
+                    "city": "佛山",
+                    "imgUrl": "assets/history1.jpg"
+                },
+                {
+                    "title": "2015年上海上市公司集体接待日",
+                    "content": "为进一步推动上市公司提升投资者关系管理水平，加强与投资者的沟通交流，中国证券监督管理委员会陕西监管局联合陕西上市公司协会和深",
+                    "jumpUrl": "http://irm.p5w.net/rsc/henanjdr/index.html",
+                    "city": "重庆",
+                    "imgUrl": "assets/history1.jpg"
+                }
+            ]
+        },
+        {
+            "year": "2013", "swiperContainer": "swiper_container2013","swiperPagination":"swiper_pagination2013",
+            "contents": [
+                {
+                    "title": "2015年深圳上市公司集体接待日",
+                    "content": "为进一步推动上市公司提升投资者关系管理水平，加强与投资者的沟通交流，中国证券监督管理委员会陕西监管局联合陕西上市公司协会和深",
+                    "jumpUrl": "http://irm.p5w.net/rsc/henanjdr/index.html",
+                    "city": "深圳",
+                    "imgUrl": "assets/history1.jpg"
+                },
+                {
+                    "title": "2015年上海上市公司集体接待日",
+                    "content": "为进一步推动上市公司提升投资者关系管理水平，加强与投资者的沟通交流，中国证券监督管理委员会陕西监管局联合陕西上市公司协会和深",
+                    "jumpUrl": "http://irm.p5w.net/rsc/henanjdr/index.html",
+                    "city": "上海",
+                    "imgUrl": "assets/history1.jpg"
+                }
+            ]
+        },
+        {
+            "year": "2012", "swiperContainer": "swiper_container2012","swiperPagination":"swiper_pagination2012",
+            "contents": [
+                {
+                    "title": "2015年深圳上市公司集体接待日",
+                    "content": "为进一步推动上市公司提升投资者关系管理水平，加强与投资者的沟通交流，中国证券监督管理委员会陕西监管局联合陕西上市公司协会和深",
+                    "jumpUrl": "http://irm.p5w.net/rsc/henanjdr/index.html",
+                    "city": "深圳",
+                    "imgUrl": "assets/history1.jpg"
+                },
+                {
+                    "title": "2015年上海上市公司集体接待日",
+                    "content": "为进一步推动上市公司提升投资者关系管理水平，加强与投资者的沟通交流，中国证券监督管理委员会陕西监管局联合陕西上市公司协会和深",
+                    "jumpUrl": "http://irm.p5w.net/rsc/henanjdr/index.html",
+                    "city": "上海",
+                    "imgUrl": "assets/history1.jpg"
+                }
+            ]
         }
     ]
 }

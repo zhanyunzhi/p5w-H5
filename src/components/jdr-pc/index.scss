@@ -270,7 +270,18 @@ body{
     }
   }
 }
-
+.fp-scrollable{
+  overflow-x: hidden;
+  width:100%;
+}
+.section{
+  width:100%;
+  &:last-child{
+    //overflow-y: scroll;
+    /*width:100%;
+    padding-bottom:1000px;*/
+  }
+}
 
 .history{
   position: relative;
@@ -279,16 +290,24 @@ body{
     width:172px;
     line-height:172px;
     background-color: #202f70;
-    position: absolute;
-    top:145px;
+    position: fixed;
     left:230px;
     text-align: center;
     font-size:30px;
     font-weight: normal;
     margin:0;
+    margin-top:145px;
     @media screen and (max-width: 1500px) {
       left:100px;
     }
+  }
+  .dry-river{
+    position: absolute;
+    width:895px;
+    height:1212px;
+    left:50%;
+    margin-left:-280px;
+    top:71px;
   }
   .yellow-river{
     position: absolute;
@@ -297,12 +316,44 @@ body{
     left:50%;
     margin-left:-280px;
     top:70px;
+    clip: rect(0px 895px 0px 0px);
+    @include transition(clip 1s)
+  }
+  .river2016{
+    clip: rect(0px 895px 220px 0px);
+  }
+  .river2015{
+    clip: rect(0px 895px 320px 0px);
+  }
+  .river2014{
+    clip: rect(0px 895px 390px 0px);
+  }
+  .river2013{
+    clip: rect(0px 895px 490px 0px);
+  }
+  .river2012{
+    clip: rect(0px 895px 530px 0px);
+  }
+  .river2011{
+    clip: rect(0px 895px 680px 0px);
+  }
+  .river2010{
+    clip: rect(0px 895px 740px 0px);
+  }
+  .river2009{
+    clip: rect(0px 895px 800px 0px);
+  }
+  .river2008{
+    clip: rect(0px 895px 920px 0px);
   }
 
   .swiper-container2{
-    margin-top:338px;
     width:1205px;
     height:414px;
+    position: fixed;
+    left: 50%;
+    margin-left: -603px;
+    margin-top:338px;
     .swiper-slide-content{
       background-color: #1b2967;
       width:1065px;
@@ -334,6 +385,16 @@ body{
             display: block;
             color:$thisYellow;
           }
+          /*&:after{
+            content: '';
+            width:100%;
+            height:1px;
+            display: inline-block;
+            background-color: $thisYellow;
+            position: absolute;
+            top: 18px;
+            left: 0;
+          }*/
         }
         .city{
           font-size:14px;
@@ -358,7 +419,7 @@ body{
         height:1px;
         border-bottom:1px solid $thisYellow;
         position: absolute;
-        bottom: 30px;
+        bottom: 60px;
         left:55px;
       }
       .media-img{
@@ -372,6 +433,7 @@ body{
         margin-left:360px;
         margin-top:66px;
         margin-right:44px;
+        text-align: left;
         h3{
           font-size:18px;
           font-weight: normal;
