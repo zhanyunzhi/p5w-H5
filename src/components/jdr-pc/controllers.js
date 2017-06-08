@@ -71,7 +71,20 @@ appModule.controller("IndexCtrl",
                             eSlides.eq(k).css('opacity','0');
                         }
                     }
-
+                },
+                onTouchEnd: function(swiper){
+                    console.log('1'+swiper.activeIndex)
+                    //console.log(swiper.activeIndex)
+                    if(swiper.isEnd){
+                        console.log(swiper.isEnd)
+                    }
+                },
+                /*onSlideChangeEnd: function(swiper){
+                    console.log(swiper.activeIndex)
+                },*/
+                onSlidePrevEnd: function(swiper){
+                    console.log('2'+swiper.activeIndex)
+                    this.onTouchEnd(swiper);
                 }
             };
             //2017活动预告中class为have-data的获取属性data-index的值与相应的要初始化的swiper的class相同，从而达到批量注册swiper

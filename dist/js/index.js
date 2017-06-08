@@ -261,6 +261,7 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
             onTransitionStart: function onTransitionStart(swiper) {
                 var year = 2016 - swiper.activeIndex;
                 $('.yellow-river').eq(0).removeClass().addClass('yellow-river river' + year);
+                $('.yellow-river').eq(0).css('clip', '');
                 //$('.yellow-river').eq(0).addClass('river2016');
             }
         });
@@ -279,18 +280,19 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
             }
         });
         //页面滚动条
-        var winH = $('.fp-section').height();
-        var scrollH = $('.slimScrollBar').height();
+        var winH = $('.fp-section').last().height();
+        var scrollH = $('.slimScrollBar').last().height();
         var imgH = $('.yellow-river').height() - 220;
         var canScrollH = winH - scrollH; //页面可滚动距离
         var oneForHow = Math.ceil(imgH / canScrollH); //每滚动一像素对应多长的河流
-        var slimScrollBarT = $('.slimScrollBar').position().top; //滚动的距离
+        var slimScrollBarT = $('.slimScrollBar').last().position().top; //滚动的距离
+
         $('.fp-scrollable').slimScroll({
             allowPageScroll: true,
             height: winH + 'px',
             size: '10px',
             alwaysVisible: true,
-            wheelStep: 2
+            wheelStep: 1
         }).bind('slimscroll', function (e, pos) {
             if (pos == 'bottom') {
                 console.log("bottom");
@@ -298,7 +300,7 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
         });
         //滚动的时候处理
         $('.fp-scrollable').scroll(function () {
-            slimScrollBarT = $('.slimScrollBar').position().top;
+            slimScrollBarT = $('.slimScrollBar').last().position().top;
             $('.yellow-river').eq(0).css('clip', 'rect(0px 895px ' + (220 + slimScrollBarT * oneForHow) + 'px 0px)');
             console.log(220 + slimScrollBarT * oneForHow);
             if (220 + slimScrollBarT * oneForHow >= 220 && 220 + slimScrollBarT * oneForHow < 320) {

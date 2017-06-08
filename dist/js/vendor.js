@@ -1530,7 +1530,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;﻿/*! jQuery v1
 						height: scrollHeight + 'px',
 						size: '10px',
 						alwaysVisible: true,
-						wheelStep : 2,
+						wheelStep : 1,
 					});
 				}
 			}
