@@ -377,67 +377,7 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
                 swiper2.slideTo(0, 10, false);
             }
         });
-        //页面滚动条
-        var winH = $('.fp-section').last().height();
-        var scrollH = $('.slimScrollBar').last().height();
-        var imgH = $('.yellow-river').height() - 220;
-        var canScrollH = winH - scrollH; //页面可滚动距离
-        var oneForHow = Math.ceil(imgH / canScrollH); //每滚动一像素对应多长的河流
-        var slimScrollBarT = $('.slimScrollBar').last().position().top; //滚动的距离
 
-        $('.fp-scrollable').slimScroll({
-            allowPageScroll: true,
-            height: winH + 'px',
-            size: '10px',
-            alwaysVisible: true,
-            wheelStep: 1
-        }).bind('slimscroll', function (e, pos) {
-            if (pos == 'bottom') {
-                console.log("bottom");
-            }
-        });
-        //滚动的时候处理
-        $('.fp-scrollable').scroll(function () {
-            slimScrollBarT = $('.slimScrollBar').last().position().top;
-            $('.yellow-river').eq(0).css('clip', 'rect(0px 895px ' + (220 + slimScrollBarT * oneForHow) + 'px 0px)');
-            console.log(220 + slimScrollBarT * oneForHow);
-            if (220 + slimScrollBarT * oneForHow >= 220 && 220 + slimScrollBarT * oneForHow < 320) {
-                //2016
-                swiper2.slideTo(0, 500, false);
-            }
-            if (220 + slimScrollBarT * oneForHow >= 320 && 220 + slimScrollBarT * oneForHow < 390) {
-                //2015
-                swiper2.slideTo(1, 500, false);
-            }
-            if (220 + slimScrollBarT * oneForHow >= 390 && 220 + slimScrollBarT * oneForHow < 490) {
-                //2014
-                swiper2.slideTo(2, 500, false);
-            }
-            if (220 + slimScrollBarT * oneForHow >= 490 && 220 + slimScrollBarT * oneForHow < 530) {
-                //2013
-                swiper2.slideTo(3, 500, false);
-            }
-            if (220 + slimScrollBarT * oneForHow >= 530 && 220 + slimScrollBarT * oneForHow < 680) {
-                //2012
-                swiper2.slideTo(4, 500, false);
-            }
-            if (220 + slimScrollBarT * oneForHow >= 680 && 220 + slimScrollBarT * oneForHow < 740) {
-                //2011
-                swiper2.slideTo(5, 500, false);
-            }
-            if (220 + slimScrollBarT * oneForHow >= 740 && 220 + slimScrollBarT * oneForHow < 800) {
-                //2010
-                swiper2.slideTo(6, 500, false);
-            }
-            if (220 + slimScrollBarT * oneForHow >= 800 && 220 + slimScrollBarT * oneForHow < 920) {
-                //2009
-                swiper2.slideTo(7, 500, false);
-            }
-            if (220 + slimScrollBarT * oneForHow >= 920 && 220 + slimScrollBarT * oneForHow < 1212) {
-                //2008
-                swiper2.slideTo(8, 500, false);
-            }
-        });
         var eHistorySwipers = $("[data-history-swiper]");
         var eHistorySwipersLen = eHistorySwipers.length;
         if (eHistorySwipersLen > 0) {
@@ -478,6 +418,64 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
                 });
             }
         }
+
+        //页面滚动条
+        var winH = $('.fp-section').last().height();
+        var scrollH = $('.slimScrollBar').last().height();
+        var imgH = $('.yellow-river').height() - 220;
+        var canScrollH = winH - scrollH; //页面可滚动距离
+        var oneForHow = Math.ceil(imgH / canScrollH); //每滚动一像素对应多长的河流
+        var slimScrollBarT = 0; //滚动的距离
+        //slimScrollBarT = parseInt($('.slimScrollBar').last().css('top'));
+
+        $('.fp-scrollable').slimScroll({
+            allowPageScroll: true,
+            height: winH + 'px',
+            size: '10px',
+            alwaysVisible: true,
+            wheelStep: 1
+        });
+        //滚动的时候处理
+        $('.fp-scrollable').scroll(function () {
+            slimScrollBarT = $('.slimScrollBar').last().position().top;
+            $('.yellow-river').eq(0).css('clip', 'rect(0px 895px ' + (220 + slimScrollBarT * oneForHow) + 'px 0px)');
+            if (220 + slimScrollBarT * oneForHow >= 220 && 220 + slimScrollBarT * oneForHow < 320) {
+                //2016
+                swiper2.slideTo(0, 500, false);
+            }
+            if (220 + slimScrollBarT * oneForHow >= 320 && 220 + slimScrollBarT * oneForHow < 390) {
+                //2015
+                swiper2.slideTo(1, 500, false);
+            }
+            if (220 + slimScrollBarT * oneForHow >= 390 && 220 + slimScrollBarT * oneForHow < 490) {
+                //2014
+                swiper2.slideTo(2, 500, false);
+            }
+            if (220 + slimScrollBarT * oneForHow >= 490 && 220 + slimScrollBarT * oneForHow < 530) {
+                //2013
+                swiper2.slideTo(3, 500, false);
+            }
+            if (220 + slimScrollBarT * oneForHow >= 530 && 220 + slimScrollBarT * oneForHow < 680) {
+                //2012
+                swiper2.slideTo(4, 500, false);
+            }
+            if (220 + slimScrollBarT * oneForHow >= 680 && 220 + slimScrollBarT * oneForHow < 740) {
+                //2011
+                swiper2.slideTo(5, 500, false);
+            }
+            if (220 + slimScrollBarT * oneForHow >= 740 && 220 + slimScrollBarT * oneForHow < 800) {
+                //2010
+                swiper2.slideTo(6, 500, false);
+            }
+            if (220 + slimScrollBarT * oneForHow >= 800 && 220 + slimScrollBarT * oneForHow < 920) {
+                //2009
+                swiper2.slideTo(7, 500, false);
+            }
+            if (220 + slimScrollBarT * oneForHow >= 920 && 220 + slimScrollBarT * oneForHow < 1212) {
+                //2008
+                swiper2.slideTo(8, 500, false);
+            }
+        });
     });
 });
 appModule.filter('toTrusted', ['$sce', function ($sce) {
