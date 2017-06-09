@@ -26,7 +26,7 @@ appModule.controller("IndexCtrl",
             var swiper1Config = {
                 observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
                 observeParents:true,//修改swiper的父元素时，自动初始化swiper
-                grabCursor: true,
+                grabCursor: false,
                 nextButton: '.swiper-button-next',
                 prevButton: '.swiper-button-prev',
                 effect : 'coverflow',
@@ -56,6 +56,8 @@ appModule.controller("IndexCtrl",
                             eSlides.eq(k).css('opacity','0');
                         }
                     }
+                    /*console.log(swiper.isEnd);
+                    console.log(swiper.activeIndex);*/
                 },
                 onTransitionStart: function(swiper){
                     var swiperTxt = $('.months .active').data('index');
@@ -72,20 +74,10 @@ appModule.controller("IndexCtrl",
                         }
                     }
                 },
-                onTouchEnd: function(swiper){
-                    console.log('1'+swiper.activeIndex)
-                    //console.log(swiper.activeIndex)
-                    if(swiper.isEnd){
-                        console.log(swiper.isEnd)
-                    }
+                onTouchEnd: function(swiper, translate){
+                    /*console.log(swiper.isEnd);
+                    console.log(swiper.isBeginning);*/
                 },
-                /*onSlideChangeEnd: function(swiper){
-                    console.log(swiper.activeIndex)
-                },*/
-                onSlidePrevEnd: function(swiper){
-                    console.log('2'+swiper.activeIndex)
-                    this.onTouchEnd(swiper);
-                }
             };
             //2017活动预告中class为have-data的获取属性data-index的值与相应的要初始化的swiper的class相同，从而达到批量注册swiper
             var eHaveData = $('.have-data');
@@ -101,6 +93,81 @@ appModule.controller("IndexCtrl",
                 }
                 $('.'+eHaveData.eq(0).data('index')).show();
                 eHaveData.eq(0).addClass('active');
+                $('.my-button-left').on('click', function(e) {
+                    console.log(1111)
+                    var flag = 0;
+                    var eSwipers = '';
+                    var eSlides = '';
+                    var eSlidesContents = '';
+                    for(var k=0; k<eHaveDataLen; k++){
+                        $('.' + eHaveData.eq(k).data('index')).hide();            //滑到第一页的时候，隐藏所有
+                        if(eHaveData.eq(k).hasClass('active')){                 //在显示当前页的上一页，达到切换的目的
+                            flag = k-1;
+                        }
+                    }
+                    if(flag < 0) {
+                        flag = eHaveDataLen-1;
+                    }
+                    eHaveData.eq(flag).addClass('active').siblings().removeClass('active');
+                    $('.' + eHaveData.eq(flag).data('index')).fadeIn();
+                    //隐藏相关slide
+                    eSwipers =  $('.' + eHaveData.eq(flag).data('index'));
+                    eSlides =  eSwipers.find('.swiper-slide');
+                    eSlidesContents = eSwipers.find('.this-year-content');
+                    for(var j=0;j<eSlidesContents.length;j++){          //隐藏后面显示一部分的slide的内容
+                        if(swiper[flag].activeIndex > 0) {
+                            eSlidesContents.eq(j).hide();
+                        }
+                    }
+
+                    if(swiper[flag].activeIndex == 100){
+                        swiper[flag].activeIndex = eSlides.length - 1;
+                    }
+                    eSlidesContents.eq(swiper[flag].activeIndex).show();      //slide默认显示最后一个
+                    for(var k=0;k<eSlides.length;k++){      //隐藏后面不显示但是因为透明度导致看得到的slide
+                        //if(swiper[flag].activeIndex > 0){
+                        eSlides.eq(k).css('opacity','0');
+                        if(swiper[flag].activeIndex-k<4){
+                            eSlides.eq(k).css('opacity','1');
+                        }
+                        //}
+                    }
+
+                })
+
+                $('.my-button-right').on('click', function(e) {
+                    var flag = 0;
+                    for(var k=0; k<eHaveDataLen; k++){
+                        $('.' + eHaveData.eq(k).data('index')).hide();            //滑到第一页的时候，隐藏所有
+                        if(eHaveData.eq(k).hasClass('active')){                 //在显示当前页的上一页，达到切换的目的
+                            flag = k + 1;
+                        }
+                    }
+                    if(flag >= eHaveDataLen){
+                        flag = 0;
+                    }
+                    eHaveData.eq(flag).addClass('active').siblings().removeClass('active');
+                    $('.'+eHaveData.eq(flag).data('index')).fadeIn();
+                    //隐藏相关slide
+                    eSwipers =  $('.' + eHaveData.eq(flag).data('index'));
+                    eSlides =  eSwipers.find('.swiper-slide');
+                    eSlidesContents = eSwipers.find('.this-year-content');
+                    for(var j=0;j<eSlidesContents.length;j++){          //隐藏后面显示一部分的slide的内容
+                        if(swiper[flag].activeIndex > 0) {
+                            eSlidesContents.eq(j).hide();
+                        }
+                    }
+                    if(swiper[flag].activeIndex == 100){
+                        swiper[flag].activeIndex = eSlides.length - 1;
+                    }
+                    eSlidesContents.eq(swiper[flag].activeIndex).show();      //slide默认显示最后一个
+                    for(var k=0;k<eSlides.length;k++){      //隐藏后面不显示但是因为透明度导致看得到的slide
+                        eSlides.eq(k).css('opacity','0');
+                        if(swiper[flag].activeIndex-k<4){
+                            eSlides.eq(k).css('opacity','1');
+                        }
+                    }
+                })
             }
             //给每个页码绑定跳转的事件
             var eSwipers = '';
@@ -116,16 +183,27 @@ appModule.controller("IndexCtrl",
                 mIndex = $(this).data('index');
                 $(this).addClass('active').siblings().removeClass('active');
                 $('.'+mIndex).fadeIn();
+
+                var flag = 0;
+                for(var k=0; k<eHaveDataLen; k++){
+                    if(eHaveData.eq(k).hasClass('active')){                 //在显示当前页的上一页，达到切换的目的
+                        flag = k;
+                    }
+                }
+
                 eSwipers =  $('.' + mIndex);
                 eSlides =  eSwipers.find('.swiper-slide');
                 eSlidesContents = eSwipers.find('.this-year-content');
                 for(var j=0;j<eSlidesContents.length;j++){          //隐藏后面显示一部分的slide的内容
                     eSlidesContents.eq(j).hide();
                 }
-                eSlidesContents.last().show();      //slide默认显示最后一个
+                if(swiper[flag].activeIndex == 100){
+                    swiper[flag].activeIndex = eSlides.length - 1;
+                }
+                eSlidesContents.eq(swiper[flag].activeIndex).show();      //slide默认显示最后一个
                 for(var k=0;k<eSlides.length;k++){      //隐藏后面不显示但是因为透明度导致看得到的slide
                     eSlides.eq(k).css('opacity','0');
-                    if(eSlides.length-k<=4){
+                    if(swiper[flag].activeIndex-k<4){
                         eSlides.eq(k).css('opacity','1');
                     }
                 }

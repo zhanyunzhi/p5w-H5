@@ -58,7 +58,7 @@ function index() {
         var shareTitle = $('#wxTitle').html();          //微信分享的标题
         var shareDesc = $('#wxDesc').html();            //微信分享的描述
         var shareLink = location.href;                  //微信分享的链接地址
-        var shareImg = location.href.split('index.html')[0] + 'assets/fx.png';      //微信分享的图片地址
+        var shareImg = location.href.split('index.html')[0] + 'assets/fx.jpg';      //微信分享的图片地址
         var common = new Common();
         common.setWxShare(shareTitle, shareDesc, shareLink, shareImg);          //设置微信分享的内容
         common.setMusic();          //设置音乐播放和启动等

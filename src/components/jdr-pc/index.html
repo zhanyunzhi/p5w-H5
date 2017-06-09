@@ -9,6 +9,12 @@
 </head>
 <body ng-controller="IndexCtrl" ng-cloak>
     <img src="../../assets/jdr-pc/history1.jpg" hidden/>
+    <img src="../../assets/jdr-pc/gd1.jpg" hidden/>
+    <img src="../../assets/jdr-pc/sx1.jpg" hidden/>
+    <img src="../../assets/jdr-pc/hb1.jpg" hidden/>
+    <img src="../../assets/jdr-pc/sh1.jpg" hidden/>
+    <img src="../../assets/jdr-pc/gz1.jpg" hidden/>
+    <img src="../../assets/jdr-pc/tk1.jpg" hidden/>
     <div id="qj">
         <div class="section">
             <div class="this_year">
@@ -25,8 +31,9 @@
                 <div class="swiper-container swiper-container1 {{::thisYear.swiperContainer}}" ng-show="thisYear.contents.length>0"
                      ng-repeat="thisYear in datas.thisYears track by $index" on-finish-render-filters>
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" ng-repeat="content in thisYear.contents.slice().reverse()">
+                        <div class="swiper-slide" ng-repeat="content in thisYear.contents">
                             <div class="swiper-slide-content">
+                                <a ng-href="{{::content.jumpUrl}}">
                                 <div class="this-year-content">
                                     <img class="media-img" ng-src="{{::content.imgUrl}}"/>
                                     <div class="media-content">
@@ -35,24 +42,28 @@
                                         <span>{{::content.date}}<time>{{::content.time}}</time></span>
                                     </div>
                                 </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <!-- 如果需要导航按钮 -->
                     <div class="swiper-button-prev swiper-button-white"><span class="arrow-left"></span></div>
                     <div class="swiper-button-next swiper-button-white"><span class="arrow-right"></span></div>
+                    <div class="my-button-left"><span class="arrow-left"></span></div>
+                    <div class="my-button-right"><span class="arrow-right"></span></div>
                 </div>
                 <!--遍历2017年各个月的数据，生成12个swiper分别对应每个月   end-->
                 <div>
                     <img src="../../assets/jdr-pc/2017.png" class="img-2017"/>
                 </div>
                 <div class="months">            <!--2017活动预告底部的月份导航  start-->
+                    <div ng-class="{'month-line':true}"></div>
                     <ul>
                         <li data-index="{{::months.swiperContainer}}" ng-class="{'have-data':months.contents.length>0}"
                             ng-repeat="months in datas.thisYears track by $index" >{{::months.month}}<span
                                 ng-class="{true:'span-bg-yellow',false:'span-bg-white'}[months.contents.length>0]"></span></li>
+                        <!---->
                     </ul>
-                    <div class="month-line"></div>
                 </div>                      <!--2017活动预告底部的月份导航   end-->
             </div>
         </div>
