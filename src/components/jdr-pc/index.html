@@ -40,10 +40,9 @@
                     <div class="slide-back-three"></div>
                 </div>-->
                 <!--遍历2017年各个月的数据，生成12个swiper分别对应每个月   start-->
-                <div class="swiper-container swiper-container1 {{::thisYear.swiperContainer}}" ng-show="thisYear.contents.length>0"
-                     ng-repeat="thisYear in datas.thisYears track by $index" on-finish-render-filters>
+                <div class="swiper-container swiper-container1">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" ng-repeat="content in thisYear.contents">
+                        <div class="swiper-slide" ng-repeat="content in datas.thisYearAllContents" on-finish-render-filters>
                             <div class="swiper-slide-content">
                                 <a ng-href="{{::content.jumpUrl}}">
                                 <div class="this-year-content">
@@ -61,8 +60,6 @@
                     <!-- 如果需要导航按钮 -->
                     <div class="swiper-button-prev swiper-button-white"><span class="arrow-left"></span></div>
                     <div class="swiper-button-next swiper-button-white"><span class="arrow-right"></span></div>
-                    <div class="my-button-left"><span class="arrow-left"></span></div>
-                    <div class="my-button-right"><span class="arrow-right"></span></div>
                 </div>
                 <!--遍历2017年各个月的数据，生成12个swiper分别对应每个月   end-->
                 <div>
