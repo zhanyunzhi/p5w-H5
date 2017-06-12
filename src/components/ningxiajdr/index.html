@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>宁夏集体接待日 关注所有投资者的需求</title>
+    <script>
+        var docEle = document.documentElement;
+        var eDiv = document.createElement('div');
+        eDiv.innerHTML = '请竖屏查看';
+        eDiv.className = 'landscape';
+        eDiv.style.display = 'none';
+        docEle.appendChild(eDiv);
+        var timer = null;
+        fn = function() {
+            timer = setTimeout(function(){          //加延迟0.1s不然在android下获取到的宽高是旋转屏幕之前的宽高
+                var width = docEle.clientWidth;
+                var height = docEle.clientHeight;
+//                alert(width+'--'+height)
+                if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){         //移动端设备
+                    if(width > height){             //宽度大于高度，说明是横屏
+//                        eDiv.style.display = 'block';
+                    }else{                          //竖屏
+//                        eDiv.style.display = 'none';
+                    }
+                }
+                if( width < 320 ) {
+                    docEle.style.fontSize = 42.6667 + "px";//
+                }
+                else if( width > 1080 ) {
+                    docEle.style.fontSize = 144 + "px";
+                }
+                else {
+                    //以750设计稿宽度为基准设置fontSize:100px;这样保证iPhone6以下是高清
+                    docEle.style.fontSize = 100 * (width / 750) + "px";
+                }
+            },100);
+        };
+        var evt = "onorientationchange" in window ? "orientationchange" : "resize";//区分Mobile和PC以加载不同的事件
+        window.addEventListener(evt, fn, false);
+        fn();
+    </script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+<div id="loading" class="loading-black" style="background-color: #0b0928;" >
+    <img src="../../assets/common/logo-black.png" class="pre-logo" style="top: 4.8rem;"/>
+    <!-- <div class="cow">
+         <img src="../../assets/common/circle-black.png" class="pre-circle eye-rotate"/>
+         <img src="../../assets/common/head.png" class="pre-head"/>
+         <img src="../../assets/common/eye.png" class="pre-eye-left eye-rotate"/>
+         <img src="../../assets/common/eye.png" class="pre-eye-right eye-rotate"/>
+     </div>-->
+    <div id="progress" style="top: 5.6rem;"><i class="progress-white"></i></div>
+</div>
+<a class="mscBtn ddplay play" id="audioBtn" title="music" style="cursor:pointer;animation-duration:2s;"></a>
+<audio id="bgMusic" loop="loop" autoplay="autoplay">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="wxTitle" hidden>宁夏集体接待日 关注所有投资者的需求</div>
+<div id="wxDesc" hidden>对应的是，有高管说“公司股性活跃7登龙虎榜，因投资者关注度高了”。</div>
+<img src="../../assets/ningxiajdr/fx.jpg" hidden/>
+<div id="qj">
+    <div class="section">
+        <img src="../../assets/ningxiajdr/bg.png" qj-effect="" class="bg1"/>
+        <img src="../../assets/ningxiajdr/bg2.png" qj-effect="rotateLoopR animation-duration200 animation-delay8"
+             class="bg2"/>
+        <img src="../../assets/ningxiajdr/img1.png" qj-effect="slideInDown animation-duration10" class="img1 backface-v"/>
+        <img src="../../assets/ningxiajdr/img2.png" qj-effect="slideUpDown" class="img2"/>
+        <img src="../../assets/ningxiajdr/img3.png" qj-effect="slideUpDown" class="img3"/>
+        <img src="../../assets/ningxiajdr/img4.png" qj-effect="slideLeftRightInverse" class="img4" id="introduceOpen2"/>
+        <img src="../../assets/ningxiajdr/img5.png" qj-effect="slideLeftRightInverse" class="img5" id="introduceOpen1"/>
+        <img src="../../assets/ningxiajdr/img6.png" qj-effect="slideUpDown" class="img6"/>
+        <img src="../../assets/ningxiajdr/img7.png" qj-effect="slideUpDown" class="img7" id="topMgrOpen2"/>
+        <img src="../../assets/ningxiajdr/img8.png" qj-effect="slideUpDown" class="img8" id="topMgrOpen1"/>
+        <img src="../../assets/ningxiajdr/img9.png" qj-effect="slideLeftRightInverse" class="img9"/>
+        <img src="../../assets/ningxiajdr/img11.png" qj-effect="slideLeftRightInverse" class="img11" id="hotOpen1"/>
+        <img src="../../assets/ningxiajdr/img10.png" qj-effect="slideLeftRightInverse" class="img10" id="hotOpen3"/>
+        <img src="../../assets/ningxiajdr/img12.png" qj-effect="slideLeftRightInverse" class="img12" id="hotOpen2"/>
+        <!--<img src="../../assets/ningxiajdr/img13.png" qj-effect="slideLeftRightInverse" class="img13"/>-->
+        <img src="../../assets/ningxiajdr/img14.png" qj-effect="slideLeftRight" class="img14"/>
+        <img src="../../assets/ningxiajdr/img15.png" qj-effect="slideLeftRight" class="img15"/>
+        <img src="../../assets/ningxiajdr/img16.png" qj-effect="slideUpDownInverse" class="img16" id="listOpen2"/>
+        <img src="../../assets/ningxiajdr/img17.png" qj-effect="slideUpDownInverse" class="img17" id="listOpen1"/>
+        <img src="../../assets/ningxiajdr/img18.png" qj-effect="slideUpDownInverse" class="img18" id="openReport1"/>
+        <img src="../../assets/ningxiajdr/img19.png" qj-effect="slideUpDownInverse" class="img19" id="openReport2"/>
+        <img src="../../assets/ningxiajdr/img21.png" qj-effect="" class="img21"/>
+        <img src="../../assets/ningxiajdr/img20.png" qj-effect="slideLeftRightInverse" class="img20"/>
+        <!--<div class="windCarDiv" qj-effect="slideInDown animation-delay2">
+            <img src="../../assets/ningxiajdr/windCar.png" qj-effect="rotateLoopR" class="windCar windCar1"/>
+            <img src="../../assets/ningxiajdr/windCar.png" qj-effect="rotateLoopR" class="windCar windCar2"/>
+        </div>-->
+        <div class="intrPersonDiv" qj-effect="slideLeftRightInverse" id="introduceOpen3">
+            <h2 class="intrPerson" qj-effect="runIntrPerson"></h2>
+        </div>
+        <div class="listPersonDiv" qj-effect="slideUpDownInverse" id="listOpen3">
+            <h2 class="listPerson" qj-effect="runListPerson"></h2>
+        </div>
+        <div class="topMgrPersonDiv" qj-effect="slideUpDown" id="topMgrOpen3">
+            <h2 class="topMgrPerson" qj-effect="runTopMgrPerson"></h2>
+        </div>
+        <div class="mediaPersonDiv" qj-effect="slideUpDownInverse" id="openReport3">
+            <h2 class="mediaPerson" qj-effect="runMediaPerson"></h2>
+        </div>
+    </div>
+    <div class="shade" id="shade" hidden >
+        <div id="introduce">            <!--活动介绍-->
+            <img src="../../assets/ningxiajdr/intr1.png" qj-effect="smallToBigGo" class="intr1 stop-close"/>
+            <img src="../../assets/ningxiajdr/intr2.png" qj-effect="smallToBigGo" class="intr2 stop-close"/>
+            <img src="../../assets/ningxiajdr/intr3.png" qj-effect="slideInDownAndBack" class="intr3"/>
+        </div>
+        <div id="topMgr">            <!--高管风采-->
+            <div class="swiper-container swiper-container3">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../../assets/ningxiajdr/topMgr1.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/ningxiajdr/topMgr2.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/ningxiajdr/topMgr3.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/ningxiajdr/topMgr4.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/ningxiajdr/topMgr5.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/ningxiajdr/topMgr6.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/ningxiajdr/topMgr7.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/ningxiajdr/topMgr8.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/ningxiajdr/topMgr9.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/ningxiajdr/topMgr10.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                </div>
+            </div>
+            <img src="../../assets/ningxiajdr/topMgrC.png" qj-effect="slideInDown" class="topMgrC"/>
+            <img src="../../assets/ningxiajdr/arrow-r.png" qj-effect="flash stop-close animation-iteration-infinite animation-duration20" class="topMgr-arrow"/>
+        </div>
+        <div id="hot">            <!--互动热点-->
+            <img src="../../assets/ningxiajdr/hot1.png" qj-effect="slideInRight" class="hot1 stop-close"/>
+            <img src="../../assets/ningxiajdr/hot2.png" qj-effect="slideInRight animation-delay5" class="hot2 stop-close"/>
+            <div class="qa" qj-effect="slideInRight animation-delay10" >
+                <ol>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">苹果8今年将推出，对于公司来说是利好么？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">瀛通通讯</span>
+                            <span class="content">客户好，我们就好！</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司近期有无引入新的人才的计划？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">凯乐科技</span>
+                            <span class="content">我们的口号是有容乃大，海纳百川 </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司最近有无值得期待的利好消息吗？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">京汉股份</span>
+                            <span class="content">我和你一样拭目以待。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">请问你们看重的是机构投资者还是中小投资者？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">双环科技</span>
+                            <span class="content">我们关注所有投资者的需求。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司业务是否存在地域性风险？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">京汉股份</span>
+                            <span class="content">任务项目都存在地域性风险，我们也不例外。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">问公司今年业绩是否会大幅下滑？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">盈方微：</span>
+                            <span class="content">感谢您对公司的关注！今天虽是高考的最后一天，但离狗年还有5个月22天。 </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">对于目前股市的看法？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">京汉股份</span>
+                            <span class="content">我怕误导了你。建议你还是看看股市大咖的意见吧。股市有风险，投资须谨慎。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">股请问公司管理层，看到有人把旭创捧成光器件国内龙头，你们怎么看？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">光迅科技</span>
+                            <span class="content">我们都是龙的传人，不敢称头。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">请问公司是否存在关联交易？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">湖北广电</span>
+                            <span class="content">存在必要的关联交易，但都保证其公允性。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">最近一个月内,京汉股份共计登上龙虎榜7次,为什么京汉股份股性这么活跃？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">京汉股份</span>
+                            <span class="content">投资者关注度高了。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司冠以网络，其实就是网吧。请问公司是不是应该更名为盛天网吧或者盛天网咖。这样更贴切，更能体现公司主业。更少一点对投资者的误导</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">盛天网络</span>
+                            <span class="content">可是我们还有游戏，还有电竞，还有其他其他其他其他。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司在应聘人才发面着重看哪一方面？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">京汉股份</span>
+                            <span class="content">公司广纳天下英才，助力公司发展。我们不拘一格降人才。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">请问公司员工待遇和福利如何？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">沙隆达Ａ</span>
+                            <span class="content">投资者，您好！我公司员工有“五险两金”福利待遇，薪酬明显高于当地平均水平。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司的股价是否能反映公司真实的价值？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">武昌鱼：</span>
+                            <span class="content">可乐在超市卖2元一罐，在机场卖10元一罐，是不是真实的价值呢？！</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">董秘本是活动开朗之人，今日为何如此言简意赅？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">武昌鱼：</span>
+                            <span class="content">该长的“长”，该短的“短”，哈哈。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司对房价怎样看，觉 得现在是应该买股还是买房？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">中百集团</span>
+                            <span class="content">投资者应结合自身需求，如果是有住房刚需，当然应该买房满足自身基本需要。 </span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <img src="../../assets/ningxiajdr/hotC.png" qj-effect="slideInDown animation-delay15" class="hotC"/>
+            <img src="../../assets/ningxiajdr/arrow-r.png" qj-effect="flash stop-close animation-iteration-infinite animation-duration20" class="hot-arrow"/>
+        </div>
+        <div id="list">            <!--互动榜单-->
+            <div class="swiper-container swiper-container2" qj-effect="smallToBigGo">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../../assets/ningxiajdr/list1.png" class="list list1 stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/ningxiajdr/list2.png" class="list list2 stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/ningxiajdr/list3.png" class="list list3 stop-close"/></div>
+                </div>
+            </div>
+            <img src="../../assets/ningxiajdr/arrow-r.png" qj-effect="flash stop-close animation-iteration-infinite animation-duration20" class="list-arrow"/>
+            <img src="../../assets/ningxiajdr/listC.png" qj-effect="slideInDownAndBack" class="listC"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -404,8 +404,14 @@
 .animation-duration30{
     @include animation-duration(3.0s)
 }
+.animation-duration40{
+    @include animation-duration(4.0s)
+}
 .animation-duration50{
     @include animation-duration(5.0s)
+}
+.animation-duration60{
+    @include animation-duration(6.0s)
 }
 .animation-duration70{
     @include animation-duration(7.0s)

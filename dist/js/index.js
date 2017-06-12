@@ -215,7 +215,6 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
             $('.' + eHaveData.eq(0).data('index')).show();
             eHaveData.eq(0).addClass('active');
             $('.my-button-left').on('click', function (e) {
-                console.log(1111);
                 var flag = 0;
                 var eSwipers = '';
                 var eSlides = '';
@@ -367,12 +366,26 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
             continuousVertical: false,
             verticalCentered: true,
             scrollOverflow: true,
+            onLeave: function onLeave(index, nextIndex, direction) {
+                var winH = $('.fp-section').last().height();
+                if (index == 1) {
+                    var translate3d = 'translate3d(0px,-' + winH * 0.2 + 'px, 0px)';
+                    $('#bg').css(getTransforms(translate3d)); //city的父标签位移
+                }
+                if (index == 2) {
+                    var translate3d = 'translate3d(0px,0px, 0px)';
+                    $('#bg').css(getTransforms(translate3d)); //city的父标签位移
+                }
+            },
             afterLoad: function afterLoad(abchorLink, index) {
                 if (index == 1) {
                     $('.yellow-river').eq(0).removeClass().addClass('yellow-river');
                 }
                 if (index == 2) {
                     $('.yellow-river').eq(0).addClass('river2016');
+                    var winH = $('.fp-section').last().height();
+                    var translate3d = 'translate3d(0px,-' + winH * 0.2 + 'px, 0px)';
+                    $('#bg').css(getTransforms(translate3d)); //city的父标签位移
                 }
                 swiper2.slideTo(0, 10, false);
             },

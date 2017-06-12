@@ -34,17 +34,88 @@ body{
   font-size:14px;
   color:$white;
   //overflow: auto;
-  background: url(../../assets/jdr-pc/bg.png) no-repeat;
-  background-size:100% 100%;
+  /*background: url(../../assets/jdr-pc/bg.png) no-repeat;
+  background-size:100% 100%;*/
 }
-/*.bg{
+.bg{
   width:100%;
-  height:auto;
-  margin: 0;
-  padding-top:62px;
-  background: url(../../assets/jdr-pc/bg.png) no-repeat;
-  background-size:100% 100%;
-}*/
+  height:120%;
+  position: absolute;
+  top:0;
+  left:0;
+  @include transition(transform 0.7s)
+}
+.metero{
+  position: absolute;
+  top:0;
+  right:0;
+}
+.metero1{
+  width: 114px;
+  height: 67px;
+  top: -67px;
+  right: -114px;
+}
+.metero2{
+  width: 57px;
+  height: 33px;
+  top: -67px;
+  right: 114px;
+}
+.metero3{
+  width: 57px;
+  height: 33px;
+  top: -67px;
+  right: 300px;
+}
+.metero4{
+  width: 57px;
+  height: 33px;
+  top: 200px;
+  right: -57px;
+}
+.metero5{
+  width: 114px;
+  height: 67px;
+  top:400px;
+  right: -114px;
+}
+.metero6{
+  width: 60px;
+  height: 35px;
+  top:-67px;
+  right: 600px;
+}
+.metero7{
+  width: 46px;
+  height: 23px;
+  top:-67px;
+  right: 800px;
+}
+.metero8{
+  width: 90px;
+  height: 56px;
+  top:-67px;
+  right: 1100px;
+}
+// slideMetero
+@mixin animate-slideMetero () {
+  @include keyframes(slideMetero){
+    0% {
+      @include translate(0,0);
+    }
+    100% {
+      @include translate(-2000px,1400px);
+    }
+  }
+  .slideMetero {
+    @include animation-name(slideMetero);
+    @include animation-timing-function(ease-in);
+    @extend %animated;
+    @include animation-iteration-count(infinite);
+  }
+}
+@include animate-slideMetero();
 .this_year{
   position: relative;
   padding-top: 60px;
