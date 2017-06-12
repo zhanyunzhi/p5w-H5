@@ -43,9 +43,9 @@ appModule.controller("IndexCtrl",
                 effect : 'coverflow',
                 direction:'vertical',
                 slidesPerView: 2,
-                initialSlide :1000,
+                initialSlide :100,
                 centeredSlides: true,
-                loop:true,
+                //loop:true,
                 coverflow: {
                     rotate: 0,
                     stretch: 150,
@@ -67,6 +67,7 @@ appModule.controller("IndexCtrl",
                             eSlides.eq(k).css('opacity','0');
                         }
                     }
+                    console.log(swiper.realIndex)
                 },
                 onTransitionStart: function(swiper){
                     var eSwiper = $('.swiper-container1');
