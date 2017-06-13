@@ -53,3 +53,18 @@
     @extend %animated;
   }
 }
+// flashLikeStar
+@mixin animate-flashLikeStar () {
+  @include keyframes(flashLikeStar){
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.15;
+    }
+  }
+  .flashLikeStar {
+    @include animation-name(flashLikeStar);
+    @extend %animated;
+  }
+}

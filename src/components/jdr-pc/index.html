@@ -42,7 +42,10 @@
                 <!--遍历2017年各个月的数据，生成12个swiper分别对应每个月   start-->
                 <div class="swiper-container swiper-container1">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" ng-repeat="content in datas.thisYearAllContents" on-finish-render-filters>
+                        <div class="swiper-slide data-month{{content.month}}" data-sort="{{::content.sort}}"
+                             data-index="{{$index}}"
+                             ng-repeat="content in datas.thisYearAllContents track by $index"
+                             on-finish-render-filters>
                             <div class="swiper-slide-content">
                                 <a ng-href="{{::content.jumpUrl}}">
                                 <div class="this-year-content">
@@ -68,7 +71,7 @@
                 <div class="months">            <!--2017活动预告底部的月份导航  start-->
                     <div ng-class="{'month-line':true}"></div>
                     <ul>
-                        <li data-index="{{::months.swiperContainer}}" ng-class="{'have-data':months.contents.length>0}"
+                        <li data-index="{{::months.month}}" ng-class="{'have-data':months.contents.length>0}"
                             ng-repeat="months in datas.thisYears track by $index" >{{::months.month}}<span
                                 ng-class="{true:'span-bg-yellow',false:'span-bg-white'}[months.contents.length>0]"></span></li>
                         <!---->

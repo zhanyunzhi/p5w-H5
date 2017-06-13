@@ -124,6 +124,25 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
     //url是相对于我们的html文件的
     $http.get("./data.json").success(function (data) {
         //$scope.datas = data.data;
+        //组合所有的记录contents
+        $scope.thisYearAllContents = [];
+        var i = 0;
+        var j = 0;
+        //将所有月份的详细数据保存到$scope.thisYearAllContents中
+        angular.forEach(data.thisYears, function (thisYear, k) {
+            angular.forEach(thisYear.contents, function (content, index) {
+                $scope.thisYearAllContents[i] = content;
+                $scope.thisYearAllContents[i].sort = j; //给有数据的月份重新编号，第一个有数据的编号0，第二个是1
+                if (index == 0) {
+                    $scope.thisYearAllContents[i].month = thisYear.month; //每个月的记录的第一条加上月份
+                }
+                i++;
+            });
+            if (thisYear.contents.length > 0) {
+                j++; //给有数据的月份重新编号，第一个有数据的编号0，第二个是1
+            }
+        });
+        data.thisYearAllContents = $scope.thisYearAllContents;
         //重新将city字段组合
         $scope.citys = '';
         angular.forEach(data.historys, function (history, k) {
@@ -135,9 +154,18 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
             $scope.citys = '';
         });
         $scope.datas = data;
+        //console.log($scope.datas)
     });
     $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
         //数据加载完成后执行以下js，否则js执行无效
+        //给每个页码绑定跳转的事件
+        var eHaveData = $('.have-data');
+        var eHaveDataLen = eHaveData.length;
+        var eSwiper = '';
+        var eSlides = '';
+        var eSlidesContents = '';
+        var mIndex = '';
+        //var showSlide = '';
         //2017活动预告 start
         var swiper1Config = {
             observer: true, //修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
@@ -148,8 +176,11 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
             effect: 'coverflow',
             direction: 'vertical',
             slidesPerView: 2,
-            initialSlide: 100,
+            initialSlide: 1000,
             centeredSlides: true,
+            loop: true,
+            //loopAdditionalSlides : 0,
+            loopedSlides: 1000,
             coverflow: {
                 rotate: 0,
                 stretch: 150,
@@ -158,10 +189,9 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
                 slideShadows: false
             },
             onInit: function onInit(swiper) {
-                var eHaveData = $('.have-data');
-                var eSwiper = $('.' + eHaveData.eq(0).data('index'));
-                var eSlides = eSwiper.find('.swiper-slide');
-                var eSlidesContents = eSwiper.find('.this-year-content');
+                eSwiper = $('.swiper-container1');
+                eSlides = eSwiper.find('.swiper-slide');
+                eSlidesContents = eSwiper.find('.this-year-content');
                 for (var j = 0; j < eSlidesContents.length; j++) {
                     //隐藏后面显示一部分的slide的内容
                     eSlidesContents.eq(j).hide();
@@ -175,13 +205,12 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
                         eSlides.eq(k).css('opacity', '0');
                     }
                 }
-                /*console.log(swiper.isEnd);
-                console.log(swiper.activeIndex);*/
+                //console.log(swiper.realIndex)
             },
             onTransitionStart: function onTransitionStart(swiper) {
-                var swiperTxt = $('.months .active').data('index');
-                var eSlides = $('.' + swiperTxt).find('.swiper-slide');
-                var eContents = $('.' + swiperTxt).find('.this-year-content');
+                var eSwiper = $('.swiper-container1');
+                var eSlides = eSwiper.find('.swiper-slide');
+                var eContents = eSwiper.find('.this-year-content');
                 for (var i = 0; i < swiper.activeIndex - 1; i++) {
                     eContents.eq(i).hide();
                 }
@@ -194,145 +223,45 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
                         eSlides.eq(k).css('opacity', '0');
                     }
                 }
+                var sort = swiper.slides.eq(swiper.realIndex).data('sort');
+                eHaveData.eq(sort).addClass('active').siblings().removeClass('active');
+                //console.log(sort)
             },
             onTouchEnd: function onTouchEnd(swiper, translate) {
                 /*console.log(swiper.isEnd);
                 console.log(swiper.isBeginning);*/
             }
         };
+        var swiper = new Swiper('.swiper-container1', swiper1Config);
+        swiper.disableTouchControl();
         //2017活动预告中class为have-data的获取属性data-index的值与相应的要初始化的swiper的class相同，从而达到批量注册swiper
-        var eHaveData = $('.have-data');
-        var eHaveDataLen = eHaveData.length;
-        if (eHaveDataLen > 0) {
-            var swiper = [];
-            var swiperTex = '';
-            for (var i = 0; i < eHaveDataLen; i++) {
-                swiperTex = eHaveData.eq(i).data('index');
-                swiper[i] = swiperTex;
-                $('.' + swiperTex).hide();
-                swiper[i] = new Swiper('.' + swiperTex, swiper1Config);
-            }
-            $('.' + eHaveData.eq(0).data('index')).show();
-            eHaveData.eq(0).addClass('active');
-            $('.my-button-left').on('click', function (e) {
-                var flag = 0;
-                var eSwipers = '';
-                var eSlides = '';
-                var eSlidesContents = '';
-                for (var k = 0; k < eHaveDataLen; k++) {
-                    $('.' + eHaveData.eq(k).data('index')).hide(); //滑到第一页的时候，隐藏所有
-                    if (eHaveData.eq(k).hasClass('active')) {
-                        //在显示当前页的上一页，达到切换的目的
-                        flag = k - 1;
-                    }
-                }
-                if (flag < 0) {
-                    flag = eHaveDataLen - 1;
-                }
-                eHaveData.eq(flag).addClass('active').siblings().removeClass('active');
-                $('.' + eHaveData.eq(flag).data('index')).fadeIn();
-                //隐藏相关slide
-                eSwipers = $('.' + eHaveData.eq(flag).data('index'));
-                eSlides = eSwipers.find('.swiper-slide');
-                eSlidesContents = eSwipers.find('.this-year-content');
-                for (var j = 0; j < eSlidesContents.length; j++) {
-                    //隐藏后面显示一部分的slide的内容
-                    if (swiper[flag].activeIndex > 0) {
-                        eSlidesContents.eq(j).hide();
-                    }
-                }
-
-                if (swiper[flag].activeIndex == 100) {
-                    swiper[flag].activeIndex = eSlides.length - 1;
-                }
-                eSlidesContents.eq(swiper[flag].activeIndex).show(); //slide默认显示最后一个
-                for (var k = 0; k < eSlides.length; k++) {
-                    //隐藏后面不显示但是因为透明度导致看得到的slide
-                    //if(swiper[flag].activeIndex > 0){
-                    eSlides.eq(k).css('opacity', '0');
-                    if (swiper[flag].activeIndex - k < 4) {
-                        eSlides.eq(k).css('opacity', '1');
-                    }
-                    //}
-                }
-            });
-
-            $('.my-button-right').on('click', function (e) {
-                var flag = 0;
-                for (var k = 0; k < eHaveDataLen; k++) {
-                    $('.' + eHaveData.eq(k).data('index')).hide(); //滑到第一页的时候，隐藏所有
-                    if (eHaveData.eq(k).hasClass('active')) {
-                        //在显示当前页的上一页，达到切换的目的
-                        flag = k + 1;
-                    }
-                }
-                if (flag >= eHaveDataLen) {
-                    flag = 0;
-                }
-                eHaveData.eq(flag).addClass('active').siblings().removeClass('active');
-                $('.' + eHaveData.eq(flag).data('index')).fadeIn();
-                //隐藏相关slide
-                eSwipers = $('.' + eHaveData.eq(flag).data('index'));
-                eSlides = eSwipers.find('.swiper-slide');
-                eSlidesContents = eSwipers.find('.this-year-content');
-                for (var j = 0; j < eSlidesContents.length; j++) {
-                    //隐藏后面显示一部分的slide的内容
-                    if (swiper[flag].activeIndex > 0) {
-                        eSlidesContents.eq(j).hide();
-                    }
-                }
-                if (swiper[flag].activeIndex == 100) {
-                    swiper[flag].activeIndex = eSlides.length - 1;
-                }
-                eSlidesContents.eq(swiper[flag].activeIndex).show(); //slide默认显示最后一个
-                for (var k = 0; k < eSlides.length; k++) {
-                    //隐藏后面不显示但是因为透明度导致看得到的slide
-                    eSlides.eq(k).css('opacity', '0');
-                    if (swiper[flag].activeIndex - k < 4) {
-                        eSlides.eq(k).css('opacity', '1');
-                    }
-                }
-            });
-        }
-        //给每个页码绑定跳转的事件
-        var eSwipers = '';
-        var eSlides = '';
-        var eSlidesContents = '';
-        var mIndex = '';
-        var showSlide = '';
+        eHaveData.last().addClass('active');
         $('.months').on('click', '.have-data', function () {
-            if ($(this).hasClass('active')) return;
-            for (var i = 0; i < eHaveDataLen; i++) {
-                $('.' + eHaveData.eq(i).data('index')).hide();
-            }
-            mIndex = $(this).data('index');
             $(this).addClass('active').siblings().removeClass('active');
-            $('.' + mIndex).fadeIn();
+            var eSwiper = $('.swiper-container1');
+            var eSlides = eSwiper.find('.swiper-slide');
+            var eContents = eSwiper.find('.this-year-content');
+            var activeSlideIndex = eSlides.filter('.data-month' + $(this).data('index')).data("index");
+            //console.log($('.data-month'+$(this).data('index')).data("index"))
+            //console.log($(this).data('index'))
 
-            var flag = 0;
-            for (var k = 0; k < eHaveDataLen; k++) {
-                if (eHaveData.eq(k).hasClass('active')) {
-                    //在显示当前页的上一页，达到切换的目的
-                    flag = k;
-                }
+            if (activeSlideIndex == 0) {
+                activeSlideIndex += eSlides.length / 3;
+                /*console.log(eSlides.length)
+                console.log(swiper.activeIndex)
+                console.log(swiper.realIndex)*/
             }
-
-            eSwipers = $('.' + mIndex);
-            eSlides = eSwipers.find('.swiper-slide');
-            eSlidesContents = eSwipers.find('.this-year-content');
-            for (var j = 0; j < eSlidesContents.length; j++) {
-                //隐藏后面显示一部分的slide的内容
-                eSlidesContents.eq(j).hide();
+            swiper.slideTo(activeSlideIndex, 100, false);
+            for (var i = 0; i < activeSlideIndex - 1; i++) {
+                eContents.eq(i).hide();
             }
-            if (swiper[flag].activeIndex == 100) {
-                swiper[flag].activeIndex = eSlides.length - 1;
-            }
-            eSlidesContents.eq(swiper[flag].activeIndex).show(); //slide默认显示最后一个
+            eContents.eq(activeSlideIndex).show();
             for (var k = 0; k < eSlides.length; k++) {
                 //隐藏后面不显示但是因为透明度导致看得到的slide
-                eSlides.eq(k).css('opacity', '0');
-                if (swiper[flag].activeIndex - k < 4) {
-                    eSlides.eq(k).css('opacity', '1');
+                eSlides.eq(k).css('opacity', '1');
+                if (activeSlideIndex - k >= 4) {
+                    //当前活动页往前数，大于等于4的，隐藏
+                    eSlides.eq(k).css('opacity', '0');
                 }
             }
         });

@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <title>宁夏集体接待日 关注所有投资者的需求</title>
     <script>
+        /*//运动事件监听
+        if (window.DeviceMotionEvent) {
+            window.addEventListener('devicemotion',deviceMotionHandler,false);
+        }
+        //获取加速度信息
+        //通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
+        //而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
+        var SHAKE_THRESHOLD = 4000;
+        var last_update = 0;
+        var speed = 30;//速度
+        var x, y, z, last_x = 0, last_y = 0, last_z = 0;
+        function deviceMotionHandler(eventData) {
+            var acceleration =eventData.accelerationIncludingGravity;
+            var curTime = new Date().getTime();
+            if ((curTime-last_update)> 10) {
+                var diffTime = curTime -last_update;
+                last_update = curTime;
+                x = acceleration.x;
+                y = acceleration.y;
+                z = acceleration.z;
+                var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;
+                if (speed > SHAKE_THRESHOLD) {
+                    alert("你中奖啦！");  // Do something
+                }
+                if(Math.abs(x-last_x) > speed || Math.abs(y-last_y) > speed || Math.abs(z-last_z) > speed) {
+                    //简单的摇一摇触发代码
+                    alert('触发了重力感应');
+                }
+                last_x = x;
+                last_y = y;
+                last_z = z;
+            }
+        }*/
+
         var docEle = document.documentElement;
         var eDiv = document.createElement('div');
         eDiv.innerHTML = '请竖屏查看';
@@ -64,8 +98,12 @@
 <div id="qj">
     <div class="section">
         <img src="../../assets/ningxiajdr/bg.png" qj-effect="" class="bg1"/>
-        <img src="../../assets/ningxiajdr/bg2.png" qj-effect="rotateLoopR animation-duration200 animation-delay8"
-             class="bg2"/>
+        <img src="../../assets/ningxiajdr/star.png"
+             qj-effect="flashLikeStar animation-duration50 animation-delay5 animation-iteration-infinite" class="star star1"/>
+        <img src="../../assets/ningxiajdr/star.png"
+             qj-effect="flashLikeStar animation-duration40 animation-delay15 animation-iteration-infinite" class="star star2"/>
+        <img src="../../assets/ningxiajdr/star.png"
+             qj-effect="flashLikeStar animation-duration50 animation-delay25 animation-iteration-infinite" class="star star3"/>
         <img src="../../assets/ningxiajdr/img1.png" qj-effect="slideInDown animation-duration10" class="img1 backface-v"/>
         <img src="../../assets/ningxiajdr/img2.png" qj-effect="slideUpDown" class="img2"/>
         <img src="../../assets/ningxiajdr/img3.png" qj-effect="slideUpDown" class="img3"/>
@@ -79,18 +117,16 @@
         <img src="../../assets/ningxiajdr/img10.png" qj-effect="slideLeftRightInverse" class="img10" id="hotOpen3"/>
         <img src="../../assets/ningxiajdr/img12.png" qj-effect="slideLeftRightInverse" class="img12" id="hotOpen2"/>
         <!--<img src="../../assets/ningxiajdr/img13.png" qj-effect="slideLeftRightInverse" class="img13"/>-->
-        <img src="../../assets/ningxiajdr/img14.png" qj-effect="slideLeftRight" class="img14"/>
+        <!--<img src="../../assets/ningxiajdr/img14.png" qj-effect="slideLeftRight" class="img14"/>-->
         <img src="../../assets/ningxiajdr/img15.png" qj-effect="slideLeftRight" class="img15"/>
         <img src="../../assets/ningxiajdr/img16.png" qj-effect="slideUpDownInverse" class="img16" id="listOpen2"/>
         <img src="../../assets/ningxiajdr/img17.png" qj-effect="slideUpDownInverse" class="img17" id="listOpen1"/>
         <img src="../../assets/ningxiajdr/img18.png" qj-effect="slideUpDownInverse" class="img18" id="openReport1"/>
         <img src="../../assets/ningxiajdr/img19.png" qj-effect="slideUpDownInverse" class="img19" id="openReport2"/>
-        <img src="../../assets/ningxiajdr/img21.png" qj-effect="" class="img21"/>
-        <img src="../../assets/ningxiajdr/img20.png" qj-effect="slideLeftRightInverse" class="img20"/>
-        <!--<div class="windCarDiv" qj-effect="slideInDown animation-delay2">
+        <div class="windCarDiv" qj-effect="slideInDown animation-delay2">
             <img src="../../assets/ningxiajdr/windCar.png" qj-effect="rotateLoopR" class="windCar windCar1"/>
             <img src="../../assets/ningxiajdr/windCar.png" qj-effect="rotateLoopR" class="windCar windCar2"/>
-        </div>-->
+        </div>
         <div class="intrPersonDiv" qj-effect="slideLeftRightInverse" id="introduceOpen3">
             <h2 class="intrPerson" qj-effect="runIntrPerson"></h2>
         </div>
