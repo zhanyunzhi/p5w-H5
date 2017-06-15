@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>大连集体接待日 “股有上涨下跌 撸起袖子加油干！”</title>
+    <script>
+        /*//运动事件监听
+        if (window.DeviceMotionEvent) {
+            window.addEventListener('devicemotion',deviceMotionHandler,false);
+        }
+        //获取加速度信息
+        //通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
+        //而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
+        var SHAKE_THRESHOLD = 4000;
+        var last_update = 0;
+        var speed = 30;//速度
+        var x, y, z, last_x = 0, last_y = 0, last_z = 0;
+        function deviceMotionHandler(eventData) {
+            var acceleration =eventData.accelerationIncludingGravity;
+            var curTime = new Date().getTime();
+            if ((curTime-last_update)> 10) {
+                var diffTime = curTime -last_update;
+                last_update = curTime;
+                x = acceleration.x;
+                y = acceleration.y;
+                z = acceleration.z;
+                var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;
+                if (speed > SHAKE_THRESHOLD) {
+                    alert("你中奖啦！");  // Do something
+                }
+                if(Math.abs(x-last_x) > speed || Math.abs(y-last_y) > speed || Math.abs(z-last_z) > speed) {
+                    //简单的摇一摇触发代码
+                    alert('触发了重力感应');
+                }
+                last_x = x;
+                last_y = y;
+                last_z = z;
+            }
+        }*/
+
+        var docEle = document.documentElement;
+        var eDiv = document.createElement('div');
+        eDiv.innerHTML = '请竖屏查看';
+        eDiv.className = 'landscape';
+        eDiv.style.display = 'none';
+        docEle.appendChild(eDiv);
+        var timer = null;
+        fn = function() {
+            timer = setTimeout(function(){          //加延迟0.1s不然在android下获取到的宽高是旋转屏幕之前的宽高
+                var width = docEle.clientWidth;
+                var height = docEle.clientHeight;
+//                alert(width+'--'+height)
+                if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){         //移动端设备
+                    if(width > height){             //宽度大于高度，说明是横屏
+//                        eDiv.style.display = 'block';
+                    }else{                          //竖屏
+//                        eDiv.style.display = 'none';
+                    }
+                }
+                if( width < 320 ) {
+                    docEle.style.fontSize = 42.6667 + "px";//
+                }
+                else if( width > 1080 ) {
+                    docEle.style.fontSize = 144 + "px";
+                }
+                else {
+                    //以750设计稿宽度为基准设置fontSize:100px;这样保证iPhone6以下是高清
+                    docEle.style.fontSize = 100 * (width / 750) + "px";
+                }
+            },100);
+        };
+        var evt = "onorientationchange" in window ? "orientationchange" : "resize";//区分Mobile和PC以加载不同的事件
+        window.addEventListener(evt, fn, false);
+        fn();
+    </script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+<div id="loading" class="loading-black" style="background-color: #0b0928;" >
+    <img src="../../assets/common/logo-black.png" class="pre-logo" style="top: 4.8rem;"/>
+    <!-- <div class="cow">
+         <img src="../../assets/common/circle-black.png" class="pre-circle eye-rotate"/>
+         <img src="../../assets/common/head.png" class="pre-head"/>
+         <img src="../../assets/common/eye.png" class="pre-eye-left eye-rotate"/>
+         <img src="../../assets/common/eye.png" class="pre-eye-right eye-rotate"/>
+     </div>-->
+    <div id="progress" style="top: 5.6rem;"><i class="progress-white"></i></div>
+</div>
+<a class="mscBtn ddplay play" id="audioBtn" title="music" style="cursor:pointer;animation-duration:2s;"></a>
+<audio id="bgMusic" loop="loop" autoplay="autoplay">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="wxTitle" hidden>大连集体接待日 “股有上涨下跌 撸起袖子加油干！”</div>
+<div id="wxDesc" hidden>创业难，守业更难，高管的信心来源于投资者的信心。</div>
+<img src="../../assets/dalianjdr/fx.jpg" hidden/>
+<div id="qj">
+    <div class="section">
+        <img src="../../assets/dalianjdr/bg.png" qj-effect="" class="bg1"/>
+        <img src="../../assets/dalianjdr/star.png"
+             qj-effect="flashLikeStar animation-duration50 animation-delay5 animation-iteration-infinite" class="star star1"/>
+        <img src="../../assets/dalianjdr/star.png"
+             qj-effect="flashLikeStar animation-duration40 animation-delay15 animation-iteration-infinite" class="star star2"/>
+        <img src="../../assets/dalianjdr/star.png"
+             qj-effect="flashLikeStar animation-duration50 animation-delay25 animation-iteration-infinite" class="star star3"/>
+        <img src="../../assets/dalianjdr/img1.png" qj-effect="slideInDown animation-duration10" class="img1 backface-v"/>
+        <img src="../../assets/dalianjdr/img2.png" qj-effect="slideUpDown" class="img2"/>
+        <img src="../../assets/dalianjdr/img3.png" qj-effect="slideUpDown" class="img3"/>
+        <img src="../../assets/dalianjdr/img4.png" qj-effect="slideLeftRightInverse" class="img4" id="introduceOpen2"/>
+        <img src="../../assets/dalianjdr/img5.png" qj-effect="slideLeftRightInverse" class="img5" id="introduceOpen1"/>
+        <img src="../../assets/dalianjdr/img6.png" qj-effect="slideUpDown" class="img6"/>
+        <img src="../../assets/dalianjdr/img7.png" qj-effect="slideUpDown" class="img7" id="topMgrOpen2"/>
+        <img src="../../assets/dalianjdr/img8.png" qj-effect="slideUpDown" class="img8" id="topMgrOpen1"/>
+        <img src="../../assets/dalianjdr/img9.png" qj-effect="slideLeftRightInverse" class="img9"/>
+        <img src="../../assets/dalianjdr/img11.png" qj-effect="slideLeftRightInverse" class="img11" id="hotOpen1"/>
+        <img src="../../assets/dalianjdr/img10.png" qj-effect="slideLeftRightInverse" class="img10" id="hotOpen3"/>
+        <img src="../../assets/dalianjdr/img12.png" qj-effect="slideLeftRightInverse" class="img12" id="hotOpen2"/>
+        <!--<img src="../../assets/dalianjdr/img13.png" qj-effect="slideLeftRightInverse" class="img13"/>-->
+        <!--<img src="../../assets/dalianjdr/img14.png" qj-effect="slideLeftRight" class="img14"/>-->
+        <img src="../../assets/dalianjdr/img15.png" qj-effect="slideLeftRight" class="img15"/>
+        <img src="../../assets/dalianjdr/img16.png" qj-effect="slideUpDownInverse" class="img16" id="listOpen2"/>
+        <img src="../../assets/dalianjdr/img17.png" qj-effect="slideUpDownInverse" class="img17" id="listOpen1"/>
+        <img src="../../assets/dalianjdr/img18.png" qj-effect="slideUpDownInverse" class="img18" id="openReport1"/>
+        <img src="../../assets/dalianjdr/img19.png" qj-effect="slideUpDownInverse" class="img19" id="openReport2"/>
+        <img src="../../assets/dalianjdr/img20.png" qj-effect="" class="img20"/>
+        <img src="../../assets/dalianjdr/img21.png" qj-effect="anchor animation-duration80 animation-iteration-infinite" class="img21"/>
+        <div class="windCarDiv" qj-effect="slideInDown animation-delay2">
+            <img src="../../assets/dalianjdr/windCar.png" qj-effect="rotateLoopR" class="windCar windCar1"/>
+            <img src="../../assets/dalianjdr/windCar.png" qj-effect="rotateLoopR" class="windCar windCar2"/>
+        </div>
+        <div class="intrPersonDiv" qj-effect="slideLeftRightInverse" id="introduceOpen3">
+            <h2 class="intrPerson" qj-effect="runIntrPerson"></h2>
+        </div>
+        <div class="listPersonDiv" qj-effect="slideUpDownInverse" id="listOpen3">
+            <h2 class="listPerson" qj-effect="runListPerson"></h2>
+        </div>
+        <div class="topMgrPersonDiv" qj-effect="slideUpDown" id="topMgrOpen3">
+            <h2 class="topMgrPerson" qj-effect="runTopMgrPerson"></h2>
+        </div>
+        <div class="mediaPersonDiv" qj-effect="slideUpDownInverse" id="openReport3">
+            <h2 class="mediaPerson" qj-effect="runMediaPerson"></h2>
+        </div>
+    </div>
+    <div class="shade" id="shade" hidden >
+        <div id="introduce">            <!--活动介绍-->
+            <img src="../../assets/dalianjdr/intr1.png" qj-effect="smallToBigGo" class="intr1 stop-close"/>
+            <img src="../../assets/dalianjdr/intr2.png" qj-effect="smallToBigGo" class="intr2 stop-close"/>
+            <img src="../../assets/dalianjdr/intr3.png" qj-effect="slideInDownAndBack" class="intr3"/>
+        </div>
+        <div id="topMgr">            <!--高管风采-->
+            <div class="swiper-container swiper-container3">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../../assets/dalianjdr/topMgr1.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/dalianjdr/topMgr2.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/dalianjdr/topMgr3.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/dalianjdr/topMgr4.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/dalianjdr/topMgr5.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/dalianjdr/topMgr6.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/dalianjdr/topMgr7.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/dalianjdr/topMgr8.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/dalianjdr/topMgr9.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                </div>
+            </div>
+            <img src="../../assets/dalianjdr/topMgrC.png" qj-effect="slideInDown" class="topMgrC"/>
+            <img src="../../assets/dalianjdr/arrow-r.png" qj-effect="flash stop-close animation-iteration-infinite animation-duration20" class="topMgr-arrow"/>
+        </div>
+        <div id="hot">            <!--互动热点-->
+            <img src="../../assets/dalianjdr/hot1.png" qj-effect="slideInRight" class="hot1 stop-close"/>
+            <img src="../../assets/dalianjdr/hot2.png" qj-effect="slideInRight animation-delay5" class="hot2 stop-close"/>
+            <div class="qa" qj-effect="slideInRight animation-delay10" >
+                <ol>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司复牌之后，股价翻一倍，管理层是否有信心？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">新日恒力</span>
+                            <span class="content">管理层的信心来源于股民的信心。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">从上市以来，董事长最大的感受是什么啊？有什么心路变化和思考？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">东方钽业</span>
+                            <span class="content">创业难，守业更难。 </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">请问公司靠什么来赢得投资者的信心？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">东方钽业</span>
+                            <span class="content">可捋起袖子，加油干！ </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司靠什么来赢得投资者的信心？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">新华百货</span>
+                            <span class="content">公司主业明确，经营稳健，如果了解零售行业，应该会对公司发展有充分信心。 </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">市盈率接近2000如此之高，新日恒力高管对此做何感想？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">新日恒力</span>
+                            <span class="content">管理人员将一如既往做好本职工作，用业绩回报股东。二级市场的表现管理人员爱莫能助。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司经营状况是否出了大问题导致股价短短1个月内股价大跌50％？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">*ST宝实</span>
+                            <span class="content">目前公司经营相比同期取得了重大的改善，受累二级市场近期巨震，公司的投资价值并未得到有效凸显。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">请问，公司今年是否要退市？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">*ST宝实</span>
+                            <span class="content">谢谢关注！公司今年有信心扭亏。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司昨天还跌停，今天就涨停，难道跟参加全景网的活动有关？那请公司天天参加活动吧，哈哈哈。</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">*ST宝实</span>
+                            <span class="content">哈哈哈，要是组织活动上市公司股价就可以涨停的话，资本市场岂不成了娱乐圈？建议您多关注公司公告，做理性投资者，谢谢 ！ </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">去年煤矿挂牌6个亿，现在怎么是几十亿？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">英力特：</span>
+                            <span class="content">公司产品销售以出厂价格为基准，根据各区域的市场价格，动态调整各区域的销售数量。感谢您对英力特的关注。 </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司股价近期从25元跌至12元附近，是什么原因？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">美利云：</span>
+                            <span class="content">近期， 二级市场表现普遍较差，公司股份受大行情影响较大。公司无其他应披露但未披露的重大事项存在！</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司如何看待最近市场大跌？会采取措施稳股价么？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">银星能源</span>
+                            <span class="content">感谢您对公司股价的关注，目前公司股票停牌，相信您没有损失。 </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司股价并未出现期待中的摘星脱帽行情，反而是一再下跌，股民的心都寒透了。</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">东方钽业</span>
+                            <span class="content">人有悲欢离合， 月有阴晴圆缺，股有上涨下跌........ </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">如何看待公司的短期亏损？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">*ST中绒</span>
+                            <span class="content">短期亏损不可怕，可怕是公司不积极面对和改变。公司正在进行相关资产置出工作，置出重组完成后，公司盈利能力会得到有效 改善。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>
+                            <span class="content mb02">公司说是行业龙头企业，可是我看股价就是不涨啊！还怎么龙头呢？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">青龙管业</span>
+                            <span class="content">公司的生产经营规模和能力一直位居同行业前列，股价也时有涨跌。但公司的主要关注点是，全力以赴做好各项经营管理工作， 以保持公司的健康、稳定、持续发展！</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <img src="../../assets/dalianjdr/hotC.png" qj-effect="slideInDown animation-delay15" class="hotC"/>
+            <img src="../../assets/dalianjdr/arrow-r.png" qj-effect="flash stop-close animation-iteration-infinite animation-duration20" class="hot-arrow"/>
+        </div>
+        <div id="list">            <!--互动榜单-->
+            <div class="swiper-container swiper-container2" qj-effect="smallToBigGo">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../../assets/dalianjdr/list1.png" class="list list1 stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/dalianjdr/list2.png" class="list list2 stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/dalianjdr/list3.png" class="list list3 stop-close"/></div>
+                </div>
+            </div>
+            <img src="../../assets/dalianjdr/arrow-r.png" qj-effect="flash stop-close animation-iteration-infinite animation-duration20" class="list-arrow"/>
+            <img src="../../assets/dalianjdr/listC.png" qj-effect="slideInDownAndBack" class="listC"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -30,7 +30,7 @@ body{
   height: 100%;
   width: 100%;
   padding: 0;
-  font-family: "Î¢ÈíÑÅºÚ", "ËÎÌå";
+  //font-family: "Î¢ÈíÑÅºÚ", "ËÎÌå";
   font-size:14px;
   color:$white;
   //overflow: auto;
@@ -170,6 +170,7 @@ body{
         @include float(left);
         margin-top:12px;
         margin-left:32px;
+        @include border-radius(10px);
       }
       .media-content{
         margin-left:215px;
@@ -196,6 +197,9 @@ body{
           }
         }
       }
+    }
+    .bg-blue{
+      background-color: #202f70;
     }
     .swiper-button-white,.my-button-left,.my-button-right{
       background-color: $thisYellow;
@@ -328,7 +332,7 @@ body{
         color:$thisYellow;
         padding-top: 12px;
         @include border-radius(5px);
-        font-family: sans-serif;
+        //font-family: sans-serif,"Î¢ÈíÑÅºÚ", "ËÎÌå";
         margin: 0 8px;
         cursor: pointer;
         span{
@@ -350,6 +354,11 @@ body{
         color:$white;
         span{
           background-color: $white;
+        }
+        p{
+          color: $thisYellow;
+          font-size:16px;
+          margin-top: 30px;
         }
       }
     }
@@ -447,19 +456,19 @@ body{
     margin-left: -603px;
     margin-top:338px;
     .swiper-slide-content{
-      background-color: #1b2967;
+      background-color: rgba(27,41,103,0.8);
       width:1065px;
       height:364px;
       margin-left:70px;
       margin-top:50px;
-      @include opacity(80);
+      //@include opacity(80);
       @include clearfix();
       .swiper-container21{
         height:364px;
       }
       .swiper-pagination-city{
         //@include display-flex(flex);
-        bottom:30px;
+        bottom:12px;
         left:42.86%;
         li{
           //@include flex(1);
@@ -472,10 +481,12 @@ body{
           img{
             width:19px;
             height:25px;
+            cursor: pointer;
           }
           span{
             display: block;
             color:$thisYellow;
+            cursor: pointer;
           }
           /*&:after{
             content: '';
@@ -505,6 +516,12 @@ body{
         font-size:20px;
         height: 60px;
         z-index: 99;
+      }
+      .active-day{
+        display: block;
+        line-height: 1;
+        font-size:14px;
+        margin-top: -16px;
       }
       .city-line{
         width:966px;

@@ -8,13 +8,6 @@
     <title>接待日pc</title>
 </head>
 <body ng-controller="IndexCtrl" ng-cloak>
-    <img src="../../assets/jdr-pc/history1.jpg" hidden/>
-    <img src="../../assets/jdr-pc/gd1.jpg" hidden/>
-    <img src="../../assets/jdr-pc/sx1.jpg" hidden/>
-    <img src="../../assets/jdr-pc/hb1.jpg" hidden/>
-    <img src="../../assets/jdr-pc/sh1.jpg" hidden/>
-    <img src="../../assets/jdr-pc/gz1.jpg" hidden/>
-    <img src="../../assets/jdr-pc/tk1.jpg" hidden/>
     <img src="../../assets/jdr-pc/bg.png" class="bg" id="bg"/>
     <img src="../../assets/jdr-pc/bg_meteor.png" class="metero metero1 slideMetero animation-duration50" />
     <img src="../../assets/jdr-pc/bg_meteor.png" class="metero metero2 slideMetero animation-duration40 animation-delay10" />
@@ -45,17 +38,17 @@
                         <div class="swiper-slide data-month{{content.month}}" data-sort="{{::content.sort}}"
                              data-index="{{$index}}"
                              ng-repeat="content in datas.thisYearAllContents track by $index"
-                             on-finish-render-filters>
+                             on-finish-render-filters ng-click="go(1)">
                             <div class="swiper-slide-content">
-                                <a ng-href="{{::content.jumpUrl}}">
-                                <div class="this-year-content">
-                                    <img class="media-img" ng-src="{{::content.imgUrl}}"/>
-                                    <div class="media-content">
-                                        <h3>{{::content.title}}</h3>
-                                        <p>{{::content.content}}</p>
-                                        <span>{{::content.date}}<time>{{::content.time}}</time></span>
+                                <a ng-href="{{::content.jumpUrl}}" target="_blank">
+                                    <div class="this-year-content">
+                                        <img class="media-img" ng-src="{{::content.imgUrl}}"/>
+                                        <div class="media-content">
+                                            <h3>{{::content.title}}</h3>
+                                            <p>{{::content.content}}</p>
+                                            <span>{{::content.date}}<time>{{::content.time}}</time></span>
+                                        </div>
                                     </div>
-                                </div>
                                 </a>
                             </div>
                         </div>
@@ -72,8 +65,10 @@
                     <div ng-class="{'month-line':true}"></div>
                     <ul>
                         <li data-index="{{::months.month}}" ng-class="{'have-data':months.contents.length>0}"
-                            ng-repeat="months in datas.thisYears track by $index" >{{::months.month}}<span
-                                ng-class="{true:'span-bg-yellow',false:'span-bg-white'}[months.contents.length>0]"></span></li>
+                            ng-repeat="months in datas.thisYears track by $index">{{::months.month}}
+                            <span ng-class="{true:'span-bg-yellow',false:'span-bg-white'}[months.contents.length>0]"></span>
+                            <p hidden>共{{::months.contents.length}}场</p>
+                        </li>
                         <!---->
                     </ul>
                 </div>                      <!--2017活动预告底部的月份导航   end-->
@@ -102,17 +97,18 @@
                                             <div class="media-content">
                                                 <h3>{{::content.title}}</h3>
                                                 <p>{{::content.content}}</p>
-                                                <a ng-href="{{::content.jumpUrl}}">进入专题网站</a>
+                                                <a ng-href="{{::content.jumpUrl}}" target="_blank">进入专题网站</a>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- Add Pagination -->
                                     <div class="city-line"></div>
-                                    <span class="active">{{history.contents[0].city}}</span>
+                                    <span class="active"><span>{{history.contents[0].city}}</span><!--<span class="active-day">{{::history.contents[0].day}}</span>--></span>
                                     <div class="swiper-pagination swiper-pagination-city {{history.swiperPagination}}" data-city="{{history.citys}}">
                                         <li class="city" data-index="{{$index}}"
                                             ng-repeat="content in history.contents track by $index"><img src="../../assets/jdr-pc/coordinate.png"/>
                                             <span>{{::content.city}}</span>
+                                            <span>{{::content.day}}</span>
                                         </li>
                                     </div>
                                 </div>
@@ -128,6 +124,202 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div hidden class="all-hidden-img">
+        <img src="../../assets/jdr-pc/history1.jpg" hidden/>
+        <img src="../../assets/jdr-pc/gd1.jpg" hidden/>
+        <img src="../../assets/jdr-pc/sx1.jpg" hidden/>
+        <img src="../../assets/jdr-pc/hb1.jpg" hidden/>
+        <img src="../../assets/jdr-pc/sh1.jpg" hidden/>
+        <img src="../../assets/jdr-pc/gz1.jpg" hidden/>
+        <img src="../../assets/jdr-pc/tk1.jpg" hidden/>
+        <img src="../../assets/jdr-pc/hn1.jpg" hidden/>
+        <img src="../../assets/jdr-pc/hn2.jpg" hidden/>
+        <img src="../../assets/jdr-pc/hb2.jpg" hidden/>
+        <img src="../../assets/jdr-pc/nx1.jpg" hidden/>
+        <img src="../../assets/jdr-pc/dl1.jpg" hidden/>
+        <img src="../../assets/jdr-pc/1.jpg" hidden/>
+        <img src="../../assets/jdr-pc/2.jpg" hidden/>
+        <img src="../../assets/jdr-pc/3.jpg" hidden/>
+        <img src="../../assets/jdr-pc/4.jpg" hidden/>
+        <img src="../../assets/jdr-pc/5.jpg" hidden/>
+        <img src="../../assets/jdr-pc/6.jpg" hidden/>
+        <img src="../../assets/jdr-pc/7.jpg" hidden/>
+        <img src="../../assets/jdr-pc/8.jpg" hidden/>
+        <img src="../../assets/jdr-pc/9.jpg" hidden/>
+        <img src="../../assets/jdr-pc/10.jpg" hidden/>
+        <img src="../../assets/jdr-pc/11.jpg" hidden/>
+        <img src="../../assets/jdr-pc/12.jpg" hidden/>
+        <img src="../../assets/jdr-pc/13.jpg" hidden/>
+        <img src="../../assets/jdr-pc/14.jpg" hidden/>
+        <img src="../../assets/jdr-pc/15.jpg" hidden/>
+        <img src="../../assets/jdr-pc/16.jpg" hidden/>
+        <img src="../../assets/jdr-pc/index16.jpg" hidden/>
+        <img src="../../assets/jdr-pc/22.jpg" hidden/>
+        <img src="../../assets/jdr-pc/23.jpg" hidden/>
+        <img src="../../assets/jdr-pc/25.jpg" hidden/>
+        <img src="../../assets/jdr-pc/26.jpg" hidden/>
+        <img src="../../assets/jdr-pc/27.jpg" hidden/>
+        <img src="../../assets/jdr-pc/28.jpg" hidden/>
+        <img src="../../assets/jdr-pc/29.jpg" hidden/>
+        <img src="../../assets/jdr-pc/30.jpg" hidden/>
+        <img src="../../assets/jdr-pc/31.jpg" hidden/>
+        <img src="../../assets/jdr-pc/32.jpg" hidden/>
+        <img src="../../assets/jdr-pc/33.jpg" hidden/>
+        <img src="../../assets/jdr-pc/35.jpg" hidden/>
+        <img src="../../assets/jdr-pc/36.jpg" hidden/>
+        <img src="../../assets/jdr-pc/37.jpg" hidden/>
+        <img src="../../assets/jdr-pc/38.jpg" hidden/>
+        <img src="../../assets/jdr-pc/39.jpg" hidden/>
+        <img src="../../assets/jdr-pc/40.jpg" hidden/>
+        <img src="../../assets/jdr-pc/41.jpg" hidden/>
+        <img src="../../assets/jdr-pc/42.jpg" hidden/>
+        <img src="../../assets/jdr-pc/43.jpg" hidden/>
+        <img src="../../assets/jdr-pc/44.jpg" hidden/>
+        <img src="../../assets/jdr-pc/45.jpg" hidden/>
+        <img src="../../assets/jdr-pc/46.jpg" hidden/>
+        <img src="../../assets/jdr-pc/47.jpg" hidden/>
+        <img src="../../assets/jdr-pc/48.jpg" hidden/>
+        <img src="../../assets/jdr-pc/49.jpg" hidden/>
+        <img src="../../assets/jdr-pc/50.jpg" hidden/>
+        <img src="../../assets/jdr-pc/51.jpg" hidden/>
+        <img src="../../assets/jdr-pc/52.jpg" hidden/>
+        <img src="../../assets/jdr-pc/53.jpg" hidden/>
+        <img src="../../assets/jdr-pc/54.jpg" hidden/>
+        <img src="../../assets/jdr-pc/55.jpg" hidden/>
+        <img src="../../assets/jdr-pc/56.jpg" hidden/>
+        <img src="../../assets/jdr-pc/57.jpg" hidden/>
+        <img src="../../assets/jdr-pc/58.jpg" hidden/>
+        <img src="../../assets/jdr-pc/59.jpg" hidden/>
+        <img src="../../assets/jdr-pc/60.jpg" hidden/>
+        <img src="../../assets/jdr-pc/61.jpg" hidden/>
+        <img src="../../assets/jdr-pc/62.jpg" hidden/>
+        <img src="../../assets/jdr-pc/63.jpg" hidden/>
+        <img src="../../assets/jdr-pc/64.jpg" hidden/>
+        <img src="../../assets/jdr-pc/65.jpg" hidden/>
+        <img src="../../assets/jdr-pc/66.jpg" hidden/>
+        <img src="../../assets/jdr-pc/67.jpg" hidden/>
+        <img src="../../assets/jdr-pc/68.jpg" hidden/>
+        <img src="../../assets/jdr-pc/69.jpg" hidden/>
+        <img src="../../assets/jdr-pc/70.jpg" hidden/>
+        <img src="../../assets/jdr-pc/71.jpg" hidden/>
+        <img src="../../assets/jdr-pc/72.jpg" hidden/>
+        <img src="../../assets/jdr-pc/73.jpg" hidden/>
+        <img src="../../assets/jdr-pc/74.jpg" hidden/>
+        <img src="../../assets/jdr-pc/75.jpg" hidden/>
+        <img src="../../assets/jdr-pc/76.jpg" hidden/>
+        <img src="../../assets/jdr-pc/77.jpg" hidden/>
+        <img src="../../assets/jdr-pc/78.jpg" hidden/>
+        <img src="../../assets/jdr-pc/79.jpg" hidden/>
+        <img src="../../assets/jdr-pc/80.jpg" hidden/>
+        <img src="../../assets/jdr-pc/81.jpg" hidden/>
+        <img src="../../assets/jdr-pc/82.jpg" hidden/>
+        <img src="../../assets/jdr-pc/83.jpg" hidden/>
+        <img src="../../assets/jdr-pc/84.jpg" hidden/>
+        <img src="../../assets/jdr-pc/85.jpg" hidden/>
+        <img src="../../assets/jdr-pc/86.jpg" hidden/>
+        <img src="../../assets/jdr-pc/87.jpg" hidden/>
+        <img src="../../assets/jdr-pc/88.jpg" hidden/>
+        <img src="../../assets/jdr-pc/89.jpg" hidden/>
+        <img src="../../assets/jdr-pc/90.jpg" hidden/>
+        <img src="../../assets/jdr-pc/91.jpg" hidden/>
+        <img src="../../assets/jdr-pc/92.jpg" hidden/>
+        <img src="../../assets/jdr-pc/93.jpg" hidden/>
+        <img src="../../assets/jdr-pc/94.jpg" hidden/>
+        <img src="../../assets/jdr-pc/95.jpg" hidden/>
+        <img src="../../assets/jdr-pc/96.jpg" hidden/>
+        <img src="../../assets/jdr-pc/97.jpg" hidden/>
+        <img src="../../assets/jdr-pc/98.jpg" hidden/>
+        <img src="../../assets/jdr-pc/99.jpg" hidden/>
+        <img src="../../assets/jdr-pc/100.jpg" hidden/>
+        <img src="../../assets/jdr-pc/101.jpg" hidden/>
+        <img src="../../assets/jdr-pc/102.jpg" hidden/>
+        <img src="../../assets/jdr-pc/103.jpg" hidden/>
+        <img src="../../assets/jdr-pc/104.jpg" hidden/>
+        <img src="../../assets/jdr-pc/105.jpg" hidden/>
+        <img src="../../assets/jdr-pc/106.jpg" hidden/>
+        <img src="../../assets/jdr-pc/107.jpg" hidden/>
+        <img src="../../assets/jdr-pc/108.jpg" hidden/>
+        <img src="../../assets/jdr-pc/109.jpg" hidden/>
+        <img src="../../assets/jdr-pc/110.jpg" hidden/>
+        <img src="../../assets/jdr-pc/111.jpg" hidden/>
+        <img src="../../assets/jdr-pc/112.jpg" hidden/>
+        <img src="../../assets/jdr-pc/113.jpg" hidden/>
+        <img src="../../assets/jdr-pc/114.jpg" hidden/>
+        <img src="../../assets/jdr-pc/115.jpg" hidden/>
+        <img src="../../assets/jdr-pc/116.jpg" hidden/>
+        <img src="../../assets/jdr-pc/117.jpg" hidden/>
+        <img src="../../assets/jdr-pc/118.jpg" hidden/>
+        <img src="../../assets/jdr-pc/119.jpg" hidden/>
+        <img src="../../assets/jdr-pc/120.jpg" hidden/>
+        <img src="../../assets/jdr-pc/121.jpg" hidden/>
+        <img src="../../assets/jdr-pc/122.jpg" hidden/>
+        <img src="../../assets/jdr-pc/123.jpg" hidden/>
+        <img src="../../assets/jdr-pc/124.jpg" hidden/>
+        <img src="../../assets/jdr-pc/125.jpg" hidden/>
+        <img src="../../assets/jdr-pc/126.jpg" hidden/>
+        <img src="../../assets/jdr-pc/127.jpg" hidden/>
+        <img src="../../assets/jdr-pc/128.jpg" hidden/>
+        <img src="../../assets/jdr-pc/129.jpg" hidden/>
+        <img src="../../assets/jdr-pc/130.jpg" hidden/>
+        <img src="../../assets/jdr-pc/131.jpg" hidden/>
+        <img src="../../assets/jdr-pc/132.jpg" hidden/>
+        <img src="../../assets/jdr-pc/133.jpg" hidden/>
+        <img src="../../assets/jdr-pc/135.jpg" hidden/>
+        <img src="../../assets/jdr-pc/136.jpg" hidden/>
+        <img src="../../assets/jdr-pc/137.jpg" hidden/>
+        <img src="../../assets/jdr-pc/138.jpg" hidden/>
+        <img src="../../assets/jdr-pc/139.jpg" hidden/>
+        <img src="../../assets/jdr-pc/140.jpg" hidden/>
+        <img src="../../assets/jdr-pc/141.jpg" hidden/>
+        <img src="../../assets/jdr-pc/142.jpg" hidden/>
+        <img src="../../assets/jdr-pc/143.jpg" hidden/>
+        <img src="../../assets/jdr-pc/144.jpg" hidden/>
+        <img src="../../assets/jdr-pc/145.jpg" hidden/>
+        <img src="../../assets/jdr-pc/146.jpg" hidden/>
+        <img src="../../assets/jdr-pc/147.jpg" hidden/>
+        <img src="../../assets/jdr-pc/148.jpg" hidden/>
+        <img src="../../assets/jdr-pc/149.jpg" hidden/>
+        <img src="../../assets/jdr-pc/150.jpg" hidden/>
+        <img src="../../assets/jdr-pc/151.jpg" hidden/>
+        <img src="../../assets/jdr-pc/152.jpg" hidden/>
+        <img src="../../assets/jdr-pc/153.jpg" hidden/>
+        <img src="../../assets/jdr-pc/154.jpg" hidden/>
+        <img src="../../assets/jdr-pc/155.jpg" hidden/>
+        <img src="../../assets/jdr-pc/156.jpg" hidden/>
+        <img src="../../assets/jdr-pc/157.jpg" hidden/>
+        <img src="../../assets/jdr-pc/158.jpg" hidden/>
+        <img src="../../assets/jdr-pc/159.jpg" hidden/>
+        <img src="../../assets/jdr-pc/160.jpg" hidden/>
+        <img src="../../assets/jdr-pc/161.jpg" hidden/>
+        <img src="../../assets/jdr-pc/200.jpg" hidden/>
+        <img src="../../assets/jdr-pc/201.jpg" hidden/>
+        <img src="../../assets/jdr-pc/202.jpg" hidden/>
+        <img src="../../assets/jdr-pc/247.jpg" hidden/>
+        <img src="../../assets/jdr-pc/248.jpg" hidden/>
+        <img src="../../assets/jdr-pc/249.jpg" hidden/>
+        <img src="../../assets/jdr-pc/250.jpg" hidden/>
+        <img src="../../assets/jdr-pc/251.jpg" hidden/>
+        <img src="../../assets/jdr-pc/252.jpg" hidden/>
+        <img src="../../assets/jdr-pc/253.jpg" hidden/>
+        <img src="../../assets/jdr-pc/254.jpg" hidden/>
+        <img src="../../assets/jdr-pc/255.jpg" hidden/>
+        <img src="../../assets/jdr-pc/256.jpg" hidden/>
+        <img src="../../assets/jdr-pc/257.jpg" hidden/>
+        <img src="../../assets/jdr-pc/258.jpg" hidden/>
+        <img src="../../assets/jdr-pc/259.jpg" hidden/>
+        <img src="../../assets/jdr-pc/260.jpg" hidden/>
+        <img src="../../assets/jdr-pc/261.jpg" hidden/>
+        <img src="../../assets/jdr-pc/262.jpg" hidden/>
+        <img src="../../assets/jdr-pc/263.jpg" hidden/>
+        <img src="../../assets/jdr-pc/264.jpg" hidden/>
+        <img src="../../assets/jdr-pc/265.jpg" hidden/>
+        <img src="../../assets/jdr-pc/266.jpg" hidden/>
+        <img src="../../assets/jdr-pc/267.jpg" hidden/>
+        <img src="../../assets/jdr-pc/268.jpg" hidden/>
+        <img src="../../assets/jdr-pc/269.jpg" hidden/>
+        <img src="../../assets/jdr-pc/270.jpg" hidden/>
+        <img src="../../assets/jdr-pc/271.jpg" hidden/>
     </div>
 </body>
 </html>

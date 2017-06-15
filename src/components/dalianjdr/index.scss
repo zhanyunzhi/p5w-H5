@@ -1,0 +1,853 @@
+@import "../../lib/sass/core/_setting";
+@import "../../lib/sass/core/_css3";
+@import "../../lib/sass/core/_mixin";
+@import "../../lib/sass/animate/_fade";
+@import "../../lib/sass/animate/_bounce";
+@import "../../lib/sass/animate/_slide";
+@import "../../lib/sass/animate/_rotate";
+@import "../../lib/sass/animate/_flip";
+@import "../../lib/sass/animate/_special";
+@import "../../lib/sass/animate/_attention-seekers";
+@import "../../lib/sass/animate/_zoom";
+@import "../../lib/sass/animate/_lightspeed";
+@import "../../lib/sass/animate/_tiny";
+@import "../../lib/sass/animate/_tiny-flash";
+@import "../../lib/css/jquery.fullPage.css";
+@import "../../lib/css/swiper.min.css";
+@import "../../lib/css/common";
+
+%img-all{
+  position: absolute;
+  @include opacity(0);
+  @include opacity(100);
+}
+.filter-blur{     //图片模糊效果
+  @include filter-blur(4px)
+}
+.bg1{
+  @extend %img-all;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  @include opacity(100);
+  @include filter-blur(0);
+  @include transition(filter 0.5s)
+}
+.star{
+  @extend %img-all;
+  width: 2.57rem;;
+  height:1.58rem;
+  z-index:99;
+}
+.star1{
+  top:0;
+  right:0;
+}
+.star2{
+  top: 1.3rem;
+  right: 3.1rem;
+}
+.star3{
+  top: 5.1rem;
+  right: 2.1rem;
+}
+.img1{
+  @extend %img-all;
+  width:5.02rem;
+  height:1.45rem;
+  top:0.12rem;
+  left:50%;
+  margin-left:-2.51rem;
+  z-index:99;
+  @include opacity(0);
+}
+.img2{
+  @extend %img-all;
+  width:3.17rem;
+  height:2.07rem;
+  top:1.86rem;
+  left:3.22rem;
+  z-index:99;
+}
+.img3{
+  @extend %img-all;
+  width:0.83rem;
+  height:5.23rem;
+  top:0.9rem;
+  left:0.18rem;
+  z-index:99;
+}
+.img4{
+  @extend %img-all;
+  width:1.66rem;
+  height:0.79rem;
+  top:2.24rem;
+  left:1.12rem;
+  z-index:99;
+}
+.img5{
+  @extend %img-all;
+  width:3.11rem;
+  height:1.8rem;
+  top:3.12rem;
+  left:1.16rem;
+  z-index:99;
+}
+.img6{
+  @extend %img-all;
+  width:1.75rem;
+  height:0.88rem;
+  top:4.62rem;
+  left:3.6rem;
+  z-index:99;
+}
+.img7{
+  @extend %img-all;
+  width:1.67rem;
+  height:0.8rem;
+  top:3.44rem;
+  left:5.74rem;
+  z-index:99;
+}
+.img8{
+  @extend %img-all;
+  width:2.87rem;
+  height:2.09rem;
+  top:4.36rem;
+  left:4.6rem;
+  z-index:99;
+}
+.img9{
+  @extend %img-all;
+  width:1.97rem;
+  height:1.02rem;
+  top:6.52rem;
+  left:5.46rem;
+  z-index:99;
+}
+.img10{
+  @extend %img-all;
+  width:1.53rem;
+  height:0.97rem;
+  top:5.2rem;
+  left:2.36rem;
+  z-index:99;
+}
+.img11{
+  @extend %img-all;
+  width:1.98rem;
+  height:1.89rem;
+  top:5.68rem;
+  left:2.12rem;
+  z-index:99;
+}
+.img12{
+  @extend %img-all;
+  width:4.49rem;
+  height:2.37rem;
+  top:6.46rem;
+  left:2.2rem;
+  z-index:99;
+}
+.img13{
+  @extend %img-all;
+  width:0.42rem;
+  height:0.48rem;
+  top:7.16rem;
+  left:3.92rem;
+  z-index:99;
+}
+.img14{
+  @extend %img-all;
+  width:0.91rem;
+  height:1.1rem;
+  top:7.54rem;
+  left:6.28rem;
+  z-index:99;
+}
+.img15{
+  @extend %img-all;
+  width:1.59rem;
+  height:1.70rem;
+  top:8.7rem;
+  left:2.56rem;
+  z-index:99;
+}
+.img16{
+  @extend %img-all;
+  width:1.72rem;
+  height:0.77rem;
+  top:7.16rem;
+  left:0.18rem;
+  z-index:99;
+}
+.img17{
+  @extend %img-all;
+  width:2.92rem;
+  height:2.21rem;
+  top:8.04rem;
+  left:0.22rem;
+  z-index:99;
+}
+.img18{
+  @extend %img-all;
+  width:3.13rem;
+  height:1.88rem;
+  top:9.5rem;
+  left:3.2rem;
+  z-index:99;
+}
+.img19{
+  @extend %img-all;
+  width:0.88rem;
+  height:1.83rem;
+  top:9.92rem;
+  left:6.28rem;
+  z-index:99;
+}
+.img20{
+  @extend %img-all;
+  width:1.54rem;
+  height:0.56rem;
+  top:0.9rem;
+  right:-0.36;
+  z-index:99;
+}
+.img21{
+  @extend %img-all;
+  width:0.48rem;
+  height:1.83rem;
+  top:1.46rem;
+  right:0.45rem;
+  z-index:99;
+}
+.windCarDiv{
+  @extend %img-all;
+  width:100%;
+  height:0.65rem;
+  top:1.26rem;
+  z-index:99;
+  @include opacity(0);
+}
+.windCar{
+  @extend %img-all;
+  width:0.65rem;
+  height:0.65rem;
+}
+.windCar1{
+  left:1.4rem;
+}
+.windCar2{
+  left:5.6rem;
+}
+// runIntrPerson   活动介绍的人动起来
+@mixin animate-runIntrPerson () {
+  @include keyframes(runIntrPerson){
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -(1.02rem * 25) 0; // 25帧
+    }
+  }
+  .runIntrPerson {
+    @include animation-name(runIntrPerson);
+    @extend %animated;
+    @include animation-iteration-count(infinite);
+    @include animation-duration(1s);
+    @include animation-timing-function(steps(25))
+  }
+}
+@include animate-runIntrPerson();
+.intrPerson{
+  width:1rem;
+  height:1.1rem;
+  background: url("../../assets/hainanjdr/intrPerson.png") 0 0 no-repeat;
+  background-size: 25.48rem 1.1rem;
+  background-position: 0 0;
+  margin:0;
+}
+.intrPersonDiv{
+  @extend %img-all;
+  width:1rem;
+  height:1.1rem;
+  top:3.5rem;
+  left:2.36rem;
+  z-index:99;
+}
+// runListPerson   互动榜单的人动起来
+@mixin animate-runListPerson () {
+  @include keyframes(runListPerson){
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -(1.32rem * 25) 0; // 5帧
+    }
+  }
+  .runListPerson {
+    @include animation-name(runListPerson);
+    @extend %animated;
+    @include animation-iteration-count(infinite);
+    @include animation-duration(1s);
+    @include animation-timing-function(steps(25))
+  }
+}
+@include animate-runListPerson();
+.listPerson{
+  width:1.3rem;
+  height:1.1rem;
+  background: url("../../assets/hainanjdr/listPerson.png") 0 0 no-repeat;
+  background-size: 32.98rem 1.1rem;
+  background-position: 0 0;
+  margin:0;
+}
+.listPersonDiv{
+  @extend %img-all;
+  width:1.3rem;
+  height:1.1rem;
+  top:8.86rem;
+  left:1.24rem;
+  z-index:99;
+}
+// runTopMgrPerson   高管风采的人动起来
+@mixin animate-runTopMgrPerson () {
+  @include keyframes(runTopMgrPerson){
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -(1.02rem * 25) 0; // 25帧
+    }
+  }
+  .runTopMgrPerson {
+    @include animation-name(runTopMgrPerson);
+    @extend %animated;
+    @include animation-iteration-count(infinite);
+    @include animation-duration(1.5s);
+    @include animation-timing-function(steps(25))
+  }
+}
+@include animate-runTopMgrPerson();
+.topMgrPerson{
+  width:1.0rem;
+  height:1.1rem;
+  background: url("../../assets/hainanjdr/topMgrPerson.png") 0 0 no-repeat;
+  background-size: 25.48rem 1.1rem;
+  background-position: 0 0;
+  margin:0;
+}
+.topMgrPersonDiv{
+  @extend %img-all;
+  width:1.0rem;
+  height:1.1rem;
+  top:4.76rem;
+  left:5.46rem;
+  z-index:99;
+}
+// runMediaPerson   媒体报道的人动起来
+@mixin animate-runMediaPerson () {
+  @include keyframes(runMediaPerson){
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -(1.32rem * 25) 0; // 5帧
+    }
+  }
+  .runMediaPerson {
+    @include animation-name(runMediaPerson);
+    @extend %animated;
+    @include animation-iteration-count(infinite);
+    @include animation-duration(1.5s);
+    @include animation-timing-function(steps(25))
+  }
+}
+@include animate-runMediaPerson();
+.mediaPerson{
+  width:1.3rem;
+  height:1.1rem;
+  background: url("../../assets/hainanjdr/mediaPerson.png") 0 0 no-repeat;
+  background-size: 32.98rem 1.1rem;
+  background-position: 0 0;
+  margin:0;
+}
+.mediaPersonDiv{
+  @extend %img-all;
+  width:1.3rem;
+  height:1.1rem;
+  top:9.92rem;
+  left:3.9rem;
+  z-index:99;
+}
+.fp-tableCell .backface-v{
+  @include backface-visibility(visible)
+}
+#introduce{
+  .intr1{
+    @extend %img-all;
+    width:5.88rem;
+    height:2.33rem;
+    top:1.36rem;
+    left:50%;
+    margin-left:-2.94rem;
+    z-index:99;
+  }
+  .intr2{
+    @extend %img-all;
+    width:4.55rem;
+    height:4.04rem;
+    top:4.14rem;
+    left:50%;
+    margin-left:-2.27rem;
+    z-index:99;
+  }
+  .intr3{
+    @extend %img-all;
+    width:0.53rem;
+    height:0.53rem;
+    top:8.68rem;
+    left:50%;
+    margin-left:-0.26rem;
+    z-index:99;
+  }
+}
+#topMgr{
+  .swiper-container3 {
+    width:100%;
+    //height:4.48rem;
+    height:100%;
+    margin: 1.2rem auto 0;
+  }
+  .swiper-slide {
+    text-align: center;
+  }
+  .topMgr{
+    width:6.50rem;
+    height:9.72rem;
+  }
+  .topMgr1{
+    width:3.44rem;
+    height:4.48rem;
+    @include float(left);
+  }
+  .topMgr2{
+    width:3.44rem;
+    height:4.48rem;
+    @include float(left);
+  }
+  .topMgr3{
+    width:4.7rem;
+    height:3.35rem;
+    @include float(left);
+  }
+  .topMgr4{
+    width:2.18rem;
+    height:3.35rem;
+    @include float(left);
+  }
+  .topMgr5{
+    width:2.88rem;
+    height:3.27rem;
+    @include float(left);
+  }
+  .topMgr6{
+    width:4.0rem;
+    height:3.27rem;
+    @include float(left);
+  }
+  .topMgrC{
+    @extend %img-all;
+    width:0.53rem;
+    height:0.53rem;
+    top:0.87rem;
+    left:0.14rem;
+    z-index:99;
+    @include opacity(0);
+  }
+  .topMgr-arrow{
+    @extend %img-all;
+    width:0.29rem;
+    height:0.49rem;
+    top:11.2rem;
+    left:3.5rem;
+    z-index:99;
+  }
+}
+#hot{
+  height:100%;
+  @include clearfix();
+  .swiper-container {
+    width:100%;
+    height:100%;
+    margin: 0 auto;
+    z-index: 99;
+    @include opacity(0);
+  }
+  .swiper-pagination-bullets{
+    bottom:0.4rem;
+  }
+  .swiper-pagination-bullet {
+     width: 0.25rem;
+     height: 0.25rem;
+     text-align: center;
+     line-height: 0.25rem;
+     font-size: 0.24rem;
+     color:#fff;
+     opacity: 1;
+     background: #896cc0;
+     @include border-radius(0);
+    margin: 0 0.04rem;
+   }
+  .swiper-pagination-bullet-active {
+    color:#fff;
+    background: #6c1fff;
+  }
+  .hot1{
+    @extend %img-all;
+    width:7rem;
+    height: 90%;
+    top: 5%;
+    left:50%;
+    margin-left:-3.5rem;
+    z-index:99;
+    @include opacity(0);
+  }
+  .hot2{
+    @extend %img-all;
+    width:5.07rem;
+    height:0.48rem;
+    top:0.86rem;
+    left:50%;
+    margin-left:-2.53rem;
+    z-index:99;
+    @include opacity(0);
+  }
+  .hot3{
+    @extend %img-all;
+    width:0.1rem;
+    height:7.5rem;
+    top:2.7rem;
+    left:0.5rem;
+    z-index:99;
+    @include opacity(0);
+  }
+  .hotC{
+    @extend %img-all;
+    width:0.53rem;
+    height:0.53rem;
+    top:3%;
+    left:0.15rem;
+    z-index:99;
+    @include opacity(0);
+  }
+  .hot-arrow{
+    @extend %img-all;
+    width:0.29rem;
+    height:0.49rem;
+    bottom:0.2rem;
+    left:3.5rem;
+    z-index:99;
+    @include rotate(90deg);
+  }
+  .hot-c{
+    width:6.03rem;
+    height:8.03rem;
+    padding-top: 2.26rem;
+    padding-left:0.74rem;
+    //@include opacity(0);
+  }
+  .hot-c1{
+    width:6.29rem;
+    height:7.60rem;
+    padding-left:0.6rem;
+    //@include opacity(0);
+  }
+  .hot-c2{
+    width:6.36rem;
+    height:7.71rem;
+    padding-left:0.57rem;
+    //@include opacity(0);
+  }
+  .hot-c3{
+    width:6.33rem;
+    height:7.82rem;
+    padding-left:0.53rem;
+    //@include opacity(0);
+  }
+  .hot-c4{
+    width:6.03rem;
+    height:8.02rem;
+    padding-left:0.73rem;
+    //@include opacity(0);
+  }
+  .qa{
+    font-size:0.24rem;
+    width:6.5rem;
+    position: absolute;
+    top:2.25rem;
+    left:50%;
+    margin-left:-3.25rem;
+    z-index:999;
+    overflow-y: scroll;
+    height: 72%;
+    @include opacity(0);
+    ol{
+      margin:0;
+      padding:0;
+    }
+    li{
+      list-style-type: decimal;
+      color:#6c1fff;
+      margin-left: 0.36rem;
+      margin-bottom:0.34rem;
+    }
+    .investor,.company{
+      clear:both;
+      .name{
+        line-height:0.46rem;
+        color:#6c1fff;
+        background-color: #ffffff;
+        padding:0.04rem 0.1rem;
+      }
+      .content{
+        color:#000000;
+        width: 4.8rem;
+        display: inline-block;
+        float: right;
+        margin-bottom: 0.4rem;
+        text-align: justify;
+      }
+      .mb02{
+        margin-bottom:0.24rem;
+      }
+    }
+  }
+}
+#list{
+  .swiper-container2 {
+    width:100%;
+    height:100%;
+    margin:1.8rem auto 0;
+  }
+  .swiper-slide {
+    text-align: center;
+  }
+  .list{
+    width:5.83rem;
+    height:4.38rem;
+  }
+  .list1{
+    width:6.07rem;
+    height:6.46rem;
+  }
+  .list2{
+    width:6.05rem;
+    height:6.46rem;
+  }
+  .list3{
+    width:6.25rem;
+    height:6.46rem;
+  }
+  .listC{
+    @extend %img-all;
+    width:0.53rem;
+    height:0.53rem;
+    top:8.5rem;
+    left:50%;
+    margin-left:-0.26rem;
+    z-index:99;
+  }
+  .list-arrow{
+    @extend %img-all;
+    width:0.29rem;
+    height:0.49rem;
+    top:5.86rem;
+    left:6.86rem;
+    z-index:99;
+  }
+}
+// slideUpDown
+@mixin animate-slideUpDown () {
+  @include keyframes(slideUpDown){
+    0% {
+      @include translateY(0);
+    }
+    50% {
+      @include translateY(0.14rem);
+    }
+    100% {
+      @include translateY(0);
+    }
+  }
+  .slideUpDown {
+    @include animation-name(slideUpDown);
+    @extend %animated;
+  }
+}
+// slideUpDownInverse
+@mixin animate-slideUpDownInverse () {
+  @include keyframes(slideUpDownInverse){
+    0% {
+      @include translateY(0);
+    }
+    50% {
+      @include translateY(-0.14rem);
+    }
+    100% {
+      @include translateY(0);
+    }
+  }
+  .slideUpDownInverse {
+    @include animation-name(slideUpDownInverse);
+    @extend %animated;
+  }
+}
+// slideLeftRight
+@mixin animate-slideLeftRight () {
+  @include keyframes(slideLeftRight){
+    0% {
+      @include translateX(0);
+    }
+    50% {
+      @include translateX(0.14rem);
+    }
+    100% {
+      @include translateX(0);
+    }
+  }
+  .slideLeftRight {
+    @include animation-name(slideLeftRight);
+    @extend %animated;
+  }
+}
+// slideLeftRightInverse
+@mixin animate-slideLeftRightInverse () {
+  @include keyframes(slideLeftRightInverse){
+    0% {
+      @include translateX(0);
+    }
+    50% {
+      @include translateX(-0.14rem);
+    }
+    100% {
+      @include translateX(0);
+    }
+  }
+  .slideLeftRightInverse {
+    @include animation-name(slideLeftRightInverse);
+    @extend %animated;
+  }
+}
+// smallToBigGo   由小到大
+@mixin animate-smallToBigGo () {
+  @include keyframes(smallToBigGo){
+    0% {
+      @include opacity(100);
+      @include transform(scale(0.5))
+    }
+    30% {
+      @include opacity(100);
+      @include transform(scale(1.3))
+    }
+    60% {
+      @include opacity(100);
+      @include transform(scale(0.9))
+    }
+    80% {
+      @include opacity(100);
+      @include transform(scale(1.05))
+    }
+    100% {
+      @include opacity(100);
+      @include transform(scale(1))
+    }
+  }
+  .smallToBigGo {
+    @include animation-name(smallToBigGo);
+    @extend %animated;
+    @include animation-duration(1.5s)
+  }
+}
+// slideInDownAndBack
+@mixin animate-slideInDownAndBack () {
+  @include keyframes(slideInDownAndBack){
+    0% {
+      opacity: 1;
+      @include translateY(4rem);
+    }
+    80% {
+      opacity: 1;
+      @include translateY(-0.5rem);
+    }
+    100% {
+      opacity: 1;
+      @include translateY(0);
+    }
+  }
+  .slideInDownAndBack {
+    @include animation-name(slideInDownAndBack);
+    @extend %animated;
+  }
+}
+// rotateLoopR     一直顺时针360度缓慢旋转
+@mixin animate-rotateLoopR () {
+  @include keyframes(rotateLoopR){
+    0% {
+      @include rotate(-360deg);
+    }
+    100% {
+      @include rotate(0);
+    }
+  }
+  .rotateLoopR {
+    @include animation-name(rotateLoopR);
+    @extend %animated;
+    @include animation-iteration-count(infinite);
+    //@include animation-duration(5s);
+    @include animation-timing-function(linear);
+  }
+}
+
+// anchor
+@mixin animate-anchor () {
+  @include keyframes(anchor){
+    0%, 50%, 100%{
+      @include transform(rotate(0deg));
+    }
+    25%{
+      @include transform(rotate(-8deg))
+    }
+    75%{
+      @include transform(rotate(8deg))
+    }
+  }
+  .anchor {
+    @include animation-name(anchor);
+    @extend %animated;
+    @include transform-origin(top left);
+    @include animation-timing-function(linear);
+  }
+}
+
+@include animate-slideUpDown();        //上下移动
+@include animate-slideUpDownInverse();        //上下移动反的
+@include animate-slideLeftRight();        //左右移动
+@include animate-slideLeftRightInverse();        //左右移动反的
+@include animate-flipInX180();        //左右移动反的
+@include animate-smallToBigGo();        //由小到大
+@include animate-slideInDownAndBack();        //由小到大
+@include animate-slideInRight();
+@include animate-slideInUp();
+@include animate-slideInDown();
+@include animate-flashLikeStar();
+@include animate-flash();
+@include animate-rotateLoopR();
+@include animate-anchor();
+
+.slideUpDown,.slideUpDownInverse,.slideLeftRight,.slideLeftRightInverse {
+  @include animation-timing-function(linear);
+  @include animation-iteration-count(infinite);
+  @include animation-duration(2.4s);
+}

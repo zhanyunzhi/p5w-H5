@@ -7,7 +7,7 @@ var appModule = angular.module("ngApp",[]);
 appModule.controller("IndexCtrl",
     function($scope, $http){
         //url是相对于我们的html文件的
-        $http.get("./data.json").success(function(data){
+        $http.get("./data.txt").success(function(data){
             //$scope.datas = data.data;
             //组合所有的记录contents
             $scope.thisYearAllContents = [];
@@ -39,8 +39,21 @@ appModule.controller("IndexCtrl",
                 $scope.citys = '';
             })
             $scope.datas = data;
-            //console.log($scope.datas)
+            console.log($scope.datas)
         });
+        var getHexBackgroundColor = function(property) {
+            var rgb = property;
+            if($.browser.msie&&$.browser.version>8||$.browser.mozilla||$.browser.webkit)
+            {
+                rgb=rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+                function hex(x)
+                {
+                    return ("0"+parseInt(x).toString(16)).slice(-2);
+                }
+                rgb="#"+hex(rgb[1])+hex(rgb[2])+hex(rgb[3]);
+            }
+            return rgb;
+        };
         $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {           //数据加载完成后执行以下js，否则js执行无效
             //给每个页码绑定跳转的事件
             var eHaveData = $('.have-data');
@@ -65,6 +78,7 @@ appModule.controller("IndexCtrl",
                 loop:true,
                 //loopAdditionalSlides : 0,
                 loopedSlides :1000,
+                sort: 0,
                 coverflow: {
                     rotate: 0,
                     stretch: 150,
@@ -86,6 +100,8 @@ appModule.controller("IndexCtrl",
                             eSlides.eq(k).css('opacity','0');
                         }
                     }
+                    eSlides.find('.swiper-slide-content').css('background-color','#dab200');
+                    eSwiper.find('.swiper-button-white').css('background-color','#dab200');
                     //console.log(swiper.realIndex)
                 },
                 onTransitionStart: function(swiper){
@@ -102,8 +118,26 @@ appModule.controller("IndexCtrl",
                             eSlides.eq(k).css('opacity','0');
                         }
                     }
+
                     var sort = swiper.slides.eq(swiper.realIndex).data('sort');
+                    if(sort != swiper.sort){        //当前sort和上次的sort不相等，说明切换了月份
+                        if(getHexBackgroundColor(eSlides.find('.swiper-slide-content').css('background-color')) == "#dab200"){
+                            eSlides.find('.swiper-slide-content').css('background-color','#202f70');        //修改slide背景色
+                            eSwiper.find('.swiper-button-white').css('background-color','#202f70');         //修改按钮背景色
+                        }else{
+                            eSlides.find('.swiper-slide-content').css('background-color','#dab200');
+                            eSwiper.find('.swiper-button-white').css('background-color','#dab200');
+                        }
+                    }
+                    swiper.sort = sort;     //记录这次的sort
                     eHaveData.eq(sort).addClass('active').siblings().removeClass('active');
+                    eHaveData.eq(sort).siblings().find('p').hide();
+                    eHaveData.eq(sort).find('p').show();
+                    /*if(getHexBackgroundColor(eSlides.find('.swiper-slide-content').css('background-color')) == "#dab200"){
+                        eSlides.find('.swiper-slide-content').css('background-color','#202f70');
+                    }else{
+                        eSlides.find('.swiper-slide-content').css('background-color','#dab200');
+                    }*/
                     //console.log(sort)
                 },
                 onTouchEnd: function(swiper, translate){
@@ -112,18 +146,27 @@ appModule.controller("IndexCtrl",
                 },
             };
             var swiper = new Swiper('.swiper-container1', swiper1Config);
-            swiper.disableTouchControl();
+            //swiper.disableTouchControl();
             //2017活动预告中class为have-data的获取属性data-index的值与相应的要初始化的swiper的class相同，从而达到批量注册swiper
             eHaveData.last().addClass('active');
+            eHaveData.last().find('p').show();
             $('.months').on('click','.have-data',function(){
                 $(this).addClass('active').siblings().removeClass('active');
+                $(this).siblings().find('p').hide();
+                $(this).find('p').show();
                 var eSwiper = $('.swiper-container1');
                 var eSlides = eSwiper.find('.swiper-slide');
                 var eContents = eSwiper.find('.this-year-content');
                 var activeSlideIndex = eSlides.filter('.data-month'+$(this).data('index')).data("index");
                 //console.log($('.data-month'+$(this).data('index')).data("index"))
                 //console.log($(this).data('index'))
-
+                if(getHexBackgroundColor(eSlides.find('.swiper-slide-content').css('background-color')) == "#dab200"){
+                    eSlides.find('.swiper-slide-content').css('background-color','#202f70');
+                    eSwiper.find('.swiper-button-white').css('background-color','#202f70');
+                }else{
+                    eSlides.find('.swiper-slide-content').css('background-color','#dab200');
+                    eSwiper.find('.swiper-button-white').css('background-color','#dab200');
+                }
                 if(activeSlideIndex == 0){
                     activeSlideIndex += eSlides.length / 3;
                     /*console.log(eSlides.length)
@@ -141,6 +184,10 @@ appModule.controller("IndexCtrl",
                         eSlides.eq(k).css('opacity','0');
                     }
                 }
+                /*console.log($scope.datas.thisYears[3])
+                $scope.datas.thisYears = $scope.datas.thisYears[3];
+                console.log($scope.datas)
+                swiper.update()*/
             })
             //2017活动预告 end
 
@@ -158,7 +205,7 @@ appModule.controller("IndexCtrl",
             var swiper2 = new Swiper('.swiper-container2', {
                 observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
                 observeParents:true,//修改swiper的父元素时，自动初始化swiper
-                grabCursor: true,
+                grabCursor: false,
                 nextButton: '.swiper-button-next',
                 prevButton: '.swiper-button-prev',
                 onTransitionStart: function(swiper) {
@@ -260,7 +307,7 @@ appModule.controller("IndexCtrl",
                     swiper[i] = new Swiper('.'+swiperTex, {
                         observer:true,//修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
                         observeParents:true,//修改swiper的父元素时，自动初始化swiper
-                        grabCursor: true,
+                        grabCursor: false,
                         pagination: '.'+paginationTex,
                         paginationType : 'custom',
                         paginationClickable: true,
@@ -274,12 +321,18 @@ appModule.controller("IndexCtrl",
                     $('.'+paginationTex).on('click','li', {swiper:swiper[i]},function(event){
                         var index = $(this).data('index');
                         var city = $(this).find('span').eq(0).html();
-                        $(this).parent().prev("span").html(city);
-                        var translateWidth = $(this).width();
+                        //var day = $(this).find('span').eq(1).html();
+                        var liWidth = $(this).parent().find('li').eq(0).width();
+                        //$(this).find('span').eq(1).hide();
+                        //$(this).siblings().find('span').eq(1).show();
+                        //console.log($(this).siblings())
+                        $(this).parent().prev("span").find('span').eq(0).html(city);
+                        //$(this).parent().prev("span").find('span').eq(1).html(day);
+                        var translateWidth = liWidth;
                         if(index-event.data.swiper.activeIndex<=0){
-                            translateWidth = -($(this).width() * index);
+                            translateWidth = -(liWidth * index);
                         } else {
-                            translateWidth = -($(this).width() * index);
+                            translateWidth = -(liWidth * index);
                         }
                         var translate3d = 'translate3d('+translateWidth+'px, 0px, 0px)';
                         $(this).parent().css(getTransforms(translate3d));           //city的父标签位移

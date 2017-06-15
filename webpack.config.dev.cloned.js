@@ -104,7 +104,7 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: 'src/components/ningxiajdr/index.html',
+            template: 'src/components/dalianjdr/index.html',
             filename: 'index.html',
             inject: 'head',
             chunksSortMode: function(chunk1, chunk2){           //引入多个js的时候，排序
@@ -115,7 +115,7 @@ module.exports = {
             }
         }),
         new htmlWebpackPlugin({
-            template: 'src/components/ningxiajdr/mlist.html',
+            template: 'src/components/dalianjdr/mlist.html',
             filename: 'mlist.html',
             inject: 'head',
             chunksSortMode: function(chunk1, chunk2){           //引入多个js的时候，排序

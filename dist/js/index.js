@@ -122,7 +122,7 @@ var appModule = angular.module("ngApp", []); /**
 
 appModule.controller("IndexCtrl", function ($scope, $http) {
     //url是相对于我们的html文件的
-    $http.get("./data.json").success(function (data) {
+    $http.get("./data.txt").success(function (data) {
         //$scope.datas = data.data;
         //组合所有的记录contents
         $scope.thisYearAllContents = [];
@@ -156,6 +156,9 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
         $scope.datas = data;
         //console.log($scope.datas)
     });
+    $scope.go = function (url) {
+        console.log(url);
+    };
     $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
         //数据加载完成后执行以下js，否则js执行无效
         //给每个页码绑定跳转的事件
@@ -233,7 +236,7 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
             }
         };
         var swiper = new Swiper('.swiper-container1', swiper1Config);
-        swiper.disableTouchControl();
+        //swiper.disableTouchControl();
         //2017活动预告中class为have-data的获取属性data-index的值与相应的要初始化的swiper的class相同，从而达到批量注册swiper
         eHaveData.last().addClass('active');
         $('.months').on('click', '.have-data', function () {
@@ -281,7 +284,7 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
         var swiper2 = new Swiper('.swiper-container2', {
             observer: true, //修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
             observeParents: true, //修改swiper的父元素时，自动初始化swiper
-            grabCursor: true,
+            grabCursor: false,
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev',
             onTransitionStart: function onTransitionStart(swiper) {
@@ -392,7 +395,7 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
                 swiper[i] = new Swiper('.' + swiperTex, {
                     observer: true, //修改swiper自己或子元素时，自动初始化swiper             不加这两个参数无法滑动
                     observeParents: true, //修改swiper的父元素时，自动初始化swiper
-                    grabCursor: true,
+                    grabCursor: false,
                     pagination: '.' + paginationTex,
                     paginationType: 'custom',
                     paginationClickable: true
@@ -406,13 +409,22 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
                 $('.' + paginationTex).on('click', 'li', { swiper: swiper[i] }, function (event) {
                     var index = $(this).data('index');
                     var city = $(this).find('span').eq(0).html();
-                    $(this).parent().prev("span").html(city);
-                    var translateWidth = $(this).width();
+                    //var day = $(this).find('span').eq(1).html();
+                    var liWidth = $(this).parent().find('li').eq(0).width();
+                    //$(this).find('span').eq(1).hide();
+                    //$(this).siblings().find('span').eq(1).show();
+                    //console.log($(this).siblings())
+                    $(this).parent().prev("span").find('span').eq(0).html(city);
+                    //$(this).parent().prev("span").find('span').eq(1).html(day);
+                    var translateWidth = liWidth;
                     if (index - event.data.swiper.activeIndex <= 0) {
-                        translateWidth = -($(this).width() * index);
+                        translateWidth = -(liWidth * index);
                     } else {
-                        translateWidth = -($(this).width() * index);
+                        translateWidth = -(liWidth * index);
                     }
+                    console.log(liWidth);
+                    console.log(index);
+                    console.log(translateWidth);
                     var translate3d = 'translate3d(' + translateWidth + 'px, 0px, 0px)';
                     $(this).parent().css(getTransforms(translate3d)); //city的父标签位移
                     event.data.swiper.slideTo(index, 500, false); //切换到指定slide，速度为1秒
@@ -492,7 +504,7 @@ new App();
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "data.json";
+module.exports = __webpack_require__.p + "data.txt";
 
 /***/ }),
 /* 9 */

@@ -102,7 +102,7 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: 'src/components/hubeijdr/index.html',
+            template: 'src/components/dalianjdr/index.html',
             filename: 'index.html',
             inject: 'head',
             minify: {               //压缩html文件
@@ -118,7 +118,7 @@ module.exports = {
             }
         }),
         new htmlWebpackPlugin({
-            template: 'src/components/hubeijdr/mlist.html',
+            template: 'src/components/dalianjdr/mlist.html',
             filename: 'mlist.html',
             inject: 'head',
             minify: {               //压缩html文件
