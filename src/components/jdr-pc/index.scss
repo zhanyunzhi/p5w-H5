@@ -118,9 +118,9 @@ body{
 @include animate-slideMetero();
 .this_year{
   position: relative;
-  padding-top: 60px;
+  //padding-top: 60px;
   .swiper-container1{
-    width:798px;
+    width:898px;
     height:392px;
     //padding:0 50px;
     .swiper-slide{
@@ -155,7 +155,7 @@ body{
     }
     .swiper-slide-content{
       background-color: $thisYellow;
-      width:658px;
+      width:758px;
       height:295px;
       margin-left:70px;
       @include border-radius(6px);
@@ -165,7 +165,7 @@ body{
         text-decoration:none;
       }
       .media-img{
-        width:150px;
+        width:250px;
         height:150px;
         @include float(left);
         margin-top:12px;
@@ -173,7 +173,7 @@ body{
         @include border-radius(10px);
       }
       .media-content{
-        margin-left:215px;
+        margin-left:315px;
         margin-top:48px;
         margin-right:44px;
         text-align: left;
@@ -289,10 +289,11 @@ body{
   .this_year_time{
     width:172px;
     height:172px;
+    line-height:172px;
     background-color: #202f70;
     position: absolute;
-    top:68px;
-    left:230px;
+    top:10px;
+    left:200px;
     text-align: center;
     @media screen and (max-width: 1500px) {
       left:0;
@@ -307,11 +308,58 @@ body{
       font-size:30px;
     }
   }
+  .this_year_yg{
+    width:172px;
+    padding:0;
+    margin:0;
+    padding-top:14px;
+    background-color: #202f70;
+    position: absolute;
+    top:192px;
+    left:200px;
+    text-align: center;
+    font-size:14px;
+    @media screen and (max-width: 1500px) {
+      left:0;
+    }
+    li{
+      list-style: none;
+      text-align: center;
+      .yg_area{
+        display: block;
+      }
+      .yg-line{
+        height:1px;
+        width:70px;
+        border-bottom:1px dashed $white;
+        display: block;
+        margin:8px auto;
+      }
+      &:last-child{
+        .yg-line{
+          border-bottom:none;
+        }
+      }
+    }
+    .yg-bottom{
+      width:172px;
+      height:19px;
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+    }
+  }
   .img-2017{
     margin:28px auto 0;
     display: block;
     width:464px;
     height:103px;
+  }
+  .this-year-title{
+    margin:0 auto 0;
+    display: block;
+    width:635px;
+    height:277px;
   }
   .months{
     text-align: center;
@@ -595,6 +643,11 @@ body{
       position: absolute;
       margin-left:100px;
       margin-top:-60px;
+      span{
+        font-size: 14px;
+        color: #fff;
+        margin-left: 8px;
+      }
     }
   }
 }

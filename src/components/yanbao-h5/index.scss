@@ -34,46 +34,29 @@
   @include filter-blur(0);
   @include transition(filter 0.5s)
 }
-.star{
-  @extend %img-all;
-  width: 2.57rem;;
-  height:1.58rem;
-  z-index:99;
-}
-.star1{
-  top:0;
-  right:0;
-}
-.star2{
-  top: 1.3rem;
-  right: 3.1rem;
-}
-.star3{
-  top: 5.1rem;
-  right: 2.1rem;
-}
+
 .img1{
   @extend %img-all;
-  width:5.02rem;
-  height:1.45rem;
-  top:0.12rem;
+  width:4.75rem;
+  height:1.62rem;
+  top:0;
   left:50%;
-  margin-left:-2.51rem;
+  margin-left:-2.38rem;
   z-index:99;
   @include opacity(0);
 }
 .img2{
   @extend %img-all;
-  width:3.17rem;
-  height:2.07rem;
+  width:2.86rem;
+  height:2.09rem;
   top:1.86rem;
-  left:3.22rem;
+  left:3.18rem;
   z-index:99;
 }
 .img3{
   @extend %img-all;
   width:0.83rem;
-  height:5.23rem;
+  height:5.22rem;
   top:0.9rem;
   left:0.18rem;
   z-index:99;
@@ -97,7 +80,7 @@
 .img6{
   @extend %img-all;
   width:1.75rem;
-  height:0.88rem;
+  height:0.98rem;
   top:4.62rem;
   left:3.6rem;
   z-index:99;
@@ -112,7 +95,7 @@
 }
 .img8{
   @extend %img-all;
-  width:2.87rem;
+  width:2.86rem;
   height:2.09rem;
   top:4.36rem;
   left:4.6rem;
@@ -136,8 +119,8 @@
 }
 .img11{
   @extend %img-all;
-  width:1.98rem;
-  height:1.89rem;
+  width:2.06rem;
+  height:1.96rem;
   top:5.68rem;
   left:2.12rem;
   z-index:99;
@@ -168,8 +151,8 @@
 }
 .img15{
   @extend %img-all;
-  width:1.59rem;
-  height:1.70rem;
+  width:1.67rem;
+  height:1.77rem;
   top:8.7rem;
   left:2.56rem;
   z-index:99;
@@ -208,38 +191,30 @@
 }
 .img20{
   @extend %img-all;
-  width:1.54rem;
-  height:0.56rem;
-  top:0.9rem;
-  right:-0.36rem;
-  z-index:99;
-}
-.img21{
-  @extend %img-all;
-  width:0.48rem;
-  height:1.83rem;
-  top:1.46rem;
-  right:0.45rem;
+  width:1.4rem;
+  height:0.52rem;
+  top:10.84rem;
+  left:0.48rem;
   z-index:99;
 }
 .windCarDiv{
   @extend %img-all;
   width:100%;
-  height:0.65rem;
-  top:1.26rem;
+  height:0.98rem;
+  top:0.94rem;
   z-index:99;
   @include opacity(0);
 }
 .windCar{
   @extend %img-all;
-  width:0.65rem;
-  height:0.65rem;
+  width:0.98rem;
+  height:0.98rem;
 }
 .windCar1{
-  left:1.4rem;
+  left:1.08rem;
 }
 .windCar2{
-  left:5.6rem;
+  left:5.46rem;
 }
 // runIntrPerson   活动介绍的人动起来
 @mixin animate-runIntrPerson () {
@@ -263,7 +238,7 @@
 .intrPerson{
   width:1rem;
   height:1.1rem;
-  background: url("../../assets/hainanjdr/intrPerson.png") 0 0 no-repeat;
+  background: url("../../assets/jdr-m/intrPerson.png") 0 0 no-repeat;
   background-size: 25.48rem 1.1rem;
   background-position: 0 0;
   margin:0;
@@ -298,7 +273,7 @@
 .listPerson{
   width:1.3rem;
   height:1.1rem;
-  background: url("../../assets/hainanjdr/listPerson.png") 0 0 no-repeat;
+  background: url("../../assets/jdr-m/listPerson.png") 0 0 no-repeat;
   background-size: 32.98rem 1.1rem;
   background-position: 0 0;
   margin:0;
@@ -333,7 +308,7 @@
 .topMgrPerson{
   width:1.0rem;
   height:1.1rem;
-  background: url("../../assets/hainanjdr/topMgrPerson.png") 0 0 no-repeat;
+  background: url("../../assets/jdr-m/topMgrPerson.png") 0 0 no-repeat;
   background-size: 25.48rem 1.1rem;
   background-position: 0 0;
   margin:0;
@@ -368,7 +343,7 @@
 .mediaPerson{
   width:1.3rem;
   height:1.1rem;
-  background: url("../../assets/hainanjdr/mediaPerson.png") 0 0 no-repeat;
+  background: url("../../assets/jdr-m/mediaPerson.png") 0 0 no-repeat;
   background-size: 32.98rem 1.1rem;
   background-position: 0 0;
   margin:0;
@@ -416,16 +391,21 @@
 #topMgr{
   .swiper-container3 {
     width:100%;
-    //height:4.48rem;
-    height:100%;
-    margin: 1.2rem auto 0;
+    height:4.48rem;
+    margin: 0.34rem 0.31rem 0;
+  }
+  .swiper-container4 {
+    width:100%;
+    height:3.35rem;
+    margin: 0.2rem 0.31rem 0;
+  }
+  .swiper-container5 {
+    width:100%;
+    height:3.27rem;
+    margin: 0.2rem 0.31rem 0;
   }
   .swiper-slide {
     text-align: center;
-  }
-  .topMgr{
-    width:6.50rem;
-    height:9.72rem;
   }
   .topMgr1{
     width:3.44rem;
@@ -461,18 +441,10 @@
     @extend %img-all;
     width:0.53rem;
     height:0.53rem;
-    top:0.87rem;
+    top:0.17rem;
     left:0.14rem;
     z-index:99;
     @include opacity(0);
-  }
-  .topMgr-arrow{
-    @extend %img-all;
-    width:0.29rem;
-    height:0.49rem;
-    top:11.2rem;
-    left:3.5rem;
-    z-index:99;
   }
 }
 #hot{
@@ -507,8 +479,8 @@
   .hot1{
     @extend %img-all;
     width:7rem;
-    height: 90%;
-    top: 5%;
+    height:11.24rem;
+    top:0.4rem;
     left:50%;
     margin-left:-3.5rem;
     z-index:99;
@@ -516,11 +488,11 @@
   }
   .hot2{
     @extend %img-all;
-    width:5.07rem;
-    height:0.48rem;
+    width:6.55rem;
+    height:1.06rem;
     top:0.86rem;
     left:50%;
-    margin-left:-2.53rem;
+    margin-left:-3.27rem;
     z-index:99;
     @include opacity(0);
   }
@@ -537,99 +509,24 @@
     @extend %img-all;
     width:0.53rem;
     height:0.53rem;
-    top:3%;
+    top:0.3rem;
     left:0.15rem;
     z-index:99;
     @include opacity(0);
   }
-  .hot-arrow{
-    @extend %img-all;
-    width:0.29rem;
-    height:0.49rem;
-    bottom:0.2rem;
-    left:3.5rem;
-    z-index:99;
-    @include rotate(90deg);
-  }
   .hot-c{
     width:6.03rem;
     height:8.03rem;
-    padding-top: 2.26rem;
+    padding-top: 2.46rem;
     padding-left:0.74rem;
     //@include opacity(0);
-  }
-  .hot-c1{
-    width:6.29rem;
-    height:7.60rem;
-    padding-left:0.6rem;
-    //@include opacity(0);
-  }
-  .hot-c2{
-    width:6.36rem;
-    height:7.71rem;
-    padding-left:0.57rem;
-    //@include opacity(0);
-  }
-  .hot-c3{
-    width:6.33rem;
-    height:7.82rem;
-    padding-left:0.53rem;
-    //@include opacity(0);
-  }
-  .hot-c4{
-    width:6.03rem;
-    height:8.02rem;
-    padding-left:0.73rem;
-    //@include opacity(0);
-  }
-  .qa{
-    font-size:0.24rem;
-    width:6.5rem;
-    position: absolute;
-    top:2.25rem;
-    left:50%;
-    margin-left:-3.25rem;
-    z-index:999;
-    overflow-y: scroll;
-    height: 72%;
-    @include opacity(0);
-    ol{
-      margin:0;
-      padding:0;
-    }
-    li{
-      list-style-type: decimal;
-      color:#6c1fff;
-      margin-left: 0.36rem;
-      margin-bottom:0.34rem;
-    }
-    .investor,.company{
-      clear:both;
-      .name{
-        line-height:0.46rem;
-        color:#6c1fff;
-        background-color: #ffffff;
-        padding:0.04rem 0.1rem;
-      }
-      .content{
-        color:#000000;
-        width: 4.8rem;
-        display: inline-block;
-        float: right;
-        margin-bottom: 0.4rem;
-        text-align: justify;
-      }
-      .mb02{
-        margin-bottom:0.24rem;
-      }
-    }
   }
 }
 #list{
   .swiper-container2 {
     width:100%;
     height:100%;
-    margin:1.8rem auto 0;
+    margin: 3.32rem auto 0;
   }
   .swiper-slide {
     text-align: center;
@@ -638,23 +535,11 @@
     width:5.83rem;
     height:4.38rem;
   }
-  .list1{
-    width:6.07rem;
-    height:6.46rem;
-  }
-  .list2{
-    width:6.05rem;
-    height:6.46rem;
-  }
-  .list3{
-    width:6.25rem;
-    height:6.46rem;
-  }
   .listC{
     @extend %img-all;
     width:0.53rem;
     height:0.53rem;
-    top:8.5rem;
+    top:8.1rem;
     left:50%;
     margin-left:-0.26rem;
     z-index:99;
@@ -663,7 +548,7 @@
     @extend %img-all;
     width:0.29rem;
     height:0.49rem;
-    top:5.86rem;
+    top:5.46rem;
     left:6.86rem;
     z-index:99;
   }
@@ -805,28 +690,7 @@
     @include animation-name(rotateLoopR);
     @extend %animated;
     @include animation-iteration-count(infinite);
-    //@include animation-duration(5s);
-    @include animation-timing-function(linear);
-  }
-}
-
-// anchor
-@mixin animate-anchor () {
-  @include keyframes(anchor){
-    0%, 50%, 100%{
-      @include transform(rotate(0deg));
-    }
-    25%{
-      @include transform(rotate(-8deg))
-    }
-    75%{
-      @include transform(rotate(8deg))
-    }
-  }
-  .anchor {
-    @include animation-name(anchor);
-    @extend %animated;
-    @include transform-origin(top left);
+    //@include animation-duration(20s);
     @include animation-timing-function(linear);
   }
 }
@@ -841,10 +705,8 @@
 @include animate-slideInRight();
 @include animate-slideInUp();
 @include animate-slideInDown();
-@include animate-flashLikeStar();
 @include animate-flash();
 @include animate-rotateLoopR();
-@include animate-anchor();
 
 .slideUpDown,.slideUpDownInverse,.slideLeftRight,.slideLeftRightInverse {
   @include animation-timing-function(linear);

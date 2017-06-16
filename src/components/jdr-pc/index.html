@@ -24,8 +24,19 @@
             <!--<img src="../../assets/jdr-pc/bg.png" class="bg"/>-->
             <div class="this_year">
                 <div class="this_year_time">
-                    <h2>2017</h2>
+                    <!--<h2>2017</h2>-->
                     <div>活动预告</div>
+                </div>
+                <ul class="this_year_yg">
+                    <img src="../../assets/jdr-pc/yg-bottom.png" class="yg-bottom"/>
+                    <li ng-repeat="notice in datas.thisYearNotice track by $index">
+                        <span>{{notice.day}}</span>
+                        <span class="yg_area">{{notice.area}}</span>
+                        <span class="yg-line"></span>
+                    </li>
+                </ul>
+                <div>
+                    <img src="../../assets/jdr-pc/this-year-title.png" class="this-year-title"/>
                 </div>
                 <!--<div class="slide-back">
                     <div class="slide-back-one"></div>
@@ -58,9 +69,9 @@
                     <div class="swiper-button-next swiper-button-white"><span class="arrow-right"></span></div>
                 </div>
                 <!--遍历2017年各个月的数据，生成12个swiper分别对应每个月   end-->
-                <div>
+                <!--<div>
                     <img src="../../assets/jdr-pc/2017.png" class="img-2017"/>
-                </div>
+                </div>-->
                 <div class="months">            <!--2017活动预告底部的月份导航  start-->
                     <div ng-class="{'month-line':true}"></div>
                     <ul>
@@ -85,7 +96,7 @@
                         <div class="swiper-slide" ng-show="history.contents.length>0"
                              ng-repeat="history in datas.historys track by $index" on-finish-render-filters-history>
                             <div class="swiper-slide-content">
-                                <div class="history-year">{{::history.year}}</div>
+                                <div class="history-year">{{::history.year}}<span>共{{history.contents.length}}场</span></div>
                                 <div data-history-swiper="{{::history.swiperContainer}}"
                                    data-history-pagination="{{::history.swiperPagination}}"
                                         ng-hide="true"></div>
@@ -93,7 +104,9 @@
                                 <div class="swiper-container swiper-container21 {{::history.swiperContainer}}">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide" ng-repeat="content in history.contents">
-                                            <img class="media-img" ng-src="{{::content.imgUrl}}"/>
+                                            <a ng-href="{{::content.jumpUrl}}" target="_blank">
+                                                <img class="media-img" ng-src="{{::content.imgUrl}}"/>
+                                            </a>
                                             <div class="media-content">
                                                 <h3>{{::content.title}}</h3>
                                                 <p>{{::content.content}}</p>
