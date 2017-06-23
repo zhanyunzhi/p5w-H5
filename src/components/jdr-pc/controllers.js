@@ -39,7 +39,7 @@ appModule.controller("IndexCtrl",
                 $scope.citys = '';
             })
             $scope.datas = data;
-            console.log($scope.datas)
+            //console.log($scope.datas)
         });
         var getHexBackgroundColor = function(property) {
             var rgb = property;
@@ -75,9 +75,9 @@ appModule.controller("IndexCtrl",
                 slidesPerView: 2,
                 initialSlide :1000,
                 centeredSlides: true,
-                loop:true,
+                //loop:true,
                 //loopAdditionalSlides : 0,
-                loopedSlides :1000,
+                //loopedSlides :1000,
                 sort: 0,
                 coverflow: {
                     rotate: 0,
@@ -122,8 +122,8 @@ appModule.controller("IndexCtrl",
                     var sort = swiper.slides.eq(swiper.realIndex).data('sort');
                     if(sort != swiper.sort){        //当前sort和上次的sort不相等，说明切换了月份
                         if(getHexBackgroundColor(eSlides.find('.swiper-slide-content').css('background-color')) == "#dab200"){
-                            eSlides.find('.swiper-slide-content').css('background-color','#202f70');        //修改slide背景色
-                            eSwiper.find('.swiper-button-white').css('background-color','#202f70');         //修改按钮背景色
+                            eSlides.find('.swiper-slide-content').css('background-color','#fd9a37 ');        //修改slide背景色
+                            eSwiper.find('.swiper-button-white').css('background-color','#fd9a37 ');         //修改按钮背景色
                         }else{
                             eSlides.find('.swiper-slide-content').css('background-color','#dab200');
                             eSwiper.find('.swiper-button-white').css('background-color','#dab200');
@@ -134,7 +134,7 @@ appModule.controller("IndexCtrl",
                     eHaveData.eq(sort).siblings().find('p').hide();
                     eHaveData.eq(sort).find('p').show();
                     /*if(getHexBackgroundColor(eSlides.find('.swiper-slide-content').css('background-color')) == "#dab200"){
-                        eSlides.find('.swiper-slide-content').css('background-color','#202f70');
+                        eSlides.find('.swiper-slide-content').css('background-color','#fd9a37 ');
                     }else{
                         eSlides.find('.swiper-slide-content').css('background-color','#dab200');
                     }*/
@@ -151,6 +151,7 @@ appModule.controller("IndexCtrl",
             eHaveData.last().addClass('active');
             eHaveData.last().find('p').show();
             $('.months').on('click','.have-data',function(){
+                if($(this).hasClass('active')) return;
                 $(this).addClass('active').siblings().removeClass('active');
                 $(this).siblings().find('p').hide();
                 $(this).find('p').show();
@@ -161,14 +162,14 @@ appModule.controller("IndexCtrl",
                 //console.log($('.data-month'+$(this).data('index')).data("index"))
                 //console.log($(this).data('index'))
                 if(getHexBackgroundColor(eSlides.find('.swiper-slide-content').css('background-color')) == "#dab200"){
-                    eSlides.find('.swiper-slide-content').css('background-color','#202f70');
-                    eSwiper.find('.swiper-button-white').css('background-color','#202f70');
+                    eSlides.find('.swiper-slide-content').css('background-color','#fd9a37 ');
+                    eSwiper.find('.swiper-button-white').css('background-color','#fd9a37 ');
                 }else{
                     eSlides.find('.swiper-slide-content').css('background-color','#dab200');
                     eSwiper.find('.swiper-button-white').css('background-color','#dab200');
                 }
-                if(activeSlideIndex == 0){
-                    activeSlideIndex += eSlides.length / 3;
+                if(activeSlideIndex < 4){
+                    //activeSlideIndex += eSlides.length / 3;
                     /*console.log(eSlides.length)
                     console.log(swiper.activeIndex)
                     console.log(swiper.realIndex)*/
@@ -219,6 +220,9 @@ appModule.controller("IndexCtrl",
                 continuousVertical: false,
                 verticalCentered: true,
                 scrollOverflow:true,
+                navigation:true,
+                navigationColor:"#ffffff",
+                //scrollingSpeed:700,
                 onLeave:function(index, nextIndex, direction){
                     var winH = $('.fp-section').last().height();
                     if(index == 1){
@@ -293,7 +297,6 @@ appModule.controller("IndexCtrl",
                     });
                 }
             });
-
             var eHistorySwipers = $("[data-history-swiper]");
             var eHistorySwipersLen = eHistorySwipers.length;
             if(eHistorySwipersLen > 0){

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>山西上市公司集体接待日 用业绩来赢得投资者的信心</title>
+    <script>
+        var docEle = document.documentElement;
+        var eDiv = document.createElement('div');
+        eDiv.innerHTML = '请竖屏查看';
+        eDiv.className = 'landscape';
+        eDiv.style.display = 'none';
+        docEle.appendChild(eDiv);
+        var timer = null;
+        fn = function() {
+            timer = setTimeout(function(){          //加延迟0.1s不然在android下获取到的宽高是旋转屏幕之前的宽高
+                var width = docEle.clientWidth;
+                var height = docEle.clientHeight;
+//                alert(width+'--'+height)
+                if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){         //移动端设备
+                    if(width > height){             //宽度大于高度，说明是横屏
+//                        eDiv.style.display = 'block';
+                    }else{                          //竖屏
+//                        eDiv.style.display = 'none';
+                    }
+                }
+                if( width < 320 ) {
+                    docEle.style.fontSize = 42.6667 + "px";//
+                }
+                else if( width > 1080 ) {
+                    docEle.style.fontSize = 144 + "px";
+                }
+                else {
+                    //以750设计稿宽度为基准设置fontSize:100px;这样保证iPhone6以下是高清
+                    docEle.style.fontSize = 100 * (width / 750) + "px";
+                }
+            },100);
+        };
+        var evt = "onorientationchange" in window ? "orientationchange" : "resize";//区分Mobile和PC以加载不同的事件
+        window.addEventListener(evt, fn, false);
+        fn();
+    </script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+<div id="loading" class="loading-black" style="background-color: #0b0928;" >
+    <img src="../../assets/common/logo-black.png" class="pre-logo" style="top: 4.8rem;"/>
+    <!-- <div class="cow">
+         <img src="../../assets/common/circle-black.png" class="pre-circle eye-rotate"/>
+         <img src="../../assets/common/head.png" class="pre-head"/>
+         <img src="../../assets/common/eye.png" class="pre-eye-left eye-rotate"/>
+         <img src="../../assets/common/eye.png" class="pre-eye-right eye-rotate"/>
+     </div>-->
+    <div id="progress" style="top: 5.6rem;"><i class="progress-white"></i></div>
+</div>
+<a class="mscBtn ddplay play" id="audioBtn" title="music" style="cursor:pointer;animation-duration:2s;"></a>
+<audio id="bgMusic" loop="loop" autoplay="autoplay">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="wxTitle" hidden>山西上市公司集体接待日 用业绩来赢得投资者的信心</div>
+<div id="wxDesc" hidden>股价受多重因素影响，上市公司唯有努力做好生产经营，用业绩来回报投资者。</div>
+<img src="../../assets/shanxijdr/fx.jpg" hidden/>
+<div id="qj">
+    <div class="section">
+        <img src="../../assets/shanxijdr/bg.png" qj-effect="" class="bg1"/>
+        <img src="../../assets/shanxijdr/img1.png" qj-effect="slideInDown animation-duration10" class="img1 backface-v"/>
+        <img src="../../assets/shanxijdr/img2.png" qj-effect="slideUpDown" class="img2"/>
+        <img src="../../assets/shanxijdr/img3.png" qj-effect="slideUpDown" class="img3"/>
+        <img src="../../assets/shanxijdr/img4.png" qj-effect="slideLeftRightInverse" class="img4" id="introduceOpen2"/>
+        <img src="../../assets/shanxijdr/img5.png" qj-effect="slideLeftRightInverse" class="img5" id="introduceOpen1"/>
+        <img src="../../assets/shanxijdr/img6.png" qj-effect="slideUpDown" class="img6"/>
+        <img src="../../assets/shanxijdr/img7.png" qj-effect="slideUpDown" class="img7" id="topMgrOpen2"/>
+        <img src="../../assets/shanxijdr/img8.png" qj-effect="slideUpDown" class="img8" id="topMgrOpen1"/>
+        <img src="../../assets/shanxijdr/img9.png" qj-effect="slideLeftRightInverse" class="img9"/>
+        <img src="../../assets/shanxijdr/img11.png" qj-effect="slideLeftRightInverse" class="img11" id="hotOpen1"/>
+        <img src="../../assets/shanxijdr/img10.png" qj-effect="slideLeftRightInverse" class="img10" id="hotOpen3"/>
+        <img src="../../assets/shanxijdr/img12.png" qj-effect="slideLeftRightInverse" class="img12" id="hotOpen2"/>
+        <!--<img src="../../assets/shanxijdr/img13.png" qj-effect="slideLeftRightInverse" class="img13"/>-->
+        <img src="../../assets/shanxijdr/img14.png" qj-effect="slideLeftRight" class="img14"/>
+        <img src="../../assets/shanxijdr/img15.png" qj-effect="slideLeftRight" class="img15"/>
+        <img src="../../assets/shanxijdr/img16.png" qj-effect="slideUpDownInverse" class="img16" id="listOpen2"/>
+        <img src="../../assets/shanxijdr/img17.png" qj-effect="slideUpDownInverse" class="img17" id="listOpen1"/>
+        <img src="../../assets/shanxijdr/img18.png" qj-effect="slideUpDownInverse" class="img18" id="openReport1"/>
+        <img src="../../assets/shanxijdr/img19.png" qj-effect="slideUpDownInverse" class="img19" id="openReport2"/>
+        <img src="../../assets/shanxijdr/img20.png" qj-effect="slideLeftRightInverse" class="img20"/>
+        <img src="../../assets/shanxijdr/img22.png" qj-effect="cloudMoveL" class="img22"/>
+        <img src="../../assets/shanxijdr/img21.png" qj-effect="cloudMoveR" class="img21"/>
+        <img src="../../assets/shanxijdr/bell-l.png" qj-effect="bellL" class="bell-l"/>
+        <img src="../../assets/shanxijdr/bell-r.png" qj-effect="bellR" class="bell-r"/>
+        <!--<div class="windCarDiv" qj-effect="slideInDown animation-delay2">
+            <img src="../../assets/shanxijdr/windCar.png" qj-effect="rotateLoopR" class="windCar windCar1"/>
+            <img src="../../assets/shanxijdr/windCar.png" qj-effect="rotateLoopR" class="windCar windCar2"/>
+        </div>-->
+        <div class="intrPersonDiv" qj-effect="slideLeftRightInverse" id="introduceOpen3">
+            <h2 class="intrPerson" qj-effect="runIntrPerson"></h2>
+        </div>
+        <div class="listPersonDiv" qj-effect="slideUpDownInverse" id="listOpen3">
+            <h2 class="listPerson" qj-effect="runListPerson"></h2>
+        </div>
+        <div class="topMgrPersonDiv" qj-effect="slideUpDown" id="topMgrOpen3">
+            <h2 class="topMgrPerson" qj-effect="runTopMgrPerson"></h2>
+        </div>
+        <div class="mediaPersonDiv" qj-effect="slideUpDownInverse" id="openReport3">
+            <h2 class="mediaPerson" qj-effect="runMediaPerson"></h2>
+        </div>
+    </div>
+    <div class="shade" id="shade" hidden >
+        <div id="introduce">            <!--活动介绍-->
+            <img src="../../assets/shanxijdr/intr1.png" qj-effect="smallToBigGo" class="intr1 stop-close"/>
+            <img src="../../assets/shanxijdr/intr2.png" qj-effect="smallToBigGo" class="intr2 stop-close"/>
+            <img src="../../assets/shanxijdr/intr3.png" qj-effect="slideInDownAndBack" class="intr3"/>
+        </div>
+        <div id="topMgr">            <!--高管风采-->
+            <div class="swiper-container swiper-container3">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr1.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr2.gif" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr3.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr4.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr5.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr6.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr7.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr8.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr9.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr10.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr11.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr12.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr13.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr14.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr15.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/topMgr16.png" qj-effect="smallToBigGo" class="topMgr stop-close"/></div>
+                </div>
+            </div>
+            <img src="../../assets/shanxijdr/topMgrC.png" qj-effect="slideInDown" class="topMgrC"/>
+            <img src="../../assets/shanxijdr/arrow-r.png" qj-effect="flash stop-close animation-iteration-infinite animation-duration20" class="topMgr-arrow"/>
+        </div>
+        <div id="hot">            <!--互动热点-->
+            <img src="../../assets/shanxijdr/hot1.png" qj-effect="slideInRight" class="hot1 stop-close"/>
+            <img src="../../assets/shanxijdr/hot2.png" qj-effect="slideInRight animation-delay5" class="hot2 stop-close"/>
+            <div class="qa" qj-effect="slideInRight animation-delay10" >
+                <ol>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--1-->
+                            <span class="content mb02">公司靠什么来赢得投资者的信心？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">南风化工</span>
+                            <span class="content">经营业绩。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--2-->
+                            <span class="content mb02">请问公司的长期价值体现在哪里？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">南风化工</span>
+                            <span class="content">上下同欲，攻坚克难。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--3-->
+                            <span class="content mb02">请问您认为公司现在的股价可以反映公司的价值吗？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">西山煤电</span>
+                            <span class="content">公司主要把生产经营搞好，二级市场股票价格只是反映公司价值的一方面因素。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--4-->
+                            <span class="content mb02">公司涉足化妆品的销售吗？电商化妆品假货泛滥，公司怎么看？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">跨境通：</span>
+                            <span class="content">公司可落地的良性成长，是向市场传递信心的最好抓手。 公司将通过积极的投资者关系管理活动，向市场有效传递。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--5-->
+                            <span class="content mb02">券商对你们的研报都是买入或增持，但贵司的股价缺一路下滑，如何做好市值管理？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">ST生化：</span>
+                            <span class="content">公司未来发展不断向好，上市公司遗留问题基本解决，子公司广东双林浆站不断增加，采浆量不断提升，未来在研项目研发完成并 投产将形成新的利润增长点。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--6-->
+                            <span class="content mb02">公司对股吧各路水军有什么看？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">ST生化：</span>
+                            <span class="content">言论自由，望各股东理性对待。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--7-->
+                            <span class="content mb02">公司市值才56亿，斥资30亿收购，钱从何来？是不是高杠杆？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">当代东方</span>
+                            <span class="content">投资者您好，截止2017年1月17日停牌前，公司总市值已超过100亿元，本次重大资产重组收购永乐影视拟采用支付股份及现金收 购的方式，具体交易方案将在最终重组方案中进行披露，谢谢您的关注。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--8-->
+                            <span class="content mb02">公司如何看待最近市场大跌？会采取措施稳股价么？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">美锦能源</span>
+                            <span class="content">股票最近大跌与国际国内经济形势有关。公司致力于做强做大主业，同时推进转型创新发展。 </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--9-->
+                            <span class="content mb02">请问山西三维如果重组不成，我们这些股民该何去何从?</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">山西三维</span>
+                            <span class="content">公司会切实履行上市公司职责，保护广大投资者的合法权益。 </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--10-->
+                            <span class="content mb02">如何看待公司的短期亏损？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">漳泽电力</span>
+                            <span class="content">公司一季度的亏损主要是由于火电板块的亏损造成的，山西火电板块目前全行业亏损，亏损的主要原因是山西火电装机容量增长 较快，发电利用小时下降比较明显，煤价上涨较快，这些对公司经营造成一定的压力，针对这种不利情况，公司大力加强精细化管理，严格 控制煤价，提高交易电量，发挥煤电一体化优势，加大非电板块的盈利水平。 </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--11-->
+                            <span class="content mb02">五矿稀土借壳关铝后，五六年了一直没有什么动静，公司高管是否不作为？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">五矿稀土</span>
+                            <span class="content">五矿稀土借壳关铝后，实施了对广州建丰和华泰鑫拓公司的收购，进一步完善了稀土产业链。公司管理层积极应对稀土市场复杂 多变的情况，积极拓展销售渠道，与地方政府进行有效沟通，公司发展取得了一定进展，公司将持续努力完成董事会制定的目标。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--12-->
+                            <span class="content mb02">请问公司高管是不是都是非常专业的股票操盘手，为何他们减持股票后，股价暴跌？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">同德化工</span>
+                            <span class="content">目前，公司生产经营稳定；公司股价主要受世界经济及其他因素的影响。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--13-->
+                            <span class="content mb02">券商佣金水平是不是已经降低到一定程度很难再降了？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">山西证券</span>
+                            <span class="content">是</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--14-->
+                            <span class="content mb02">目前煤炭行业经济形势严峻，各煤炭企业效益大幅下滑，对此贵公司有何应对措施？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">潞安环能</span>
+                            <span class="content">公司积极开发新用户，不断研发新的煤炭产品，并且出台降本增效措施，严格控制各项支出。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--15-->
+                            <span class="content mb02">公司经营面临的最大风险是什么？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">大秦铁路</span>
+                            <span class="content">当前公司以煤炭为主体的运输结构没有发生根本改变，仍将面对煤炭需求波动冲击及铁路运输企业间竞争影响。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--16-->
+                            <span class="content mb02">汾酒名字的由来是什么？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">山西汾酒</span>
+                            <span class="content">汾酒源自山西省汾阳市杏花村，故取其“汾”字命名，古书中有记载：吾饮汾清二杯，劝汝于邺酌两杯。“汾清”既是当时汾酒 的名称，后发展成汾酒之名。 </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--17-->
+                            <span class="content mb02">汾酒和竹叶青定位堪忧，所谓文化之根，国酒之源，清香鼻祖。一是因为茅台在消费者心智中的强势，二是消费者不会记住晦涩的 词汇。建议汾酒可以围绕“借问酒家何处有，牧童遥指杏花村”做品牌建设。不信去省外调查一下，99%的消费者不知这个著名的诗句指的 就是汾酒。</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">山西汾酒</span>
+                            <span class="content">您的建议非常好！2017年，我们会加大广大广告宣传 的管理力度，紧紧围绕品牌传播，造大声势,做大文章,起大作用，作大市 场，牢牢抓住品牌力这个牛鼻子，提升品牌建设能力。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="investor">
+                            <span class="name">投资者：</span>  <!--18-->
+                            <span class="content mb02">二胎的放开还未带来亚宝儿童产品销量的增长，任总如何兑现未来2020年儿童产品销量达到25亿承诺？</span>
+                        </div>
+                        <div class="company">
+                            <span class="name">亚宝药业</span>
+                            <span class="content">我们目前除了丁桂儿脐贴之外，还有一系列的儿科产品，正在按照公司制定的丁桂品牌战略，不断地深化营销，随着这一系列产 品销量的不断增长，实现目标的可能性还是很大的。</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <img src="../../assets/shanxijdr/hotC.png" qj-effect="slideInDown animation-delay15" class="hotC"/>
+            <img src="../../assets/shanxijdr/arrow-r.png" qj-effect="flash stop-close animation-iteration-infinite animation-duration20" class="hot-arrow"/>
+        </div>
+        <div id="list">            <!--互动榜单-->
+            <div class="swiper-container swiper-container2" qj-effect="smallToBigGo">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/list1.png" class="list list1 stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/list2.png" class="list list2 stop-close"/></div>
+                    <div class="swiper-slide"><img src="../../assets/shanxijdr/list3.png" class="list list3 stop-close"/></div>
+                </div>
+            </div>
+            <img src="../../assets/shanxijdr/arrow-r.png" qj-effect="flash stop-close animation-iteration-infinite animation-duration20" class="list-arrow"/>
+            <img src="../../assets/shanxijdr/listC.png" qj-effect="slideInDownAndBack" class="listC"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>

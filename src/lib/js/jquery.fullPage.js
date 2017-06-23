@@ -928,7 +928,6 @@
 			// using jQuery animate
 			else{
 				var scrollSettings = getScrollSettings(v);
-
 				$(scrollSettings.element).animate(
 					scrollSettings.options
 				, options.scrollingSpeed, options.easing).promise().done(function () { //only one single callback in case of animating  `html, body`
@@ -1016,7 +1015,6 @@
 			continuousVerticalFixSectionOrder(v);
 			//callback (afterLoad) if the site is not just resizing and readjusting the slides
 			$.isFunction(options.afterLoad) && !v.localIsResizing && options.afterLoad.call(this, v.anchorLink, (v.sectionIndex + 1));
-
 			setTimeout(function () {
 				isMoving = false;
 				$.isFunction(v.callback) && v.callback.call(this);

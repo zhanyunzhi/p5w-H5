@@ -5,7 +5,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");         // 引�
 
 module.exports = {
     entry: {
-        vendor: ['./src/lib/js/jquery-1.8.3.min.js','./src/lib/js/jquery.fullPage.js','./src/lib/js/jquery.imgpreload.js'],             //jquery,fullPage第三方插件打包到一起        因为没有模块化，所以只能原样引入,'./src/lib/js/jquery.fullPage.js','./src/lib/js/jquery.imgpreload.js'
+        vendor: ['./src/lib/js/jquery-1.8.3.min.js','./src/lib/js/jquery.slimscroll.js','./src/lib/js/jquery.fullPage.js','./src/lib/js/jquery.imgpreload.js'],             //jquery,fullPage第三方插件打包到一起        因为没有模块化，所以只能原样引入,'./src/lib/js/jquery.fullPage.js','./src/lib/js/jquery.imgpreload.js'
         //fullPage: './src/js/jquery.fullPage.min.js',        //fullPage      因为没有模块化，所以只能原样引入
         index: './src/indexCloned.js'           //入口文件1
     },
@@ -104,7 +104,7 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: 'src/components/dalianjdr/index.html',
+            template: 'src/components/qinghaijdr/index.html',
             filename: 'index.html',
             inject: 'head',
             chunksSortMode: function(chunk1, chunk2){           //引入多个js的时候，排序
@@ -115,7 +115,7 @@ module.exports = {
             }
         }),
         new htmlWebpackPlugin({
-            template: 'src/components/dalianjdr/mlist.html',
+            template: 'src/components/qinghaijdr/mlist.html',
             filename: 'mlist.html',
             inject: 'head',
             chunksSortMode: function(chunk1, chunk2){           //引入多个js的时候，排序

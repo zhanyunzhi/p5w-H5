@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width">
-    <title>接待日pc</title>
+    <title>2017年各地区投资者网上集体接待日</title>
 </head>
 <body ng-controller="IndexCtrl" ng-cloak>
     <img src="../../assets/jdr-pc/bg.png" class="bg" id="bg"/>
@@ -27,7 +27,7 @@
                     <!--<h2>2017</h2>-->
                     <div>活动预告</div>
                 </div>
-                <ul class="this_year_yg">
+                <ul class="this_year_yg" ng-if="datas.thisYearNotice.length > 0">
                     <img src="../../assets/jdr-pc/yg-bottom.png" class="yg-bottom"/>
                     <li ng-repeat="notice in datas.thisYearNotice track by $index">
                         <span>{{notice.day}}</span>
@@ -76,7 +76,7 @@
                     <div ng-class="{'month-line':true}"></div>
                     <ul>
                         <li data-index="{{::months.month}}" ng-class="{'have-data':months.contents.length>0}"
-                            ng-repeat="months in datas.thisYears track by $index">{{::months.month}}
+                            ng-repeat="months in datas.thisYears track by $index">{{::months.month}}<i>月</i>
                             <span ng-class="{true:'span-bg-yellow',false:'span-bg-white'}[months.contents.length>0]"></span>
                             <p hidden>共{{::months.contents.length}}场</p>
                         </li>
@@ -138,6 +138,7 @@
             </div>
         </div>
     </div>
+    <div class="ss"></div>
     <div hidden class="all-hidden-img">
         <img src="../../assets/jdr-pc/history1.jpg" hidden/>
         <img src="../../assets/jdr-pc/gd1.jpg" hidden/>

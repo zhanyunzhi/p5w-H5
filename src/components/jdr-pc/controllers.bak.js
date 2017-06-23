@@ -7,7 +7,7 @@ var appModule = angular.module("ngApp",[]);
 appModule.controller("IndexCtrl",
     function($scope, $http){
         //url是相对于我们的html文件的
-        $http.get("./data.json").success(function(data){
+        $http.get("./data.txt").success(function(data){
             //$scope.datas = data.data;
             //重新将city字段组合
             $scope.citys = '';

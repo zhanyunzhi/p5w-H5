@@ -367,22 +367,33 @@ body{
     ul{
       //margin:74px auto 0;
       @include clearfix();
-      width:860px;
+      width:912px;
       position: absolute;
       left:50%;
-      margin-left:-430px;
+      margin-left:-456px;
+      padding-left:0;
       li{
-        width:53px;
+        width:64px;
         height:92px;
-        font-size:40px;
+        font-size:38px;
         list-style: none;
         @include float(left);
         color:$thisYellow;
         padding-top: 12px;
         @include border-radius(5px);
         //font-family: sans-serif,"Î¢ÈíÑÅºÚ", "ËÎÌå";
-        margin: 0 8px;
-        cursor: pointer;
+        margin: 0 6px;
+        letter-spacing: -1px;
+        i{
+          font-style: normal;
+          font-size:12px;
+          position: absolute;
+          margin-top: 28px;
+          //position: absolute;
+          //margin-top: -24px;
+          //margin-left: 13px;
+          //top:50px;
+        }
         span{
           display: block;
           width:17px;
@@ -396,6 +407,9 @@ body{
         .span-bg-yellow{
           background-color: $thisYellow;
         }
+      }
+      .have-data{
+        cursor: pointer;
       }
       .active{
         background-color: $thisYellow;
@@ -651,6 +665,19 @@ body{
     }
   }
 }
-
+.ss{
+  @include flex(1);
+}
+#fp-nav ul li a.active span{
+  background-color: #ffffff;
+}
+#fp-nav ul li a span{
+  width:12px;
+  height:12px;
+  border-color:#ffffff;
+}
+#fp-nav ul li{
+  margin-bottom:12px;
+}
 
 @include animate-rotateLoopR();
