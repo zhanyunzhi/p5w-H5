@@ -15,34 +15,52 @@
 @import "../../lib/css/jquery.fullPage.css";
 @import "../../lib/css/swiper.min.css";
 @import "../../lib/css/common";
-
+// 640宽的图片转出750宽的图片
+@function fit($rem) {
+  @return ($rem * 750 / 1334) * 1rem;
+}
 %img-all{
   position: absolute;
-  @include opacity(0);
-  @include opacity(100);
-}
-.filter-blur{     //图片模糊效果
-  @include filter-blur(4px)
-}
-.bg1{
-  @extend %img-all;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  @include opacity(100);
-  @include filter-blur(0);
-  @include transition(filter 0.5s)
+  //@include opacity(100);
 }
 
-.test{
-  font-size:20px;
-  .div1{
-    display: none;
-  }
-  &:hover .div1{
-    display: block;
-  }
+.img11{
+  @extend %img-all;
+  width:fit(13.34);
+  height:fit(6.21);
+  top:0;
+  left:0;
+}
+.img12{
+  @extend %img-all;
+  width:fit(11.93);
+  height:fit(5.71);
+  bottom:0;
+  left:50%;
+  margin-left:fit(-5.96);
+}
+.img13{
+  @extend %img-all;
+  width:fit(13.34);
+  height:fit(5.24);
+  bottom:0;
+  left:0;
+}
+.img14{
+  @extend %img-all;
+  width:fit(12.14);
+  height:fit(3.37);
+  bottom:0;
+  left:50%;
+  margin-left:fit(-6.07);
+}
+.img15{
+  @extend %img-all;
+  width:fit(5.24);
+  height:fit(4.06);
+  top:fit(0.24);
+  left:50%;
+  margin-left:fit(-2.62);
 }
 
 // rotateLoopR     一直顺时针360度缓慢旋转

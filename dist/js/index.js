@@ -186,22 +186,22 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
             grabCursor: false,
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev',
-            effect: 'coverflow',
-            direction: 'vertical',
-            slidesPerView: 2,
+            //effect : 'coverflow',
+            //direction:'vertical',
+            //slidesPerView: 2,
             initialSlide: 1000,
             centeredSlides: true,
             //loop:true,
             //loopAdditionalSlides : 0,
             //loopedSlides :1000,
             sort: 0,
-            coverflow: {
+            /*coverflow: {
                 rotate: 0,
                 stretch: 150,
                 depth: 80,
                 modifier: 1,
-                slideShadows: false
-            },
+                slideShadows : false
+            },*/
             onInit: function onInit(swiper) {
                 eSwiper = $('.swiper-container1');
                 eSlides = eSwiper.find('.swiper-slide');
@@ -281,6 +281,9 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
             var eSlides = eSwiper.find('.swiper-slide');
             var eContents = eSwiper.find('.this-year-content');
             var activeSlideIndex = eSlides.filter('.data-month' + $(this).data('index')).data("index");
+            var sort = eSlides.filter('.data-month' + $(this).data('index')).data("sort");
+            swiper.sort = sort;
+            //console.log(sort)
             //console.log($('.data-month'+$(this).data('index')).data("index"))
             //console.log($(this).data('index'))
             if (getHexBackgroundColor(eSlides.find('.swiper-slide-content').css('background-color')) == "#dab200") {
@@ -352,10 +355,14 @@ appModule.controller("IndexCtrl", function ($scope, $http) {
                 if (index == 1) {
                     var translate3d = 'translate3d(0px,-' + winH * 0.2 + 'px, 0px)';
                     $('#bg').css(getTransforms(translate3d)); //city的父标签位移
+                    $(".swiper-container2").show();
+                    $(".history-title").show();
                 }
                 if (index == 2) {
                     var translate3d = 'translate3d(0px,0px, 0px)';
                     $('#bg').css(getTransforms(translate3d)); //city的父标签位移
+                    $(".swiper-container2").hide();
+                    $(".history-title").hide();
                 }
             },
             afterLoad: function afterLoad(abchorLink, index) {

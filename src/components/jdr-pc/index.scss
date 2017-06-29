@@ -121,7 +121,8 @@ body{
   //padding-top: 60px;
   .swiper-container1{
     width:898px;
-    height:392px;
+    //height:392px;
+    height:295px;
     //padding:0 50px;
     .swiper-slide{
       &:first-child{
@@ -183,9 +184,9 @@ body{
           margin:0;
         }
         p{
-          font-size:12px;
+          font-size:16px;
           font-weight: normal;
-          line-height:18px;
+          line-height:22px;
           max-height: 144px;
           overflow: hidden;
         }
@@ -209,7 +210,7 @@ body{
       @include border-radius(22px);
       text-align: center;
       line-height: 22px;
-      margin-top:30px;
+      //margin-top:-70px;
     }
     .my-button-left,.my-button-right{
       position: absolute;
@@ -455,6 +456,7 @@ body{
     background-color: #202f70;
     position: fixed;
     left:230px;
+    top:0;
     text-align: center;
     font-size:30px;
     font-weight: normal;
@@ -515,6 +517,7 @@ body{
     height:414px;
     position: fixed;
     left: 50%;
+    top:0;
     margin-left: -603px;
     margin-top:338px;
     .swiper-slide-content{
